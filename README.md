@@ -1,20 +1,19 @@
-# LoganGGoodwin GitHub Pages Site (Starter)
+# LoganGGoodwin Site — Polished Update
 
-This folder contains a simple, clean starter site with your headshot added.
+## What changed
+- Added headshot image block (images/profile.jpg)
+- Added GitHub + LinkedIn + Email quick links
+- Added Certifications section
+- Added Resume button (expects `assets/Logan_Garth_Goodwin_Resume.pdf`)
+- Converted Academic Projects into evidence-style cards (placeholders for PDF/repo links)
+- Added CSS for project cards + headshot styling
 
-## Files
-- `index.html` — main page
-- `styles.css` — styling
-- `script.js` — tiny helper script
-- `images/profile.jpg` — headshot image
+## What you need to add
+1) Put your resume PDF here:
+   `assets/Logan_Garth_Goodwin_Resume.pdf`
 
-## Deploy to GitHub Pages
-1. Put these files in your repository root (or `/docs` if your repo is configured that way).
-2. Commit and push.
-3. In GitHub: **Settings → Pages** → choose your branch (usually `main`) and `/root`.
-4. Wait a minute, then load: `https://loganggoodwin.github.io`
+2) Optional: replace the project card placeholders:
+   - add diagram images and update links
 
-## Change the content
-Edit:
-- Summary text in `index.html`
-- Skills and Projects in `index.html`
+## Deploy
+Copy contents into your GitHub Pages repo root and push.

@@ -1,2 +1,2 @@
-// Small helper: set copyright year
+// set current year
 document.getElementById("year").textContent = new Date().getFullYear();
