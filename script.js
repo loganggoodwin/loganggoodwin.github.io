@@ -1,4 +1,2 @@
-(function(){
-  const el = document.getElementById('year');
-  if(el) el.textContent = String(new Date().getFullYear());
-})();
+// Small helper: set copyright year
+document.getElementById("year").textContent = new Date().getFullYear();
