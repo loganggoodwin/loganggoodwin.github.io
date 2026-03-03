@@ -1,0 +1,116 @@
+---
+layout: page
+title: "Information Assurance Program Design (NIST-Aligned)"
+permalink: /projects/information-assurance/
+description: "Design of an enterprise information assurance program aligned with NIST frameworks, including risk assessment, policy development, and incident response planning."
+---
+
+## Overview
+
+This project presents a comprehensive **Information Assurance Plan** designed to protect organizational information assets against modern cyber threats. The plan applies industry-recognized frameworks to assess risk, define security responsibilities, and establish enforceable policies that support **confidentiality, integrity, and availability (CIA)**.
+
+The objective was to move beyond checklist compliance and design a **practical, sustainable security program** aligned with real-world enterprise environments.
+
+---
+
+## Problem Statement
+
+Organizations face increasing exposure to ransomware, credential compromise, and exploitation of unpatched systems. Inconsistent enforcement of security controls, limited centralized monitoring, and infrequent testing of incident and disaster recovery plans significantly increase organizational risk.
+
+This project addressed how to:
+- Identify and prioritize security risks
+- Align controls with recognized standards
+- Define clear roles and accountability
+- Improve incident preparedness and resilience
+
+---
+
+## My Approach
+
+### 1. Information Assurance Assessment
+I evaluated the organization’s current posture across the CIA triad:
+- **Confidentiality:** Role-based access controls and limited MFA, but inconsistent enforcement
+- **Integrity:** Patch management and monitoring existed but were applied unevenly
+- **Availability:** Basic backups were present, but disaster recovery testing was limited
+
+### 2. Risk Assessment (NIST SP 800-30)
+I conducted a structured risk assessment considering:
+- Threat likelihood
+- Business impact
+- Existing control gaps
+
+High-risk threats identified included:
+- Exploitation of unpatched vulnerabilities
+- Ransomware attacks
+- Credential compromise via phishing
+
+### 3. Policy & Control Design
+Based on the assessment, I designed policies and controls covering:
+- Incident response
+- Disaster recovery and business continuity
+- Access control and MFA enforcement
+- Logging, monitoring, and continuous improvement
+
+---
+
+## Key Deliverables
+
+- **Information Assurance Plan**
+- Risk matrix with likelihood and impact ratings
+- Defined security roles and responsibilities
+- Incident response and disaster recovery policies
+- Access control standards aligned with least privilege
+- Continuous review and maintenance strategy
+
+---
+
+## Frameworks & Standards Used
+
+- **NIST SP 800-30** – Risk Assessment  
+- **NIST SP 800-53** – Security & Privacy Controls  
+- **NIST SP 800-61** – Incident Response  
+- **NIST SP 800-34** – Contingency & Disaster Recovery  
+- CIA Triad (Confidentiality, Integrity, Availability)
+
+---
+
+## Skills Demonstrated
+
+- Information assurance program design  
+- Risk assessment and prioritization  
+- Incident and disaster response planning  
+- Security policy development  
+- Governance and accountability modeling  
+- Translating technical risk into business impact  
+
+---
+
+## Outcome & Impact
+
+This plan establishes a **repeatable, defensible security posture** that:
+- Reduces dwell time through improved detection and response
+- Strengthens accountability through defined roles
+- Improves resilience against ransomware and system outages
+- Aligns organizational security with industry best practices
+
+---
+
+## What I Would Improve Next
+
+- Integrate centralized SIEM tooling for real-time monitoring
+- Automate patch management and configuration baselines
+- Conduct tabletop and live incident response exercises
+- Expand security awareness training with phishing simulations
+
+---
+
+## Download
+
+📄 **[Download the full Information Assurance Plan (PDF)](/assets/Information_Assurance_Plan_Logan_Goodwin.pdf)**
+
+---
+
+## Related Projects
+
+- [Secure SD-WAN Network Architecture](../future-network-architecture/)
+- [Healthcare Data Breach Legal & Ethical Analysis](../healthcare-breach-analysis/)
