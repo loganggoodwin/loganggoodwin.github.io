@@ -6,6 +6,7 @@
   <title>Logan Garth Goodwin | IT / Cybersecurity Graduate</title>
   <meta name="description" content="Profile website for Logan Garth Goodwin — IT / Cybersecurity Graduate | Network & Systems." />
   <link rel="stylesheet" href="styles.css" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -25,6 +26,7 @@
         <div class="cta-row">
           <a class="btn" href="#contact">Contact</a>
           <a class="btn btn-ghost" href="#projects">Academic Projects</a>
+          <a class="btn btn-ghost" href="projects/">Projects</a>
           <a class="btn btn-ghost" href="#certifications">Certifications</a>
           <a class="btn btn-ghost" href="#experience">Experience</a>
           <a class="btn btn-ghost" href="assets/Logan_Garth_Goodwin_Resume.pdf">Download Resume (PDF)</a>
@@ -44,10 +46,11 @@
         <img
           src="images/profile.jpg"
           alt="Logan Garth Goodwin"
-          class="headshot-img"
+          class="headshot-img" id="headshot"
           loading="lazy"
         />
-        <p class="muted small">
+        <div class="img-controls" aria-label="Headshot selector"><button class="btn btn-ghost btn-sm" type="button" id="headshotPrev" aria-label="Previous headshot">←</button><button class="btn btn-ghost btn-sm" type="button" id="headshotNext" aria-label="Next headshot">→</button></div>
+<p class="muted small">
           I like keeping this simple: clean headshot, neutral background, and consistent sizing.
         </p>
       </div>
@@ -108,14 +111,14 @@
             <div class="project-thumb" aria-hidden="true">
               <span class="thumb-text">Screenshot / Diagram</span>
             </div>
-            <h3>IT-659 Incident Report — Trinity Health</h3>
-            <p class="muted">Legal/ethical impact analysis + organizational recommendations.</p>
+            <h3>Healthcare Data Breach Analysis</h3>
+            <p class="muted">Legal/ethical impact analysis + security failures + standards alignment.</p>
             <div class="project-meta">
               <span class="pill">Incident response</span><span class="pill">Compliance</span><span class="pill">Risk</span>
             </div>
             <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="#" aria-disabled="true">Read (PDF) →</a>
-              <a class="btn btn-ghost btn-sm" href="#" aria-disabled="true">Repo →</a>
+              <a class="btn btn-ghost btn-sm" href="projects/healthcare-breach-analysis/">Read →</a>
+              <a class="btn btn-ghost btn-sm" href="assets/projects/Healthcare_Data_Breach_Analysis_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
             </div>
           </article>
 
@@ -123,14 +126,14 @@
             <div class="project-thumb" aria-hidden="true">
               <span class="thumb-text">Network Diagram</span>
             </div>
-            <h3>IT-640 Network Architecture — SNHUEnergy</h3>
-            <p class="muted">Traffic/performance analysis + security assessment + diagrams.</p>
+            <h3>Information Assurance Program (NIST-Aligned)</h3>
+            <p class="muted">IA program design: risk assessment, controls, governance, incident readiness.</p>
             <div class="project-meta">
               <span class="pill">VLANs</span><span class="pill">UTM</span><span class="pill">Design</span>
             </div>
             <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="#" aria-disabled="true">View diagrams →</a>
-              <a class="btn btn-ghost btn-sm" href="#" aria-disabled="true">Writeup →</a>
+              <a class="btn btn-ghost btn-sm" href="projects/information-assurance/">Read →</a>
+              <a class="btn btn-ghost btn-sm" href="assets/projects/Information_Assurance_Plan_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
             </div>
           </article>
 
@@ -138,14 +141,14 @@
             <div class="project-thumb" aria-hidden="true">
               <span class="thumb-text">Packet Tracer</span>
             </div>
-            <h3>CYB-210 Network Reconfiguration</h3>
-            <p class="muted">Packet Tracer redesign with rationale and implementation plan.</p>
+            <h3>Secure SD-WAN Architecture (Multi-Site)</h3>
+            <p class="muted">Future-state network architecture with SD-WAN, segmentation, and Zero Trust principles.</p>
             <div class="project-meta">
               <span class="pill">Packet Tracer</span><span class="pill">Routing</span><span class="pill">Hardening</span>
             </div>
             <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="#" aria-disabled="true">Download (.pkt) →</a>
-              <a class="btn btn-ghost btn-sm" href="#" aria-disabled="true">Notes →</a>
+              <a class="btn btn-ghost btn-sm" href="projects/secure-sdwan-architecture/">Read →</a>
+              <a class="btn btn-ghost btn-sm" href="assets/projects/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
             </div>
           </article>
 
@@ -373,8 +376,16 @@
           </p>
         </div>
 
+        <div class="card">
+          <h3>Quick Links</h3>
+          <ul class="bullets">
+            <li><a href="projects/">Projects</a></li>
+            <li><a href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener">Resume (PDF)</a></li>
+            <li><a href="https://www.credly.com/users/logan-goodwin.4d1e161c" target="_blank" rel="noreferrer noopener">Credly Badges</a></li>
+          </ul>
+          <p class="muted small">I think keeping evidence one click away helps a lot.</p>
         </div>
-</div>
+      </div>
     </section>
   </main>
 

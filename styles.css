@@ -269,3 +269,19 @@ h1{ margin: 0; font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   .cards{ grid-template-columns: 1fr; }
   .project-grid{ grid-template-columns: 1fr; }
 }
+
+
+/* Headshot controls */
+.img-controls{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+}
+.img-controls .btn{ cursor:pointer; }
+
+/* Project page content rhythm */
+.prose h2{ margin-top: 18px; }
+.prose h3{ margin-top: 14px; }
+.prose p{ margin: 10px 0; }
+.prose ul{ margin: 10px 0 0; }
