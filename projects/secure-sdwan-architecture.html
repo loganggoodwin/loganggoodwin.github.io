@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure SD‑WAN Network Architecture | Logan Goodwin</title>
+  <meta name="description" content="Secure dual‑hub SD‑WAN network architecture case study: Zero Trust, NGFWs, segmentation, monitoring, and resilience." />
+
+  <!-- Match your existing site styling -->
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <!-- Keep structure simple so it inherits your existing CSS -->
+  <main class="container">
+    <!-- Top nav / back links -->
+    <section class="project-card">
+      <p style="margin: 0 0 10px 0;">
+        <a href="../index.html">← Back to Home</a>
+        <span style="opacity:.6;"> • </span>
+        <a href="../index.html#projects">Projects</a>
+      </p>
+
+      <h1 style="margin-top: 0;">🔒 Secure SD‑WAN Network Architecture</h1>
+      <p style="max-width: 70ch;">
+        Designed a future‑state enterprise network for a rapidly growing multi‑site organization using a
+        <strong>dual‑hub SD‑WAN topology</strong> with consistent security controls, high availability, and centralized visibility.
+      </p>
+
+      <!-- Evidence links (update filenames as needed) -->
+      <p style="margin: 14px 0 0 0;">
+        <a href="../assets/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf">Download PDF</a>
+        <span style="opacity:.6;"> • </span>
+        <a href="../index.html#contact">Contact</a>
+      </p>
+    </section>
+
+    <!-- TL;DR -->
+    <section class="project-card">
+      <h2>TL;DR</h2>
+      <ul>
+        <li><strong>Problem:</strong> Inconsistent site security + WAN single points of failure + scaling pressure.</li>
+        <li><strong>Solution:</strong> Dual‑hub SD‑WAN with redundant ISPs, NGFW everywhere, Zero Trust access, segmentation, and centralized monitoring.</li>
+        <li><strong>Outcome:</strong> A scalable design that improves uptime, standardizes security, and supports voice/video/cloud workloads.</li>
+      </ul>
+    </section>
+
+    <!-- Context -->
+    <section class="project-card">
+      <h2>Context & Constraints</h2>
+      <ul>
+        <li>Rapid growth required a network that scales cleanly without redesigning every time a site is added.</li>
+        <li>Reliability mattered: business communications (VoIP/video/data sync) must remain stable during link issues.</li>
+        <li>Security had to be consistent across all locations (closing gaps where protections differed by site).</li>
+      </ul>
+    </section>
+
+    <!-- Architecture -->
+    <section class="project-card">
+      <h2>Architecture (Future State)</h2>
+
+      <h3>Dual‑Hub SD‑WAN Topology</h3>
+      <ul>
+        <li><strong>Primary hub:</strong> Dallas</li>
+        <li><strong>Secondary hub / DR:</strong> Houston</li>
+        <li><strong>Spokes:</strong> Branch sites connected via encrypted SD‑WAN tunnels</li>
+        <li><strong>Resilience:</strong> Dual ISP circuits at hubs + automatic failover and dynamic path selection</li>
+      </ul>
+
+      <h3>Security Stack</h3>
+      <ul>
+        <li><strong>NGFW at every site</strong> (consistent inspection, IPS, application control)</li>
+        <li><strong>Zero Trust principles</strong> (strong identity checks and reduced implicit trust)</li>
+        <li><strong>MFA</strong> for privileged access and remote access paths</li>
+        <li><strong>Centralized monitoring</strong> (NetFlow/telemetry + SIEM visibility)</li>
+      </ul>
+
+      <h3>Segmentation & Access Control</h3>
+      <ul>
+        <li>Standard VLANs across sites (data / voice / video / servers / management / guest)</li>
+        <li>ACLs to limit east‑west traffic and reduce attack surface</li>
+        <li>802.1X / NAC for device validation before access</li>
+      </ul>
+
+      <h3>Performance & QoS</h3>
+      <ul>
+        <li>QoS policies to protect voice/video from latency, jitter, and packet loss</li>
+        <li>Application‑aware routing to keep critical traffic on the best path</li>
+      </ul>
+    </section>
+
+    <!-- Why these choices -->
+    <section class="project-card">
+      <h2>Why These Choices</h2>
+      <ul>
+        <li><strong>SD‑WAN:</strong> Simplifies multi‑site connectivity while improving resiliency and application performance.</li>
+        <li><strong>Dual hubs + multi‑ISP:</strong> Reduces outage risk and supports disaster recovery continuity.</li>
+        <li><strong>NGFW everywhere:</strong> Eliminates inconsistent protections between sites.</li>
+        <li><strong>Segmentation:</strong> Limits blast radius if a user/device is compromised.</li>
+        <li><strong>Centralized visibility:</strong> Faster detection/response with consistent telemetry.</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section class="project-card">
+      <h2>Skills Demonstrated</h2>
+      <ul>
+        <li>Enterprise network architecture design (WAN + campus)</li>
+        <li>SD‑WAN topology and resiliency planning</li>
+        <li>Network security controls (NGFW, segmentation, NAC)</li>
+        <li>Zero Trust access concepts + MFA strategy</li>
+        <li>Monitoring/telemetry approach (SIEM + flow visibility)</li>
+      </ul>
+    </section>
+
+    <!-- Next improvements -->
+    <section class="project-card">
+      <h2>What I’d Improve Next</h2>
+      <ul>
+        <li>Define SIEM detections for SD‑WAN/NGFW telemetry and baseline anomalies.</li>
+        <li>Run failover / DR simulations with measurable RTO/RPO targets.</li>
+        <li>Automate configuration compliance checks (golden templates + drift detection).</li>
+      </ul>
+    </section>
+
+    <!-- Footer links -->
+    <section class="project-card">
+      <h2>Links</h2>
+      <ul>
+        <li><a href="../index.html#projects">Back to Projects</a></li>
+        <li><a href="../assets/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf">Download Project PDF</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Match your existing JS if needed -->
+  <script src="../script.js"></script>
+</body>
+</html>
