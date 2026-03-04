@@ -27,3 +27,31 @@ document.getElementById("year").textContent = new Date().getFullYear();
     next.addEventListener("click", () => setIdx(i + 1));
   }
 })();
+
+// card-click navigation
+(function(){
+  function shouldIgnoreClick(e){
+    const t = e.target;
+    if(!t) return false;
+    return !!t.closest('a, button');
+  }
+
+  function go(el){
+    const href = el.getAttribute("data-href");
+    if(href) window.location.href = href;
+  }
+
+  document.querySelectorAll(".card-click").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      if(shouldIgnoreClick(e)) return;
+      go(card);
+    });
+
+    card.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        go(card);
+      }
+    });
+  });
+})();
