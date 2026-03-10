@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Secure Enterprise Campus Infrastructure | Logan Garth Goodwin</title>
+<meta name="description" content="Secure Enterprise Campus Infrastructure project page for Logan Garth Goodwin." />
+<link rel="stylesheet" href="../../styles.css" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-shell"><div class="container prose"><p class="section-kicker">Project page</p><h1>Secure Enterprise Campus Infrastructure</h1><p class="lede">Cisco Packet Tracer · Cisco IOS · ASA Firewall · VLAN Segmentation · ACLs</p><div class="back-row"><a class="btn btn-secondary" href="../index.html">Projects</a><a class="btn btn-secondary" href="../../index.html">Home</a></div></div></header>
+<main id="main" class="section"><div class="container card prose">
+<p>This project demonstrates the design and deployment of a hardened, multi-segment campus network for a mid-sized organization with roughly 70 endpoints. The architecture uses a hierarchical collapsed core model to balance Layer 3 performance with a defense-in-depth posture.</p>
+
+<h2>Executive summary</h2>
+<p>Key outcomes included isolation of guest traffic, creation of a DMZ for public-facing services, and use of Zero Trust principles at the access layer. I think this project works well on a portfolio because it shows both architecture planning and control-level implementation.</p>
+
+<h2>Network segmentation</h2>
+<table>
+  <thead><tr><th>VLAN</th><th>Name</th><th>Purpose</th><th>Gateway</th><th>Subnet</th></tr></thead>
+  <tbody>
+    <tr><td>10</td><td>USERS</td><td>Internal staff PCs</td><td>10.10.10.1</td><td>10.10.10.0/24</td></tr>
+    <tr><td>20</td><td>SERVERS</td><td>Critical infrastructure</td><td>10.10.20.1</td><td>10.10.20.0/24</td></tr>
+    <tr><td>30</td><td>PRINTERS</td><td>Network print services</td><td>10.10.30.1</td><td>10.10.30.0/24</td></tr>
+    <tr><td>40</td><td>GUEST_WIFI</td><td>Internet-only guest access</td><td>10.10.40.1</td><td>10.10.40.0/24</td></tr>
+    <tr><td>50</td><td>DMZ</td><td>Public web services</td><td>10.10.50.1</td><td>10.10.50.0/24</td></tr>
+    <tr><td>99</td><td>MGMT</td><td>Infrastructure administration</td><td>10.10.99.1</td><td>10.10.99.0/24</td></tr>
+  </tbody>
+</table>
+
+<h2>Security controls</h2>
+<h3>Layer 2 hardening</h3>
+<ul>
+  <li>Port security on all access switches to mitigate unauthorized hardware insertion and MAC spoofing.</li>
+  <li>DHCP snooping to help prevent rogue DHCP and man-in-the-middle scenarios.</li>
+  <li>Native VLAN moved away from VLAN 1 to reduce VLAN hopping risk.</li>
+  <li>BPDU Guard and PortFast on edge ports for cleaner access-layer behavior.</li>
+</ul>
+<div class="code-block"><pre>interface range fa0/1-24
+ switchport mode access
+ switchport access vlan 10
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+ spanning-tree portfast
+ spanning-tree bpduguard enable</pre></div>
+
+<h3>Layer 3 least privilege</h3>
+<p>Extended ACLs enforce guest isolation and management-plane restrictions. Guest users are blocked from internal RFC1918 access while still allowed DNS and web traffic outward.</p>
+<div class="code-block"><pre>ip access-list extended GUEST_ISO_ACL
+ permit udp 10.10.40.0 0.0.0.255 any eq 53
+ permit udp any any eq 67
+ deny ip 10.10.40.0 0.0.0.255 10.10.0.0 0.0.255.255
+ permit ip any any
+
+interface vlan 40
+ ip access-group GUEST_ISO_ACL in</pre></div>
+
+<h3>Perimeter and DMZ controls</h3>
+<ul>
+  <li>Cisco ASA firewall providing stateful packet inspection.</li>
+  <li>Inbound traffic limited to TCP 80 and 443 for public-facing services.</li>
+  <li>DMZ prevented from initiating new connections to inside networks.</li>
+</ul>
+
+<h2>Risk and mitigation matrix</h2>
+<table>
+  <thead><tr><th>Threat</th><th>Risk</th><th>Mitigation</th><th>Implementation</th></tr></thead>
+  <tbody>
+    <tr><td>Unauthorized hardware</td><td>High</td><td>Port security</td><td>Sticky MAC + shutdown violations</td></tr>
+    <tr><td>Lateral movement</td><td>High</td><td>Segmentation</td><td>ACLs on Layer 3 SVIs</td></tr>
+    <tr><td>VLAN hopping</td><td>Medium</td><td>Trunk hardening</td><td>Dedicated native VLAN 99</td></tr>
+    <tr><td>DHCP spoofing</td><td>Medium</td><td>DHCP snooping</td><td>Untrusted edge ports</td></tr>
+    <tr><td>External breach</td><td>Critical</td><td>DMZ isolation</td><td>ASA policy filtering</td></tr>
+  </tbody>
+</table>
+
+<h2>Verification</h2>
+<ul>
+  <li>Rogue device testing triggered err-disable on protected ports.</li>
+  <li>Pings from Guest to Server VLAN were dropped while outbound internet remained available.</li>
+  <li>Stateful return traffic from the internet was allowed while unsolicited inbound traffic was dropped.</li>
+</ul>
+
+<h2>Skills demonstrated</h2>
+<ul>
+  <li>Subnetting, inter-VLAN routing, EtherChannel, and RSTP.</li>
+  <li>ACL authoring, ASA firewall rules, and DMZ design.</li>
+  <li>Cisco Packet Tracer and Cisco IOS CLI workflow.</li>
+</ul>
+</div></main>
+<footer class="footer"><div class="container footer-inner"><p>© <span id="year"></span> Logan Garth Goodwin</p><a href="#main">Back to top</a></div></footer><script src="../../script.js"></script></body></html>
