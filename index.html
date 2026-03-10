@@ -3,396 +3,302 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Logan Garth Goodwin | IT / Cybersecurity Graduate</title>
-  <meta name="description" content="Profile website for Logan Garth Goodwin — IT / Cybersecurity Graduate | Network & Systems." />
+  <title>Logan Garth Goodwin | IT & Cybersecurity Portfolio</title>
+  <meta name="description" content="Portfolio website for Logan Garth Goodwin featuring cybersecurity, networking, systems, and architecture projects." />
   <link rel="stylesheet" href="styles.css" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container header-grid">
-      <div>
-        <p class="kicker">Somersworth, NH</p>
-        <h1>Logan Garth Goodwin</h1>
-        <p class="subtitle">IT / Cybersecurity Graduate | Network &amp; Systems</p>
+  <header class="site-shell">
+    <div class="container topbar">
+      <a class="brand" href="index.html">Logan Garth Goodwin</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav" id="navToggle">Menu</button>
+      <nav class="nav" id="siteNav" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-        <p class="muted">
-          I like building and troubleshooting real environments (networks, systems, and security labs) and documenting what I learn.
-          My focus is practical security, clean operations, and reliable infrastructure.
-        </p>
+    <div class="container hero-grid">
+      <section class="hero-copy">
+        <p class="eyebrow">Somersworth, New Hampshire</p>
+        <h1>IT and cybersecurity graduate building secure, practical infrastructure.</h1>
+        <p class="lede">I like solving real operational problems with networking, systems, and security controls. This portfolio highlights enterprise-style architecture work, information assurance planning, breach analysis, and hands-on network hardening.</p>
 
-        <div class="cta-row">
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn btn-ghost" href="#projects">Academic Projects</a>
-          <a class="btn btn-ghost" href="projects/">Projects</a>
-          <a class="btn btn-ghost" href="#certifications">Certifications</a>
-          <a class="btn btn-ghost" href="#experience">Experience</a>
-          <a class="btn btn-ghost" href="assets/Logan_Garth_Goodwin_Resume.pdf">Download Resume (PDF)</a>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="assets/Logan_Garth_Goodwin_Resume.pdf">Download résumé</a>
+          <a class="btn btn-secondary" href="#projects">View projects</a>
+          <a class="btn btn-secondary" href="projects/index.html">Project library</a>
         </div>
 
-        <div class="link-row" aria-label="Professional links">
-          <a class="link-chip" href="mailto:Logan@goodwinmail.net">Email</a>
-          <a class="link-chip" href="https://www.linkedin.com/in/logan-g-goodwin/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-          <a class="link-chip" href="https://github.com/loganggoodwin" target="_blank" rel="noreferrer noopener">GitHub</a>
-          <a class="link-chip" href="https://www.credly.com/users/logan-goodwin.4d1e161c" target="_blank" rel="noreferrer noopener">Credly Badges</a>
-          <a class="link-chip" href="https://meritpages.com/Besttech" target="_blank" rel="noreferrer noopener">MeritPages</a>
-          <a class="link-chip" href="https://app.joinhandshake.com/profiles/besttech" target="_blank" rel="noreferrer noopener">Handshake</a>
-        </div>
-      </div>
+        <ul class="hero-links" aria-label="Professional links">
+          <li><a href="mailto:Logan@goodwinmail.net">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/logan-g-goodwin/" target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/loganggoodwin" target="_blank" rel="noreferrer noopener">GitHub</a></li>
+          <li><a href="https://www.credly.com/users/logan-goodwin.4d1e161c" target="_blank" rel="noreferrer noopener">Credly</a></li>
+        </ul>
+      </section>
 
-      <div class="card headshot-card" aria-label="Profile photo">
-        <img
-          src="images/profile.jpg"
-          alt="Logan Garth Goodwin"
-          class="headshot-img" id="headshot"
-          loading="lazy"
-        />
-        <div class="img-controls" aria-label="Headshot selector"><button class="btn btn-ghost btn-sm" type="button" id="headshotPrev" aria-label="Previous headshot">←</button><button class="btn btn-ghost btn-sm" type="button" id="headshotNext" aria-label="Next headshot">→</button></div>
-<p class="muted small">
-          I like keeping this simple: clean headshot, neutral background, and consistent sizing.
-        </p>
-      </div>
+      <aside class="hero-panel card">
+        <img src="images/profile.jpg" alt="Portrait of Logan Garth Goodwin" class="headshot" id="headshot" />
+        <div class="headshot-controls">
+          <button class="icon-btn" type="button" id="headshotPrev" aria-label="Previous photo">←</button>
+          <button class="icon-btn" type="button" id="headshotNext" aria-label="Next photo">→</button>
+        </div>
+        <div class="stat-grid">
+          <div>
+            <span class="stat-value">3.986</span>
+            <span class="stat-label">GPA</span>
+          </div>
+          <div>
+            <span class="stat-value">May 2025</span>
+            <span class="stat-label">Graduated</span>
+          </div>
+          <div>
+            <span class="stat-value">Summa</span>
+            <span class="stat-label">Cum Laude</span>
+          </div>
+          <div>
+            <span class="stat-value">159</span>
+            <span class="stat-label">Credits</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </header>
 
   <main id="main">
     <section class="section">
-      <div class="container grid-2">
-        <div>
-          <h2 id="about">About</h2>
-          <p>
-            Dedicated IT professional and Cybersecurity graduate with a proven track record of bridging the gap between
-            complex technical systems and operational leadership. Leveraging a strong foundation in Network Security,
-            Systems Administration, and Project Management, I specialize in identifying vulnerabilities and optimizing
-            infrastructure. My background in high-volume operations has instilled a security-first mindset focused on
-            risk mitigation, team coordination, and decisive problem-solving.
-          </p>
-
-          <div class="mini-cards">
-            <div class="mini-card">
-              <p class="label">Focus</p>
-              <p class="value">Network Security • Systems • Risk</p>
-            </div>
-            <div class="mini-card">
-              <p class="label">Strength</p>
-              <p class="value">Technical + leadership execution</p>
-            </div>
+      <div class="container spotlight-grid">
+        <article class="card">
+          <p class="section-kicker">About</p>
+          <h2>Technical foundation with operational discipline.</h2>
+          <p>My background blends hands-on troubleshooting, home lab experimentation, network design, and security-focused coursework. I am strongest when I can turn technical detail into clean implementation plans, practical defenses, and repeatable processes.</p>
+          <div class="tag-row">
+            <span>Networking</span>
+            <span>Security</span>
+            <span>Systems</span>
+            <span>Documentation</span>
+            <span>Risk analysis</span>
           </div>
-        </div>
+        </article>
 
-        <div class="card">
-          <h3 id="highlights">Quick Highlights</h3>
-          <ul class="bullets">
-            <li>Cybersecurity + networking portfolio with real-world incident, policy, and architecture work.</li>
-            <li>Comfortable translating technical detail into operational decisions and priorities.</li>
-            <li>Strong bias for documentation, repeatable processes, and measurable improvements.</li>
-          </ul>
-
-          <div class="callout compact">
-            <p><strong>Target roles:</strong> Help Desk / IT Support • Network Support • Junior Security Analyst</p>
-            <p class="muted small">I think this site reads best when it points to evidence: projects, diagrams, writeups, and badges.</p>
-          </div>
-        </div>
+        <article class="card accent-card">
+          <p class="section-kicker">Target roles</p>
+          <h2>IT Support, Network Support, Junior Security Analyst</h2>
+          <p>I think the strongest evidence on this site is the mix of architecture design, information assurance planning, incident analysis, and secure network segmentation. That combination translates well to security operations, infrastructure support, and network-focused roles.</p>
+        </article>
       </div>
     </section>
 
-    <section class="section section-alt" id="projects">
+    <section class="section section-dark" id="projects">
       <div class="container">
-        <h2>Academic Projects (Last ~3 Years)</h2>
-        <p class="muted">
-          Curated coursework and capstone-style deliverables that demonstrate practical cybersecurity, network architecture,
-          systems planning, and organizational risk management.
-        </p>
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Featured work</p>
+            <h2>Projects that show how I think, design, and secure systems.</h2>
+          </div>
+          <a class="text-link" href="projects/index.html">See all project pages →</a>
+        </div>
 
         <div class="project-grid">
-          <article class="card project-card">
-            <div class="project-thumb" aria-hidden="true">
-              <span class="thumb-text">Screenshot / Diagram</span>
+          <article class="project-card card">
+            <img src="images/projects/campus-security.svg" alt="Abstract diagram for campus security project" class="project-image" />
+            <h3>Secure Enterprise Campus Infrastructure</h3>
+            <p>Designed a hardened campus network with VLAN segmentation, ACL enforcement, a DMZ, and Layer 2 security controls in Cisco Packet Tracer.</p>
+            <div class="meta-row"><span>Cisco IOS</span><span>ASA Firewall</span><span>ACLs</span></div>
+            <a class="btn btn-secondary" href="projects/secure-enterprise-campus/index.html">Open project</a>
+          </article>
+
+          <article class="project-card card">
+            <img src="images/projects/information-assurance.svg" alt="Abstract diagram for information assurance project" class="project-image" />
+            <h3>Information Assurance Plan</h3>
+            <p>Built a NIST-aligned information assurance program centered on the CIA triad, risk assessment, access control, logging, response, and continuity planning.</p>
+            <div class="meta-row"><span>NIST</span><span>Governance</span><span>Risk</span></div>
+            <div class="button-row">
+              <a class="btn btn-secondary" href="projects/information-assurance/index.html">Open project</a>
+              <a class="btn btn-ghost" href="assets/projects/Information_Assurance_Plan_Logan_Goodwin.pdf">PDF</a>
             </div>
+          </article>
+
+          <article class="project-card card">
+            <img src="images/projects/network-architecture.svg" alt="Abstract diagram for network architecture project" class="project-image" />
+            <h3>Multi-Site Network Architecture Evaluation</h3>
+            <p>Evaluated a growing enterprise network, documented performance and security issues, and proposed a segmented SD-WAN future state with centralized monitoring.</p>
+            <div class="meta-row"><span>SD-WAN</span><span>QoS</span><span>Segmentation</span></div>
+            <div class="button-row">
+              <a class="btn btn-secondary" href="projects/network-architecture/index.html">Open project</a>
+              <a class="btn btn-ghost" href="assets/projects/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf">PDF</a>
+            </div>
+          </article>
+
+          <article class="project-card card">
+            <img src="images/projects/healthcare-breach.svg" alt="Abstract diagram for healthcare breach project" class="project-image" />
             <h3>Healthcare Data Breach Analysis</h3>
-            <p class="muted">Legal/ethical impact analysis + security failures + standards alignment.</p>
-            <div class="project-meta">
-              <span class="pill">Incident response</span><span class="pill">Compliance</span><span class="pill">Risk</span>
+            <p>Analyzed the Trinity Health breach through legal, ethical, regulatory, and technical lenses, with recommendations for stronger monitoring and security governance.</p>
+            <div class="meta-row"><span>HIPAA</span><span>Incident analysis</span><span>Compliance</span></div>
+            <div class="button-row">
+              <a class="btn btn-secondary" href="projects/healthcare-breach-analysis/index.html">Open project</a>
+              <a class="btn btn-ghost" href="assets/projects/Healthcare_Data_Breach_Analysis_Logan_Goodwin.pdf">PDF</a>
             </div>
-            <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="projects/healthcare-breach-analysis/">Read →</a>
-              <a class="btn btn-ghost btn-sm" href="assets/projects/Healthcare_Data_Breach_Analysis_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-thumb" aria-hidden="true">
-              <span class="thumb-text">Network Diagram</span>
-            </div>
-            <h3>Information Assurance Program (NIST-Aligned)</h3>
-            <p class="muted">IA program design: risk assessment, controls, governance, incident readiness.</p>
-            <div class="project-meta">
-              <span class="pill">VLANs</span><span class="pill">UTM</span><span class="pill">Design</span>
-            </div>
-            <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="projects/information-assurance/">Read →</a>
-              <a class="btn btn-ghost btn-sm" href="assets/projects/Information_Assurance_Plan_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-thumb" aria-hidden="true">
-              <span class="thumb-text">Packet Tracer</span>
-            </div>
-            <h3>Secure SD-WAN Architecture (Multi-Site)</h3>
-            <p class="muted">Future-state network architecture with SD-WAN, segmentation, and Zero Trust principles.</p>
-            <div class="project-meta">
-              <span class="pill">Packet Tracer</span><span class="pill">Routing</span><span class="pill">Hardening</span>
-            </div>
-            <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="projects/secure-sdwan-architecture/">Read →</a>
-              <a class="btn btn-ghost btn-sm" href="assets/projects/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-thumb" aria-hidden="true">
-              <span class="thumb-text">Policy Set</span>
-            </div>
-            <h3>IT-659 Cybersecurity Policy Development</h3>
-            <p class="muted">Policies for data protection, compliance, and user behavior.</p>
-            <div class="project-meta">
-              <span class="pill">Policy</span><span class="pill">NIST-aligned</span><span class="pill">Controls</span>
-            </div>
-            <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="projects/it659-cybersecurity-policy-development/">Read →</a>
-              <a class="btn btn-ghost btn-sm" href="assets/projects/IT659_Cybersecurity_Policy_Development_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-thumb" aria-hidden="true">
-              <span class="thumb-text">Ops Plan</span>
-            </div>
-            <h3>IT-482 IT Operations Plan — Oracle HCM Cloud</h3>
-            <p class="muted">Support plan for implementation: staffing, processes, governance.</p>
-            <div class="project-meta">
-              <span class="pill">IT Ops</span><span class="pill">Process</span><span class="pill">Governance</span>
-            </div>
-            <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="projects/t482-it-operations-plan-oracle-hcm-cloud/">Read →</a>
-              <a class="btn btn-ghost btn-sm" href="assets/projects/T482_IT_Operations_Plan_Oracle_HCM_Cloud_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-thumb" aria-hidden="true">
-              <span class="thumb-text">UX Eval</span>
-            </div>
-            <h3>IT-337 Newegg Usability Evaluation</h3>
-            <p class="muted">Persona testing + design evaluation + recommendations.</p>
-            <div class="project-meta">
-              <span class="pill">UX</span><span class="pill">Systems analysis</span><span class="pill">Evaluation</span>
-            </div>
-            <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="projects/it337-newegg-usability-evaluation/">Read →</a>
-              <a class="btn btn-ghost btn-sm" href="assets/projects/IT337_Newegg_Usability_Evaluation_Logan_Goodwin.pdf" target="_blank" rel="noreferrer noopener">PDF →</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="callout">
-          <p><strong>Portfolio theme:</strong> practical cybersecurity + network architecture + organizational risk management.</p>
-          <p class="muted small">I think this mix aligns well with Security Analyst, Network Support, and IT Ops / Security tracks.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="certifications">
-      <div class="container">
-        <h2>Certifications</h2>
-        <p class="muted">
-          I believe badges and certifications are best when they’re easy to verify. The full list is on Credly; below are highlights.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Highlights</h3>
-            <ul class="bullets">
-              <li>CompTIA A+</li>
-              <li>CompTIA Network+</li>
-              <li>CompTIA Security+</li>
-              <li>CompTIA IT Fundamentals+</li>
-              <li>Certified Network Administrator (CNA)</li>
-              <li>EC-Council Digital Forensics Essentials (DFE)</li>
-              <li>EC-Council Ethical Hacking Essentials (EHE)</li>
-              <li>EC-Council Network Defense Essentials (NDE)</li>
-              <li>TestOut PC Pro / Network Pro / IT Fundamentals Pro</li>
-            </ul>
-            <p class="muted small">
-              Verify: <a href="https://www.credly.com/users/logan-goodwin.4d1e161c" target="_blank" rel="noreferrer noopener">Credly Badges</a>
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>In Progress</h3>
-            <ul class="bullets">
-              <li>CompTIA Project+ (in progress)</li>
-            </ul>
-            <p class="muted small">
-              Continuous learning and certification progression demonstrate commitment to professional growth and expanding technical capability.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="container">
-        <h2>Skills</h2>
-        <p class="muted">A quick snapshot (expand anytime using your resume and lab work).</p>
-
-        <div class="skill-grid">
-          <div class="skill-card">
-            <h3>Networking</h3>
-            <ul class="tags">
-              <li>Routing &amp; Switching</li><li>Subnetting</li><li>VLANs</li><li>Packet analysis</li><li>Wireshark</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Security</h3>
-            <ul class="tags">
-              <li>Network security</li><li>Risk analysis</li><li>Policy development</li><li>Least privilege</li><li>Incident response basics</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Systems</h3>
-            <ul class="tags">
-              <li>Windows</li><li>Linux</li><li>Virtualization</li><li>Systems administration</li><li>Home lab</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Professional</h3>
-            <ul class="tags">
-              <li>Project management</li><li>Documentation</li><li>Stakeholder communication</li><li>Team leadership</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="experience">
-      <div class="container">
-        <h2>Experience</h2>
-        <p class="muted">
-          A selection of roles demonstrating hands-on technical support, operations leadership, and field service work.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Technical Support Specialist (Independent / Private Employment)</h3>
-            <p class="muted">Manchester, NH | 2006 – 2020</p>
-            <ul class="bullets">
-              <li>Diagnosed and resolved hardware, software, and network issues for residential and small business users</li>
-              <li>Provided Tier 1 and Tier 2 support via phone, email, and remote access tools</li>
-              <li>Reduced average issue resolution time by 25% through improved troubleshooting workflows</li>
-              <li>Installed and configured operating systems, peripherals, routers, and security software</li>
-              <li>Created clear technical documentation and user guides to reduce repeat support requests</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Lead Associate</h3>
-            <p class="muted">Amazon – Nashua, NH | 2021 – 2023</p>
-            <ul class="bullets">
-              <li>Coordinated logistics operations and real-time problem resolution in a high-volume environment</li>
-              <li>Optimized workflow efficiency through structured process improvements</li>
-              <li>Demonstrated leadership, communication, and operational troubleshooting skills</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Maintenance Technician</h3>
-            <p class="muted">Walmart – Manchester, NH | 2020 – 2021</p>
-            <ul class="bullets">
-              <li>Performed preventive maintenance and diagnostics on electrical, HVAC, and refrigeration systems</li>
-              <li>Troubleshot mechanical and electrical issues to minimize downtime</li>
-              <li>Ensured compliance with safety standards and documented corrective actions</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Service Technician</h3>
-            <p class="muted">One Source Security &amp; Automation, Inc. – Bedford, NH | 1996 – 2006</p>
-            <ul class="bullets">
-              <li>Installed and serviced surveillance cameras, alarm systems, access control, and automation systems</li>
-              <li>Diagnosed system faults and replaced defective components to maintain uptime</li>
-              <li>Trained customers on system operation, configuration, and troubleshooting</li>
-              <li>Delivered ongoing technical support and system optimization</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Quality Control Specialist</h3>
-            <p class="muted">Harvey Windows &amp; Doors – Manchester, NH | 1995 – 1996</p>
-            <ul class="bullets">
-              <li>Conducted inspections to ensure manufacturing quality and compliance</li>
-              <li>Documented defects and collaborated with production teams on corrective actions</li>
-              <li>Supported process improvement initiatives</li>
-            </ul>
           </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="education">
-      <div class="container">
-        <h2>Education</h2>
-        <div class="card">
-          <h3>Southern New Hampshire University</h3>
-          <p class="muted">B.S. Information Technologies — Cybersecurity Concentration</p>
-          <ul class="bullets">
-            <li>Graduation: May 2025</li>
-            <li>Honors: Summa Cum Laude</li>
-            <li>Relevant themes: security, networking, systems planning, legal/ethical compliance</li>
+      <div class="container two-col">
+        <article class="card">
+          <p class="section-kicker">Education</p>
+          <h2>Southern New Hampshire University</h2>
+          <p class="subtitle-line">B.S. in Information Technologies · Cybersecurity Concentration</p>
+          <ul class="check-list">
+            <li>Graduated May 2025</li>
+            <li>Summa Cum Laude</li>
+            <li>Cumulative GPA: 3.986</li>
+            <li>159 total credits completed</li>
           </ul>
+        </article>
+
+        <article class="card">
+          <p class="section-kicker">Relevant coursework</p>
+          <h2>Security, networking, systems, and governance</h2>
+          <div class="course-grid">
+            <span>Cyber Defense</span>
+            <span>Network Security</span>
+            <span>Computer Systems Security</span>
+            <span>Legal and Human Factors of Cyber</span>
+            <span>Telecommunications / Networking</span>
+            <span>Risk Management / Mitigation</span>
+            <span>Systems Requirements / Implementation Planning</span>
+            <span>Computing as a Service</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Capabilities</p>
+            <h2>Built around practical infrastructure and security work.</h2>
+          </div>
+        </div>
+        <div class="skill-grid">
+          <article class="card skill-card">
+            <h3>Networking</h3>
+            <ul>
+              <li>Routing and switching</li>
+              <li>Subnetting and VLANs</li>
+              <li>Inter-VLAN routing</li>
+              <li>Packet analysis with Wireshark</li>
+              <li>QoS and traffic flow analysis</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h3>Security</h3>
+            <ul>
+              <li>ACL design and least privilege</li>
+              <li>Firewall and DMZ concepts</li>
+              <li>Risk assessment</li>
+              <li>Policy development</li>
+              <li>Incident response fundamentals</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h3>Systems</h3>
+            <ul>
+              <li>Windows and Linux support</li>
+              <li>Virtualization</li>
+              <li>Home lab administration</li>
+              <li>Documentation and troubleshooting</li>
+              <li>Cloud and service planning</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h3>Certifications</h3>
+            <ul>
+              <li>CompTIA A+</li>
+              <li>CompTIA Network+</li>
+              <li>CompTIA Security+</li>
+              <li>EC-Council DFE / EHE / NDE</li>
+              <li>TestOut PC Pro / Network Pro</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="contact">
-      <div class="container grid-2">
-        <div>
-          <h2>Contact</h2>
-          <p class="muted">
-            Choose what you want public. I like using LinkedIn + an email link and keeping phone off the page.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn" href="mailto:Logan@goodwinmail.net">Email</a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/logan-g-goodwin/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-            <a class="btn btn-ghost" href="https://github.com/loganggoodwin" target="_blank" rel="noreferrer noopener">GitHub</a>
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Experience</p>
+            <h2>Hands-on technical support and field operations.</h2>
           </div>
-
-          <p class="muted small">
-            If you want a working contact form, I can wire this site to Formspree (or a similar service).
-          </p>
         </div>
+        <div class="timeline">
+          <article class="timeline-item card">
+            <h3>Technical Support Specialist</h3>
+            <p class="timeline-meta">Independent / Private Employment · Manchester, NH · 2006–2020</p>
+            <p>Delivered Tier 1 and Tier 2 support, diagnosed hardware, software, and network issues, and documented fixes for residential and small business users.</p>
+          </article>
+          <article class="timeline-item card">
+            <h3>Lead Associate</h3>
+            <p class="timeline-meta">Amazon · Nashua, NH · 2021–2023</p>
+            <p>Coordinated work in a high-volume environment, resolved real-time operational issues, and supported process improvements through communication and triage.</p>
+          </article>
+          <article class="timeline-item card">
+            <h3>Maintenance Technician</h3>
+            <p class="timeline-meta">Walmart · Manchester, NH · 2020–2021</p>
+            <p>Performed preventive maintenance and diagnostics across electrical, HVAC, and refrigeration systems while documenting corrective actions and safety compliance.</p>
+          </article>
+          <article class="timeline-item card">
+            <h3>Service Technician</h3>
+            <p class="timeline-meta">One Source Security & Automation, Inc. · Bedford, NH · 1996–2006</p>
+            <p>Installed and serviced surveillance, alarm, access control, and automation systems, then trained customers on operation, configuration, and troubleshooting.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="card">
-          <h3>Quick Links</h3>
-          <ul class="bullets">
-            <li><a href="projects/">Projects</a></li>
-            <li><a href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener">Resume (PDF)</a></li>
-            <li><a href="https://www.credly.com/users/logan-goodwin.4d1e161c" target="_blank" rel="noreferrer noopener">Credly Badges</a></li>
+    <section class="section section-dark" id="contact">
+      <div class="container contact-grid">
+        <article class="card">
+          <p class="section-kicker">Contact</p>
+          <h2>Let’s connect.</h2>
+          <p>I think the easiest way to reach me is through email or LinkedIn. I like keeping contact simple and pointing people to evidence quickly.</p>
+          <div class="button-row top-gap">
+            <a class="btn btn-primary" href="mailto:Logan@goodwinmail.net">Email me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/logan-g-goodwin/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/loganggoodwin" target="_blank" rel="noreferrer noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="section-kicker">Downloads</p>
+          <h2>Quick access</h2>
+          <ul class="download-list">
+            <li><a href="assets/Logan_Garth_Goodwin_Resume.pdf">Résumé (PDF)</a></li>
+            <li><a href="assets/projects/Information_Assurance_Plan_Logan_Goodwin.pdf">Information Assurance Plan (PDF)</a></li>
+            <li><a href="assets/projects/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf">Network Architecture Project (PDF)</a></li>
+            <li><a href="assets/projects/Healthcare_Data_Breach_Analysis_Logan_Goodwin.pdf">Healthcare Breach Analysis (PDF)</a></li>
           </ul>
-          <p class="muted small">I think keeping evidence one click away helps a lot.</p>
-        </div>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <p class="muted small">© <span id="year"></span> Logan Garth Goodwin. Built as a fast static site.</p>
-      <p class="muted small"><a href="#about">Back to top</a></p>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Logan Garth Goodwin</p>
+      <a href="#main">Back to top</a>
     </div>
   </footer>
 
