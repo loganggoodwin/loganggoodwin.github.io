@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Network Analysis and SD-WAN Architecture | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1a1a1a; --muted: #555; --light: #888;
+    --border: #e0e0e0; --bg: #fff; --tag-bg: #f2f2f2; --table-head: #f5f5f5;
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.75; color: var(--text); background: var(--bg); padding: 0 1rem; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+  .skip { position: absolute; left: -9999px; }
+  .site-nav { display: flex; align-items: center; padding: 1.25rem 0; font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .project-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 1.25rem; }
+  h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 700px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-family: system-ui, sans-serif; font-size: 12px; }
+  .tags span { background: var(--tag-bg); padding: 3px 10px; border-radius: 2px; color: var(--muted); }
+  .breadcrumbs { display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+  .intro { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin: 2.5rem 0 1rem; }
+  h3 { font-size: 1rem; font-weight: normal; font-style: italic; margin: 1.5rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  ul li { margin-bottom: 0.4rem; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 13.5px; }
+  th { background: var(--table-head); text-align: left; padding: 8px 12px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .callout { border-left: 2px solid var(--text); padding: 1rem 1.25rem; margin: 1.5rem 0; background: var(--tag-bg); font-size: 0.95rem; }
+  .callout strong { display: block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--muted); }
+  .findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0 1.5rem; }
+  @media (max-width: 560px) { .findings-grid, .skills-grid { grid-template-columns: 1fr; } }
+  .finding-card { border: 1px solid var(--border); border-radius: 2px; padding: 0.85rem; }
+  .finding-card .severity { font-family: system-ui, sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .finding-card .severity.high { color: #a33; }
+  .finding-card .severity.medium { color: #996600; }
+  .finding-card p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin: 0; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+  .skill-item { font-family: system-ui, sans-serif; font-size: 13px; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav">Project page</nav>
+<main id="main">
+  <p class="project-label">IT-640 · Telecommunications and Networking</p>
+  <h1>Enterprise Network Analysis and SD-WAN Architecture</h1>
+  <div class="tags">
+    <span>SD-WAN</span><span>VLAN segmentation</span><span>NGFW</span><span>QoS</span>
+    <span>SolarWinds</span><span>Splunk</span><span>IPsec VPN</span><span>OSPF/BGP</span>
+  </div>
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+  <p class="intro">This project evaluates the existing network infrastructure of SNHUEnergy, Inc. — a multi-site energy company with offices in Dallas and Memphis — identifies performance and security deficiencies, and proposes a dual-hub SD-WAN architecture to support expansion into Kansas City and Houston. It covers OSI-layer analysis, traffic characterization, security hardening, and a phased implementation plan.</p>
+
+  <h2>Current state assessment</h2>
+  <p>SNHUEnergy's existing infrastructure supports billing, accounting, HR, and operations systems across two sites. Several critical weaknesses were identified during the assessment.</p>
+
+  <div class="findings-grid">
+    <div class="finding-card">
+      <p class="severity high">High severity</p>
+      <p>Memphis lacks a local firewall, leaving its segment dependent on Dallas for perimeter security — a single point of failure for the entire WAN.</p>
+    </div>
+    <div class="finding-card">
+      <p class="severity high">High severity</p>
+      <p>Both sites rely on a single WAN connection. No redundancy means any provider outage interrupts operations across all applications.</p>
+    </div>
+    <div class="finding-card">
+      <p class="severity medium">Medium severity</p>
+      <p>No QoS implementation means VoIP and video traffic competes equally with bulk data, degrading call and conference quality under load.</p>
+    </div>
+    <div class="finding-card">
+      <p class="severity medium">Medium severity</p>
+      <p>Insufficient capacity management creates bottlenecks for latency-sensitive applications like SQL queries, payroll, and billing workflows.</p>
+    </div>
+  </div>
+
+  <h2>Network applications inventory</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Site</th><th>Application</th><th>Function</th></tr></thead>
+      <tbody>
+        <tr><td>Dallas</td><td>Mail services</td><td>Internal and external communication</td></tr>
+        <tr><td>Dallas</td><td>Payroll system</td><td>Compensation tracking and processing</td></tr>
+        <tr><td>Dallas</td><td>Accounting software</td><td>Financial transactions and reporting</td></tr>
+        <tr><td>Dallas</td><td>HR system</td><td>Employee records and onboarding</td></tr>
+        <tr><td>Memphis</td><td>Billing system</td><td>Customer invoices and payment monitoring</td></tr>
+        <tr><td>Memphis</td><td>Operations management</td><td>Work orders and field task coordination</td></tr>
+        <tr><td>Both</td><td>VoIP</td><td>Inter-office voice communication</td></tr>
+        <tr><td>Both</td><td>Video conferencing</td><td>Virtual meetings across sites and remote workers</td></tr>
+        <tr><td>Both</td><td>File and print services</td><td>Shared resource access across LAN and WAN</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Proposed architecture: dual-hub SD-WAN</h2>
+  <p>The recommended design establishes Dallas and Houston as redundant SD-WAN hubs, with Memphis and Kansas City as branch spokes. This eliminates both the single-hub and single-path weaknesses in the current infrastructure.</p>
+
+  <h3>WAN and connectivity</h3>
+  <ul>
+    <li>Dual WAN links at each site — primary MPLS and backup internet — with SD-WAN handling automatic failover and path selection</li>
+    <li>End-to-end IPsec VPN encryption across all inter-site tunnels</li>
+    <li>SSL VPN gateways embedded in NGFWs for secure remote access</li>
+    <li>SD-WAN tunnels for Office 365, Azure, and AWS workloads to avoid backhauling cloud traffic through hub sites</li>
+  </ul>
+
+  <h3>LAN segmentation</h3>
+  <ul>
+    <li>VLAN separation for Finance, HR, and Operations within each site's LAN</li>
+    <li>Layer 3 switches with 802.1Q trunking and QoS tagging between departments</li>
+    <li>Role-based access controls aligned to VLAN boundaries</li>
+    <li>QoS policies prioritizing VoIP and video over bulk data transfers</li>
+  </ul>
+
+  <h3>Security controls</h3>
+  <ul>
+    <li>Next-generation firewalls at every site — application-layer inspection, IPS, SSL decryption, and geo-blocking</li>
+    <li>Web application firewall protecting internet-facing services from injection and XSS attacks</li>
+    <li>UTM appliances merging antivirus, content filtering, and spam protection</li>
+    <li>Multi-factor authentication required for all remote and cloud access</li>
+  </ul>
+
+  <h3>Monitoring and visibility</h3>
+
+  <div class="callout">
+    <strong>Tooling recommendation</strong>
+    SolarWinds NPM provides real-time SNMP-based performance data across all sites from a single dashboard, enabling proactive alerting before degradation impacts operations. Splunk Enterprise Security aggregates logs from firewalls, servers, and endpoints for incident correlation and forensic analysis — shifting network management from reactive to predictive.
+  </div>
+
+  <h2>Disaster recovery design</h2>
+  <ul>
+    <li>Houston serves as the secondary hub — Active Directory, DNS, and database servers replicate to Houston via daily secure replication</li>
+    <li>If Dallas experiences an outage, Houston seamlessly takes over essential services</li>
+    <li>SD-WAN's diverse path selection keeps inter-office communication online even during provider outages</li>
+    <li>Recovery time and recovery point objectives defined in the continuity plan</li>
+  </ul>
+
+  <h2>Scalability</h2>
+  <p>New branch offices — regional sales or additional data centers — can be onboarded using SD-WAN's zero-touch provisioning. Global security policies, QoS rules, and routing configurations are applied automatically at provisioning time, significantly reducing deployment time and configuration drift.</p>
+
+  <h2>Implementation challenges and mitigations</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Challenge</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Service interruption during cutover</td><td>Schedule changes during low-traffic windows; maintain rollback procedures for failed deployments</td></tr>
+        <tr><td>Legacy hardware incompatibility with SD-WAN or advanced VLANs</td><td>Pre-deployment hardware audit; replace non-compliant devices before cutover</td></tr>
+        <tr><td>Employee disruption during transition</td><td>Clear communication plan, phased rollout, and dedicated IT support during cutover windows</td></tr>
+        <tr><td>Staff skill gaps in SD-WAN and NGFW management</td><td>Vendor-certified training on SolarWinds, firewall management, and VPN administration before go-live</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>OSI layer analysis</h2>
+  <p>The project maps each application and infrastructure component to its relevant OSI layers, connecting abstract network concepts to concrete operational decisions. Physical layer redundancy (dual WAN), data link layer trunk configuration (802.1Q), network layer routing (OSPF/BGP and SD-WAN), transport layer QoS prioritization, and application layer firewall inspection are each addressed in the architecture.</p>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Multi-site WAN architecture</div>
+    <div class="skill-item">SD-WAN design and routing</div>
+    <div class="skill-item">NGFW and IPS deployment</div>
+    <div class="skill-item">VLAN and QoS configuration</div>
+    <div class="skill-item">SIEM and NPM tooling</div>
+    <div class="skill-item">Disaster recovery planning</div>
+    <div class="skill-item">OSI model application</div>
+    <div class="skill-item">Capacity and risk analysis</div>
+  </div>
+</main>
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+</body>
+</html>

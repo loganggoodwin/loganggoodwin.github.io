@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Cyber Incident Report: Trinity Health | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1a1a1a; --muted: #555; --light: #888;
+    --border: #e0e0e0; --bg: #fff; --tag-bg: #f2f2f2; --table-head: #f5f5f5;
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.75; color: var(--text); background: var(--bg); padding: 0 1rem; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+  .skip { position: absolute; left: -9999px; }
+  .site-nav { display: flex; align-items: center; padding: 1.25rem 0; font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .project-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 1.25rem; }
+  h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 700px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-family: system-ui, sans-serif; font-size: 12px; }
+  .tags span { background: var(--tag-bg); padding: 3px 10px; border-radius: 2px; color: var(--muted); }
+  .breadcrumbs { display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+  .intro { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin: 2.5rem 0 1rem; }
+  h3 { font-size: 1rem; font-weight: normal; font-style: italic; margin: 1.5rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  ul li { margin-bottom: 0.4rem; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 13.5px; }
+  th { background: var(--table-head); text-align: left; padding: 8px 12px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .callout { border-left: 2px solid var(--text); padding: 1rem 1.25rem; margin: 1.5rem 0; background: var(--tag-bg); font-size: 0.95rem; }
+  .callout strong { display: block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--muted); }
+  .timeline { list-style: none; padding: 0; margin: 1rem 0 1.5rem; border-left: 2px solid var(--border); padding-left: 1.25rem; }
+  .timeline li { margin-bottom: 1rem; position: relative; }
+  .timeline li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--border); position: absolute; left: -1.6rem; top: 0.55rem; }
+  .timeline .date { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--light); display: block; margin-bottom: 0.2rem; }
+  .lenses { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0 1.5rem; }
+  @media (max-width: 560px) { .lenses, .skills-grid { grid-template-columns: 1fr; } }
+  .lens { border: 1px solid var(--border); border-radius: 2px; padding: 0.85rem; }
+  .lens .label { font-family: system-ui, sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 0.4rem; }
+  .lens p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin: 0; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+  .skill-item { font-family: system-ui, sans-serif; font-size: 13px; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav">Project page</nav>
+<main id="main">
+  <p class="project-label">IT-659 · Cyberlaw & Ethics</p>
+  <h1>Healthcare Cyber Incident Report: Trinity Health</h1>
+  <div class="tags">
+    <span>HIPAA</span><span>Incident analysis</span><span>Cyberlaw</span>
+    <span>Ethics</span><span>CIA triad</span><span>Breach response</span><span>Healthcare security</span>
+  </div>
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+  <p class="intro">This report analyzes a 2023 email system breach at Trinity Health — a Michigan-based healthcare network — through the lenses of cybersecurity principles, ethics, legal compliance, and organizational accountability. It connects the technical failure to HIPAA obligations, patient trust, legal exposure, and the broader responsibility healthcare organizations carry when handling protected health information.</p>
+
+  <h2>Incident timeline</h2>
+  <ul class="timeline">
+    <li>
+      <span class="date">March 7, 2023</span>
+      Unauthorized access begins. Attackers gain entry to email systems holding protected health information for approximately 21,000 patients.
+    </li>
+    <li>
+      <span class="date">April 4, 2023</span>
+      Trinity Health detects the breach — nearly 30 days after initial intrusion. Systems are secured and affected patients are notified and offered 12 months of credit monitoring.
+    </li>
+    <li>
+      <span class="date">April 7, 2023</span>
+      Breach window closes. Exposed data includes patient names, addresses, birth dates, Social Security numbers, diagnoses, treatment details, prescriptions, and discharge information.
+    </li>
+    <li>
+      <span class="date">June 12, 2023</span>
+      Class action lawsuit filed against Trinity Health, Mercy Health Network, and Mercy Medical Center Clinton alleging HIPAA violations, negligence, breach of contract, and inadequate monitoring.
+    </li>
+  </ul>
+
+  <h2>Cybersecurity principles</h2>
+  <p>The breach is analyzed against the four core principles governing healthcare cybersecurity: confidentiality, integrity, availability, and accountability.</p>
+
+  <div class="lenses">
+    <div class="lens">
+      <p class="label">Confidentiality</p>
+      <p>Unauthorized individuals accessed PHI for 30 days. The HIPAA Security Rule requires administrative, technical, and physical protections — all three were insufficient to prevent this exposure.</p>
+    </div>
+    <div class="lens">
+      <p class="label">Integrity</p>
+      <p>Tampered or exposed medical records create downstream risks: incorrect diagnoses, wrong medication, and compromised billing. Integrity of patient data is inseparable from patient safety.</p>
+    </div>
+    <div class="lens">
+      <p class="label">Availability</p>
+      <p>While services remained online, the breach demonstrated that availability alone is not sufficient — access controls and monitoring must accompany uptime to constitute real availability.</p>
+    </div>
+    <div class="lens">
+      <p class="label">Accountability</p>
+      <p>Healthcare organizations are obligated to maintain audit trails, conduct risk assessments, and enforce staff compliance. Trinity Health's 30-day detection gap reflects a failure of continuous monitoring accountability.</p>
+    </div>
+  </div>
+
+  <h2>Ethical failures</h2>
+  <p>Beyond legal compliance, the breach exposed significant ethical shortcomings. Healthcare providers hold a heightened ethical obligation to protect patient data — not merely because it is legally required, but because failures directly affect patients' dignity, safety, and autonomy.</p>
+
+  <div class="callout">
+    <strong>Transparency gap</strong>
+    The class action lawsuit alleged that post-breach notifications to patients were insufficient — failing to clearly communicate what data was exposed, how it happened, and what steps were being taken. This lack of transparency undermines the informed consent patients are owed after an incident affecting their personal health information.
+  </div>
+
+  <p>The 30-day dwell time also represents an ethical lapse in balancing operational efficiency against patient protection. Organizations cannot guarantee perfect security, but ethical practice requires continuous investment in detection, staff training, and response readiness — investments Trinity Health's posture did not reflect.</p>
+
+  <h2>Legal compliance analysis</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Framework</th><th>Requirement</th><th>Gap identified</th></tr></thead>
+      <tbody>
+        <tr><td>HIPAA Security Rule</td><td>Administrative, technical, and physical safeguards for PHI</td><td>Insufficient monitoring allowed 30-day attacker dwell time</td></tr>
+        <tr><td>HIPAA Breach Notification Rule</td><td>Timely, meaningful notification to affected individuals</td><td>Lawsuit alleged notifications lacked actionable detail</td></tr>
+        <tr><td>FTC Reasonable Security</td><td>Organizations must implement security proportionate to the sensitivity of data held</td><td>Email systems holding SSNs and diagnoses lacked commensurate controls</td></tr>
+        <tr><td>NIST SP 800-53</td><td>Continuous monitoring, incident response, and access control</td><td>No evidence of SIEM or anomaly detection that would catch month-long intrusion</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Recommendations</h2>
+
+  <h3>Technical controls</h3>
+  <ul>
+    <li>Deploy SIEM or continuous monitoring tooling capable of detecting anomalous email access patterns within hours, not weeks</li>
+    <li>Implement multi-factor authentication for all privileged and email system access</li>
+    <li>Apply role-based access controls limiting PHI visibility to personnel with clinical need</li>
+    <li>Conduct regular penetration testing targeting email and identity infrastructure</li>
+  </ul>
+
+  <h3>Policy and governance</h3>
+  <ul>
+    <li>Formalize and test incident response plans annually — detection speed is a direct function of process readiness</li>
+    <li>Establish patient-centered breach communication templates that meet both HIPAA requirements and plain-language transparency standards</li>
+    <li>Conduct recurring security awareness training focused on phishing, credential hygiene, and PHI handling</li>
+  </ul>
+
+  <h2>Why this project matters</h2>
+  <p>This report demonstrates the ability to analyze a real security incident beyond its technical surface — connecting intrusion detection gaps to HIPAA obligations, patient trust, legal liability, and organizational ethics. That multi-dimensional perspective is directly applicable to security operations, compliance, and governance roles in regulated industries.</p>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Incident analysis and reporting</div>
+    <div class="skill-item">HIPAA compliance assessment</div>
+    <div class="skill-item">Ethics in cybersecurity</div>
+    <div class="skill-item">Legal exposure analysis</div>
+    <div class="skill-item">CIA triad application</div>
+    <div class="skill-item">Remediation planning</div>
+  </div>
+</main>
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+</body>
+</html>

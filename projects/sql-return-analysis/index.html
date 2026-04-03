@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Return Rate Analysis | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1a1a1a; --muted: #555; --light: #888;
+    --border: #e0e0e0; --bg: #fff; --tag-bg: #f2f2f2;
+    --code-bg: #f7f7f7; --table-head: #f5f5f5;
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.75; color: var(--text); background: var(--bg); padding: 0 1rem; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+  .skip { position: absolute; left: -9999px; }
+  .site-nav { display: flex; align-items: center; padding: 1.25rem 0; font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .project-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 1.25rem; }
+  h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 700px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-family: system-ui, sans-serif; font-size: 12px; }
+  .tags span { background: var(--tag-bg); padding: 3px 10px; border-radius: 2px; color: var(--muted); }
+  .breadcrumbs { display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+  .intro { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin: 2.5rem 0 1rem; }
+  h3 { font-size: 1rem; font-weight: normal; font-style: italic; margin: 1.5rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  ul li { margin-bottom: 0.4rem; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 2px; padding: 1rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.6; margin: 0.75rem 0 1.5rem; color: var(--text); }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 13.5px; }
+  th { background: var(--table-head); text-align: left; padding: 8px 12px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .callout { border-left: 2px solid var(--text); padding: 1rem 1.25rem; margin: 1.5rem 0; background: var(--tag-bg); font-size: 0.95rem; }
+  .callout strong { display: block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--muted); }
+  .finding { display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+  .finding:last-child { border-bottom: none; }
+  .finding-num { font-family: system-ui, sans-serif; font-size: 22px; font-weight: 600; color: var(--border); min-width: 2rem; line-height: 1.2; }
+  .finding-text { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); }
+  .finding-text strong { color: var(--text); display: block; margin-bottom: 0.2rem; font-size: 14px; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+  @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-item { font-family: system-ui, sans-serif; font-size: 13px; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav">Project page</nav>
+<main id="main">
+  <p class="project-label">DAD-220 · Structured Database Environments</p>
+  <h1>SQL Return Rate Analysis</h1>
+  <div class="tags">
+    <span>SQL</span><span>MySQL</span><span>INNER JOIN</span><span>Data analysis</span>
+    <span>Stakeholder reporting</span><span>Return rate</span>
+  </div>
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+  <p class="intro">This project uses SQL against the QuantigrationUpdates database to analyze product return patterns for a product manager. Using multi-table JOIN queries, it surfaces return frequency by state and return percentage by SKU — then interprets those findings, identifies data limitations, and communicates conclusions clearly to a non-technical stakeholder.</p>
+
+  <h2>Database schema</h2>
+  <p>The analysis draws on three related tables: <code>Orders</code>, <code>RMA</code> (return merchandise authorizations), and <code>Collaborators</code>. The queries use INNER JOIN to connect return records to geographic data and product identifiers.</p>
+
+  <h2>Query 1: returns by state</h2>
+
+  <pre>SELECT Collaborators.State AS STATE,
+       COUNT(*) AS RETURN_FREQUENCY
+FROM Orders
+INNER JOIN RMA
+  ON Orders.OrderID = RMA.OrderID
+INNER JOIN Collaborators
+  ON Collaborators.CollaboratorID = Orders.CollaboratorID
+GROUP BY STATE
+ORDER BY RETURN_FREQUENCY DESC;</pre>
+
+  <h3>Findings</h3>
+  <p>Massachusetts shows the highest return frequency in the dataset, followed by Arkansas. This geographic concentration warrants further investigation — it may reflect regional distribution patterns, a high-volume partner concentrated in those states, or a logistics or quality issue specific to that region.</p>
+
+  <div class="callout">
+    <strong>Data limitation</strong>
+    The query counts return events but does not normalize against total orders per state. A state with high sales volume will naturally appear to have more returns. Without a sales-volume denominator, the return rate cannot be interpreted in isolation as a sign of a problem.
+  </div>
+
+  <h2>Query 2: returns by product SKU</h2>
+
+  <pre>SELECT Orders.SKU AS SKU,
+       COUNT(*) * 100 / (SELECT COUNT(*) FROM RMA) AS PERCENTAGE
+FROM RMA
+INNER JOIN Orders
+  ON Orders.OrderID = RMA.OrderID
+GROUP BY SKU
+ORDER BY PERCENTAGE DESC;</pre>
+
+  <h3>Findings</h3>
+  <div class="finding">
+    <div class="finding-num">1</div>
+    <div class="finding-text"><strong>BAS-48-1C — 22.05%</strong>This SKU accounts for the largest share of all returns in the dataset by a significant margin, suggesting a potential product defect, packaging issue, or description mismatch worth investigating.</div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">2</div>
+    <div class="finding-text"><strong>ENT-48-40F — 16.29%</strong>The second-highest return rate, possibly related to a related product line or similar issue. The proximity to BAS-48-1C in the return ranking may indicate a shared component or supplier.</div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">3</div>
+    <div class="finding-text"><strong>ENT-48-10F — 11.41%</strong>A third ENT-series product with an elevated return rate. The concentration of returns in the ENT product line suggests category-level investigation is warranted.</div>
+  </div>
+
+  <h2>Stakeholder summary</h2>
+  <p>The data gives the product manager two actionable signals. First, Massachusetts is a geographic concentration point for returns and deserves a closer look at whether a single large partner or regional logistics issue is driving volume. Second, BAS-48-1C and the ENT product line are disproportionately represented in returns — this warrants a quality review, customer feedback analysis, and potentially a conversation with the relevant supplier.</p>
+
+  <h2>Limitations and next steps</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Limitation</th><th>Recommended action</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Return counts not normalized against order volume</td>
+          <td>Add a total orders subquery to calculate a true return rate percentage per state and SKU</td>
+        </tr>
+        <tr>
+          <td>No breakdown by customer or partner within states</td>
+          <td>Add a GROUP BY CollaboratorID query to determine whether a few large accounts drive the Massachusetts concentration</td>
+        </tr>
+        <tr>
+          <td>No return reason codes in the RMA table</td>
+          <td>Request that RMA data be enriched with reason codes (defect, shipping damage, wrong item) to enable root cause analysis</td>
+        </tr>
+        <tr>
+          <td>Time period of data is unspecified</td>
+          <td>Add a date filter to understand whether return spikes are seasonal or trend-driven</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Multi-table SQL JOIN queries</div>
+    <div class="skill-item">Aggregate functions (COUNT, %)</div>
+    <div class="skill-item">GROUP BY and ORDER BY</div>
+    <div class="skill-item">Subquery construction</div>
+    <div class="skill-item">Data interpretation</div>
+    <div class="skill-item">Stakeholder communication</div>
+  </div>
+</main>
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+</body>
+</html>

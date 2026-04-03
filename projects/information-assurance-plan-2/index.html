@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Information Assurance Plan | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1a1a1a; --muted: #555; --light: #888;
+    --border: #e0e0e0; --bg: #fff; --tag-bg: #f2f2f2; --table-head: #f5f5f5;
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.75; color: var(--text); background: var(--bg); padding: 0 1rem; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+  .skip { position: absolute; left: -9999px; }
+  .site-nav { display: flex; align-items: center; padding: 1.25rem 0; font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .project-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 1.25rem; }
+  h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 700px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-family: system-ui, sans-serif; font-size: 12px; }
+  .tags span { background: var(--tag-bg); padding: 3px 10px; border-radius: 2px; color: var(--muted); }
+  .breadcrumbs { display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+  .intro { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin: 2.5rem 0 1rem; }
+  h3 { font-size: 1rem; font-weight: normal; font-style: italic; margin: 1.5rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  ul li { margin-bottom: 0.4rem; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 13.5px; }
+  th { background: var(--table-head); text-align: left; padding: 8px 12px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td.high { color: #a33; font-weight: 600; font-family: system-ui, sans-serif; font-size: 12px; }
+  td.medium { color: #996600; font-weight: 600; font-family: system-ui, sans-serif; font-size: 12px; }
+  td.low { color: var(--light); font-weight: 600; font-family: system-ui, sans-serif; font-size: 12px; }
+  tr:last-child td { border-bottom: none; }
+  .callout { border-left: 2px solid var(--text); padding: 1rem 1.25rem; margin: 1.5rem 0; background: var(--tag-bg); font-size: 0.95rem; }
+  .callout strong { display: block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--muted); }
+  .roles { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0 1.5rem; }
+  @media (max-width: 560px) { .roles, .skills-grid { grid-template-columns: 1fr; } }
+  .role-card { border: 1px solid var(--border); border-radius: 2px; padding: 0.85rem; }
+  .role-card .title { font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; margin-bottom: 0.3rem; color: var(--text); }
+  .role-card p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin: 0; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+  .skill-item { font-family: system-ui, sans-serif; font-size: 13px; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav">Project page</nav>
+<main id="main">
+  <p class="project-label">IT-549 · Foundation in Information Assurance · Graduate</p>
+  <h1>Information Assurance Plan</h1>
+  <div class="tags">
+    <span>NIST SP 800-53</span><span>NIST SP 800-30</span><span>CIA triad</span>
+    <span>Risk assessment</span><span>Access control</span><span>Incident response</span>
+    <span>Disaster recovery</span><span>Governance</span>
+  </div>
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+  <p class="intro">This graduate-level final project delivers a comprehensive information assurance plan for an organization with identified gaps across the CIA triad. Grounded in NIST SP 800-30, 800-53, 800-61, and 800-34, it covers risk assessment, defined roles and responsibilities, incident and disaster response policies, access control standards, and a structured plan maintenance framework.</p>
+
+  <h2>Current state assessment</h2>
+  <p>An assessment of the organization's information environment identified varying levels of effectiveness across confidentiality, integrity, and availability controls. The most critical gaps were:</p>
+
+  <ul>
+    <li>Inconsistent MFA enforcement and infrequent access reviews creating unauthorized access risk</li>
+    <li>Patch management delayed by operational constraints, leaving systems exposed to known vulnerabilities</li>
+    <li>Decentralized logging with no SIEM, limiting visibility into security events and threat detection</li>
+    <li>Incident response and disaster recovery plans that exist on paper but are not regularly tested</li>
+    <li>Security awareness training that does not adequately address phishing or credential theft</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Anchoring example</strong>
+    The Microsoft Exchange Server vulnerability CVE-2021-26855 is used as a concrete case study throughout the plan — illustrating what happens when patch management is delayed, monitoring is insufficient, and incident response procedures are untested.
+  </div>
+
+  <h2>Roles and responsibilities</h2>
+  <div class="roles">
+    <div class="role-card">
+      <p class="title">Executive leadership</p>
+      <p>Approves security policies, allocates resources, ensures regulatory compliance, and sets the organizational security culture.</p>
+    </div>
+    <div class="role-card">
+      <p class="title">CIO / CISO</p>
+      <p>Translates executive direction into technical and administrative controls. Oversees patch management, access control, monitoring, and incident response programs.</p>
+    </div>
+    <div class="role-card">
+      <p class="title">System administrators</p>
+      <p>Configure systems securely, apply patches, manage user accounts, monitor logs, and respond to security alerts on a day-to-day basis.</p>
+    </div>
+    <div class="role-card">
+      <p class="title">All employees</p>
+      <p>Adhere to security policies, protect credentials, complete security awareness training, and report suspicious activity through defined escalation paths.</p>
+    </div>
+  </div>
+
+  <h2>Risk matrix</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Threat / Vulnerability</th><th>Likelihood</th><th>Impact</th><th>Risk</th><th>Mitigation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Unpatched vulnerabilities (e.g., Exchange CVE-2021-26855)</td>
+          <td>High</td><td>High</td><td class="high">High</td>
+          <td>Timely patching, vulnerability scanning, system hardening</td>
+        </tr>
+        <tr>
+          <td>Ransomware attacks</td>
+          <td>High</td><td>High</td><td class="high">High</td>
+          <td>Offline and immutable backups, MFA, endpoint protection, tested IR plans</td>
+        </tr>
+        <tr>
+          <td>Credential compromise via phishing</td>
+          <td>High</td><td>Medium</td><td class="high">High</td>
+          <td>MFA enforcement, security awareness training, email filtering</td>
+        </tr>
+        <tr>
+          <td>Insider misuse or excessive privileges</td>
+          <td>Medium</td><td>Medium</td><td class="medium">Medium</td>
+          <td>Least privilege enforcement, quarterly access reviews, activity monitoring</td>
+        </tr>
+        <tr>
+          <td>Misconfigured systems or controls</td>
+          <td>Medium</td><td>Medium</td><td class="medium">Medium</td>
+          <td>Configuration baselines, audits, automated configuration management</td>
+        </tr>
+        <tr>
+          <td>Denial-of-service or availability disruptions</td>
+          <td>Low</td><td>High</td><td class="medium">Medium</td>
+          <td>Redundancy, network monitoring, disaster recovery planning</td>
+        </tr>
+        <tr>
+          <td>Data integrity loss from unauthorized changes</td>
+          <td>Low</td><td>Medium</td><td class="low">Low</td>
+          <td>Integrity monitoring, logging, change management procedures</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Policy statements</h2>
+
+  <h3>Incident response policy</h3>
+  <p>All employees must report suspected security events immediately to the designated incident response team. The policy defines procedures for identification, containment, eradication, and recovery — with clearly assigned roles for escalation, communication, and documentation throughout the incident lifecycle. Aligned with NIST SP 800-61, structured procedures reduce attacker dwell time and minimize operational impact.</p>
+
+  <h3>Disaster response policy</h3>
+  <p>Regular data backups, secure off-site backup storage, and prioritized recovery of critical systems are required. Recovery time and recovery point objectives are defined per system. Disaster recovery roles and communication protocols ensure coordinated response. NIST SP 800-34 compliance requires routine testing — not just documentation — of all recovery procedures.</p>
+
+  <h3>Access control policy</h3>
+  <p>Access is granted based on job function using role-based access control and least privilege. MFA is required for administrative accounts, remote access services, and systems containing sensitive data. Access rights are reviewed at least quarterly and adjusted immediately upon role change or separation. Balances strong protection with usability to avoid control bypass through workarounds.</p>
+
+  <h3>Plan maintenance policy</h3>
+  <p>The information assurance plan is a living document, reviewed annually and following any significant incident, technology change, or regulatory update. Security awareness training is conducted on a recurring schedule. Regular risk assessments, audits, and incident response exercises validate that controls remain effective as the threat landscape evolves.</p>
+
+  <h2>Implementation barriers and mitigations</h2>
+  <ul>
+    <li><strong>Operational constraints on patching:</strong> Schedule maintenance windows during low-impact periods; prioritize by CVSS severity</li>
+    <li><strong>Resistance to MFA adoption:</strong> Lead with executive-mandated rollout; demonstrate phishing risk with tabletop exercises</li>
+    <li><strong>Budget and staffing limits:</strong> Prioritize controls by risk level; leverage open-source SIEM tooling to extend coverage without significant cost</li>
+    <li><strong>Untested response plans:</strong> Run tabletop and functional exercises quarterly; document lessons learned and revise procedures after each</li>
+  </ul>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Risk assessment (NIST 800-30)</div>
+    <div class="skill-item">Security controls (NIST 800-53)</div>
+    <div class="skill-item">Incident response planning</div>
+    <div class="skill-item">Disaster recovery policy</div>
+    <div class="skill-item">Access control design</div>
+    <div class="skill-item">Governance and compliance</div>
+    <div class="skill-item">Risk matrix development</div>
+    <div class="skill-item">Policy writing</div>
+  </div>
+</main>
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+</body>
+</html>

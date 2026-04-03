@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Protection Technologies Evaluation | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text: #1a1a1a;
+    --muted: #555;
+    --light: #888;
+    --border: #e0e0e0;
+    --bg: #fff;
+    --accent: #1a1a1a;
+    --tag-bg: #f2f2f2;
+    --code-bg: #f7f7f7;
+    --table-head: #f5f5f5;
+  }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    padding: 0 1rem;
+  }
+
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+
+  .skip { position: absolute; left: -9999px; }
+
+  /* Nav */
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+  .site-nav span { color: var(--border); }
+
+  /* Header */
+  .project-label {
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    max-width: 700px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+  }
+  .tags span {
+    background: var(--tag-bg);
+    padding: 3px 10px;
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  .breadcrumbs {
+    display: flex;
+    gap: 1rem;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+
+  /* Main content */
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+
+  .intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h2 {
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin: 2.5rem 0 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  p { margin-bottom: 1rem; }
+
+  ul {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  ul li { margin-bottom: 0.4rem; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, sans-serif;
+    font-size: 13.5px;
+  }
+  th {
+    background: var(--table-head);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* Callout */
+  .callout {
+    border-left: 2px solid var(--text);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: var(--tag-bg);
+    font-size: 0.95rem;
+  }
+  .callout strong {
+    display: block;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    color: var(--muted);
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .skill-item {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: var(--light);
+    display: flex;
+    justify-content: space-between;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  Project page
+</nav>
+
+<main id="main">
+  <p class="project-label">CYB-220 · Network Security</p>
+
+  <h1>Network Protection Technologies Evaluation</h1>
+
+  <div class="tags">
+    <span>Defense in Depth</span>
+    <span>NIPS</span>
+    <span>HIPS</span>
+    <span>Snort</span>
+    <span>OSSEC</span>
+    <span>Intrusion Prevention</span>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+
+  <p class="intro">
+    This project evaluates network protection technologies for a financial institution with segmented networks and limited IT staffing. Using the Defense in Depth principle as a framework, it recommends a layered intrusion prevention strategy that balances security efficacy, operational cost, and implementation complexity.
+  </p>
+
+  <h2>Scenario</h2>
+  <p>The organization operates four network segments — sales, acquisitions, HR, and IT — and faces ongoing unauthorized access attempts alongside network performance degradation. The IT team recently expanded with two new hires, and the organization has a stated preference for open-source tooling to manage costs.</p>
+
+  <h2>Framework</h2>
+  <p>The recommendation is grounded in Defense in Depth: the principle that no single control should be the last line of defense. Layered protections ensure that a failure at one level does not expose the entire network. Applied here, this means combining network-level visibility with endpoint-level control.</p>
+
+  <h2>Recommended solution</h2>
+
+  <h3>Network-Based Intrusion Prevention (NIPS) — Snort</h3>
+  <p>NIPS deployed at segment gateways monitors inter-VLAN traffic in real time, detecting and blocking unauthorized access attempts before they propagate. Snort — a widely adopted open-source NIPS — provides signature-based and anomaly detection with low licensing cost and strong community support. It is well-suited to heterogeneous environments like this one, where traffic patterns vary significantly across departments.</p>
+
+  <h3>Host-Based Intrusion Prevention (HIPS) — OSSEC</h3>
+  <p>HIPS software runs on individual endpoints, providing granular visibility into host-level activity. OSSEC handles log analysis, file integrity monitoring, and rootkit detection. Critically, HIPS can inspect encrypted traffic that NIPS cannot evaluate at the network layer — a meaningful gap filler in environments handling sensitive HR or financial data.</p>
+
+  <div class="callout">
+    <strong>Why both</strong>
+    NIPS provides broad network coverage; HIPS provides depth at the endpoint. Together they remove the single-point-of-failure risk that either technology carries on its own.
+  </div>
+
+  <h2>Technology comparison</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>NIPS (Snort)</th>
+          <th>HIPS (OSSEC)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Deployment point</td>
+          <td>Network gateways</td>
+          <td>Individual endpoints</td>
+        </tr>
+        <tr>
+          <td>Encrypted traffic</td>
+          <td>Limited visibility</td>
+          <td>Full inspection</td>
+        </tr>
+        <tr>
+          <td>Coverage scope</td>
+          <td>All segment traffic</td>
+          <td>Per-host activity</td>
+        </tr>
+        <tr>
+          <td>Cost</td>
+          <td>Open-source</td>
+          <td>Open-source</td>
+        </tr>
+        <tr>
+          <td>Staff skill required</td>
+          <td>Moderate (rule tuning)</td>
+          <td>Low–moderate</td>
+        </tr>
+        <tr>
+          <td>False positive risk</td>
+          <td>Medium (needs tuning)</td>
+          <td>Low with proper config</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Implementation plan</h2>
+
+  <h3>Hardware and deployment</h3>
+  <ul>
+    <li>Deploy Snort appliances at critical network gateways between the four segments</li>
+    <li>Install OSSEC agents on high-priority endpoints in HR and IT first, then expand</li>
+    <li>No significant hardware upgrades required — both tools integrate with existing infrastructure</li>
+  </ul>
+
+  <h3>Staffing</h3>
+  <ul>
+    <li>Senior IT staff lead NIPS configuration and rule management</li>
+    <li>Junior hires assist with HIPS agent deployment on endpoints, building hands-on familiarity</li>
+    <li>Both roles participate in initial training to establish baseline response procedures</li>
+  </ul>
+
+  <h3>Policies and procedures</h3>
+  <ul>
+    <li>Scheduled rule and signature updates to reduce false positives over time</li>
+    <li>Access control policy defining user permissions per segment, especially HR and acquisitions</li>
+    <li>Incident response runbook covering alert triage, escalation, and documentation</li>
+  </ul>
+
+  <h2>Risk considerations</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Risk</th>
+          <th>Mitigation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Attackers using encrypted channels to evade NIPS</td>
+          <td>HIPS inspection fills this gap at the endpoint layer</td>
+        </tr>
+        <tr>
+          <td>Alert fatigue from excessive false positives</td>
+          <td>Scheduled tuning cycles and baseline profiling after deployment</td>
+        </tr>
+        <tr>
+          <td>New IT staff overwhelmed during initial rollout</td>
+          <td>Phased deployment prioritizing highest-risk segments first</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Defense in Depth design</div>
+    <div class="skill-item">Intrusion prevention systems</div>
+    <div class="skill-item">Open-source security tooling</div>
+    <div class="skill-item">Risk-based decision making</div>
+    <div class="skill-item">Security policy development</div>
+    <div class="skill-item">Staffing and resource planning</div>
+  </div>
+</main>
+
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+
+</body>
+</html>

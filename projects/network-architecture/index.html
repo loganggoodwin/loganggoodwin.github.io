@@ -1,52 +1,47 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Information Assurance Plan | Logan Garth Goodwin</title>
-<meta name="description" content="Information Assurance Plan project page for Logan Garth Goodwin." />
+<title>Multi-Site Network Architecture Evaluation | Logan Garth Goodwin</title>
+<meta name="description" content="Multi-site network architecture evaluation and SD-WAN future-state design project page for Logan Garth Goodwin." />
 <link rel="stylesheet" href="../../styles.css" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-shell"><div class="container prose"><p class="section-kicker">Project page</p><h1>Information Assurance Plan</h1><p class="lede">NIST-aligned governance, access control, monitoring, response, and continuity planning</p><div class="back-row"><a class="btn btn-secondary" href="../index.html">Projects</a><a class="btn btn-secondary" href="../../index.html">Home</a></div></div></header>
+<header class="site-shell"><div class="container prose"><p class="section-kicker">Project page</p><h1>Multi-Site Network Architecture Evaluation</h1><p class="lede">Enterprise SD-WAN future-state architecture with redundancy, segmentation, and centralized security controls</p><div class="back-row"><a class="btn btn-secondary" href="../index.html">Projects</a><a class="btn btn-secondary" href="../../index.html">Home</a><a class="btn btn-secondary" href="../../assets/projects/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf">Open PDF</a></div></div></header>
 <main id="main" class="section"><div class="container card prose">
-<p>This project establishes a structured information assurance plan to protect confidentiality, integrity, and availability across an organization facing modern cyber threats. It is built around risk assessment, clearly defined roles, incident response, disaster recovery, and continuous maintenance.</p>
+<p>This project evaluates a multi-site enterprise network and recommends a more resilient future-state design built around SD-WAN, layered security, and operational standardization. The goal was to address single points of failure, uneven security controls, and growing demand for cloud, voice, and video services across multiple locations.</p>
 
-<h2>What the project covers</h2>
+<h2>Primary issues identified</h2>
 <ul>
-  <li>CIA triad alignment across people, process, and technology.</li>
-  <li>Security roles and responsibilities for leadership, IT, and end users.</li>
-  <li>Risk assessment focused on patching, credential compromise, logging, backups, and ransomware.</li>
-  <li>Policy statements for incident response, disaster response, access control, and plan maintenance.</li>
+  <li>WAN connectivity relied too heavily on limited paths, increasing outage risk.</li>
+  <li>Firewall coverage and security controls were inconsistent between sites.</li>
+  <li>The environment was not designed to scale cleanly for new offices and services.</li>
+  <li>Latency-sensitive traffic such as VoIP and video lacked enough prioritization.</li>
 </ul>
 
-<h2>Major weaknesses identified</h2>
+<h2>Recommended architecture</h2>
 <ul>
-  <li>Delayed and inconsistent patch management.</li>
-  <li>Logging and monitoring that lacked centralization.</li>
-  <li>Limited disaster recovery testing and response validation.</li>
-  <li>Infrequent awareness training against phishing and credential theft.</li>
+  <li>Dual-hub SD-WAN design to improve resiliency and disaster recovery.</li>
+  <li>Redundant ISP connectivity and encrypted tunnels between sites.</li>
+  <li>Next-generation firewalls at every location for more consistent perimeter defense.</li>
+  <li>Centralized monitoring, logging, and traffic visibility for faster response and troubleshooting.</li>
 </ul>
 
-<h2>High-priority recommendations</h2>
-<ul>
-  <li>Enforce multi-factor authentication for administrative and sensitive access.</li>
-  <li>Centralize logging and continuous monitoring.</li>
-  <li>Test incident response and disaster recovery procedures regularly.</li>
-  <li>Apply least privilege and formal access reviews.</li>
-</ul>
+<h2>Segmentation and access control</h2>
+<p>The proposed design separates traffic into dedicated network segments for data, voice, video, servers, management, and guest access. I like that this approach reduces unnecessary east-west exposure, improves troubleshooting, and supports stronger access control through ACLs, policy enforcement, and authenticated network access.</p>
 
-<h2>Risk highlights</h2>
+<h2>Performance and continuity improvements</h2>
 <table>
-  <thead><tr><th>Threat</th><th>Likelihood</th><th>Impact</th><th>Priority</th></tr></thead>
+  <thead><tr><th>Area</th><th>Improvement</th><th>Benefit</th></tr></thead>
   <tbody>
-    <tr><td>Unpatched vulnerabilities</td><td>High</td><td>High</td><td>Immediate</td></tr>
-    <tr><td>Ransomware attacks</td><td>High</td><td>High</td><td>Immediate</td></tr>
-    <tr><td>Credential theft through phishing</td><td>High</td><td>Medium</td><td>High</td></tr>
-    <tr><td>Insider misuse / excessive privileges</td><td>Medium</td><td>Medium</td><td>Moderate</td></tr>
+    <tr><td>Availability</td><td>Dual hubs and redundant WAN links</td><td>Better uptime and failover support</td></tr>
+    <tr><td>Security</td><td>NGFWs, MFA, centralized monitoring</td><td>Stronger and more consistent protection</td></tr>
+    <tr><td>Performance</td><td>QoS for voice and video traffic</td><td>Improved experience for real-time services</td></tr>
+    <tr><td>Scalability</td><td>Template-based deployment and standardization</td><td>Faster onboarding for new sites</td></tr>
   </tbody>
 </table>
 
 <h2>Why it matters</h2>
-<p>I believe this project stands out because it shows security thinking beyond tools alone. It ties controls, governance, and operational maintenance together into a workable program rather than a checklist.</p>
+<p>I think this project works well in a portfolio because it shows both analysis and design. It is not just a diagram. It demonstrates how I evaluate risk, map business needs to technical controls, and build a practical architecture that improves resilience, security, and growth readiness.</p>
 </div></main>
 <footer class="footer"><div class="container footer-inner"><p>© <span id="year"></span> Logan Garth Goodwin</p><a href="#main">Back to top</a></div></footer><script src="../../script.js"></script></body></html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threat Actor Detection and Response Framework | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text: #1a1a1a;
+    --muted: #555;
+    --light: #888;
+    --border: #e0e0e0;
+    --bg: #fff;
+    --tag-bg: #f2f2f2;
+    --table-head: #f5f5f5;
+  }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    padding: 0 1rem;
+  }
+
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+
+  .skip { position: absolute; left: -9999px; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .project-label {
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    max-width: 700px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+  }
+  .tags span {
+    background: var(--tag-bg);
+    padding: 3px 10px;
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  .breadcrumbs {
+    display: flex;
+    gap: 1rem;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+
+  .intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h2 {
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin: 2.5rem 0 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  p { margin-bottom: 1rem; }
+
+  ul {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  ul li { margin-bottom: 0.4rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, sans-serif;
+    font-size: 13.5px;
+  }
+  th {
+    background: var(--table-head);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .callout {
+    border-left: 2px solid var(--text);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: var(--tag-bg);
+    font-size: 0.95rem;
+  }
+  .callout strong {
+    display: block;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    color: var(--muted);
+  }
+
+  /* Strategy cards */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0 1.5rem;
+  }
+  @media (max-width: 560px) {
+    .strategy-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  .strategy-card {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.85rem;
+  }
+  .strategy-card .label {
+    font-family: system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.5rem;
+  }
+  .strategy-card p {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .skill-item {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: var(--light);
+    display: flex;
+    justify-content: space-between;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  Project page
+</nav>
+
+<main id="main">
+  <p class="project-label">CYB-200 · Cybersecurity Foundations</p>
+
+  <h1>Threat Actor Detection and Response Framework</h1>
+
+  <div class="tags">
+    <span>Threat detection</span>
+    <span>Insider threats</span>
+    <span>Credential theft</span>
+    <span>Incident response</span>
+    <span>Security awareness</span>
+    <span>MFA</span>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+
+  <p class="intro">
+    This project builds a structured decision aid for identifying, characterizing, and responding to insider and physical threat actors. It covers five threat actor types across seven institution categories, then develops a focused detection and response plan for credential stealers — one of the most consequential and underestimated threat vectors in enterprise environments.
+  </p>
+
+  <h2>Detection methods</h2>
+  <p>Effective threat detection requires multiple overlapping approaches. No single method catches everything — detection depth mirrors the Defense in Depth principle applied to visibility.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Awareness</strong></td>
+          <td>Training employees to recognize suspicious behavior and understand security policies reduces the dwell time of undetected threats.</td>
+        </tr>
+        <tr>
+          <td><strong>Auditing</strong></td>
+          <td>Regular log and system activity reviews surface anomalies that automated tools may miss, especially for slow-and-low attacks.</td>
+        </tr>
+        <tr>
+          <td><strong>Monitoring</strong></td>
+          <td>Real-time tooling flags unusual access patterns, privilege escalations, and off-hours activity as they occur.</td>
+        </tr>
+        <tr>
+          <td><strong>Testing</strong></td>
+          <td>Penetration testing and vulnerability assessments find exploitable weaknesses before threat actors do.</td>
+        </tr>
+        <tr>
+          <td><strong>Sandboxing</strong></td>
+          <td>Isolated environments allow safe analysis of suspicious files or behavior without exposing production systems.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Threat actor types</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Actor</th>
+          <th>Description</th>
+          <th>Primary motivation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Shoulder surfer</td>
+          <td>Observes screens or keyboards to capture credentials or sensitive data</td>
+          <td>Theft, fraud</td>
+        </tr>
+        <tr>
+          <td>Policy violator</td>
+          <td>Intentionally or unintentionally bypasses security policies</td>
+          <td>Convenience, negligence, sabotage</td>
+        </tr>
+        <tr>
+          <td>Credential stealer</td>
+          <td>Uses compromised credentials to gain unauthorized system access</td>
+          <td>Data theft, financial fraud</td>
+        </tr>
+        <tr>
+          <td>Tailgater</td>
+          <td>Follows authorized personnel into restricted physical areas</td>
+          <td>Asset theft, espionage</td>
+        </tr>
+        <tr>
+          <td>Asset thief</td>
+          <td>Physically removes hardware or sensitive documents from premises</td>
+          <td>Theft, competitive intelligence</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Assets at risk by sector</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Sector</th>
+          <th>High-value targets</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Financial</td><td>Customer data, transaction records, financial statements</td></tr>
+        <tr><td>Medical</td><td>Patient records, research data, proprietary clinical processes</td></tr>
+        <tr><td>Educational</td><td>Student records, research data, intellectual property</td></tr>
+        <tr><td>Government</td><td>Classified information, citizen data, operational systems</td></tr>
+        <tr><td>Retail</td><td>Payment data, inventory systems, supplier information</td></tr>
+        <tr><td>Pharmaceutical</td><td>Drug formulas, clinical trial data, proprietary research</td></tr>
+        <tr><td>Entertainment</td><td>Unreleased content, intellectual property, customer data</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Focus: credential stealers</h2>
+
+  <p>Credential theft was selected as the focus actor because it is the entry point for a disproportionate share of data breaches. Stolen credentials grant attackers legitimate-looking access, making them significantly harder to detect than external intrusion attempts and allowing dwell times that compound the damage.</p>
+
+  <div class="callout">
+    <strong>Why this actor</strong>
+    Credential stealers operate inside the trust boundary. Once authenticated, they can exfiltrate data, escalate privileges, and move laterally — often without triggering signature-based alerts. The response strategy must therefore emphasize both prevention and rapid anomaly detection.
+  </div>
+
+  <h3>Reactive response strategies</h3>
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <p class="label">Strategy 1</p>
+      <p>Implement multi-factor authentication on all privileged accounts to block stolen password use at the login boundary.</p>
+    </div>
+    <div class="strategy-card">
+      <p class="label">Strategy 2</p>
+      <p>Deploy security awareness training focused specifically on phishing and credential hygiene to reduce initial compromise rates.</p>
+    </div>
+    <div class="strategy-card">
+      <p class="label">Strategy 3</p>
+      <p>Use intrusion detection systems tuned for anomalous login behavior — unusual hours, locations, or access patterns — to identify stolen credential use in progress.</p>
+    </div>
+  </div>
+
+  <h3>Proactive prevention strategies</h3>
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <p class="label">Strategy 1</p>
+      <p>Maintain a consistent patching schedule to close vulnerabilities that credential stealers use to escalate privileges after initial access.</p>
+    </div>
+    <div class="strategy-card">
+      <p class="label">Strategy 2</p>
+      <p>Enforce strict access controls and conduct regular permission reviews, applying least privilege so stolen credentials have limited blast radius.</p>
+    </div>
+    <div class="strategy-card">
+      <p class="label">Strategy 3</p>
+      <p>Continuously monitor network traffic for lateral movement patterns — credential stealers who successfully authenticate often pivot quickly to higher-value systems.</p>
+    </div>
+  </div>
+
+  <h2>Why this project matters</h2>
+  <p>Decision aids like this one are practical tools for security teams that need repeatable, structured processes for threat assessment. This project demonstrates the ability to categorize threat actors, map them to organizational assets, and develop both reactive and proactive response plans — analytical skills that apply directly to security operations and risk management roles.</p>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Threat actor characterization</div>
+    <div class="skill-item">Risk and asset mapping</div>
+    <div class="skill-item">Incident response planning</div>
+    <div class="skill-item">Security awareness design</div>
+    <div class="skill-item">Structured analytical writing</div>
+    <div class="skill-item">Proactive vs. reactive controls</div>
+  </div>
+</main>
+
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+
+</body>
+</html>

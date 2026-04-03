@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Network VLAN Segmentation | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text: #1a1a1a;
+    --muted: #555;
+    --light: #888;
+    --border: #e0e0e0;
+    --bg: #fff;
+    --tag-bg: #f2f2f2;
+    --code-bg: #f7f7f7;
+    --table-head: #f5f5f5;
+  }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    padding: 0 1rem;
+  }
+
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+
+  .skip { position: absolute; left: -9999px; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .project-label {
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    max-width: 700px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+  }
+  .tags span {
+    background: var(--tag-bg);
+    padding: 3px 10px;
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  .breadcrumbs {
+    display: flex;
+    gap: 1rem;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+
+  .intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h2 {
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin: 2.5rem 0 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  p { margin-bottom: 1rem; }
+
+  ul {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  ul li { margin-bottom: 0.4rem; }
+
+  /* Step list */
+  .steps { list-style: none; padding: 0; counter-reset: steps; }
+  .steps li {
+    counter-increment: steps;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+  }
+  .steps li::before {
+    content: counter(steps);
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, sans-serif;
+    font-size: 13.5px;
+  }
+  th {
+    background: var(--table-head);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .callout {
+    border-left: 2px solid var(--text);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: var(--tag-bg);
+    font-size: 0.95rem;
+  }
+  .callout strong {
+    display: block;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    color: var(--muted);
+  }
+
+  /* Verification checklist */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .check::after {
+    content: '';
+    width: 5px;
+    height: 8px;
+    border-right: 1.5px solid #fff;
+    border-bottom: 1.5px solid #fff;
+    transform: rotate(40deg) translate(-1px, -1px);
+    display: block;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .skill-item {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: var(--light);
+    display: flex;
+    justify-content: space-between;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  Project page
+</nav>
+
+<main id="main">
+  <p class="project-label">CYB-210 · Computer Networking</p>
+
+  <h1>Guest Network VLAN Segmentation</h1>
+
+  <div class="tags">
+    <span>VLANs</span>
+    <span>Network segmentation</span>
+    <span>DHCP</span>
+    <span>Cisco Packet Tracer</span>
+    <span>Guest isolation</span>
+    <span>IP cameras</span>
+  </div>
+
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+
+  <p class="intro">
+    This project implements VLAN-based network segmentation to isolate guest devices and IP cameras from the primary internal network. Guest users — connected via a repurposed router — receive internet access only. Cameras are placed on a dedicated segment. All devices obtain addresses via DHCP, and end-to-end connectivity is verified with ping tests.
+  </p>
+
+  <h2>Objective</h2>
+  <p>Segregate guest traffic (a tablet and phone) and surveillance cameras onto their own VLANs, preventing lateral access to internal network resources while maintaining full internet reachability for guests. This reflects a common real-world requirement for small offices, retail environments, and hospitality networks.</p>
+
+  <h2>Network design</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>VLAN</th>
+          <th>Purpose</th>
+          <th>Devices</th>
+          <th>Address source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Internal</td>
+          <td>Primary network</td>
+          <td>Core infrastructure</td>
+          <td>Static</td>
+        </tr>
+        <tr>
+          <td>Guest</td>
+          <td>Visitor internet access</td>
+          <td>Tablet, phone</td>
+          <td>DHCP</td>
+        </tr>
+        <tr>
+          <td>Cameras</td>
+          <td>Surveillance isolation</td>
+          <td>IP cameras ×2</td>
+          <td>DHCP</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <strong>Security rationale</strong>
+    Placing guest devices and cameras on isolated VLANs limits the blast radius of any compromise. A guest device cannot reach internal servers, and a compromised camera cannot pivot to business systems.
+  </div>
+
+  <h2>Implementation steps</h2>
+
+  <ol class="steps">
+    <li>
+      <div>Relocated the old router, tablet, and phone into the guest area. Connected the old router to the core switch as the guest segment uplink.</div>
+    </li>
+    <li>
+      <div>Configured VLANs on the switch — one for guest devices and one for the camera segment. Set trunk ports to carry tagged traffic between the switch and the router.</div>
+    </li>
+    <li>
+      <div>Programmed the old router with sub-interfaces for guest VLAN routing, and configured DHCP pools for both the guest and camera VLANs so devices receive addresses automatically.</div>
+    </li>
+    <li>
+      <div>Moved the IP cameras to the camera VLAN and assigned them to the correct switch ports. Verified camera addressing and segment isolation.</div>
+    </li>
+    <li>
+      <div>Confirmed the tablet and phone pulled DHCP leases correctly from the guest pool, with proper gateway and DNS assignment.</div>
+    </li>
+    <li>
+      <div>Ran ping tests from the tablet, phone, and both cameras to verify reachability within each segment and confirm cross-segment isolation.</div>
+    </li>
+  </ol>
+
+  <h2>Verification</h2>
+
+  <ul class="checklist">
+    <li><span class="check"></span>Tablet received valid DHCP lease from guest pool</li>
+    <li><span class="check"></span>Phone received valid DHCP lease from guest pool</li>
+    <li><span class="check"></span>Camera 1 received valid DHCP lease from camera pool</li>
+    <li><span class="check"></span>Camera 2 received valid DHCP lease from camera pool</li>
+    <li><span class="check"></span>Ping successful from tablet to gateway</li>
+    <li><span class="check"></span>Ping successful from phone to gateway</li>
+    <li><span class="check"></span>Ping successful from both cameras to their gateway</li>
+    <li><span class="check"></span>Cross-VLAN ping blocked between guest and camera segments</li>
+  </ul>
+
+  <h2>Why this matters</h2>
+  <p>VLAN segmentation is one of the most foundational controls in network security. This project demonstrates the ability to plan a segmented topology, configure a switch and router to enforce it, set up DHCP correctly per segment, and verify that isolation is actually working — not just assumed. These are practical skills that apply directly to enterprise support, network administration, and security roles.</p>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">VLAN configuration</div>
+    <div class="skill-item">Router sub-interfaces</div>
+    <div class="skill-item">DHCP pool setup</div>
+    <div class="skill-item">Network segmentation</div>
+    <div class="skill-item">Connectivity verification</div>
+    <div class="skill-item">Guest network design</div>
+  </div>
+</main>
+
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+
+</body>
+</html>

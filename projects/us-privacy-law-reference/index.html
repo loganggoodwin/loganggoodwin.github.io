@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. Privacy Law Reference | Logan Garth Goodwin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1a1a1a; --muted: #555; --light: #888;
+    --border: #e0e0e0; --bg: #fff; --tag-bg: #f2f2f2; --table-head: #f5f5f5;
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.75; color: var(--text); background: var(--bg); padding: 0 1rem; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { opacity: 0.6; }
+  .skip { position: absolute; left: -9999px; }
+  .site-nav { display: flex; align-items: center; padding: 1.25rem 0; font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .project-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 1.25rem; }
+  h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 700px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-family: system-ui, sans-serif; font-size: 12px; }
+  .tags span { background: var(--tag-bg); padding: 3px 10px; border-radius: 2px; color: var(--muted); }
+  .breadcrumbs { display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .breadcrumbs a { text-decoration: none; color: var(--muted); }
+  .breadcrumbs a:hover { color: var(--text); }
+  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
+  .intro { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  h2 { font-family: system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin: 2.5rem 0 1rem; }
+  p { margin-bottom: 1rem; }
+  ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  ul li { margin-bottom: 0.4rem; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 13.5px; }
+  th { background: var(--table-head); text-align: left; padding: 8px 12px; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .callout { border-left: 2px solid var(--text); padding: 1rem 1.25rem; margin: 1.5rem 0; background: var(--tag-bg); font-size: 0.95rem; }
+  .callout strong { display: block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--muted); }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+  @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-item { font-family: system-ui, sans-serif; font-size: 13px; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site-nav">Project page</nav>
+<main id="main">
+  <p class="project-label">CYB-260 · Legal and Human Factors of Cybersecurity</p>
+  <h1>U.S. Privacy Law Reference</h1>
+  <div class="tags">
+    <span>Privacy law</span><span>HIPAA</span><span>ECPA</span><span>FOIA</span>
+    <span>Compliance</span><span>Regulatory</span><span>Cyberlaw</span>
+  </div>
+  <div class="breadcrumbs">
+    <a href="../../projects/index.html">Projects</a>
+    <a href="../../index.html">Home</a>
+  </div>
+  <p class="intro">This project maps ten major U.S. privacy and data protection statutes — from the Census Confidentiality Act to the HITECH Act — identifying who each law protects, what it requires, and which organizational roles carry compliance responsibility. Understanding this landscape is foundational for security professionals operating in any regulated environment.</p>
+
+  <h2>Why privacy law matters to security teams</h2>
+  <p>Technical security controls exist within a legal and regulatory framework. A security analyst who understands which laws govern the data they are protecting can make better decisions about access controls, incident response timelines, breach notification obligations, and data retention. Non-compliance is not just a legal risk — it is a security gap.</p>
+
+  <div class="callout">
+    <strong>Compliance ownership</strong>
+    Each law below identifies the organizational role responsible for enforcement. In practice, these responsibilities often fall to legal, IT security, compliance officers, and privacy teams working in coordination — making cross-functional awareness essential.
+  </div>
+
+  <h2>Statute reference</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Law</th>
+          <th>Year</th>
+          <th>Core protection</th>
+          <th>Covers</th>
+          <th>Compliance owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Census Confidentiality Act</td>
+          <td>Ongoing</td>
+          <td>Prohibits sharing of personally identifiable census data</td>
+          <td>U.S. census respondents</td>
+          <td>U.S. Census Bureau employees</td>
+        </tr>
+        <tr>
+          <td>Freedom of Information Act (FOIA)</td>
+          <td>1966</td>
+          <td>Requires federal agencies to make records publicly accessible with defined exemptions</td>
+          <td>Everyone, including non-citizens</td>
+          <td>Agency FOIA and legal departments</td>
+        </tr>
+        <tr>
+          <td>Wiretap Act (amended as ECPA)</td>
+          <td>1968 / 1986</td>
+          <td>Prohibits intentional interception of wire, oral, or electronic communications without authorization</td>
+          <td>All communicating parties</td>
+          <td>IT security and legal compliance teams</td>
+        </tr>
+        <tr>
+          <td>Mail Privacy Statute</td>
+          <td>1971</td>
+          <td>Requires a warrant to open or tamper with first-class mail</td>
+          <td>All U.S. Postal Service users</td>
+          <td>Postal employees and mailroom managers</td>
+        </tr>
+        <tr>
+          <td>Privacy Act</td>
+          <td>1974</td>
+          <td>Restricts federal agencies from collecting and sharing personal information without consent</td>
+          <td>U.S. citizens and lawful permanent residents</td>
+          <td>Federal government privacy and data officers</td>
+        </tr>
+        <tr>
+          <td>Cable Communications Policy Act</td>
+          <td>1984</td>
+          <td>Requires cable companies to protect customer viewing and billing data</td>
+          <td>Cable TV subscribers</td>
+          <td>Cable company legal and compliance teams</td>
+        </tr>
+        <tr>
+          <td>Electronic Communications Privacy Act (ECPA)</td>
+          <td>1986</td>
+          <td>Prohibits unauthorized access to and interception of electronic communications including email and phone</td>
+          <td>Email, phone, and digital platform users</td>
+          <td>IT and network security professionals</td>
+        </tr>
+        <tr>
+          <td>Driver's Privacy Protection Act</td>
+          <td>1994</td>
+          <td>Limits disclosure of personal information from state motor vehicle records</td>
+          <td>Licensed drivers and vehicle registrants</td>
+          <td>DMV staff and data managers</td>
+        </tr>
+        <tr>
+          <td>E-Government Act</td>
+          <td>2002</td>
+          <td>Promotes secure and privacy-respecting online access to federal services and data</td>
+          <td>U.S. residents using federal digital services</td>
+          <td>Federal agency IT teams and CIOs</td>
+        </tr>
+        <tr>
+          <td>HITECH Act</td>
+          <td>2009</td>
+          <td>Strengthens HIPAA patient data protections and expands requirements around electronic health records</td>
+          <td>Patients in the U.S. healthcare system</td>
+          <td>Healthcare IT, clinical, and compliance staff</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Patterns across the framework</h2>
+  <p>Several themes emerge when viewing these statutes together. First, the U.S. privacy framework is sectoral — laws target specific industries or data types rather than establishing a single comprehensive standard. Healthcare data is covered by HIPAA and HITECH; motor vehicle data by DPPA; government records by FOIA and the Privacy Act. This means security professionals must understand which laws apply to the data their organization holds.</p>
+  <p>Second, compliance ownership is distributed. Legal teams, IT security, HR, and operations all carry responsibility depending on the data type and incident context. Effective compliance requires these teams to coordinate — and for security staff to understand the legal landscape their controls operate within.</p>
+  <p>Third, many of these laws were enacted before modern digital infrastructure existed. ECPA, for example, was written before ubiquitous cloud storage and encrypted messaging. Security professionals should understand that legal frameworks often lag behind technical reality, requiring careful interpretation and anticipation of regulatory updates.</p>
+
+  <h2>Skills demonstrated</h2>
+  <div class="skills-grid">
+    <div class="skill-item">Privacy law analysis</div>
+    <div class="skill-item">Regulatory compliance mapping</div>
+    <div class="skill-item">Legal framework interpretation</div>
+    <div class="skill-item">Cross-functional compliance ownership</div>
+    <div class="skill-item">Sectoral data protection</div>
+    <div class="skill-item">Security and legal integration</div>
+  </div>
+</main>
+<footer>
+  <span>© Logan Garth Goodwin</span>
+  <a href="#main">Back to top</a>
+</footer>
+</body>
+</html>
