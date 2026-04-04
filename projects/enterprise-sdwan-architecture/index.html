@@ -7,49 +7,42 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-shell"><div class="container prose"><p class="section-kicker">Project page</p><h1>Enterprise Network Analysis and SD-WAN Architecture</h1><p class="lede">SD-WAN · NGFW · QoS · Disaster Recovery · SolarWinds · Splunk</p><div class="back-row"><a class="btn btn-secondary" href="../index.html">Projects</a><a class="btn btn-secondary" href="../../index.html">Home</a></div></div></header>
+<header class="site-shell"><div class="container prose"><p class="section-kicker">Project page</p><h1>Enterprise Network Analysis and SD-WAN Architecture</h1><p class="lede">SD-WAN · NGFW · QoS · Disaster Recovery · SolarWinds · Splunk</p><div class="back-row"><a class="btn btn-secondary" href="../index.html">Projects</a><a class="btn btn-secondary" href="../../index.html">Home</a><a class="btn btn-ghost" href="../../assets/projects/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf">PDF</a></div></div></header>
 <main id="main" class="section"><div class="container card prose">
-<img src="../../images/projects/sla-requirements.svg" alt="Illustration representing enterprise network planning and service requirements" class="project-image" />
-<p>This project evaluates the existing network infrastructure of SNHUEnergy, Inc., a multi-site energy company with offices in Dallas and Memphis, identifies performance and security deficiencies, and proposes a dual-hub SD-WAN architecture to support expansion into Kansas City and Houston. It covers OSI-layer analysis, traffic characterization, security hardening, and a phased implementation plan.</p>
-<h2>Executive summary</h2>
-<p>I believe this project is one of the stronger examples in the portfolio because it connects infrastructure design to business continuity. The proposed architecture removes single points of failure, improves remote and interoffice connectivity, and introduces security and monitoring controls that scale with additional locations.</p>
-<h2>Current state assessment</h2>
-<table><thead><tr><th>Finding</th><th>Impact</th><th>Risk level</th></tr></thead><tbody>
-<tr><td>Memphis lacked a local firewall</td><td>Perimeter protection depended on Dallas, creating a security and availability single point of failure</td><td>High</td></tr>
+<img src="../../images/projects/sdwan-diagram.png" alt="Diagram showing a multi-site SD-WAN architecture connecting a central data center, cloud applications, and branch offices" class="project-image" />
+<div class="callout"><h3>IT Support Impact Summary</h3><p class="impact-text">Evaluated a multi-site enterprise network to identify architectural weaknesses that could cause inconsistent user performance and difficult troubleshooting. Proposed improvements focused on increasing reliability, centralized visibility, and fault tolerance so support teams can diagnose and resolve connectivity issues faster across locations.</p></div>
+<p>This project evaluates the existing network infrastructure of a growing multi-site company, identifies security and performance weaknesses, and proposes a dual-hub SD-WAN architecture to support additional offices, better resilience, and more consistent policy enforcement.</p>
+<div class="mini-grid">
+  <div class="mini-card"><h3>My role</h3><p>Assessed current-state architecture, documented operational pain points, proposed the future-state SD-WAN design, and tied network choices to supportability and continuity.</p></div>
+  <div class="mini-card"><h3>IT support relevance</h3><p>Shows how I think about user experience, latency, visibility, failover, and how poor design choices create recurring support problems.</p></div>
+</div>
+<figure class="diagram-figure">
+  <img src="../../images/projects/sdwan-diagram.png" alt="Detailed multi-site SD-WAN diagram with central controller, VPN tunnel, cloud applications, and three branch offices" />
+  <figcaption>Proposed future-state view showing centralized SD-WAN control, branch edge devices, and improved visibility across sites.</figcaption>
+</figure>
+<h2>Current-state issues</h2>
+<table><thead><tr><th>Finding</th><th>User or support impact</th><th>Risk level</th></tr></thead><tbody>
+<tr><td>Memphis lacked a local firewall</td><td>Created a security and availability dependency on Dallas, increasing outage and troubleshooting complexity</td><td>High</td></tr>
 <tr><td>Sites relied on a single WAN connection</td><td>Provider outages could interrupt communications and line-of-business applications</td><td>High</td></tr>
-<tr><td>No QoS implementation</td><td>VoIP and video traffic competed with bulk data, degrading latency-sensitive services</td><td>Medium</td></tr>
+<tr><td>No QoS implementation</td><td>VoIP and video traffic competed with bulk data, degrading user-facing services</td><td>Medium</td></tr>
 <tr><td>Limited capacity planning</td><td>Bandwidth bottlenecks increased delay for payroll, billing, and database traffic</td><td>Medium</td></tr>
 </tbody></table>
-<h2>Proposed architecture</h2>
+<h2>Before vs. after</h2>
+<table><thead><tr><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td>Single-path WAN dependencies</td><td>Dual-hub SD-WAN with failover-ready paths</td></tr>
+<tr><td>Limited monitoring visibility</td><td>Centralized monitoring and log correlation</td></tr>
+<tr><td>Inconsistent policy enforcement</td><td>More consistent security policy across locations</td></tr>
+<tr><td>Harder to isolate site-specific issues</td><td>Better path control and simpler fault isolation</td></tr>
+</tbody></table>
+<h2>Key design decisions</h2>
 <ul>
 <li>Dallas and Houston operate as redundant SD-WAN hub sites, with Memphis and Kansas City as spokes.</li>
 <li>Each site uses dual WAN links, with SD-WAN steering traffic across primary and backup paths.</li>
 <li>End-to-end IPsec VPN tunnels protect intersite traffic, while SSL VPN supports secure remote access.</li>
-<li>Cloud-bound traffic can break out intelligently rather than backhauling everything through a single hub.</li>
+<li>SolarWinds and Splunk add centralized visibility for faster issue detection and escalation.</li>
 </ul>
-<h2>LAN segmentation and security controls</h2>
-<ul>
-<li>Departmental VLAN separation for Finance, HR, and Operations.</li>
-<li>Layer 3 switching with 802.1Q trunking and QoS tagging.</li>
-<li>Next-generation firewalls at each site with application-layer inspection, IPS, and geo-blocking.</li>
-<li>Multi-factor authentication for remote and cloud access.</li>
-<li>Monitoring through SolarWinds for performance visibility and Splunk for centralized log correlation.</li>
-</ul>
-<h2>Disaster recovery and resiliency</h2>
-<p>Houston serves as a secondary hub for failover, with replicated core services such as Active Directory, DNS, and database workloads. This design reduces recovery time after a site outage and supports continued operations even when a provider or primary site becomes unavailable.</p>
-<h2>Implementation challenges</h2>
-<table><thead><tr><th>Challenge</th><th>Mitigation</th></tr></thead><tbody>
-<tr><td>Service interruption during cutover</td><td>Schedule migration during low-traffic windows and maintain rollback procedures</td></tr>
-<tr><td>Legacy hardware incompatibility</td><td>Perform a hardware audit and replace unsupported devices before deployment</td></tr>
-<tr><td>Employee disruption during transition</td><td>Use phased rollout planning and provide dedicated support during go-live windows</td></tr>
-<tr><td>Skill gaps in SD-WAN and NGFW administration</td><td>Provide vendor training before production deployment</td></tr>
-</tbody></table>
-<h2>Skills demonstrated</h2>
-<ul>
-<li>Multi-site WAN architecture and SD-WAN design.</li>
-<li>NGFW placement, VPN planning, and disaster recovery support.</li>
-<li>QoS and traffic prioritization for business-critical applications.</li>
-<li>Risk analysis that ties network design choices to operational outcomes.</li>
-</ul>
+<div class="callout"><h3>Key design decision</h3><p>SD-WAN was selected because it centralizes policy enforcement and monitoring while improving resilience and reducing the number of location-specific mystery problems that support teams have to chase manually.</p></div>
+<h2>What this proves</h2>
+<p>I believe this project shows that I can connect architecture choices to uptime, troubleshooting workload, user experience, and business continuity instead of treating network design like an isolated diagram exercise.</p>
 </div></main>
 <footer class="footer"><div class="container footer-inner"><p>© <span id="year"></span> Logan Garth Goodwin</p><a href="#main">Back to top</a></div></footer><script src="../../script.js"></script></body></html>

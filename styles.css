@@ -99,3 +99,16 @@ h2{margin:0 0 8px;font-size:clamp(1.6rem,2.8vw,2.5rem);line-height:1.15}
   h1{max-width:none}
   .section-heading,.footer-inner{flex-direction:column;align-items:flex-start}
 }
+
+.callout{margin:18px 0;padding:18px 20px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg, rgba(126,240,196,.10), rgba(255,255,255,.03));}
+.callout h3,.mini-card h3{margin:0 0 8px}
+.callout p:last-child,.mini-card p:last-child{margin-bottom:0}
+.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+.mini-card{padding:18px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.035)}
+.impact-text{font-size:1.04rem;color:var(--text);font-weight:600}
+.project-artifact{margin-top:16px}
+@media (max-width: 980px){.mini-grid{grid-template-columns:1fr}}
+
+.diagram-figure{margin:20px 0 8px}
+.diagram-figure img{width:100%;border-radius:20px;border:1px solid var(--line);background:#08111f;box-shadow:var(--shadow)}
+.diagram-figure figcaption{margin-top:10px;color:var(--muted);font-size:.95rem}

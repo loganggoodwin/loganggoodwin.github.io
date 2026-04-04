@@ -7,17 +7,18 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-shell"><div class="container prose"><p class="section-kicker">Project page</p><h1>Secure Enterprise Campus Infrastructure</h1><p class="lede">Cisco Packet Tracer · Cisco IOS · ASA Firewall · VLAN Segmentation · ACLs</p><div class="back-row"><a class="btn btn-secondary" href="../index.html">Projects</a><a class="btn btn-secondary" href="../../index.html">Home</a></div></div></header>
+<header class="site-shell"><div class="container prose"><p class="section-kicker">Project page</p><h1>Secure Enterprise Campus Infrastructure</h1><p class="lede">Cisco Packet Tracer · VLANs · ACLs · ASA Firewall · DMZ · Layer 2 Security</p><div class="back-row"><a class="btn btn-secondary" href="../index.html">Projects</a><a class="btn btn-secondary" href="../../index.html">Home</a></div></div></header>
 <main id="main" class="section"><div class="container card prose">
-<img src="../../images/projects/cyber-defense.svg" alt="Project illustration" class="project-image" />
-<p>This project demonstrates the design and deployment of a hardened, multi-segment campus network for a mid-sized organization with roughly 70 endpoints. The architecture uses a hierarchical collapsed core model to balance Layer 3 performance with a defense-in-depth posture.</p>
-
-<h2>Executive summary</h2>
-<p>Key outcomes included isolation of guest traffic, creation of a DMZ for public-facing services, and use of Zero Trust principles at the access layer. I think this project works well on a portfolio because it shows both architecture planning and control-level implementation.</p>
-
-<h2>Network segmentation</h2>
+<img src="../../images/projects/cyber-defense.svg" alt="Campus network segmentation and support illustration" class="project-image" />
+<div class="callout"><h3>IT Support Impact Summary</h3><p class="impact-text">Designed a segmented campus network that improves day-to-day troubleshooting by isolating user, server, guest, printer, and management traffic. The design limits the impact of misconfigured or compromised devices and makes it easier to identify, contain, and resolve connectivity issues without disrupting other users.</p></div>
+<p>This project models a secure small enterprise campus in Cisco Packet Tracer. I built a switched network with user, server, guest, printer, DMZ, and management segments, then applied access controls and hardening measures designed to reduce lateral movement and make support issues easier to isolate.</p>
+<div class="mini-grid">
+  <div class="mini-card"><h3>My role</h3><p>Designed the VLAN structure, defined ACL logic, configured Layer 2 hardening, and documented how the network should behave when issues occur.</p></div>
+  <div class="mini-card"><h3>IT support relevance</h3><p>Shows that I understand why clean segmentation matters when devices fail, users lose access, or support teams need to narrow down where a problem actually lives.</p></div>
+</div>
+<h2>Network segmentation plan</h2>
 <table>
-  <thead><tr><th>VLAN</th><th>Name</th><th>Purpose</th><th>Gateway</th><th>Subnet</th></tr></thead>
+  <thead><tr><th>VLAN</th><th>Name</th><th>Purpose</th><th>Default gateway</th><th>Subnet</th></tr></thead>
   <tbody>
     <tr><td>10</td><td>USERS</td><td>Internal staff PCs</td><td>10.10.10.1</td><td>10.10.10.0/24</td></tr>
     <tr><td>20</td><td>SERVERS</td><td>Critical infrastructure</td><td>10.10.20.1</td><td>10.10.20.0/24</td></tr>
@@ -27,27 +28,13 @@
     <tr><td>99</td><td>MGMT</td><td>Infrastructure administration</td><td>10.10.99.1</td><td>10.10.99.0/24</td></tr>
   </tbody>
 </table>
-
-<h2>Security controls</h2>
-<h3>Layer 2 hardening</h3>
+<h2>Hands-on proof</h2>
 <ul>
-  <li>Port security on all access switches to mitigate unauthorized hardware insertion and MAC spoofing.</li>
-  <li>DHCP snooping to help prevent rogue DHCP and man-in-the-middle scenarios.</li>
-  <li>Native VLAN moved away from VLAN 1 to reduce VLAN hopping risk.</li>
-  <li>BPDU Guard and PortFast on edge ports for cleaner access-layer behavior.</li>
+  <li>Built access and security zones to separate user, guest, management, and public-facing traffic.</li>
+  <li>Applied ACLs to keep guest traffic from reaching internal RFC1918 networks.</li>
+  <li>Used port security, DHCP snooping, PortFast, and BPDU Guard to harden edge ports.</li>
+  <li>Placed public services in a DMZ behind a Cisco ASA firewall.</li>
 </ul>
-<div class="code-block"><pre>interface range fa0/1-24
- switchport mode access
- switchport access vlan 10
- switchport port-security
- switchport port-security maximum 1
- switchport port-security violation shutdown
- switchport port-security mac-address sticky
- spanning-tree portfast
- spanning-tree bpduguard enable</pre></div>
-
-<h3>Layer 3 least privilege</h3>
-<p>Extended ACLs enforce guest isolation and management-plane restrictions. Guest users are blocked from internal RFC1918 access while still allowed DNS and web traffic outward.</p>
 <div class="code-block"><pre>ip access-list extended GUEST_ISO_ACL
  permit udp 10.10.40.0 0.0.0.255 any eq 53
  permit udp any any eq 67
@@ -56,14 +43,7 @@
 
 interface vlan 40
  ip access-group GUEST_ISO_ACL in</pre></div>
-
-<h3>Perimeter and DMZ controls</h3>
-<ul>
-  <li>Cisco ASA firewall providing stateful packet inspection.</li>
-  <li>Inbound traffic limited to TCP 80 and 443 for public-facing services.</li>
-  <li>DMZ prevented from initiating new connections to inside networks.</li>
-</ul>
-
+<p>This ACL is a small example of how I limited guest access while preserving needed services like DNS and DHCP.</p>
 <h2>Risk and mitigation matrix</h2>
 <table>
   <thead><tr><th>Threat</th><th>Risk</th><th>Mitigation</th><th>Implementation</th></tr></thead>
@@ -75,19 +55,7 @@ interface vlan 40
     <tr><td>External breach</td><td>Critical</td><td>DMZ isolation</td><td>ASA policy filtering</td></tr>
   </tbody>
 </table>
-
-<h2>Verification</h2>
-<ul>
-  <li>Rogue device testing triggered err-disable on protected ports.</li>
-  <li>Pings from Guest to Server VLAN were dropped while outbound internet remained available.</li>
-  <li>Stateful return traffic from the internet was allowed while unsolicited inbound traffic was dropped.</li>
-</ul>
-
-<h2>Skills demonstrated</h2>
-<ul>
-  <li>Subnetting, inter-VLAN routing, EtherChannel, and RSTP.</li>
-  <li>ACL authoring, ASA firewall rules, and DMZ design.</li>
-  <li>Cisco Packet Tracer and Cisco IOS CLI workflow.</li>
-</ul>
+<h2>What this proves</h2>
+<p>I think this project shows that I can build networks in a way that supports both security and support operations. The segmentation and policy choices are there to reduce blast radius, shorten troubleshooting time, and make escalation cleaner when something breaks.</p>
 </div></main>
 <footer class="footer"><div class="container footer-inner"><p>© <span id="year"></span> Logan Garth Goodwin</p><a href="#main">Back to top</a></div></footer><script src="../../script.js"></script></body></html>
