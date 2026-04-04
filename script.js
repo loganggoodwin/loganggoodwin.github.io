@@ -30,3 +30,18 @@ document.getElementById("year").textContent = new Date().getFullYear();
   if(prev) prev.addEventListener("click", () => setIndex(i - 1));
   if(next) next.addEventListener("click", () => setIndex(i + 1));
 })();
+
+
+(function(){
+  const nav = document.getElementById("siteNav");
+  const toggle = document.getElementById("navToggle");
+  if(!nav) return;
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      if(nav.classList.contains("open")){
+        nav.classList.remove("open");
+        if(toggle) toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+})();

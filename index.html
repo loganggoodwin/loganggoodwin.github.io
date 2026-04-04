@@ -16,10 +16,12 @@
       <a class="brand" href="index.html">Logan Garth Goodwin</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav" id="navToggle">Menu</button>
       <nav class="nav" id="siteNav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#tech-stack">Tech stack</a>
+        <a href="#certifications">Certifications</a>
         <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="assets/Logan_Garth_Goodwin_Resume.pdf" class="nav-resume">Resume</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -73,18 +75,21 @@
   </header>
 
   <main id="main">
-    <section class="section">
+    <section class="section" id="about">
       <div class="container spotlight-grid">
         <article class="card">
           <p class="section-kicker">About</p>
           <h2>Technical foundation with a strong troubleshooting mindset.</h2>
-          <p>My background blends hands-on troubleshooting, home lab experimentation, network design, customer-facing field work, and security-focused coursework. I am strongest when I can turn technical detail into clear fixes, practical safeguards, and repeatable support processes that keep systems usable and make escalation easier.</p>
-          <div class="tag-row">
-            <span>Troubleshooting</span>
-            <span>Networking</span>
-            <span>Access control</span>
-            <span>Documentation</span>
-            <span>Security-aware support</span>
+          <p>My background blends hands-on troubleshooting, home lab experimentation, network design, customer-facing field work, and security-focused coursework. I like turning technical detail into fixes that are practical, documented, and easier for other people to support.</p>
+          <p>I think my strongest value is connecting infrastructure decisions to everyday user impact. That means reducing repeat issues, making escalation clearer, and improving stability without losing sight of security.</p>
+          <div class="core-strengths">
+            <h3>Core strengths</h3>
+            <ul class="check-list compact-list">
+              <li>Network and systems support</li>
+              <li>Incident response and documentation</li>
+              <li>Security best practices</li>
+              <li>Troubleshooting and root-cause analysis</li>
+            </ul>
           </div>
         </article>
 
@@ -141,6 +146,61 @@
               <li>Security controls that support stable operations</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tech-stack">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Tech stack</p>
+            <h2>Quick scan of tools, platforms, and technologies.</h2>
+          </div>
+        </div>
+        <div class="tech-stack-grid">
+          <article class="card skill-card">
+            <h3>Systems</h3>
+            <div class="tag-row">
+              <span>Windows</span><span>Linux</span><span>Active Directory</span><span>Hardware Repair</span><span>Virtualization</span>
+            </div>
+          </article>
+          <article class="card skill-card">
+            <h3>Networking</h3>
+            <div class="tag-row">
+              <span>VLANs</span><span>Routing</span><span>Switching</span><span>ACLs</span><span>Wireshark</span><span>Packet Tracer</span>
+            </div>
+          </article>
+          <article class="card skill-card">
+            <h3>Security</h3>
+            <div class="tag-row">
+              <span>Least Privilege</span><span>Firewall Concepts</span><span>DMZ</span><span>Risk Analysis</span><span>Incident Analysis</span>
+            </div>
+          </article>
+          <article class="card skill-card">
+            <h3>Documentation</h3>
+            <div class="tag-row">
+              <span>Root-Cause Notes</span><span>Implementation Planning</span><span>Policy Writing</span><span>Escalation Workflows</span><span>Project Documentation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Certifications</p>
+            <h2>Credentials that reinforce my support and infrastructure background.</h2>
+          </div>
+          <a class="text-link" href="https://www.credly.com/users/logan-goodwin.4d1e161c" target="_blank" rel="noreferrer noopener">View Credly →</a>
+        </div>
+        <div class="tech-stack-grid">
+          <article class="card skill-card"><h3>CompTIA</h3><div class="tag-row"><span>A+</span><span>Network+</span><span>Security+</span></div></article>
+          <article class="card skill-card"><h3>EC-Council</h3><div class="tag-row"><span>DFE</span><span>EHE</span><span>NDE</span></div></article>
+          <article class="card skill-card"><h3>TestOut</h3><div class="tag-row"><span>PC Pro</span><span>Network Pro</span><span>IT Fundamentals Pro</span></div></article>
+          <article class="card skill-card"><h3>Profile</h3><p class="muted-block">Linked badges on Credly provide quick verification for recruiters and hiring managers.</p></article>
         </div>
       </div>
     </section>
@@ -306,22 +366,38 @@
           <article class="timeline-item card">
             <h3>Technical Support Specialist</h3>
             <p class="timeline-meta">Independent / Private Employment · Manchester, NH · 2006–2020</p>
-            <p>Delivered Tier 1 and Tier 2 support, diagnosed hardware, software, and network issues, and documented fixes for residential and small business users.</p>
+            <ul class="check-list compact-list">
+              <li>Delivered Tier 1 and Tier 2 support for residential and small business users</li>
+              <li>Diagnosed hardware, software, and network issues and documented working fixes</li>
+              <li>Handled troubleshooting in a way that balanced user needs, uptime, and security awareness</li>
+            </ul>
           </article>
           <article class="timeline-item card">
             <h3>Lead Associate</h3>
             <p class="timeline-meta">Amazon · Nashua, NH · 2021–2023</p>
-            <p>Coordinated work in a high-volume environment, resolved real-time operational issues, and supported process improvements through communication and triage.</p>
+            <ul class="check-list compact-list">
+              <li>Coordinated work in a high-volume environment with constant triage and issue resolution</li>
+              <li>Supported fast operational transitions and process consistency across teams</li>
+              <li>Used communication and escalation judgment to keep work moving during disruptions</li>
+            </ul>
           </article>
           <article class="timeline-item card">
             <h3>Maintenance Technician</h3>
             <p class="timeline-meta">Walmart · Manchester, NH · 2020–2021</p>
-            <p>Performed preventive maintenance and diagnostics across electrical, HVAC, and refrigeration systems while documenting corrective actions and safety compliance.</p>
+            <ul class="check-list compact-list">
+              <li>Performed preventive maintenance and diagnostics across building and support systems</li>
+              <li>Documented corrective actions and safety work with consistent follow-through</li>
+              <li>Balanced troubleshooting speed with compliance and reliability requirements</li>
+            </ul>
           </article>
           <article class="timeline-item card">
             <h3>Service Technician</h3>
             <p class="timeline-meta">One Source Security & Automation, Inc. · Bedford, NH · 1996–2006</p>
-            <p>Installed and serviced surveillance, alarm, access control, and automation systems, then trained customers on operation, configuration, and troubleshooting.</p>
+            <ul class="check-list compact-list">
+              <li>Installed and serviced surveillance, alarm, access control, and automation systems</li>
+              <li>Trained customers on operation, configuration, and basic troubleshooting</li>
+              <li>Worked across field support, customer communication, and system reliability tasks</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -362,14 +438,26 @@
         </article>
 
         <article class="card">
-          <p class="section-kicker">Downloads</p>
-          <h2>Quick access</h2>
-          <ul class="download-list">
-            <li><a href="assets/Logan_Garth_Goodwin_Resume.pdf">Résumé (PDF)</a></li>
-            <li><a href="assets/projects/Information_Assurance_Plan_Logan_Goodwin.pdf">Information Assurance Plan (PDF)</a></li>
-            <li><a href="assets/projects/Secure_SD-WAN_Network_Architecture_Logan_Goodwin.pdf">Network Architecture Project (PDF)</a></li>
-            <li><a href="assets/projects/Healthcare_Data_Breach_Analysis_Logan_Goodwin.pdf">Healthcare Breach Analysis (PDF)</a></li>
-          </ul>
+          <p class="section-kicker">Contact form</p>
+          <h2>Send a quick message</h2>
+          <form class="contact-form" action="mailto:Logan@goodwinmail.net" method="post" enctype="text/plain">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="6" placeholder="How can I help?"></textarea>
+            </label>
+            <div class="button-row top-gap">
+              <button class="btn btn-primary" type="submit">Open email draft</button>
+              <a class="btn btn-secondary" href="assets/Logan_Garth_Goodwin_Resume.pdf">View résumé</a>
+            </div>
+          </form>
         </article>
       </div>
     </section>

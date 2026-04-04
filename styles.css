@@ -112,3 +112,50 @@ h2{margin:0 0 8px;font-size:clamp(1.6rem,2.8vw,2.5rem);line-height:1.15}
 .diagram-figure{margin:20px 0 8px}
 .diagram-figure img{width:100%;border-radius:20px;border:1px solid var(--line);background:#08111f;box-shadow:var(--shadow)}
 .diagram-figure figcaption{margin-top:10px;color:var(--muted);font-size:.95rem}
+
+
+html{scroll-padding-top:88px}
+.site-shell{position:relative}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(8,17,30,.82);
+  backdrop-filter:blur(14px);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px 18px;
+  margin-bottom:18px;
+}
+.nav a{padding:8px 10px;border-radius:10px}
+.nav a:hover,.nav a:focus-visible{background:rgba(255,255,255,.06);outline:none}
+.nav-resume{background:rgba(86,182,255,.14);color:var(--text)!important}
+.section{padding:54px 0}
+.section + .section{border-top:1px solid rgba(255,255,255,.05)}
+.section-heading h2{font-size:clamp(1.9rem,3vw,2.8rem)}
+.timeline-item h3,.skill-card h3{margin-bottom:4px}
+.core-strengths{margin-top:18px;padding-top:12px;border-top:1px solid var(--line)}
+.compact-list{margin-top:8px}
+.tech-stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.muted-block{color:var(--muted);margin:0}
+.contact-form{display:grid;gap:14px}
+.contact-form label{display:grid;gap:8px}
+.contact-form span{font-weight:700;color:var(--text)}
+.contact-form input,.contact-form textarea{
+  width:100%;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  padding:12px 14px;
+  font:inherit;
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted)}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid rgba(86,182,255,.4);outline-offset:1px}
+.project-card .btn{margin-top:auto}
+.project-grid .project-card{min-height:100%}
+.hero-actions .btn-primary{box-shadow:0 14px 34px rgba(56,125,255,.28)}
+@media (max-width: 980px){
+  .tech-stack-grid{grid-template-columns:1fr}
+  .topbar{padding:12px 14px}
+}
