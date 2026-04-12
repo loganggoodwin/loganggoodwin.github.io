@@ -155,6 +155,11 @@ html{scroll-padding-top:88px}
 .project-card .btn{margin-top:auto}
 .project-grid .project-card{min-height:100%}
 .hero-actions .btn-primary{box-shadow:0 14px 34px rgba(56,125,255,.28)}
+.project-credential{font-size:.78rem;color:var(--accent,#56b6ff);opacity:.85;margin:.5rem 0 .25rem;font-style:italic}
+.course-highlight{margin-top:1.25rem;border-left:3px solid var(--accent,#56b6ff);padding:.75rem 1rem;background:rgba(86,182,255,.06);border-radius:0 10px 10px 0}
+.course-highlight-label{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent,#56b6ff);margin:0 0 .3rem;font-weight:700}
+.course-highlight-title{font-size:.9rem;font-weight:700;color:var(--text);margin:0 0 .4rem}
+.course-highlight-detail{font-size:.8rem;color:var(--muted);margin:0;line-height:1.5}
 @media (max-width: 980px){
   .tech-stack-grid{grid-template-columns:1fr}
   .topbar{padding:12px 14px}
