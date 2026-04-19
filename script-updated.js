@@ -48,31 +48,19 @@ document.getElementById("year").textContent = new Date().getFullYear();
 })();
 
 // Contact form — Formspree
-// To activate: create a free form at formspree.io, then replace YOUR_FORM_ID below
 (function(){
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   const btn = document.getElementById("submitBtn");
   if(!form) return;
 
-  const FORMSPREE_ID = "YOUR_FORM_ID"; // <-- replace this
+  const FORMSPREE_ID = "mzdygvle";
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     btn.disabled = true;
     btn.textContent = "Sending…";
     status.textContent = "";
-
-    if(FORMSPREE_ID === "YOUR_FORM_ID"){
-      // Fallback: open email client if Formspree isn't configured
-      const name = form.querySelector("[name=name]").value;
-      const email = form.querySelector("[name=email]").value;
-      const message = form.querySelector("[name=message]").value;
-      window.location.href = `mailto:Logan@goodwinmail.net?subject=Portfolio contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + "\n\nReply to: " + email)}`;
-      btn.disabled = false;
-      btn.textContent = "Send message";
-      return;
-    }
 
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
