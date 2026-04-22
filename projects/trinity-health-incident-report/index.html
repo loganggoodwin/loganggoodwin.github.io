@@ -47,6 +47,15 @@
   .lens p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin: 0; }
   .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
   .skill-item { font-family: system-ui, sans-serif; font-size: 13px; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+  .project-figure { margin: 0 0 1.5rem; }
+  .project-figure img { width: 100%; border: 1px solid var(--border); }
+  .project-figure figcaption { margin-top: 0.5rem; color: var(--light); font-family: system-ui, sans-serif; font-size: 12px; }
+  .impact-block { margin: 1.5rem 0 2rem; padding: 1.1rem 1.25rem; background: var(--tag-bg); border-left: 2px solid var(--text); }
+  .impact-block h2 { margin-top: 0; }
+  .impact-block ul { margin-bottom: 0; }
+  .closing-links { max-width: 680px; margin: 1rem auto 2rem; display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; }
+  .closing-links a { text-decoration: none; color: var(--muted); }
+  .closing-links a:hover { color: var(--text); }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; }
 </style>
 </head>
@@ -64,7 +73,7 @@
     <a href="../../projects/index.html">Projects</a>
     <a href="../../index.html">Home</a>
   </div>
-  <p class="intro">This report analyzes a 2023 email system breach at Trinity Health — a Michigan-based healthcare network — through the lenses of cybersecurity principles, ethics, legal compliance, and organizational accountability. It connects the technical failure to HIPAA obligations, patient trust, legal exposure, and the broader responsibility healthcare organizations carry when handling protected health information.</p>
+  <p class="intro">This report analyzes a 2023 email system breach at Trinity Health — a Michigan-based healthcare network — through the lenses of cybersecurity principles, ethics, legal compliance, and organizational accountability. It connects the technical failure to HIPAA obligations, patient trust, legal exposure, and the broader responsibility healthcare organizations carry when handling protected health information.</p><figure class="project-figure"><img src="../../images/projects/healthcare-breach-timeline.png" alt="Timeline graphic summarizing the Trinity Health breach and response phases" /><figcaption>Visual anchor for the report: incident progression, delayed detection, and the response timeline that shaped business and compliance impact.</figcaption></figure><section class="impact-block"><h2>Operational impact</h2><ul><li>Improved incident awareness by connecting the breach to failures in confidentiality, integrity, availability, and accountability rather than treating it as an isolated event</li><li>Supported stronger response planning by translating legal, ethical, and technical findings into practical recommendations for healthcare environments handling sensitive data</li><li>Helped reduce repeat risk by showing how email security weaknesses, delayed detection, and weak governance can expand the impact of a breach across patients, operations, and compliance</li></ul></section>
 
   <h2>Incident timeline</h2>
   <ul class="timeline">
@@ -160,7 +169,7 @@
     <div class="skill-item">CIA triad application</div>
     <div class="skill-item">Remediation planning</div>
   </div>
-</main>
+<div class="closing-links"><a href="../../projects/index.html">Back to Projects</a><a href="../../index.html">Back Home</a></div></main>
 <footer>
   <span>© Logan Garth Goodwin</span>
   <a href="#main">Back to top</a>

@@ -164,3 +164,29 @@ html{scroll-padding-top:88px}
   .tech-stack-grid{grid-template-columns:1fr}
   .topbar{padding:12px 14px}
 }
+
+
+.project-impact {
+  margin-top: 32px;
+}
+
+.project-impact h2 {
+  margin-bottom: 14px;
+}
+
+.project-impact .check-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 1.2rem;
+}
+
+.project-impact .check-list li {
+  line-height: 1.7;
+}
+
+.project-closing-links {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}

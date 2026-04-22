@@ -46,6 +46,15 @@
   .role-card p { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin: 0; }
   .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
   .skill-item { font-family: system-ui, sans-serif; font-size: 13px; padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+  .project-figure { margin: 0 0 1.5rem; }
+  .project-figure img { width: 100%; border: 1px solid var(--border); background: var(--tag-bg); padding: 1rem; }
+  .project-figure figcaption { margin-top: 0.5rem; color: var(--light); font-family: system-ui, sans-serif; font-size: 12px; }
+  .impact-block { margin: 1.5rem 0 2rem; padding: 1.1rem 1.25rem; background: var(--tag-bg); border-left: 2px solid var(--text); }
+  .impact-block h2 { margin-top: 0; }
+  .impact-block ul { margin-bottom: 0; }
+  .closing-links { max-width: 680px; margin: 1rem auto 2rem; display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; }
+  .closing-links a { text-decoration: none; color: var(--muted); }
+  .closing-links a:hover { color: var(--text); }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; }
 </style>
 </head>
@@ -64,7 +73,7 @@
     <a href="../../projects/index.html">Projects</a>
     <a href="../../index.html">Home</a>
   </div>
-  <p class="intro">This graduate-level final project delivers a comprehensive information assurance plan for an organization with identified gaps across the CIA triad. Grounded in NIST SP 800-30, 800-53, 800-61, and 800-34, it covers risk assessment, defined roles and responsibilities, incident and disaster response policies, access control standards, and a structured plan maintenance framework.</p>
+  <p class="intro">This graduate-level final project delivers a comprehensive information assurance plan for an organization with identified gaps across the CIA triad. Grounded in NIST SP 800-30, 800-53, 800-61, and 800-34, it covers risk assessment, defined roles and responsibilities, incident and disaster response policies, access control standards, and a structured plan maintenance framework.</p><figure class="project-figure"><img src="../../images/projects/information-assurance.svg" alt="Information assurance illustration representing governance, controls, and risk management" /><figcaption>Visual anchor for the plan: governance, risk treatment, and control selection working together as one operating model.</figcaption></figure><section class="impact-block"><h2>Operational impact</h2><ul><li>Strengthened organizational security planning by connecting risk assessment, control selection, incident response, and recovery planning into one coordinated framework</li><li>Improved role clarity by defining how leadership, security management, and technical staff contribute to protecting confidentiality, integrity, and availability</li><li>Supported auditability and long-term resilience through NIST-aligned controls, clearer governance structure, and documented expectations for security operations</li></ul></section>
 
   <h2>Current state assessment</h2>
   <p>An assessment of the organization's information environment identified varying levels of effectiveness across confidentiality, integrity, and availability controls. The most critical gaps were:</p>
@@ -181,7 +190,7 @@
     <div class="skill-item">Risk matrix development</div>
     <div class="skill-item">Policy writing</div>
   </div>
-</main>
+<div class="closing-links"><a href="../../projects/index.html">Back to Projects</a><a href="../../index.html">Back Home</a></div></main>
 <footer>
   <span>© Logan Garth Goodwin</span>
   <a href="#main">Back to top</a>

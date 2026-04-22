@@ -474,3 +474,48 @@ h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
   .section-heading{flex-direction:column;align-items:flex-start}
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
+
+
+.hero-value-points {
+  margin: 18px 0 16px;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 10px;
+}
+
+.hero-value-points li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hero-proof {
+  margin: 0 0 20px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.capabilities-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#how-i-work .insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+#how-i-work .card h3 {
+  margin-bottom: 12px;
+}
+
+#how-i-work .card p {
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .capabilities-grid,
+  #how-i-work .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
