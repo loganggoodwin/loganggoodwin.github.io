@@ -38,15 +38,14 @@
   </tbody>
 </table>
 
-<section class="proof-artifacts" aria-labelledby="campus-proof-heading">
-  <h2 id="campus-proof-heading">Proof artifacts</h2>
-  <ul class="check-list">
-    <li><strong>Topology/diagram:</strong> Segmented campus design with user, server, guest, printer, DMZ, and management zones.</li>
-    <li><strong>Configuration evidence:</strong> Guest isolation ACL shown below, plus Layer 2 controls such as port security, DHCP snooping, PortFast, and BPDU Guard.</li>
-    <li><strong>Test evidence:</strong> Guest traffic is allowed to reach required services like DNS/DHCP while internal RFC1918 access is denied.</li>
-    <li><strong>Repo trail:</strong> Sanitized artifacts can be maintained with the portfolio source so reviewers can inspect diagrams and supporting files.</li>
-  </ul>
-  <div class="button-row"><a class="btn btn-secondary" href="https://github.com/loganggoodwin/loganggoodwin.github.io" rel="noreferrer noopener" target="_blank">Portfolio repo</a><a class="btn btn-secondary" href="../../images/projects/portfolio-diagrams-overview.png">Open diagram artifact</a></div>
+<section class="proof-artifacts evidence-packet" aria-labelledby="campus-proof-heading">
+  <h2 id="campus-proof-heading">Evidence packet</h2>
+  <p>This section keeps the project reviewable instead of only descriptive. Current artifacts show the design logic; the next upgrade is to add the original Packet Tracer topology screenshots and sanitized configuration bundle.</p>
+  <div class="mini-grid">
+    <div class="mini-card"><h3>Current artifacts</h3><ul class="check-list"><li>Segmented campus diagram reference</li><li>Guest isolation ACL sample</li><li>Risk and mitigation matrix</li><li>Operational impact notes</li></ul></div>
+    <div class="mini-card"><h3>Next artifacts to attach</h3><ul class="check-list"><li>Packet Tracer topology screenshot</li><li>Ping test showing guest-to-internal block</li><li>DMZ access-control verification</li><li>Sanitized switch/router/ASA config bundle</li></ul></div>
+  </div>
+  <div class="button-row"><a class="btn btn-secondary" href="https://github.com/loganggoodwin/loganggoodwin.github.io" rel="noreferrer noopener" target="_blank">Portfolio repo</a><a class="btn btn-secondary" href="../../images/projects/portfolio-diagrams-overview.png" target="_blank" rel="noreferrer noopener">Open diagram artifact</a></div>
 </section>
 <h2>Hands-on proof</h2>
 <ul>

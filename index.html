@@ -38,7 +38,7 @@
       <a href="#certifications">Certs</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
-      <a class="nav-resume" href="assets/Logan_Garth_Goodwin_Resume.pdf">Resume (PDF)</a>
+      <a class="nav-resume" href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">Resume (PDF)</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -57,7 +57,7 @@
       </ul>
       <p class="hero-proof">Currently completing an M.S. in Cybersecurity at SNHU with a 4.0 GPA while contributing to active AI training projects and competing in CTF challenges.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="assets/Logan_Garth_Goodwin_Resume.pdf">Download Resume (PDF)</a>
+        <a class="btn btn-primary" href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">Download Resume (PDF)</a>
         <a class="btn btn-secondary" href="#projects">View Projects</a>
       </div>
       <ul aria-label="Professional links" class="hero-links">
@@ -96,6 +96,36 @@
 </header>
 
 <main id="main">
+
+  <section class="section recruiter-scan" aria-labelledby="recruiter-scan-heading">
+    <div class="container">
+      <article class="card recruiter-card reveal">
+        <div>
+          <p class="section-kicker">Recruiter scan</p>
+          <h2 id="recruiter-scan-heading">Fast read for hiring teams.</h2>
+          <p>I’m aiming for entry-level IT support, infrastructure, junior cybersecurity, and AI operations roles where I can combine hands-on troubleshooting with security-minded documentation.</p>
+        </div>
+        <div class="recruiter-columns">
+          <div>
+            <h3>What I bring</h3>
+            <ul class="check-list compact-list">
+              <li>Hands-on network, hardware, CCTV, access control, and support experience</li>
+              <li>Security coursework tied to governance, monitoring, segmentation, and incident analysis</li>
+              <li>Clear documentation that helps technical teams and leadership understand risk</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Click these first</h3>
+            <div class="button-row top-gap">
+              <a class="btn btn-secondary" href="projects/secure-enterprise-campus/index.html">Campus project</a>
+              <a class="btn btn-secondary" href="projects/healthcare-breach-analysis/index.html">Breach analysis</a>
+              <a class="btn btn-secondary" href="projects/risk-management-plan/index.html">Risk plan</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 
   <!-- ACTIVE / CTF section - new -->
   <section class="section" id="active">
@@ -299,6 +329,14 @@
           <div class="meta-row"><span>NIST</span><span>Governance</span><span>Risk</span></div>
           <a class="btn btn-secondary" href="projects/information-assurance-plan-2/index.html">Open project</a>
         </article>
+
+        <article class="project-card card reveal" style="--reveal-delay:160ms">
+          <img alt="Risk management plan project" class="project-image" src="images/projects/risk-mgmt.svg" decoding="async" loading="lazy"/>
+          <h3>Risk Management Plan: Health Network, Inc.</h3>
+          <p>Built a HIPAA-focused healthcare risk management plan covering cyber threats, business impact, incident response readiness, continuity planning, and operational risk reduction.</p>
+          <div class="meta-row"><span>GRC</span><span>HIPAA</span><span>Risk Management</span></div>
+          <a class="btn btn-secondary" href="projects/risk-management-plan/index.html">Open project</a>
+        </article>
         <article class="project-card card reveal" style="--reveal-delay:180ms">
           <img alt="Healthcare incident report" class="project-image" src="images/projects/healthcare-breach-timeline.png" decoding="async" loading="lazy"/>
           <h3>Healthcare Cyber Incident Report: Trinity Health</h3>
@@ -435,6 +473,7 @@
         <h2>Quick message</h2>
         <form id="contactForm" class="contact-form" action="https://formspree.io/f/mzdygvle" method="POST">
           <input type="hidden" name="_subject" value="Portfolio contact message from loganggoodwin.github.io"/>
+          <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true"/>
           <label>
             <span>Name</span>
             <input name="name" placeholder="Your name" type="text" autocomplete="name" required/>
@@ -449,9 +488,10 @@
           </label>
           <div class="button-row top-gap">
             <button class="btn btn-primary" type="submit" id="submitBtn">Send message</button>
-            <a class="btn btn-secondary" href="assets/Logan_Garth_Goodwin_Resume.pdf">Download Resume (PDF)</a>
+            <a class="btn btn-secondary" href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">Download Resume (PDF)</a>
           </div>
-          <p class="form-note" id="formStatus"></p>
+          <p class="form-note" id="formStatus" aria-live="polite"></p>
+          <p class="form-helper">This form sends through Formspree. The direct email and copy-email options are also available.</p>
         </form>
       </article>
     </div>

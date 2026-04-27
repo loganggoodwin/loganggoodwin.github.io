@@ -48,36 +48,49 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   els.forEach(el => io.observe(el));
 })();
 
-// Contact form — Formspree
+// Contact form — real Formspree POST endpoint
 (function(){
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   const btn = document.getElementById("submitBtn");
-  if(!form) return;
+  if(!form || !btn) return;
 
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzdygvle";
+  const setStatus = (message, isError = false) => {
+    if(!status) return;
+    status.textContent = message;
+    status.classList.toggle("form-note--error", Boolean(isError));
+  };
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    const endpoint = form.getAttribute("action") || "";
+    if(!endpoint || endpoint.includes("YOUR_FORM_ID")){
+      setStatus("The contact form is missing a Formspree endpoint. Use the direct email link for now.", true);
+      return;
+    }
+
     btn.disabled = true;
     btn.textContent = "Sending…";
-    status.textContent = "";
+    setStatus("");
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: new FormData(form)
       });
+
       if(res.ok){
-        status.textContent = "Message sent — I'll get back to you soon.";
+        setStatus("Message sent — I’ll get back to you soon.");
         form.reset();
       } else {
-        status.textContent = "Something went wrong. Try emailing directly.";
+        setStatus("The form could not send. Please use the direct email link or copy my email address.", true);
       }
     } catch {
-      status.textContent = "Network error. Try emailing directly.";
+      setStatus("Network error. Please use the direct email link or copy my email address.", true);
     }
+
     btn.disabled = false;
     btn.textContent = "Send message";
   });

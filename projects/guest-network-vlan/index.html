@@ -420,17 +420,18 @@
 
 
 
-  <section class="proof-artifacts" aria-labelledby="proof-heading">
-    <h2 id="proof-heading">Proof artifacts</h2>
+  <section class="proof-artifacts evidence-packet" aria-labelledby="proof-heading">
+    <h2 id="proof-heading">Evidence packet</h2>
+    <p>This keeps the lab reviewable as an artifact trail: what was built, how it was verified, and what should be preserved for a technical reviewer.</p>
     <ul>
-      <li><strong>Topology evidence:</strong> The diagram above documents the segmented guest, camera, and internal network design used for the lab.</li>
-      <li><strong>Test evidence:</strong> DHCP leases and gateway pings were verified for guest devices and cameras.</li>
-      <li><strong>Isolation evidence:</strong> Cross-VLAN ping tests confirmed guest/camera separation from protected internal resources.</li>
-      <li><strong>Configuration evidence:</strong> VLAN assignments, trunking, router sub-interfaces, DHCP pools, and isolation logic are the main configuration artifacts to preserve in the repository.</li>
+      <li><strong>Topology evidence:</strong> Segmented guest, camera, and internal network design using VLAN boundaries.</li>
+      <li><strong>Verification evidence:</strong> DHCP leases, gateway pings, and blocked cross-VLAN traffic checks.</li>
+      <li><strong>Configuration evidence:</strong> VLAN assignments, trunking, router sub-interfaces, DHCP pools, and isolation logic.</li>
+      <li><strong>Next screenshots to attach:</strong> Packet Tracer topology, DHCP lease table, successful gateway pings, and failed guest-to-internal ping.</li>
     </ul>
     <div class="proof-links">
-      <a href="https://github.com/loganggoodwin/loganggoodwin.github.io" rel="noreferrer noopener" target="_blank">Portfolio repo</a>
-      <a href="../../images/projects/portfolio-diagrams-overview.png">Open diagram artifact</a>
+      <a href="https://github.com/logangoodwin/loganggoodwin.github.io" rel="noreferrer noopener" target="_blank">Portfolio repo</a>
+      <a href="../../images/projects/portfolio-diagrams-overview.png" target="_blank" rel="noreferrer noopener">Open diagram artifact</a>
     </div>
   </section>
 
