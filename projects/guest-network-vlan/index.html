@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guest Network VLAN Segmentation project showing VLAN isolation, DHCP verification, and guest-to-internal traffic controls."/>
+<link rel="canonical" href="https://loganggoodwin.github.io/projects/guest-network-vlan/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Guest Network VLAN Segmentation | Logan Garth Goodwin"/>
+<meta property="og:description" content="Guest Network VLAN Segmentation project showing VLAN isolation, DHCP verification, and guest-to-internal traffic controls."/>
+<meta property="og:image" content="https://loganggoodwin.github.io/images/og-preview.png"/>
+<meta property="og:url" content="https://loganggoodwin.github.io/projects/guest-network-vlan/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loganggoodwin.github.io/images/og-preview.png"/>
+
 <title>Guest Network VLAN Segmentation | Logan Garth Goodwin</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -200,6 +210,17 @@
     color: var(--muted);
   }
 
+  .proof-artifacts {
+    border: 1px solid var(--border);
+    background: #fafafa;
+    padding: 1.25rem;
+    margin: 2rem 0;
+  }
+  .proof-artifacts h2 { margin-top: 0; }
+  .proof-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; font-family: system-ui, sans-serif; font-size: 13px; }
+  .proof-links a { background: var(--text); color: #fff; text-decoration: none; padding: .55rem .8rem; border-radius: 3px; }
+  .proof-links a:hover { opacity: .78; color: #fff; }
+
   /* Verification checklist */
   .checklist { list-style: none; padding: 0; }
   .checklist li {
@@ -300,7 +321,7 @@
   </p>
 
   <figure class="project-figure">
-    <img src="../../images/projects/vlan-lab.svg" alt="Guest VLAN segmentation illustration showing internal and guest traffic separation" />
+    <img src="../../images/projects/vlan-lab.svg" alt="Guest VLAN segmentation illustration showing internal and guest traffic separation"  decoding="async" loading="lazy"/>
     <figcaption>Visual anchor for the project: isolating guest access from internal resources through segmentation and policy boundaries.</figcaption>
   </figure>
 
@@ -352,7 +373,7 @@
   </div>
 
   <figure class="diagram-figure">
-    <img src="../../images/projects/portfolio-diagrams-overview.png" alt="Portfolio diagram panel including enterprise network segmentation, SD-WAN architecture, healthcare breach timeline, and IT support escalation workflow" />
+    <img src="../../images/projects/portfolio-diagrams-overview.png" alt="Portfolio diagram panel including enterprise network segmentation, SD-WAN architecture, healthcare breach timeline, and IT support escalation workflow"  decoding="async" loading="lazy"/>
     <figcaption>Diagram set used across the portfolio. The upper-left panel reflects the VLAN and segmentation concepts demonstrated in this project.</figcaption>
   </figure>
 
@@ -396,6 +417,22 @@
     <li><span class="check"></span>Ping successful from both cameras to their gateway</li>
     <li><span class="check"></span>Cross-VLAN ping blocked between guest and camera segments</li>
   </ul>
+
+
+
+  <section class="proof-artifacts" aria-labelledby="proof-heading">
+    <h2 id="proof-heading">Proof artifacts</h2>
+    <ul>
+      <li><strong>Topology evidence:</strong> The diagram above documents the segmented guest, camera, and internal network design used for the lab.</li>
+      <li><strong>Test evidence:</strong> DHCP leases and gateway pings were verified for guest devices and cameras.</li>
+      <li><strong>Isolation evidence:</strong> Cross-VLAN ping tests confirmed guest/camera separation from protected internal resources.</li>
+      <li><strong>Configuration evidence:</strong> VLAN assignments, trunking, router sub-interfaces, DHCP pools, and isolation logic are the main configuration artifacts to preserve in the repository.</li>
+    </ul>
+    <div class="proof-links">
+      <a href="https://github.com/loganggoodwin/loganggoodwin.github.io" rel="noreferrer noopener" target="_blank">Portfolio repo</a>
+      <a href="../../images/projects/portfolio-diagrams-overview.png">Open diagram artifact</a>
+    </div>
+  </section>
 
   <h2>Why this matters</h2>
   <p>VLAN segmentation is one of the most foundational controls in network security. This project demonstrates the ability to plan a segmented topology, configure a switch and router to enforce it, set up DHCP correctly per segment, and verify that isolation is actually working — not just assumed. These are practical skills that apply directly to enterprise support, network administration, and security roles.</p>

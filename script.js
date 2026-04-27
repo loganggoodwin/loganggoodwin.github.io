@@ -1,47 +1,123 @@
-document.getElementById("year").textContent = new Date().getFullYear();
+// Footer year
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Nav toggle
 (function(){
   const toggle = document.getElementById("navToggle");
   const nav = document.getElementById("siteNav");
-  if(toggle && nav){
-    toggle.addEventListener("click", () => {
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!expanded));
-      nav.classList.toggle("open");
+  if(!toggle || !nav) return;
+  toggle.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    nav.classList.toggle("open");
+  });
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
     });
-  }
+  });
 })();
 
+// Headshot carousel
 (function(){
   const img = document.getElementById("headshot");
   if(!img) return;
   const prev = document.getElementById("headshotPrev");
   const next = document.getElementById("headshotNext");
-  const sources = [
-    "images/profile.jpg",
-    "images/profile_alt1.jpg",
-    "images/profile_alt2.jpg"
-  ];
+  const sources = ["images/profile.jpg","images/profile_alt1.jpg","images/profile_alt2.jpg"];
   let i = 0;
-  const setIndex = (n) => {
-    i = (n + sources.length) % sources.length;
-    img.src = sources[i];
-  };
+  const setIndex = (n) => { i = (n + sources.length) % sources.length; img.src = sources[i]; };
   if(prev) prev.addEventListener("click", () => setIndex(i - 1));
   if(next) next.addEventListener("click", () => setIndex(i + 1));
 })();
 
-
+// Scroll reveal
 (function(){
-  const nav = document.getElementById("siteNav");
-  const toggle = document.getElementById("navToggle");
-  if(!nav) return;
-  nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      if(nav.classList.contains("open")){
-        nav.classList.remove("open");
-        if(toggle) toggle.setAttribute("aria-expanded", "false");
+  const els = document.querySelectorAll(".reveal");
+  if(!els.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add("visible");
+        io.unobserve(e.target);
       }
     });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+})();
+
+// Contact form — Formspree
+(function(){
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  const btn = document.getElementById("submitBtn");
+  if(!form) return;
+
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzdygvle";
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    status.textContent = "";
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(form)
+      });
+      if(res.ok){
+        status.textContent = "Message sent — I'll get back to you soon.";
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong. Try emailing directly.";
+      }
+    } catch {
+      status.textContent = "Network error. Try emailing directly.";
+    }
+    btn.disabled = false;
+    btn.textContent = "Send message";
+  });
+})();
+
+
+// Copy email button
+(function(){
+  const copyBtn = document.getElementById("copyEmail");
+  const copyStatus = document.getElementById("copyStatus");
+  if(!copyBtn) return;
+
+  const setStatus = (message) => {
+    if(copyStatus) copyStatus.textContent = message;
+    copyBtn.textContent = message.startsWith("Copied") ? "Copied" : "Copy email";
+    window.setTimeout(() => {
+      copyBtn.textContent = "Copy email";
+      if(copyStatus) copyStatus.textContent = "";
+    }, 2600);
+  };
+
+  copyBtn.addEventListener("click", async () => {
+    const email = copyBtn.dataset.email || "Logan@goodwinmail.net";
+    try {
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(email);
+      } else {
+        const temp = document.createElement("textarea");
+        temp.value = email;
+        temp.setAttribute("readonly", "");
+        temp.style.position = "absolute";
+        temp.style.left = "-9999px";
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+      }
+      setStatus("Copied email address.");
+    } catch {
+      setStatus("Copy failed — email is Logan@goodwinmail.net.");
+    }
   });
 })();
