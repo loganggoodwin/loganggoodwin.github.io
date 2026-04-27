@@ -30,7 +30,7 @@
   <text x="412" y="378" fill="#e2e8f0" font-size="20" font-family="DM Sans, Arial, sans-serif">Weak hashes fail fast.</text>
   <text x="412" y="404" fill="#e2e8f0" font-size="20" font-family="DM Sans, Arial, sans-serif">Strong policy matters.</text>
   <rect x="548" y="126" width="150" height="132" rx="18" fill="none" stroke="url(#glow)" stroke-width="3"/>
-  <text x="576" y="174" fill="#e5e7eb" font-size="18" font-family="DM Sans, Arial, sans-serif">LIVE</text>
+  <text x="565" y="174" fill="#e5e7eb" font-size="18" font-family="DM Sans, Arial, sans-serif">COMPLETE</text>
   <text x="576" y="208" fill="#e5e7eb" font-size="22" font-family="JetBrains Mono, monospace">CTF</text>
-  <text x="576" y="236" fill="#93c5fd" font-size="18" font-family="DM Sans, Arial, sans-serif">April 2026</text>
+  <text x="565" y="236" fill="#93c5fd" font-size="18" font-family="DM Sans, Arial, sans-serif">Rank 159</text>
 </svg>
