@@ -36,6 +36,14 @@ The primary résumé path is `/assets/Logan_Garth_Goodwin_Resume.pdf`. Homepage 
 ### 5. Confirm project discoverability
 The CTF page is linked from both the homepage featured work section and `/projects/index.html`, with hash-cracking wording in the title/metadata. A basic `sitemap.xml` and `robots.txt` are included to make the project pages easier for search engines to crawl.
 
+### 6. Review the two project READMEs
+Two project-specific README files were added so GitHub reviewers see more than only the live webpages:
+
+- `/projects/secure-enterprise-campus/README.md` - detailed technical README with VLAN plan, ACL logic, verification tests, tools used, evidence-packet guidance, and key learning.
+- `/projects/healthcare-breach-analysis/README.md` - written/security-analysis README with incident findings, recommendations, week-one job actions, tools used, evidence artifacts, and key learning.
+
+These are meant to be the strongest GitHub-facing documentation examples: one hands-on technical project and one security-analysis project.
+
 ## Where things live
 
 - Homepage: `/index.html`
