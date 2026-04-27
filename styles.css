@@ -611,7 +611,7 @@ textarea:focus-visible {
 .recruiter-card { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: start; }
 .recruiter-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .recruiter-columns h3 { margin-top: 0; }
-.form-helper { color: var(--muted); font-size: .86rem; margin-top: 8px; }
+.form-helper { display: none; }
 .form-note--error { color: #ffb4b4; }
 .honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; }
 .evidence-packet p { margin-top: 0; }
