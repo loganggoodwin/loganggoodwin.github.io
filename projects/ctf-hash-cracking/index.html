@@ -3,338 +3,356 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CTF Write-Up: Password Hash Cracking | Logan Garth Goodwin</title>
-<meta name="description" content="A documented approach to cracking NTLM and MD5 password hashes in a Cyber Skyline CTF competition, covering tools, methodology, and lessons learned."/>
+<title>NCL Spring 2026 Team Game: Ink Injection | Logan Garth Goodwin</title>
+<meta name="description" content="Portfolio recap of Logan Garth Goodwin's NCL Spring 2026 Team Game participation with SNHU Team Ink Injection, including score summary, module performance, and cybersecurity skills demonstrated."/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --text: #1a1a1a; --muted: #555; --light: #888;
-    --border: #e0e0e0; --bg: #fff; --tag-bg: #f2f2f2; --table-head: #f5f5f5;
-    --code-bg: #f7f7f5; --code-text: #2d2d2d;
-    --accent: #1a6fa8;
+    --bg: #06101d;
+    --panel: #0b1728;
+    --panel-2: #0f2036;
+    --text: #f4f8ff;
+    --muted: #a8b6c9;
+    --light: #7f90a8;
+    --line: rgba(122, 184, 255, 0.22);
+    --accent: #49b7ff;
+    --accent-2: #f6bf45;
+    --good: #7ef0c4;
+    --danger: #ff6f7d;
+    --shadow: 0 24px 70px rgba(0,0,0,.35);
   }
-  body { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.75; color: var(--text); background: var(--bg); padding: 0 1rem; }
-  a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-  a:hover { opacity: 0.6; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at 20% 0%, rgba(73,183,255,.25), transparent 28%),
+      radial-gradient(circle at 80% 20%, rgba(246,191,69,.14), transparent 24%),
+      linear-gradient(180deg, #030914 0%, var(--bg) 38%, #050914 100%);
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); }
   .skip { position: absolute; left: -9999px; }
-  .site-nav { display: flex; align-items: center; padding: 1.25rem 0; font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
-  .site-nav a { text-decoration: none; color: var(--light); }
-  .site-nav a:hover { color: var(--text); opacity: 1; }
-  .site-nav span { margin: 0 0.6rem; }
-  .project-label { font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 1.25rem; }
-  h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: normal; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 700px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-family: system-ui, sans-serif; font-size: 12px; }
-  .tags span { background: var(--tag-bg); padding: 3px 10px; border-radius: 2px; color: var(--muted); }
-  .breadcrumbs { display: flex; gap: 1rem; font-family: system-ui, sans-serif; font-size: 13px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-  .breadcrumbs a { text-decoration: none; color: var(--muted); }
-  .breadcrumbs a:hover { color: var(--text); opacity: 1; }
-  main { max-width: 680px; margin: 0 auto; padding-bottom: 5rem; }
-  .intro { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
-  h2 { font-family: system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin: 2.5rem 0 1rem; }
-  h3 { font-size: 1rem; font-weight: normal; font-style: italic; margin: 1.5rem 0 0.5rem; }
-  p { margin-bottom: 1rem; }
-  ul, ol { padding-left: 1.25rem; margin-bottom: 1rem; }
-  ul li, ol li { margin-bottom: 0.4rem; }
-
-  /* Code blocks */
-  pre {
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1rem 1.25rem;
-    overflow-x: auto;
-    margin: 1rem 0 1.5rem;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  code {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-    font-size: 0.88em;
-    background: var(--code-bg);
-    padding: 2px 6px;
-    border-radius: 3px;
-    border: 1px solid var(--border);
-  }
-  pre code {
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: inherit;
-  }
-  .cmd { color: #2a7ae2; }
-  .flag { color: #c0392b; font-weight: bold; }
-  .comment { color: #999; font-style: italic; }
-  .hash { color: #8e44ad; word-break: break-all; }
-  .output { color: #27ae60; }
-
-  /* Callout */
-  .callout { border-left: 2px solid var(--text); padding: 1rem 1.25rem; margin: 1.5rem 0; background: var(--tag-bg); font-size: 0.95rem; }
-  .callout strong { display: block; font-family: system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--muted); }
-  .callout.tip { border-left-color: #2a7ae2; }
-  .callout.warning { border-left-color: #e67e22; }
-  .callout.key { border-left-color: #27ae60; background: #f0faf4; }
-
-  /* Steps */
-  .steps { list-style: none; padding: 0; counter-reset: step-counter; margin: 1rem 0 1.5rem; }
-  .steps li {
-    counter-increment: step-counter;
-    padding: 0.9rem 1rem 0.9rem 3rem;
-    position: relative;
-    border-bottom: 1px solid var(--border);
-    font-family: system-ui, sans-serif;
-    font-size: 14.5px;
-    color: var(--muted);
-  }
-  .steps li:last-child { border-bottom: none; }
-  .steps li::before {
-    content: counter(step-counter);
-    position: absolute;
-    left: 0.75rem;
-    top: 0.9rem;
-    width: 20px; height: 20px;
-    background: var(--text);
-    color: var(--bg);
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: 700;
+  .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+  .site-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
-    line-height: 1;
+    gap: .65rem;
+    padding: 1.2rem 0;
+    color: var(--muted);
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--line);
   }
-  .steps li strong { color: var(--text); display: block; margin-bottom: 0.2rem; font-size: 13.5px; }
-
-  /* Result grid */
-  .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0 1.5rem; }
-  @media (max-width: 560px) { .result-grid { grid-template-columns: 1fr; } }
-  .result-cell { border: 1px solid var(--border); border-radius: 2px; padding: 0.85rem; font-family: system-ui, sans-serif; font-size: 13px; }
-  .result-cell .label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 0.4rem; }
-  .result-cell .value { color: var(--text); font-weight: 600; word-break: break-all; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
-  .result-cell.solved { border-left: 3px solid #27ae60; }
-  .result-cell.partial { border-left: 3px solid #e67e22; }
-
-  /* Table */
-  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
-  table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 13.5px; }
-  th { background: var(--table-head); text-align: left; padding: 8px 12px; font-weight: 600; border-bottom: 1px solid var(--border); }
-  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .site-nav a { color: var(--muted); }
+  .site-nav a:hover { color: var(--text); }
+  .hero {
+    padding: 4rem 0 2.5rem;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .kicker {
+    color: var(--accent-2);
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    line-height: .98;
+    letter-spacing: -.055em;
+    margin-bottom: 1.2rem;
+  }
+  .lede { color: var(--muted); font-size: 1.08rem; max-width: 62ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: .75rem 1.1rem;
+    border: 1px solid var(--line);
+    font-weight: 800;
+    font-size: .88rem;
+    background: rgba(255,255,255,.04);
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), #78d7ff); color: #04101d; border-color: transparent; }
+  .btn-primary:hover { color: #04101d; filter: brightness(1.05); }
+  .hero-art {
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255,255,255,.04);
+    box-shadow: var(--shadow);
+  }
+  .hero-art img { display: block; width: 100%; height: auto; }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
+  .tags span {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.04);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: .35rem .7rem;
+    font-size: .78rem;
+    font-weight: 700;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 3rem;
+  }
+  .stat-card, .card {
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+    box-shadow: 0 12px 40px rgba(0,0,0,.2);
+  }
+  .stat-card { padding: 1rem; }
+  .stat-value {
+    display: block;
+    color: var(--text);
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -.06em;
+  }
+  .stat-label {
+    display: block;
+    color: var(--muted);
+    margin-top: .45rem;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  section { padding: 2.5rem 0; }
+  .section-head { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 1.2rem; }
+  h2 {
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    line-height: 1.08;
+    letter-spacing: -.04em;
+  }
+  h3 { font-size: 1.05rem; margin-bottom: .55rem; }
+  .muted { color: var(--muted); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .card { padding: 1.2rem; }
+  .callout {
+    border-left: 3px solid var(--accent-2);
+    background: rgba(246,191,69,.08);
+    padding: 1rem 1.1rem;
+    border-radius: 0 16px 16px 0;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+  .gallery { display: grid; grid-template-columns: .95fr 1.05fr; gap: 1rem; align-items: start; }
+  .shot {
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255,255,255,.04);
+  }
+  .shot img { width: 100%; display: block; height: auto; }
+  .caption { padding: .85rem 1rem; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.03); }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  th, td { text-align: left; padding: .82rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th {
+    color: var(--accent-2);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background: rgba(255,255,255,.035);
+  }
+  td { color: var(--muted); font-size: .92rem; }
   tr:last-child td { border-bottom: none; }
-  td code { font-size: 0.82em; }
-
-  /* TIL / lessons */
-  .lessons { list-style: none; padding: 0; margin: 1rem 0; }
-  .lessons li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); display: flex; gap: 0.75rem; align-items: baseline; }
-  .lessons li:last-child { border-bottom: none; }
-  .lessons li::before { content: 'TIL'; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); white-space: nowrap; padding-top: 1px; }
-
-  footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-family: system-ui, sans-serif; font-size: 12px; color: var(--light); display: flex; justify-content: space-between; max-width: 680px; margin: 0 auto; flex-wrap: wrap; gap: 0.5rem; }
-  footer a { text-decoration: none; color: var(--light); }
-  footer a:hover { color: var(--text); opacity: 1; }
+  .highlight { color: var(--text); font-weight: 800; }
+  .skill-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-top: 1rem; }
+  .skill-item { border: 1px solid var(--line); border-radius: 16px; padding: .9rem; background: rgba(255,255,255,.035); }
+  .skill-item strong { display: block; color: var(--text); margin-bottom: .25rem; }
+  .skill-item span { color: var(--muted); font-size: .9rem; }
+  .timeline { list-style: none; display: grid; gap: .8rem; margin-top: 1rem; }
+  .timeline li { border-left: 2px solid var(--accent); padding-left: 1rem; color: var(--muted); }
+  .timeline strong { color: var(--text); display: block; }
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 3rem;
+    padding: 1.5rem 0 2rem;
+    color: var(--muted);
+    font-size: .85rem;
+  }
+  .footer-inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  @media (max-width: 860px) {
+    .hero, .gallery, .two-col { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .stats-grid, .skill-list { grid-template-columns: 1fr; }
+    .hero { padding-top: 2.5rem; }
+  }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<nav class="site-nav">
-  <a href="../../index.html">Logan Garth Goodwin</a>
-  <span>›</span>
-  <a href="../../projects/index.html">Projects</a>
-  <span>›</span>
-  CTF Write-Up
-</nav>
-<main id="main">
-  <p class="project-label">Cyber Skyline CTF · April 2026</p>
-  <h1>Password Hash Cracking: NTLM and MD5 Analysis</h1>
-  <div class="tags">
-    <span>CTF</span><span>Hash cracking</span><span>NTLM</span><span>MD5</span>
-    <span>Password analysis</span><span>Hashcat</span><span>John the Ripper</span><span>Offensive security</span>
-  </div>
-  <div class="breadcrumbs">
+<div class="wrap">
+  <nav class="site-nav" aria-label="Project navigation">
+    <a href="../../index.html">Logan Garth Goodwin</a>
+    <span>›</span>
     <a href="../../projects/index.html">Projects</a>
-    <a href="../../index.html">Home</a>
-  </div>
+    <span>›</span>
+    NCL Spring 2026 Team Game
+  </nav>
+</div>
 
-  <p class="intro">This write-up documents my approach to password hash cracking challenges in the Cyber Skyline CTF competition. The challenges involved identifying hash types, selecting the right cracking strategy, and recovering plaintext passwords from NTLM and MD5 hashes — skills that directly mirror real-world credential analysis during incident response and penetration testing engagements.</p>
-
-  <h2>Challenge overview</h2>
-  <p>The challenge set presented a series of password hashes without labels. The first task was identifying hash types from structure alone, then applying the appropriate cracking approach for each. No hints were given about the algorithm, password length, or complexity.</p>
-
-  <div class="callout">
-    <strong>What this tests</strong>
-    Hash cracking in CTF mirrors real incident response work — when an attacker dumps credentials from a compromised Windows host, defenders need to understand what those hashes represent, how quickly they can be cracked, and what that tells them about an organization's password policy.
-  </div>
-
-  <h2>Hash identification</h2>
-  <p>Before cracking anything, you need to know what you are looking at. Hash length and character set narrow it down significantly.</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Hash type</th>
-          <th>Length</th>
-          <th>Character set</th>
-          <th>Common source</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>MD5</td>
-          <td>32 hex chars</td>
-          <td><code>a–f, 0–9</code></td>
-          <td>Web apps, older Linux <code>/etc/shadow</code></td>
-        </tr>
-        <tr>
-          <td>NTLM</td>
-          <td>32 hex chars</td>
-          <td><code>a–f, 0–9</code></td>
-          <td>Windows SAM database, Active Directory</td>
-        </tr>
-        <tr>
-          <td>SHA-1</td>
-          <td>40 hex chars</td>
-          <td><code>a–f, 0–9</code></td>
-          <td>Git commits, older certificates</td>
-        </tr>
-        <tr>
-          <td>bcrypt</td>
-          <td>60 chars</td>
-          <td>Base64 + <code>$2a$</code> prefix</td>
-          <td>Modern web apps, Linux PAM</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p>MD5 and NTLM are both 32-character hex strings, which makes them visually identical. The distinction matters because their cracking speed differs by orders of magnitude — NTLM is unsalted and extremely fast to crack, while MD5 context (salted vs. unsalted) changes the approach entirely. Tools like <code>hashid</code> or <code>hash-identifier</code> can disambiguate when structure alone is not enough.</p>
-
-  <pre><code><span class="comment"># Quick hash identification</span>
-<span class="cmd">hashid</span> <span class="hash">5f4dcc3b5aa765d61d8327deb882cf99</span>
-
-<span class="output">Analyzing '5f4dcc3b5aa765d61d8327deb882cf99'
-[+] MD2
-[+] MD5     &lt;-- most likely given length and context
-[+] MD4</span></code></pre>
-
-  <h2>Methodology</h2>
-  <p>My approach followed a consistent escalation path: start fast and cheap, move to expensive only when needed.</p>
-
-  <ol class="steps">
-    <li>
-      <strong>Check against known databases first</strong>
-      Paste the hash into a lookup tool like CrackStation or hashes.com. Common passwords like <code>password</code>, <code>123456</code>, and <code>letmein</code> appear in precomputed tables. This takes seconds and costs nothing.
-    </li>
-    <li>
-      <strong>Run a wordlist attack with rules</strong>
-      Feed the hash into Hashcat or John the Ripper with <code>rockyou.txt</code> and a ruleset. Rules handle common mutations — capitalization, number appending, leet substitutions — without brute-forcing every combination.
-    </li>
-    <li>
-      <strong>Targeted mask attack if wordlist fails</strong>
-      If you can infer password policy (e.g., minimum 8 chars, must contain a number), a mask attack narrows the keyspace significantly versus full brute force.
-    </li>
-    <li>
-      <strong>Document what worked and why</strong>
-      Recording which approach cracked which hash tells you something about the underlying password policy — useful for the challenge debrief and real-world parallels.
-    </li>
-  </ol>
-
-  <h2>NTLM cracking</h2>
-  <p>NTLM is Windows' legacy password hashing algorithm. It applies no salt and performs a single MD4 pass over the UTF-16LE encoded password. This makes it extremely fast to crack — modern GPUs can test billions of NTLM candidates per second.</p>
-
-  <pre><code><span class="comment"># Hashcat — NTLM is mode 1000</span>
-<span class="cmd">hashcat</span> -m 1000 -a 0 hashes.txt rockyou.txt
-
-<span class="comment"># Add rules for common mutations</span>
-<span class="cmd">hashcat</span> -m 1000 -a 0 hashes.txt rockyou.txt -r /usr/share/hashcat/rules/best64.rule
-
-<span class="comment"># Mask attack — 8 char, uppercase first, 6 lowercase, 1 digit</span>
-<span class="cmd">hashcat</span> -m 1000 -a 3 hashes.txt ?u?l?l?l?l?l?l?d</code></pre>
-
-  <div class="callout tip">
-    <strong>Why NTLM matters in real investigations</strong>
-    When attackers dump the Windows SAM database or NTDS.dit from Active Directory, they get NTLM hashes. The speed at which these crack is why password length policies and account lockout controls matter — a 6-character NTLM hash can fall in seconds. This is also why Pass-the-Hash attacks are so dangerous: you do not always need the plaintext.
-  </div>
-
-  <h2>MD5 cracking</h2>
-  <p>MD5 is mode 0 in Hashcat. Unsalted MD5 cracks at similar speeds to NTLM. The challenge here was confirming the hash was unsalted — salted MD5 requires a different mode and the salt value itself.</p>
-
-  <pre><code><span class="comment"># Hashcat — raw MD5 is mode 0</span>
-<span class="cmd">hashcat</span> -m 0 -a 0 hashes.txt rockyou.txt
-
-<span class="comment"># John the Ripper — auto-detects format</span>
-<span class="cmd">john</span> --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
-
-<span class="comment"># Show cracked results</span>
-<span class="cmd">john</span> --show hashes.txt</code></pre>
-
-  <pre><code><span class="comment"># Sample session output (values illustrative)</span>
-<span class="hash">5f4dcc3b5aa765d61d8327deb882cf99</span>:<span class="output">password</span>
-<span class="hash">e10adc3949ba59abbe56e057f20f883e</span>:<span class="output">123456</span>
-<span class="hash">d8578edf8458ce06fbc5bb76a58c5ca4</span>:<span class="output">qwerty</span>
-
-<span class="output">3 password hashes cracked, 0 left</span></code></pre>
-
-  <h2>Results</h2>
-  <div class="result-grid">
-    <div class="result-cell solved">
-      <div class="label">NTLM hashes</div>
-      <div class="value">Cracked via wordlist + rules</div>
+<header class="wrap hero">
+  <div>
+    <p class="kicker">SNHU National Cyber League Team · Ink Injection</p>
+    <h1>NCL Spring 2026 Team Game</h1>
+    <p class="lede">A portfolio recap of my 2026 National Cyber League team competition work with SNHU Team Ink Injection. The event tested practical cybersecurity skills across OSINT, cryptography, password cracking, log analysis, network traffic analysis, forensics, scanning, reconnaissance, web exploitation, and enumeration.</p>
+    <div class="tags" aria-label="Project tags">
+      <span>Capture the Flag</span><span>Cyber Skyline</span><span>NCL</span><span>Team Competition</span><span>SNHU</span><span>Incident Analysis Skills</span>
     </div>
-    <div class="result-cell solved">
-      <div class="label">MD5 hashes</div>
-      <div class="value">Cracked via rockyou.txt wordlist</div>
-    </div>
-    <div class="result-cell solved">
-      <div class="label">Primary tool</div>
-      <div class="value">Hashcat (GPU-accelerated)</div>
-    </div>
-    <div class="result-cell solved">
-      <div class="label">Time to first crack</div>
-      <div class="value">Under 60 seconds per hash</div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="../../assets/projects/ctf-2026/NCL_Spring_2026_Team_Game_Score_Report.pdf">Open score report</a>
+      <a class="btn" href="../../projects/index.html">Back to projects</a>
     </div>
   </div>
+  <figure class="hero-art">
+    <img src="../../images/projects/ctf-2026/after-the-flag-2026.png" alt="After the Flag 2026 graphic showing Team Ink Injection score, completion, accuracy, and ranking"/>
+  </figure>
+</header>
 
-  <h2>What I learned</h2>
-  <ul class="lessons">
-    <li>NTLM's lack of salting is not an accident of history — it was a design choice that made network authentication faster at the cost of storage security. Understanding the tradeoff matters for recommending mitigations.</li>
-    <li>Wordlist quality beats brute force almost every time. <code>rockyou.txt</code> contains 14 million real passwords from actual breaches — attackers know what people actually choose.</li>
-    <li>Rule-based mutations (appending <code>!</code>, capitalizing first letter, substituting <code>@</code> for <code>a</code>) recover passwords that survive a plain wordlist attack. Most password policies inadvertently encourage these patterns.</li>
-    <li>Hash identification is a skill in itself. Automated tools help but developing intuition for hash structure — length, prefix, character set — speeds up triage during time-limited competitions and real incidents.</li>
-    <li>The difference between cracking speed for NTLM versus bcrypt is the entire argument for why modern systems should use adaptive hashing algorithms like Argon2 or bcrypt with appropriate cost factors.</li>
-  </ul>
+<main id="main" class="wrap">
+  <section aria-labelledby="summary-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Competition summary</p>
+        <h2 id="summary-heading">Team performance snapshot.</h2>
+      </div>
+    </div>
+    <div class="stats-grid" aria-label="NCL Spring 2026 team score summary">
+      <div class="stat-card"><span class="stat-value">2605</span><span class="stat-label">Points out of 3000</span></div>
+      <div class="stat-card"><span class="stat-value">92.75%</span><span class="stat-label">Completion</span></div>
+      <div class="stat-card"><span class="stat-value">53.27%</span><span class="stat-label">Accuracy</span></div>
+      <div class="stat-card"><span class="stat-value">159</span><span class="stat-label">Rank out of 3638</span></div>
+    </div>
 
-  <h2>Defensive takeaways</h2>
-  <p>The offensive side of this challenge maps directly to defensive recommendations I would make in an IT support or junior security role:</p>
+    <div class="two-col">
+      <article class="card">
+        <h3>My role</h3>
+        <p class="muted">I participated as a member of SNHU Team Ink Injection. I treated the competition like an applied security lab: read the prompt carefully, identify what evidence was available, choose the right tool or method, validate the answer, and document what the result meant from a defensive security perspective.</p>
+      </article>
+      <article class="card">
+        <h3>Why this belongs in my portfolio</h3>
+        <p class="muted">The event demonstrates hands-on cybersecurity thinking under time pressure. It connects directly to the type of work I want to keep building on: network traffic analysis, incident response support, log review, credential security, vulnerability discovery, and structured troubleshooting.</p>
+      </article>
+    </div>
+    <div class="callout">
+      This portfolio version focuses on skills, process, and results. It intentionally avoids publishing live flags, answer strings, or anything that would weaken the integrity of CTF challenges.
+    </div>
+  </section>
 
-  <div class="callout key">
-    <strong>What this means for defenders</strong>
-    Enforce minimum 12-character passwords. Avoid complexity rules that encourage predictable substitutions — length is a stronger control. Enable MFA on all accounts so cracked hashes do not immediately translate to access. Audit for NTLM usage and migrate to NTLMv2 or Kerberos where possible. Monitor for Pass-the-Hash indicators in Windows event logs (Event ID 4624, logon type 3 with NTLM).
-  </div>
+  <section aria-labelledby="evidence-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Visual evidence</p>
+        <h2 id="evidence-heading">After-the-Flag recap graphics.</h2>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="shot">
+        <img src="../../images/projects/ctf-2026/after-the-flag-2026.png" alt="After the Flag 2026 Team Ink Injection recap graphic" loading="lazy"/>
+        <figcaption class="caption">Team recap graphic showing 2605 / 3000 points, 92.7% completion, 53.3% accuracy, and rank 159 of 3638.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../../images/projects/ctf-2026/ink-injection-team-tribute-2026.png" alt="Tribute to the 2026 SNHU National Cyber League Team Ink Injection" loading="lazy"/>
+        <figcaption class="caption">Team tribute graphic summarizing module highlights and competition performance for SNHU Team Ink Injection.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <h2>Tools used</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Tool</th><th>Purpose</th><th>Notes</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Hashcat</td><td>GPU-accelerated cracking</td><td>Modes 0 (MD5), 1000 (NTLM)</td></tr>
-        <tr><td>John the Ripper</td><td>CPU cracking, format detection</td><td>Good for quick verification</td></tr>
-        <tr><td>hashid / hash-identifier</td><td>Hash type detection</td><td>Useful when format is ambiguous</td></tr>
-        <tr><td>CrackStation</td><td>Online lookup for common hashes</td><td>Fast first pass before local cracking</td></tr>
-        <tr><td>rockyou.txt</td><td>Primary wordlist</td><td>14M real-world passwords</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <section aria-labelledby="module-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Score report</p>
+        <h2 id="module-heading">Module breakdown.</h2>
+      </div>
+      <a class="btn" href="../../assets/projects/ctf-2026/NCL_Spring_2026_Team_Game_Score_Report.pdf">View PDF</a>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Correct</th>
+            <th>Attempts</th>
+            <th>Accuracy</th>
+            <th>Completion</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="highlight">Open Source Intelligence</td><td>44</td><td>77</td><td>57.1%</td><td>97.8%</td><td>370 / 385</td></tr>
+          <tr><td class="highlight">Cryptography</td><td>12</td><td>15</td><td>80%</td><td>85.7%</td><td>250 / 360</td></tr>
+          <tr><td class="highlight">Password Cracking</td><td>26</td><td>37</td><td>70.3%</td><td>100%</td><td>355 / 355</td></tr>
+          <tr><td class="highlight">Log Analysis</td><td>17</td><td>29</td><td>58.6%</td><td>85%</td><td>225 / 300</td></tr>
+          <tr><td class="highlight">Network Traffic Analysis</td><td>24</td><td>25</td><td>96%</td><td>100%</td><td>300 / 300</td></tr>
+          <tr><td class="highlight">Forensics</td><td>13</td><td>50</td><td>26%</td><td>76.5%</td><td>235 / 300</td></tr>
+          <tr><td class="highlight">Scanning &amp; Reconnaissance</td><td>14</td><td>20</td><td>70%</td><td>100%</td><td>300 / 300</td></tr>
+          <tr><td class="highlight">Web Application Exploitation</td><td>15</td><td>41</td><td>36.6%</td><td>88.2%</td><td>240 / 300</td></tr>
+          <tr><td class="highlight">Enumeration &amp; Exploitation</td><td>13</td><td>41</td><td>31.7%</td><td>86.7%</td><td>230 / 300</td></tr>
+          <tr><td class="highlight">Survey</td><td>1</td><td>1</td><td>100%</td><td>100%</td><td>100 / 100</td></tr>
+          <tr><td class="highlight">Total</td><td>179</td><td>336</td><td>53.27%</td><td>92.75%</td><td>2605 / 3000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-  <h2>Competition context</h2>
-  <p>This challenge was completed as part of the Cyber Skyline CTF platform, which hosts competitions used by universities and security programs for applied skills assessment. The competition format reinforces the same methodical, documented approach I apply to coursework and infrastructure projects — identify the problem clearly, apply the right tool, document the process and outcome.</p>
+  <section aria-labelledby="skills-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Skills demonstrated</p>
+        <h2 id="skills-heading">What the CTF tested.</h2>
+      </div>
+    </div>
+    <div class="skill-list">
+      <div class="skill-item"><strong>Network traffic analysis</strong><span>Reviewed protocol behavior and traffic evidence to validate suspicious or relevant activity.</span></div>
+      <div class="skill-item"><strong>Password cracking</strong><span>Used hash identification logic, wordlist strategy, and credential-security thinking.</span></div>
+      <div class="skill-item"><strong>OSINT investigation</strong><span>Connected clues across public information sources while keeping evidence organized.</span></div>
+      <div class="skill-item"><strong>Scanning and reconnaissance</strong><span>Mapped services, interpreted findings, and prioritized what mattered in the challenge context.</span></div>
+      <div class="skill-item"><strong>Log analysis</strong><span>Looked for patterns, timestamps, anomalies, and useful indicators within event data.</span></div>
+      <div class="skill-item"><strong>Web and enumeration work</strong><span>Applied structured testing, input review, and exploitation awareness without guessing.</span></div>
+    </div>
+  </section>
 
-  <p>Future write-ups will cover additional challenge categories including network forensics, log analysis, and web application vulnerabilities as I work through more competition sets.</p>
-
+  <section aria-labelledby="takeaways-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Reflection</p>
+        <h2 id="takeaways-heading">Defensive takeaways.</h2>
+      </div>
+    </div>
+    <ol class="timeline">
+      <li><strong>Evidence beats assumptions.</strong> The strongest answers came from verifying artifacts, logs, packets, hashes, or visible clues instead of relying on first impressions.</li>
+      <li><strong>Team performance depends on communication.</strong> In a broad CTF, the team has to divide categories, avoid duplicate effort, and share findings clearly.</li>
+      <li><strong>Completion matters, but accuracy matters too.</strong> The 92.75% completion rate shows broad coverage, while the accuracy score is a reminder that careful validation is part of security work.</li>
+      <li><strong>CTF practice translates to real operations.</strong> OSINT, log review, traffic analysis, scanning, and credential analysis are all useful in incident response, help desk escalation, and junior security roles.</li>
+    </ol>
+  </section>
 </main>
+
 <footer>
-  <span>Logan Garth Goodwin · CTF Write-Up · 2026</span>
-  <span><a href="../../index.html">Portfolio</a> · <a href="../../projects/index.html">All projects</a></span>
+  <div class="wrap footer-inner">
+    <span>Logan Garth Goodwin · NCL Spring 2026 Team Game</span>
+    <span><a href="../../index.html">Portfolio</a> · <a href="../../projects/index.html">All projects</a></span>
+  </div>
 </footer>
 </body>
 </html>
