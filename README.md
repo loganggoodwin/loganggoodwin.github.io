@@ -56,3 +56,7 @@ These are meant to be the strongest GitHub-facing documentation examples: one ha
 ## File cleanup note
 
 The site now uses one main stylesheet (`styles.css`) and one main script file (`script.js`). The temporary updated asset files were merged and removed so GitHub Pages only needs the original filenames.
+
+## Additional Verified Learning
+
+The homepage includes a separate **Additional Verified Learning** section for HarvardX, MITx, and IMFx certificates. These are intentionally separated from industry certifications such as CompTIA, EC-Council, and TestOut so the credential language remains clear and professional.
