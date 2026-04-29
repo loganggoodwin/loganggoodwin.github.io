@@ -814,3 +814,121 @@ textarea:focus-visible {
 @media (max-width:700px){
   .learning-grid{grid-template-columns:1fr}
 }
+
+
+/* Terminal hero typing animation */
+.terminal-hero-title{
+  min-height:calc(3em * 1.05);
+}
+#heroTyped{
+  white-space:pre-line;
+}
+.typing-cursor{
+  display:inline-block;
+  width:.65ch;
+  height:.95em;
+  margin-left:.12em;
+  border-right:3px solid var(--accent);
+  transform:translateY(.08em);
+  animation:cursor-blink .85s steps(1,end) infinite;
+}
+@keyframes cursor-blink{
+  0%,48%{opacity:1}
+  49%,100%{opacity:0}
+}
+@media (prefers-reduced-motion: reduce){
+  .typing-cursor{animation:none;opacity:.75}
+}
+
+/* Availability indicator */
+.availability-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin:18px 0 2px;
+  padding:9px 13px;
+  border-radius:999px;
+  border:1px solid rgba(126,240,196,.24);
+  background:rgba(126,240,196,.08);
+  color:var(--accent-2);
+  font-size:.9rem;
+  font-weight:700;
+  line-height:1.35;
+}
+.availability-pill--contact{
+  margin:0 0 16px;
+}
+.availability-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--accent-2);
+  box-shadow:0 0 0 0 rgba(126,240,196,.45);
+  animation:availability-pulse 1.8s ease-out infinite;
+  flex:0 0 auto;
+}
+@keyframes availability-pulse{
+  0%{box-shadow:0 0 0 0 rgba(126,240,196,.45)}
+  75%,100%{box-shadow:0 0 0 10px rgba(126,240,196,0)}
+}
+@media (prefers-reduced-motion: reduce){
+  .availability-dot{animation:none}
+}
+
+/* Category-colored project card borders */
+.project-card{
+  position:relative;
+  overflow:hidden;
+}
+.project-card::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:5px;
+  background:rgba(61,214,245,.55);
+  border-radius:var(--radius) 0 0 var(--radius);
+}
+.project-card[data-category="networking"]::before{background:#3dd6f5}
+.project-card[data-category="governance"]::before{background:#7ef0c4}
+.project-card[data-category="ctf"]::before{background:#f5b84b}
+.project-card[data-category="incident"]::before{background:#ff6b6b}
+.project-card[data-category="operations"]::before{background:#a78bfa}
+.project-card[data-category="general"]::before{background:rgba(255,255,255,.24)}
+.project-card[data-category="networking"]{border-color:rgba(61,214,245,.26)}
+.project-card[data-category="governance"]{border-color:rgba(126,240,196,.24)}
+.project-card[data-category="ctf"]{border-color:rgba(245,184,75,.28)}
+.project-card[data-category="incident"]{border-color:rgba(255,107,107,.28)}
+.project-card[data-category="operations"]{border-color:rgba(167,139,250,.28)}
+.project-card > *{
+  position:relative;
+  z-index:1;
+}
+.category-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 18px;
+}
+.category-legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:.82rem;
+  font-weight:700;
+}
+.category-legend span::before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--legend-color, var(--accent));
+}
+.category-legend .legend-networking{--legend-color:#3dd6f5}
+.category-legend .legend-governance{--legend-color:#7ef0c4}
+.category-legend .legend-ctf{--legend-color:#f5b84b}
+.category-legend .legend-incident{--legend-color:#ff6b6b}
+.category-legend .legend-operations{--legend-color:#a78bfa}

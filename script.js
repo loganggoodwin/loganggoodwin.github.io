@@ -208,3 +208,55 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     if(e.key === 'Escape' && !modal.hidden) closeModal();
   });
 })();
+
+
+// Terminal hero typing animation
+(() => {
+  const target = document.getElementById("heroTyped");
+  if (!target) return;
+
+  const lines = (target.dataset.lines || "Cybersecurity.|Infrastructure.|Reliable systems.").split("|");
+  const fullText = lines.join("\n");
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reduceMotion) {
+    target.textContent = fullText;
+    return;
+  }
+
+  target.textContent = "";
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  const typeNext = () => {
+    if (lineIndex >= lines.length) {
+      target.textContent = fullText;
+      return;
+    }
+
+    const currentLine = lines[lineIndex];
+    const completedLines = lines.slice(0, lineIndex).join("\n");
+    const prefix = completedLines ? `${completedLines}\n` : "";
+    target.textContent = prefix + currentLine.slice(0, charIndex + 1);
+    charIndex += 1;
+
+    if (charIndex < currentLine.length) {
+      window.setTimeout(typeNext, 58);
+      return;
+    }
+
+    lineIndex += 1;
+    charIndex = 0;
+
+    if (lineIndex < lines.length) {
+      window.setTimeout(typeNext, 420);
+    } else {
+      window.setTimeout(() => {
+        target.textContent = fullText;
+      }, 220);
+    }
+  };
+
+  window.setTimeout(typeNext, 350);
+})();
+
