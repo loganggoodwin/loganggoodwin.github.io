@@ -134,3 +134,77 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
   });
 })();
+
+// Project filter bar
+(function(){
+  const chips = document.querySelectorAll('.filter-chip');
+  const cards = document.querySelectorAll('#projectGrid .project-card');
+  if(!chips.length || !cards.length) return;
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('filter-chip--active'));
+      chip.classList.add('filter-chip--active');
+      const filter = chip.dataset.filter;
+      let shown = 0;
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !match);
+        if(match) shown++;
+      });
+      const countEl = document.getElementById('count-all');
+      if(countEl && filter === 'all') countEl.textContent = shown;
+    });
+  });
+})();
+
+// Project quick-view modal
+(function(){
+  const modal = document.getElementById('projectModal');
+  const closeBtn = document.getElementById('modalClose');
+  if(!modal || !closeBtn) return;
+
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalCredential = document.getElementById('modalCredential');
+  const modalTags = document.getElementById('modalTags');
+  const modalLink = document.getElementById('modalLink');
+
+  const openModal = (card) => {
+    modalImg.src = card.dataset.img || '';
+    modalImg.alt = card.dataset.title || '';
+    modalTitle.textContent = card.dataset.title || '';
+    modalDesc.textContent = card.dataset.desc || '';
+    const cred = card.dataset.credential || '';
+    modalCredential.textContent = cred;
+    modalCredential.style.display = cred ? 'block' : 'none';
+    modalTags.innerHTML = (card.dataset.tags || '').split(',').map(t => `<span>${t.trim()}</span>`).join('');
+    modalLink.href = card.dataset.link || '#';
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  };
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.project-preview-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(btn.closest('.project-card'));
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();

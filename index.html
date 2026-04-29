@@ -41,7 +41,6 @@
       <a href="#active">Active</a>
       <a href="#tech-stack">Stack</a>
       <a href="#certifications">Certs</a>
-      <a href="#additional-learning">Learning</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a class="nav-resume" href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">Resume (PDF)</a>
@@ -55,20 +54,18 @@
     <section class="hero-copy animate-in" style="--delay:0ms">
       <p class="eyebrow"><span class="terminal-prompt">~/somersworth-nh</span> · MS Cybersecurity · 4.0 GPA</p>
       <h1>Cybersecurity.<br>Infrastructure.<br>Reliable systems.</h1>
-      <p class="hero-proof">Entry-level IT and network security professional focused on Cisco networking, Zero Trust, and NIST-aligned controls.</p>
       <ul class="hero-value-points">
         <li>Build secure, supportable network and systems environments with clear segmentation, access control, and documentation</li>
         <li>Solve troubleshooting, stability, and escalation problems with a security-aware operations mindset</li>
         <li>Fit best on IT support, infrastructure, junior cybersecurity, and AI operations teams that value reliability, communication, and structured problem-solving</li>
       </ul>
-      <p class="quick-actions-label">Quick actions</p>
-      <div class="hero-actions hero-actions--primary">
+      <div class="hero-actions">
         <a class="btn btn-primary" href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">Download Resume (PDF)</a>
-        <a class="btn btn-secondary" href="#projects">Featured Projects</a>
-        <a class="btn btn-secondary" href="mailto:Logan@goodwinmail.net">Email Me</a>
-        <a class="btn btn-secondary" href="https://www.linkedin.com/in/logan-g-goodwin/" rel="noreferrer noopener" target="_blank">LinkedIn</a>
+        <a class="btn btn-secondary" href="#projects">View Projects</a>
       </div>
-      <ul aria-label="Additional professional links" class="hero-links hero-links--secondary">
+      <ul aria-label="Professional links" class="hero-links">
+        <li><a href="mailto:Logan@goodwinmail.net">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/logan-g-goodwin/" rel="noreferrer noopener" target="_blank">LinkedIn</a></li>
         <li><a href="https://github.com/loganggoodwin" rel="noreferrer noopener" target="_blank">GitHub</a></li>
         <li><a href="https://www.credly.com/users/logan-goodwin.4d1e161c" rel="noreferrer noopener" target="_blank">Credly</a></li>
       </ul>
@@ -295,48 +292,6 @@
     </div>
   </section>
 
-  <section class="section" id="additional-learning">
-    <div class="container">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">Additional verified learning</p>
-          <h2>Short courses that support my security, risk, and analytical foundation.</h2>
-          <p class="section-intro">These are listed separately from industry certifications like CompTIA, EC-Council, and TestOut so the distinction stays clear and professional.</p>
-        </div>
-      </div>
-      <div class="learning-grid">
-        <article class="card learning-card reveal">
-          <div class="learning-org">IMFx / International Monetary Fund</div>
-          <h3>Cyber Risk Supervision</h3>
-          <p>Cyber risk, supervision, governance, and resilience concepts connected to organizational risk oversight.</p>
-          <div class="tag-row"><span>Cyber Risk</span><span>Governance</span><span>Resilience</span></div>
-          <a class="text-link" href="assets/certificates/IMFx_Cyber_Risk_Supervision.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">View certificate →</a>
-        </article>
-        <article class="card learning-card reveal" style="--reveal-delay:60ms">
-          <div class="learning-org">MITx</div>
-          <h3>Visualizing Imperialism &amp; the Philippines, 1898–1913</h3>
-          <p>Historical analysis and visual interpretation coursework that strengthens research, context-building, and evidence review.</p>
-          <div class="tag-row"><span>Research</span><span>Visual Analysis</span><span>Critical Thinking</span></div>
-          <a class="text-link" href="assets/certificates/MITx_Visualizing_Imperialism_Philippines_1898_1913.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">View certificate →</a>
-        </article>
-        <article class="card learning-card reveal" style="--reveal-delay:120ms">
-          <div class="learning-org">HarvardX</div>
-          <h3>PredictionX: Lost Without Longitude</h3>
-          <p>Analytical learning focused on prediction, navigation, history of science, and structured problem-solving.</p>
-          <div class="tag-row"><span>Analysis</span><span>Problem-Solving</span><span>History of Science</span></div>
-          <a class="text-link" href="assets/certificates/HarvardX_PredictionX_Lost_Without_Longitude.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">View certificate →</a>
-        </article>
-        <article class="card learning-card reveal" style="--reveal-delay:180ms">
-          <div class="learning-org">HarvardX</div>
-          <h3>PredictionX: Omens, Oracles, and Prophecies</h3>
-          <p>Coursework connected to prediction, reasoning, evidence interpretation, and historical approaches to uncertainty.</p>
-          <div class="tag-row"><span>Reasoning</span><span>Evidence Review</span><span>Uncertainty</span></div>
-          <a class="text-link" href="assets/certificates/HarvardX_PredictionX_Omens_Oracles_Prophecies.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">View certificate →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="section section-dark" id="projects">
     <div class="container">
       <div class="section-heading">
@@ -346,131 +301,173 @@
         </div>
         <a class="text-link" href="projects/index.html">See all →</a>
       </div>
-      <div class="project-grid">
-        <article class="project-card card reveal">
+
+      <!-- Filter bar -->
+      <div class="filter-bar" role="group" aria-label="Filter projects by category">
+        <button class="filter-chip filter-chip--active" data-filter="all" type="button">All <span class="filter-count" id="count-all">8</span></button>
+        <button class="filter-chip" data-filter="ctf" type="button">CTF</button>
+        <button class="filter-chip" data-filter="networking" type="button">Networking</button>
+        <button class="filter-chip" data-filter="governance" type="button">Governance</button>
+        <button class="filter-chip" data-filter="incident" type="button">Incident</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card card reveal" data-category="ctf"
+          data-title="NCL Spring 2026 Team Game: Ink Injection"
+          data-desc="Portfolio recap of SNHU National Cyber League team competition work. Team Ink Injection earned 2605/3000 points, 92.75% completion, and ranked 159 of 3638 while working across OSINT, cryptography, password cracking, network traffic analysis, log review, forensics, web exploitation, and enumeration."
+          data-credential="Cyber Skyline · NCL Spring 2026 Team Game · Rank 159 / 3638"
+          data-tags="NCL,CTF,Network Analysis,OSINT,Password Cracking"
+          data-link="projects/ctf-hash-cracking/index.html"
+          data-img="images/projects/ncl-ctf-card.svg">
           <div class="project-image-wrap">
-            <img alt="NCL Spring 2026 Team Game Ink Injection recap graphic" class="project-image" src="images/projects/ctf-2026/after-the-flag-2026.png" decoding="async" loading="lazy"/>
-            <span class="project-image-label">Competition recap</span>
+            <img alt="NCL Spring 2026 Team Game — Rank 159 of 3638" class="project-image" src="images/projects/ncl-ctf-card.svg" decoding="async" loading="lazy"/>
+            <button class="project-preview-btn" aria-label="Quick view NCL CTF project" type="button">Quick view</button>
           </div>
           <h3>NCL Spring 2026 Team Game: Ink Injection <span class="active-badge active-badge--completed" style="font-size:.6rem;padding:3px 8px;vertical-align:middle;margin-left:6px;">COMPLETED · RANK 159</span></h3>
-          <p>National Cyber League team competition recap highlighting practical challenge work across major security domains.</p>
-          <ul class="project-outcomes">
-            <li>Ranked 159 of 3638 with 92.75% completion</li>
-            <li>Worked across OSINT, crypto, traffic analysis, forensics, and web exploitation</li>
-            <li>Documented team results and role-relevant technical takeaways</li>
-          </ul>
+          <p>Team Ink Injection earned 2605/3000 points, 92.75% completion, and ranked 159 of 3638 across eight practical cybersecurity challenge categories.</p>
           <p class="project-credential">Cyber Skyline · NCL Spring 2026 Team Game · Rank 159 / 3638</p>
           <div class="meta-row"><span>NCL</span><span>CTF</span><span>Network Analysis</span><span>OSINT</span><span>Password Cracking</span></div>
           <a class="btn btn-secondary" href="projects/ctf-hash-cracking/index.html">Open recap</a>
         </article>
-        <article class="project-card card reveal">
+
+        <article class="project-card card reveal" data-category="networking"
+          data-title="Secure Enterprise Campus Infrastructure"
+          data-desc="Designed a segmented enterprise campus network to improve security, reduce outage blast radius, and simplify troubleshooting across users, devices, and services. Covers three-tier architecture with ACLs, ASA firewall, DMZ, and VLAN segmentation."
+          data-credential=""
+          data-tags="Cisco IOS,ASA Firewall,ACLs,VLANs,Zero Trust"
+          data-link="projects/secure-enterprise-campus/index.html"
+          data-img="images/projects/campus-network-card.svg">
           <div class="project-image-wrap">
-            <img alt="Secure enterprise campus topology and evidence overview" class="project-image" src="images/projects/portfolio-diagrams-overview.png" decoding="async" loading="lazy"/>
-            <span class="project-image-label">Topology &amp; test evidence</span>
+            <img alt="Three-tier campus network topology diagram" class="project-image" src="images/projects/campus-network-card.svg" decoding="async" loading="lazy"/>
+            <button class="project-preview-btn" aria-label="Quick view campus network project" type="button">Quick view</button>
           </div>
           <h3>Secure Enterprise Campus Infrastructure</h3>
-          <p>Designed a segmented campus network focused on security, troubleshooting, and supportability.</p>
-          <ul class="project-outcomes">
-            <li>Separated users, servers, DMZ, and guest access with ACL-backed controls</li>
-            <li>Verified guest isolation and reduced outage blast radius</li>
-            <li>Included diagrams, configs, and proof artifacts for reviewer validation</li>
-          </ul>
+          <p>Designed a segmented enterprise campus network to improve security, reduce outage blast radius, and simplify troubleshooting across users, devices, and services.</p>
           <div class="meta-row"><span>Cisco IOS</span><span>ASA Firewall</span><span>ACLs</span></div>
-          <div class="button-row project-card-actions"><a class="btn btn-secondary" href="projects/secure-enterprise-campus/index.html">Open project</a><a class="btn btn-ghost" href="https://github.com/loganggoodwin/loganggoodwin.github.io/tree/main/projects/secure-enterprise-campus#readme" target="_blank" rel="noreferrer noopener">README</a></div>
+          <div class="button-row"><a class="btn btn-secondary" href="projects/secure-enterprise-campus/index.html">Open project</a><a class="btn btn-ghost" href="https://github.com/loganggoodwin/loganggoodwin.github.io/tree/main/projects/secure-enterprise-campus#readme" target="_blank" rel="noreferrer noopener">README</a></div>
         </article>
-        <article class="project-card card reveal" style="--reveal-delay:60ms">
+
+        <article class="project-card card reveal" data-category="networking" style="--reveal-delay:60ms"
+          data-title="Enterprise Network Analysis &amp; SD-WAN Architecture"
+          data-desc="Analyzed a multi-site enterprise network to identify reliability and supportability issues. Produced an SD-WAN-focused future-state architecture covering dynamic path selection, NGFW integration, disaster recovery planning, and SLA monitoring."
+          data-credential=""
+          data-tags="SD-WAN,NGFW,DR Planning,Multi-site,QoS"
+          data-link="projects/enterprise-sdwan-architecture/index.html"
+          data-img="images/projects/sdwan-card.svg">
           <div class="project-image-wrap">
-            <img alt="SD-WAN architecture project thumbnail" class="project-image" src="images/projects/sla-requirements.svg" decoding="async" loading="lazy"/>
-            <span class="project-image-label">Architecture snapshot</span>
+            <img alt="SD-WAN multi-site architecture diagram" class="project-image" src="images/projects/sdwan-card.svg" decoding="async" loading="lazy"/>
+            <button class="project-preview-btn" aria-label="Quick view SD-WAN project" type="button">Quick view</button>
           </div>
           <h3>Enterprise Network Analysis &amp; SD-WAN Architecture</h3>
-          <p>Redesigned a multi-site network to improve resilience, visibility, and support workflows.</p>
-          <ul class="project-outcomes">
-            <li>Identified single points of failure and supportability gaps</li>
-            <li>Proposed SD-WAN, NGFW, and DR improvements for continuity</li>
-            <li>Connected technical design choices to operational reliability</li>
-          </ul>
+          <p>Analyzed a multi-site enterprise network to identify reliability issues. Produced an SD-WAN architecture improving resilience and simplifying troubleshooting.</p>
           <div class="meta-row"><span>SD-WAN</span><span>NGFW</span><span>DR Planning</span></div>
           <a class="btn btn-secondary" href="projects/enterprise-sdwan-architecture/index.html">Open project</a>
         </article>
-        <article class="project-card card reveal" style="--reveal-delay:120ms">
+
+        <article class="project-card card reveal" data-category="governance" style="--reveal-delay:120ms"
+          data-title="Information Assurance Plan (Graduate)"
+          data-desc="Translated governance and security requirements into practical operational controls — access management, logging, monitoring, and escalation processes that strengthen accountability. Evaluated at graduate level against CISO decision-making criteria."
+          data-credential="Evaluated at graduate level against CISO decision-making criteria — IT-552, SNHU"
+          data-tags="NIST,Governance,Risk,Access Control,Monitoring"
+          data-link="projects/information-assurance-plan-2/index.html"
+          data-img="images/projects/info-assurance-card.svg">
           <div class="project-image-wrap">
-            <img alt="Information assurance plan thumbnail" class="project-image" src="images/projects/security-awareness.svg" decoding="async" loading="lazy"/>
-            <span class="project-image-label">Governance deliverable</span>
+            <img alt="NIST CSF framework controls diagram" class="project-image" src="images/projects/info-assurance-card.svg" decoding="async" loading="lazy"/>
+            <button class="project-preview-btn" aria-label="Quick view information assurance project" type="button">Quick view</button>
           </div>
-          <h3>Information Assurance Plan <span class="project-credential-inline">Graduate</span></h3>
-          <p>Turned governance requirements into practical operational security controls.</p>
-          <ul class="project-outcomes">
-            <li>Covered access management, logging, monitoring, and escalation</li>
-            <li>Mapped security requirements to actionable operating practices</li>
-            <li>Written for both technical teams and leadership review</li>
-          </ul>
+          <h3>Information Assurance Plan <span class="project-credential-inline">(Graduate)</span></h3>
+          <p>Translated governance and security requirements into practical operational controls — access management, logging, monitoring, and escalation processes.</p>
           <p class="project-credential">Evaluated at graduate level against CISO decision-making criteria — IT-552, SNHU</p>
           <div class="meta-row"><span>NIST</span><span>Governance</span><span>Risk</span></div>
           <a class="btn btn-secondary" href="projects/information-assurance-plan-2/index.html">Open project</a>
         </article>
-        <article class="project-card card reveal" style="--reveal-delay:160ms">
+
+        <article class="project-card card reveal" data-category="governance" style="--reveal-delay:160ms"
+          data-title="Risk Management Plan: Health Network, Inc."
+          data-desc="Built a HIPAA-focused healthcare risk management plan covering cyber threats, business impact, incident response readiness, continuity planning, and operational risk reduction. Includes a risk matrix with threat categorization and controls mapping."
+          data-credential=""
+          data-tags="GRC,HIPAA,Risk Management,BCP,Threat Modeling"
+          data-link="projects/risk-management-plan/index.html"
+          data-img="images/projects/risk-mgmt-card.svg">
           <div class="project-image-wrap">
-            <img alt="Risk management plan project thumbnail" class="project-image" src="images/projects/risk-mgmt.svg" decoding="async" loading="lazy"/>
-            <span class="project-image-label">Risk plan overview</span>
+            <img alt="Healthcare risk matrix with threat categorization" class="project-image" src="images/projects/risk-mgmt-card.svg" decoding="async" loading="lazy"/>
+            <button class="project-preview-btn" aria-label="Quick view risk management project" type="button">Quick view</button>
           </div>
           <h3>Risk Management Plan: Health Network, Inc.</h3>
-          <p>Built a healthcare risk plan centered on HIPAA, continuity, and incident readiness.</p>
-          <ul class="project-outcomes">
-            <li>Covered threat categories, business impact, and recovery priorities</li>
-            <li>Focused on operational risk reduction in a regulated environment</li>
-            <li>Balanced policy, technical controls, and response planning</li>
-          </ul>
+          <p>HIPAA-focused healthcare risk management plan covering cyber threats, business impact, incident response readiness, continuity planning, and risk reduction.</p>
           <div class="meta-row"><span>GRC</span><span>HIPAA</span><span>Risk Management</span></div>
           <a class="btn btn-secondary" href="projects/risk-management-plan/index.html">Open project</a>
         </article>
-        <article class="project-card card reveal" style="--reveal-delay:180ms">
+
+        <article class="project-card card reveal" data-category="incident" style="--reveal-delay:180ms"
+          data-title="Healthcare Cyber Incident Report: Trinity Health"
+          data-desc="Analyzed the Trinity Health breach to assess how monitoring gaps, access handling failures, and delayed escalation increased risk in a regulated healthcare environment. Covers failure timeline, compliance gaps, and remediation recommendations."
+          data-credential=""
+          data-tags="HIPAA,Incident Analysis,Compliance,Breach Response"
+          data-link="projects/trinity-health-incident-report/index.html"
+          data-img="images/projects/trinity-breach-card.svg">
           <div class="project-image-wrap">
-            <img alt="Healthcare incident timeline and report thumbnail" class="project-image" src="images/projects/healthcare-breach-timeline.png" decoding="async" loading="lazy"/>
-            <span class="project-image-label">Incident timeline</span>
+            <img alt="Trinity Health breach incident timeline" class="project-image" src="images/projects/trinity-breach-card.svg" decoding="async" loading="lazy"/>
+            <button class="project-preview-btn" aria-label="Quick view Trinity Health incident project" type="button">Quick view</button>
           </div>
           <h3>Healthcare Cyber Incident Report: Trinity Health</h3>
-          <p>Analyzed a major healthcare breach through an operational and compliance lens.</p>
-          <ul class="project-outcomes">
-            <li>Explained how monitoring gaps and access failures increased risk</li>
-            <li>Recommended MFA, least privilege, and stronger escalation criteria</li>
-            <li>Translated incident lessons into week-one actions for IT support teams</li>
-          </ul>
+          <p>Analyzed the Trinity Health breach — monitoring gaps, access handling failures, and delayed escalation that increased risk in a regulated healthcare environment.</p>
           <div class="meta-row"><span>HIPAA</span><span>Incident Analysis</span><span>Compliance</span></div>
-          <div class="button-row project-card-actions"><a class="btn btn-secondary" href="projects/trinity-health-incident-report/index.html">Open project</a><a class="btn btn-ghost" href="projects/healthcare-breach-analysis/index.html">Alt write-up</a></div>
+          <a class="btn btn-secondary" href="projects/trinity-health-incident-report/index.html">Open project</a>
         </article>
-        <article class="project-card card reveal" style="--reveal-delay:240ms">
+
+        <article class="project-card card reveal" data-category="networking" style="--reveal-delay:240ms"
+          data-title="Network Infrastructure Proposal: Fayetteville Office"
+          data-desc="End-to-end office network infrastructure proposal covering star topology design, ISP selection and redundancy, core hardware selection, BitLocker encryption, VPN remote access, and future growth requirements."
+          data-credential=""
+          data-tags="Star Topology,BitLocker,VPN,ISP Redundancy,Growth Planning"
+          data-link="projects/network-infrastructure-proposal/index.html"
+          data-img="images/projects/network-infra-card.svg">
           <div class="project-image-wrap">
-            <img alt="Office network infrastructure proposal thumbnail" class="project-image" src="images/projects/network-infra.svg" loading="lazy" decoding="async"/>
-            <span class="project-image-label">Infrastructure proposal</span>
+            <img alt="Star topology office network diagram" class="project-image" src="images/projects/network-infra-card.svg" loading="lazy" decoding="async"/>
+            <button class="project-preview-btn" aria-label="Quick view network infrastructure project" type="button">Quick view</button>
           </div>
           <h3>Network Infrastructure Proposal: Fayetteville Office</h3>
-          <p>Created an office network proposal covering security, connectivity, and growth planning.</p>
-          <ul class="project-outcomes">
-            <li>Selected topology, ISP approach, and core hardware requirements</li>
-            <li>Included BitLocker, VPN access, and future expansion needs</li>
-            <li>Framed technical choices around business supportability</li>
-          </ul>
+          <p>End-to-end office network proposal covering topology, ISP selection, core hardware, BitLocker encryption, VPN access, and future growth requirements.</p>
           <div class="meta-row"><span>Star Topology</span><span>BitLocker</span><span>VPN</span></div>
           <a class="btn btn-secondary" href="projects/network-infrastructure-proposal/index.html">Open project</a>
         </article>
-        <article class="project-card card reveal" style="--reveal-delay:300ms">
+
+        <article class="project-card card reveal" data-category="governance" style="--reveal-delay:300ms"
+          data-title="Security Awareness Executive Summary"
+          data-desc="Executive-level security awareness presentation that translated technical risk findings into clear business terms for leadership review and rollout planning. Scored 305/305. Covers risk assessment, program design, stakeholder communication, and metrics."
+          data-credential="Scored 305/305 — Richmond Adebiaye, PhD, CISSP, CISM · IT-552, SNHU"
+          data-tags="Program Design,Stakeholder Comms,Human Factors,Executive Reporting"
+          data-link="projects/security-awareness-executive-summary/index.html"
+          data-img="images/projects/exec-summary-card.svg">
           <div class="project-image-wrap">
-            <img alt="Executive security summary thumbnail" class="project-image" src="images/projects/exec-summary.svg" loading="lazy" decoding="async"/>
-            <span class="project-image-label">Leadership summary</span>
+            <img alt="Security awareness program design phases" class="project-image" src="images/projects/exec-summary-card.svg" loading="lazy" decoding="async"/>
+            <button class="project-preview-btn" aria-label="Quick view executive summary project" type="button">Quick view</button>
           </div>
           <h3>Security Awareness Executive Summary</h3>
-          <p>Built a leadership-facing security awareness summary that connects risk to rollout planning.</p>
-          <ul class="project-outcomes">
-            <li>Converted technical findings into clear executive language</li>
-            <li>Outlined rollout priorities and stakeholder communication needs</li>
-            <li>Demonstrated business-facing documentation and presentation skills</li>
-          </ul>
+          <p>Executive-level security awareness presentation translating technical risk findings into clear business terms. Scored 305/305 by a CISO-credentialed evaluator.</p>
           <p class="project-credential">Scored 305/305 — Richmond Adebiaye, PhD, CISSP, CISM · IT-552, SNHU</p>
           <div class="meta-row"><span>Program Design</span><span>Stakeholder Comms</span><span>Human Factors</span></div>
           <a class="btn btn-secondary" href="projects/security-awareness-executive-summary/index.html">Open project</a>
         </article>
-      </div>      </div>
+      </div>
+
+      <!-- Project quick-view modal -->
+      <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+        <div class="project-modal-inner">
+          <button class="modal-close" id="modalClose" type="button" aria-label="Close preview">✕</button>
+          <img class="modal-img" id="modalImg" alt="" src="" loading="lazy"/>
+          <div class="modal-body">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+            <p class="project-credential" id="modalCredential"></p>
+            <div class="meta-row" id="modalTags"></div>
+            <div class="button-row" style="margin-top:18px">
+              <a class="btn btn-primary" id="modalLink" href="#">Open project</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -602,7 +599,7 @@
             <a class="btn btn-secondary" href="assets/Logan_Garth_Goodwin_Resume.pdf" target="_blank" rel="noreferrer noopener" type="application/pdf">Download Resume (PDF)</a>
           </div>
           <p class="form-note" id="formStatus" aria-live="polite"></p>
-          <p class="form-helper">This form sends through Formspree. The direct email and copy-email options are also available.</p>
+
         </form>
       </article>
     </div>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#07101d"/>
+<rect x="0" y="0" width="800" height="2" fill="#E24B4A" opacity="0.5"/>
+<text x="40" y="55" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#E24B4A" opacity="0.85">HEALTHCARE CYBER INCIDENT · TRINITY HEALTH · HIPAA · INCIDENT ANALYSIS</text>
+<!-- Timeline -->
+<text x="40" y="90" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" opacity="0.6" letter-spacing="0.1em">INCIDENT TIMELINE</text>
+<line x1="40" y1="115" x2="750" y2="115" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<!-- Timeline nodes -->
+<circle cx="100" cy="115" r="7" fill="#E24B4A" opacity="0.9"/>
+<rect x="70" y="128" width="80" height="44" rx="4" fill="rgba(226,75,74,0.1)" stroke="rgba(226,75,74,0.3)" stroke-width="0.5"/>
+<text x="110" y="145" font-family="JetBrains Mono, monospace" font-size="8" fill="#E24B4A" text-anchor="middle">Initial</text>
+<text x="110" y="158" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">access</text>
+<text x="110" y="170" font-family="JetBrains Mono, monospace" font-size="7" fill="#8fa8c8" text-anchor="middle" opacity="0.6">Credential theft</text>
+
+<circle cx="240" cy="115" r="7" fill="#EF9F27" opacity="0.9"/>
+<rect x="210" y="128" width="80" height="44" rx="4" fill="rgba(239,159,39,0.1)" stroke="rgba(239,159,39,0.3)" stroke-width="0.5"/>
+<text x="250" y="145" font-family="JetBrains Mono, monospace" font-size="8" fill="#EF9F27" text-anchor="middle">Lateral</text>
+<text x="250" y="158" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">movement</text>
+<text x="250" y="170" font-family="JetBrains Mono, monospace" font-size="7" fill="#8fa8c8" text-anchor="middle" opacity="0.6">Priv escalation</text>
+
+<circle cx="380" cy="115" r="7" fill="#EF9F27" opacity="0.8"/>
+<rect x="350" y="128" width="80" height="44" rx="4" fill="rgba(239,159,39,0.08)" stroke="rgba(239,159,39,0.25)" stroke-width="0.5"/>
+<text x="390" y="145" font-family="JetBrains Mono, monospace" font-size="8" fill="#EF9F27" text-anchor="middle">PHI</text>
+<text x="390" y="158" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">exfiltration</text>
+<text x="390" y="170" font-family="JetBrains Mono, monospace" font-size="7" fill="#8fa8c8" text-anchor="middle" opacity="0.6">Data exposure</text>
+
+<circle cx="520" cy="115" r="7" fill="#3dd6f5" opacity="0.7"/>
+<rect x="490" y="128" width="80" height="44" rx="4" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.5"/>
+<text x="530" y="145" font-family="JetBrains Mono, monospace" font-size="8" fill="#3dd6f5" text-anchor="middle">Detection</text>
+<text x="530" y="158" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">delayed</text>
+<text x="530" y="170" font-family="JetBrains Mono, monospace" font-size="7" fill="#8fa8c8" text-anchor="middle" opacity="0.6">Monitoring gap</text>
+
+<circle cx="660" cy="115" r="7" fill="#7ef0c4" opacity="0.7"/>
+<rect x="630" y="128" width="80" height="44" rx="4" fill="rgba(126,240,196,0.08)" stroke="rgba(126,240,196,0.25)" stroke-width="0.5"/>
+<text x="670" y="145" font-family="JetBrains Mono, monospace" font-size="8" fill="#7ef0c4" text-anchor="middle">Incident</text>
+<text x="670" y="158" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">response</text>
+<text x="670" y="170" font-family="JetBrains Mono, monospace" font-size="7" fill="#8fa8c8" text-anchor="middle" opacity="0.6">Containment</text>
+
+<!-- Failure analysis -->
+<text x="40" y="215" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" opacity="0.6" letter-spacing="0.1em">IDENTIFIED FAILURE POINTS</text>
+<rect x="40" y="228" width="220" height="50" rx="6" fill="rgba(226,75,74,0.1)" stroke="rgba(226,75,74,0.3)" stroke-width="0.6"/>
+<text x="150" y="248" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#E24B4A" text-anchor="middle">Monitoring gaps</text>
+<text x="150" y="265" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">No real-time alerting on PHI</text>
+
+<rect x="275" y="228" width="220" height="50" rx="6" fill="rgba(226,75,74,0.1)" stroke="rgba(226,75,74,0.3)" stroke-width="0.6"/>
+<text x="385" y="248" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#E24B4A" text-anchor="middle">Access control</text>
+<text x="385" y="265" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">Overprovisioned credentials</text>
+
+<rect x="510" y="228" width="240" height="50" rx="6" fill="rgba(226,75,74,0.1)" stroke="rgba(226,75,74,0.3)" stroke-width="0.6"/>
+<text x="630" y="248" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#E24B4A" text-anchor="middle">Escalation delay</text>
+<text x="630" y="265" font-family="JetBrains Mono, monospace" font-size="8" fill="#8fa8c8" text-anchor="middle">Late incident classification</text>
+
+<!-- Compliance tags -->
+<text x="40" y="310" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" opacity="0.6" letter-spacing="0.1em">COMPLIANCE FRAMEWORK</text>
+<rect x="40" y="323" width="100" height="28" rx="14" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="90" y="341" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">HIPAA</text>
+<rect x="150" y="323" width="140" height="28" rx="14" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="220" y="341" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Breach notification</text>
+<rect x="300" y="323" width="130" height="28" rx="14" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="365" y="341" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Incident analysis</text>
+<rect x="440" y="323" width="110" height="28" rx="14" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="495" y="341" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Compliance</text>
+
+<text x="40" y="395" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8f1ff" opacity="0.7">Healthcare Cyber Incident Report: Trinity Health</text>
+<text x="40" y="412" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" opacity="0.5">HIPAA · incident analysis · legal and ethical review</text>
+</svg>

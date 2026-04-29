@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#07101d"/>
+<rect x="0" y="0" width="800" height="2" fill="#3dd6f5" opacity="0.3"/>
+<text x="40" y="55" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#3dd6f5" opacity="0.85">INFORMATION ASSURANCE PLAN · NIST · GOVERNANCE · GRADUATE · IT-552 SNHU</text>
+<!-- NIST tiers stacked -->
+<rect x="40" y="80" width="340" height="52" rx="6" fill="rgba(61,214,245,0.14)" stroke="#3dd6f5" stroke-width="1"/>
+<text x="60" y="102" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#3dd6f5">Identify</text>
+<text x="60" y="120" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8">Asset inventory · risk context · business impact</text>
+
+<rect x="40" y="145" width="340" height="52" rx="6" fill="rgba(126,240,196,0.1)" stroke="#7ef0c4" stroke-width="0.8"/>
+<text x="60" y="167" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#7ef0c4">Protect</text>
+<text x="60" y="185" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8">Access control · least privilege · config hardening</text>
+
+<rect x="40" y="210" width="340" height="52" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="60" y="232" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#3dd6f5" opacity="0.8">Detect</text>
+<text x="60" y="250" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8">Logging · monitoring · anomaly detection</text>
+
+<rect x="40" y="275" width="340" height="52" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="60" y="297" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#3dd6f5" opacity="0.8">Respond</text>
+<text x="60" y="315" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8">Incident escalation · containment · documentation</text>
+
+<rect x="40" y="340" width="340" height="40" rx="6" fill="rgba(61,214,245,0.05)" stroke="rgba(61,214,245,0.2)" stroke-width="0.5"/>
+<text x="60" y="364" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#3dd6f5" opacity="0.6">Recover</text>
+
+<!-- Right side: credential + controls -->
+<rect x="430" y="80" width="330" height="80" rx="8" fill="rgba(126,240,196,0.06)" stroke="#7ef0c4" stroke-width="0.8"/>
+<text x="595" y="108" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#7ef0c4" text-anchor="middle">Graduate evaluation</text>
+<text x="595" y="126" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" text-anchor="middle">CISO decision-making criteria</text>
+<text x="595" y="144" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">IT-552 · SNHU · 4.0</text>
+
+<text x="430" y="210" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" letter-spacing="0.08em" fill="#8fa8c8" opacity="0.7">OPERATIONAL CONTROLS</text>
+<rect x="430" y="222" width="145" height="36" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.5"/>
+<text x="502" y="244" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Access mgmt</text>
+<rect x="585" y="222" width="145" height="36" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.5"/>
+<text x="657" y="244" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Audit logging</text>
+<rect x="430" y="268" width="145" height="36" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.5"/>
+<text x="502" y="290" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Monitoring</text>
+<rect x="585" y="268" width="145" height="36" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.5"/>
+<text x="657" y="290" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Escalation</text>
+<rect x="430" y="314" width="145" height="36" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.5"/>
+<text x="502" y="336" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Policy writing</text>
+<rect x="585" y="314" width="145" height="36" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.5"/>
+<text x="657" y="336" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Continuity</text>
+
+<text x="40" y="400" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8f1ff" opacity="0.7">Information Assurance Plan</text>
+<text x="40" y="415" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" opacity="0.5">NIST CSF · SNHU IT-552 graduate project</text>
+</svg>
