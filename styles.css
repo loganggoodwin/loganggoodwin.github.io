@@ -879,27 +879,15 @@ textarea:focus-visible {
 /* Category-colored project card borders */
 .project-card{
   position:relative;
-  overflow:hidden;
+  border-left-width:4px;
+  border-left-style:solid;
+  border-left-color:rgba(61,214,245,.35);
 }
-.project-card::before{
-  content:"";
-  position:absolute;
-  inset:0 auto 0 0;
-  width:5px;
-  background:rgba(61,214,245,.55);
-  border-radius:var(--radius) 0 0 var(--radius);
-}
-.project-card[data-category="networking"]::before{background:#3dd6f5}
-.project-card[data-category="governance"]::before{background:#7ef0c4}
-.project-card[data-category="ctf"]::before{background:#f5b84b}
-.project-card[data-category="incident"]::before{background:#ff6b6b}
-.project-card[data-category="operations"]::before{background:#a78bfa}
-.project-card[data-category="general"]::before{background:rgba(255,255,255,.24)}
-.project-card[data-category="networking"]{border-color:rgba(61,214,245,.26)}
-.project-card[data-category="governance"]{border-color:rgba(126,240,196,.24)}
-.project-card[data-category="ctf"]{border-color:rgba(245,184,75,.28)}
-.project-card[data-category="incident"]{border-color:rgba(255,107,107,.28)}
-.project-card[data-category="operations"]{border-color:rgba(167,139,250,.28)}
+.project-card[data-category="networking"]{border-color:rgba(61,214,245,.26);border-left-color:#3dd6f5}
+.project-card[data-category="governance"]{border-color:rgba(126,240,196,.24);border-left-color:#7ef0c4}
+.project-card[data-category="ctf"]{border-color:rgba(245,184,75,.28);border-left-color:#f5b84b}
+.project-card[data-category="incident"]{border-color:rgba(255,107,107,.28);border-left-color:#ff6b6b}
+.project-card[data-category="operations"]{border-color:rgba(167,139,250,.28);border-left-color:#a78bfa}
 .project-card > *{
   position:relative;
   z-index:1;
@@ -976,3 +964,7 @@ textarea:focus-visible {
 .project-card[data-category="creative"]{border-color:rgba(244,114,182,.28)}
 .category-legend .legend-software{--legend-color:#a78bfa}
 .category-legend .legend-creative{--legend-color:#f472b6}
+
+/* Software / creative category border-left */
+.project-card[data-category="software"]{border-color:rgba(167,139,250,.28);border-left-color:#a78bfa}
+.project-card[data-category="creative"]{border-color:rgba(244,114,182,.28);border-left-color:#f472b6}

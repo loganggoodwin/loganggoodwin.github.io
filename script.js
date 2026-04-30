@@ -141,6 +141,10 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   const cards = document.querySelectorAll('#projectGrid .project-card');
   if(!chips.length || !cards.length) return;
 
+  // Set initial count dynamically
+  const countEl = document.getElementById('count-all');
+  if(countEl) countEl.textContent = cards.length;
+
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
       chips.forEach(c => c.classList.remove('filter-chip--active'));
@@ -152,7 +156,6 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
         card.classList.toggle('is-hidden', !match);
         if(match) shown++;
       });
-      const countEl = document.getElementById('count-all');
       if(countEl && filter === 'all') countEl.textContent = shown;
     });
   });
