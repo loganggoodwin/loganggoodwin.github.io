@@ -60,3 +60,7 @@ The site now uses one main stylesheet (`styles.css`) and one main script file (`
 ## Additional Verified Learning
 
 The homepage includes a separate **Additional Verified Learning** section for HarvardX, MITx, and IMFx certificates. These are intentionally separated from industry certifications such as CompTIA, EC-Council, and TestOut so the credential language remains clear and professional.
+
+## Software & Creative Builds
+
+The homepage and Projects page include a separate **Software & Creative Builds** section for game, CLI, and music website projects. These are intentionally separated from the core cybersecurity/infrastructure portfolio so the site stays focused while still showing hands-on building and documentation ability.

@@ -878,15 +878,31 @@ textarea:focus-visible {
 /* Category-colored project card borders */
 .project-card{
   position:relative;
-  border-left-width:4px;
-  border-left-style:solid;
-  border-left-color:rgba(61,214,245,.4);
+  overflow:hidden;
 }
-.project-card[data-category="networking"]{border-left-color:#3dd6f5;border-color:rgba(61,214,245,.26);border-left-color:#3dd6f5}
-.project-card[data-category="governance"]{border-left-color:#7ef0c4;border-color:rgba(126,240,196,.24);border-left-color:#7ef0c4}
-.project-card[data-category="ctf"]{border-left-color:#f5b84b;border-color:rgba(245,184,75,.28);border-left-color:#f5b84b}
-.project-card[data-category="incident"]{border-left-color:#ff6b6b;border-color:rgba(255,107,107,.28);border-left-color:#ff6b6b}
-.project-card[data-category="operations"]{border-left-color:#a78bfa;border-color:rgba(167,139,250,.28);border-left-color:#a78bfa}
+.project-card::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:5px;
+  background:rgba(61,214,245,.55);
+  border-radius:var(--radius) 0 0 var(--radius);
+}
+.project-card[data-category="networking"]::before{background:#3dd6f5}
+.project-card[data-category="governance"]::before{background:#7ef0c4}
+.project-card[data-category="ctf"]::before{background:#f5b84b}
+.project-card[data-category="incident"]::before{background:#ff6b6b}
+.project-card[data-category="operations"]::before{background:#a78bfa}
+.project-card[data-category="general"]::before{background:rgba(255,255,255,.24)}
+.project-card[data-category="networking"]{border-color:rgba(61,214,245,.26)}
+.project-card[data-category="governance"]{border-color:rgba(126,240,196,.24)}
+.project-card[data-category="ctf"]{border-color:rgba(245,184,75,.28)}
+.project-card[data-category="incident"]{border-color:rgba(255,107,107,.28)}
+.project-card[data-category="operations"]{border-color:rgba(167,139,250,.28)}
+.project-card > *{
+  position:relative;
+  z-index:1;
+}
 .category-legend{
   display:flex;
   flex-wrap:wrap;
@@ -917,57 +933,45 @@ textarea:focus-visible {
 .category-legend .legend-incident{--legend-color:#ff6b6b}
 .category-legend .legend-operations{--legend-color:#a78bfa}
 
-/* ── POLISH FIXES ── */
 
-/* Modal open animation */
-@keyframes modal-in {
-  from { opacity:0; transform:scale(.96) translateY(10px); }
-  to   { opacity:1; transform:scale(1)   translateY(0); }
+/* Projects index refined cards */
+.project-grid--library .project-card h2{
+  font-size:1.22rem;
+  margin:0 0 8px;
+  line-height:1.35;
 }
-.project-modal:not([hidden]) .project-modal-inner {
-  animation: modal-in .22s ease forwards;
+.project-grid--library .project-card p{
+  color:var(--muted);
+  line-height:1.62;
 }
-
-/* Hero typing min-height fix on mobile so layout doesn't jump */
-@media (max-width:600px) {
-  .terminal-hero-title { min-height: calc(3.2em * 1.05 * 3); }
+.project-grid--library .project-card .button-row{
+  margin-top:auto;
 }
-
-/* Smooth filter hide — fade rather than instant display:none */
-.project-card {
-  transition: transform .25s ease, box-shadow .25s ease, opacity .2s ease;
-}
-.project-card.is-hidden {
-  display: none;
+.project-grid--library .project-card .btn{
+  margin-top:0;
 }
 
-/* Active filter chip gets a subtle glow */
-.filter-chip--active {
-  box-shadow: 0 0 14px rgba(61,214,245,.18);
-}
 
-/* Learning card org label polish */
-.learning-org {
-  font-family: var(--mono);
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--accent-2);
-  margin-bottom: 8px;
+/* Software and creative builds */
+.software-build-grid{
+  align-items:stretch;
 }
-
-/* Recruiter scan quick-link buttons — make them feel more clickable */
-.recruiter-card .btn {
-  transition: transform .15s ease, box-shadow .15s ease, opacity .15s;
+.software-build-card h3{
+  margin:0 0 8px;
 }
-.recruiter-card .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+.software-build-card p{
+  color:var(--muted);
+  line-height:1.6;
 }
-
-/* Smooth section transitions */
-.section { transition: background .3s; }
-
-/* Footer polish — ensure links don't look muted */
-.footer-links a { transition: color .15s; }
+.software-builds-library{
+  margin-top:46px;
+}
+.software-builds-heading{
+  margin-top:12px;
+}
+.project-card[data-category="software"]::before{background:#a78bfa}
+.project-card[data-category="creative"]::before{background:#f472b6}
+.project-card[data-category="software"]{border-color:rgba(167,139,250,.28)}
+.project-card[data-category="creative"]{border-color:rgba(244,114,182,.28)}
+.category-legend .legend-software{--legend-color:#a78bfa}
+.category-legend .legend-creative{--legend-color:#f472b6}

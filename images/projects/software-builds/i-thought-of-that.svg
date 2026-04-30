@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="I THOUGHT OF THAT thumbnail">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="1" stop-color="#132238"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="44" fill="url(#bg)"/>
+  <path d="M0 520 C240 420 380 620 610 500 C830 380 955 420 1200 300 L1200 675 L0 675 Z" fill="#a78bfa" opacity=".10"/>
+  <circle cx="980" cy="145" r="95" fill="#a78bfa" opacity=".12"/>
+  <rect x="90" y="95" width="1020" height="485" rx="34" fill="none" stroke="#a78bfa" stroke-width="4" opacity=".50"/>
+  <text x="120" y="300" fill="#a78bfa" font-family="Consolas, monospace" font-size="72" font-weight="800">I THOUGHT OF THAT</text>
+  <text x="123" y="372" fill="#d7e6f7" font-family="Arial, sans-serif" font-size="36" font-weight="600">Song website</text>
+  <text x="123" y="470" fill="#8aa4bf" font-family="Consolas, monospace" font-size="24">&gt; build · test · document · iterate</text>
+</svg>
