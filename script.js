@@ -163,26 +163,61 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Project quick-view modal
 (function(){
-  const modal = document.getElementById('projectModal');
-  const closeBtn = document.getElementById('modalClose');
-  if(!modal || !closeBtn) return;
+  const previewButtons = document.querySelectorAll('.project-preview-btn');
+  if(!previewButtons.length) return;
 
-  const modalImg = document.getElementById('modalImg');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDesc');
-  const modalCredential = document.getElementById('modalCredential');
-  const modalTags = document.getElementById('modalTags');
-  const modalLink = document.getElementById('modalLink');
+  const modal = document.createElement('div');
+  modal.className = 'project-modal';
+  modal.id = 'projectModal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'modalTitle');
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="project-modal-inner">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close preview">✕</button>
+      <img class="modal-img" id="modalImg" alt="" src="" loading="lazy"/>
+      <div class="modal-body">
+        <h3 id="modalTitle">Project preview</h3>
+        <p id="modalDesc"></p>
+        <p class="project-credential" id="modalCredential"></p>
+        <div class="meta-row" id="modalTags"></div>
+        <div class="button-row" style="margin-top:18px">
+          <a class="btn btn-primary" id="modalLink" href="#">Open project</a>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const closeBtn = modal.querySelector('#modalClose');
+  const modalImg = modal.querySelector('#modalImg');
+  const modalTitle = modal.querySelector('#modalTitle');
+  const modalDesc = modal.querySelector('#modalDesc');
+  const modalCredential = modal.querySelector('#modalCredential');
+  const modalTags = modal.querySelector('#modalTags');
+  const modalLink = modal.querySelector('#modalLink');
 
   const openModal = (card) => {
+    if(!card) return;
     modalImg.src = card.dataset.img || '';
-    modalImg.alt = card.dataset.title || '';
-    modalTitle.textContent = card.dataset.title || '';
+    modalImg.alt = card.dataset.title || 'Project preview image';
+    modalTitle.textContent = card.dataset.title || 'Project preview';
     modalDesc.textContent = card.dataset.desc || '';
     const cred = card.dataset.credential || '';
     modalCredential.textContent = cred;
     modalCredential.style.display = cred ? 'block' : 'none';
-    modalTags.innerHTML = (card.dataset.tags || '').split(',').map(t => `<span>${t.trim()}</span>`).join('');
+
+    modalTags.replaceChildren();
+    (card.dataset.tags || '')
+      .split(',')
+      .map(t => t.trim())
+      .filter(Boolean)
+      .forEach(tag => {
+        const span = document.createElement('span');
+        span.textContent = tag;
+        modalTags.appendChild(span);
+      });
+
     modalLink.href = card.dataset.link || '#';
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -194,7 +229,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     document.body.style.overflow = '';
   };
 
-  document.querySelectorAll('.project-preview-btn').forEach(btn => {
+  previewButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       openModal(btn.closest('.project-card'));
@@ -211,7 +246,6 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     if(e.key === 'Escape' && !modal.hidden) closeModal();
   });
 })();
-
 
 // Terminal hero typing animation
 (() => {
