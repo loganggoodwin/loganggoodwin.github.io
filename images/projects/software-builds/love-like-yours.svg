@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Love Like Yours thumbnail">
+  <defs>
+    <linearGradient id="bg-love" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset=".55" stop-color="#16243b"/>
+      <stop offset="1" stop-color="#2b1828"/>
+    </linearGradient>
+    <linearGradient id="heart-glow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="44" fill="url(#bg-love)"/>
+  <path d="M0 522 C220 430 380 600 585 500 C800 395 960 420 1200 285 L1200 675 L0 675 Z" fill="#f472b6" opacity=".10"/>
+  <circle cx="980" cy="145" r="96" fill="#f472b6" opacity=".12"/>
+  <circle cx="170" cy="545" r="140" fill="#fbbf24" opacity=".08"/>
+  <rect x="90" y="95" width="1020" height="485" rx="34" fill="none" stroke="#f472b6" stroke-width="4" opacity=".52"/>
+  <path d="M602 210
+           C602 173 632 145 669 145
+           C693 145 714 157 728 176
+           C742 157 763 145 787 145
+           C824 145 854 173 854 210
+           C854 281 728 344 728 344
+           C728 344 602 281 602 210 Z"
+        fill="url(#heart-glow)" opacity=".92"/>
+  <path d="M330 190 C395 168 475 168 540 190" fill="none" stroke="#8aa4bf" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+  <path d="M335 415 C448 392 512 392 630 415" fill="none" stroke="#8aa4bf" stroke-width="8" stroke-linecap="round" opacity=".35"/>
+  <text x="120" y="300" fill="#f472b6" font-family="Consolas, monospace" font-size="72" font-weight="800">LOVE LIKE YOURS</text>
+  <text x="123" y="372" fill="#d7e6f7" font-family="Arial, sans-serif" font-size="36" font-weight="600">Mother’s Day tribute site</text>
+  <text x="123" y="470" fill="#8aa4bf" font-family="Consolas, monospace" font-size="24">&gt; audio · video · lyrics · GitHub Pages</text>
+</svg>
