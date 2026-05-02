@@ -64,3 +64,8 @@ The homepage includes a separate **Additional Verified Learning** section for Ha
 ## Software & Creative Builds
 
 The homepage and Projects page include a separate **Software & Creative Builds** section for game, CLI, and music website projects, including the newer creative GitHub Pages tribute builds. These are intentionally separated from the core cybersecurity/infrastructure portfolio so the site stays focused while still showing hands-on building and documentation ability.
+
+
+## Portfolio Organization Update
+
+The portfolio now separates software/game builds from music and community tribute projects so technical hiring content stays focused while creative GitHub Pages work remains visible.
