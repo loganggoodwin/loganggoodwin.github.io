@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Strength in Numbers thumbnail">
+  <defs>
+    <linearGradient id="bg-strength" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#050b18"/>
+      <stop offset=".48" stop-color="#101f36"/>
+      <stop offset="1" stop-color="#291d45"/>
+    </linearGradient>
+    <linearGradient id="ship-strength" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset=".55" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <filter id="glow-strength" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" rx="44" fill="url(#bg-strength)"/>
+  <g opacity=".55">
+    <circle cx="210" cy="118" r="3" fill="#e5eef9"/><circle cx="342" cy="92" r="2" fill="#e5eef9"/><circle cx="895" cy="104" r="3" fill="#e5eef9"/><circle cx="1036" cy="240" r="2" fill="#e5eef9"/><circle cx="740" cy="530" r="2" fill="#e5eef9"/><circle cx="164" cy="462" r="2" fill="#e5eef9"/>
+  </g>
+  <circle cx="960" cy="152" r="128" fill="#60a5fa" opacity=".10"/>
+  <path d="M0 522 C186 438 316 594 525 500 C714 416 868 450 1200 272 L1200 675 L0 675 Z" fill="#a78bfa" opacity=".11"/>
+  <rect x="90" y="92" width="1020" height="492" rx="34" fill="none" stroke="#60a5fa" stroke-width="4" opacity=".50"/>
+  <g filter="url(#glow-strength)" transform="translate(776 222)">
+    <path d="M160 0 L248 170 L160 132 L72 170 Z" fill="url(#ship-strength)" opacity=".94"/>
+    <path d="M160 42 L194 126 L160 108 L126 126 Z" fill="#050b18" opacity=".55"/>
+    <circle cx="160" cy="170" r="16" fill="#fbbf24"/>
+  </g>
+  <path d="M765 448 C832 404 910 404 982 448" fill="none" stroke="#fbbf24" stroke-width="8" stroke-linecap="round" opacity=".48"/>
+  <text x="120" y="276" fill="#60a5fa" font-family="Consolas, monospace" font-size="62" font-weight="800">STRENGTH</text>
+  <text x="120" y="350" fill="#a78bfa" font-family="Consolas, monospace" font-size="62" font-weight="800">IN NUMBERS</text>
+  <text x="123" y="426" fill="#d7e6f7" font-family="Arial, sans-serif" font-size="34" font-weight="600">Vega Conflict alliance tribute</text>
+  <text x="123" y="500" fill="#8aa4bf" font-family="Consolas, monospace" font-size="24">&gt; cover art · audio · video · lyrics</text>
+</svg>

@@ -61,11 +61,11 @@ The site now uses one main stylesheet (`styles.css`) and one main script file (`
 
 The homepage includes a separate **Additional Verified Learning** section for HarvardX, MITx, and IMFx certificates. These are intentionally separated from industry certifications such as CompTIA, EC-Council, and TestOut so the credential language remains clear and professional.
 
-## Software & Creative Builds
+## Software, Game, Music & Tribute Builds
 
-The homepage and Projects page include a separate **Software & Creative Builds** section for game, CLI, and music website projects, including the newer creative GitHub Pages tribute builds. These are intentionally separated from the core cybersecurity/infrastructure portfolio so the site stays focused while still showing hands-on building and documentation ability.
+The homepage and Projects page now separate **Software & Game Builds** from **Music & Community Tribute Projects**. This keeps the cybersecurity and infrastructure portfolio focused while still showing hands-on web publishing, documentation, media organization, and creative GitHub Pages projects.
 
 
 ## Portfolio Organization Update
 
-The portfolio now separates software/game builds from music and community tribute projects so technical hiring content stays focused while creative GitHub Pages work remains visible.
+The portfolio now separates software/game builds from music and community tribute projects so technical hiring content stays focused while creative GitHub Pages work remains visible. The tribute section includes newer song projects such as No Doubt About It — Christine’s Song, Strength in Numbers, and Since Single Digits.
