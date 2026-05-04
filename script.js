@@ -297,3 +297,17 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   window.setTimeout(typeNext, 350);
 })();
 
+
+
+// Music page: pause other tracks when one starts playing
+(function(){
+  const players = document.querySelectorAll('audio.music-audio');
+  if(!players.length) return;
+  players.forEach(player => {
+    player.addEventListener('play', () => {
+      players.forEach(other => {
+        if(other !== player) other.pause();
+      });
+    });
+  });
+})();
