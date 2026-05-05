@@ -1092,6 +1092,42 @@ textarea:focus-visible {
   width:100%;
   justify-content:center;
 }
+
+.featured-player{
+  margin:18px 0 16px;
+  padding:16px;
+  border:1px solid rgba(34,211,238,.18);
+  border-radius:18px;
+  background:rgba(8,18,32,.52);
+}
+.featured-player h3{
+  margin:4px 0 12px;
+  font-size:1.05rem;
+  color:var(--text);
+}
+.featured-audio{
+  margin-top:10px;
+}
+.music-featured-button{
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  font:inherit;
+}
+.music-track-card--featured{
+  border-color:rgba(34,211,238,.36);
+  box-shadow:0 0 0 1px rgba(34,211,238,.08), var(--shadow);
+}
+@media(max-width:640px){
+  .featured-player{
+    padding:14px;
+    border-radius:16px;
+  }
+  .music-featured-button{
+    width:100%;
+  }
+}
+
 @media(max-width:980px){
   .music-hero-grid,
   .music-track-grid{

@@ -299,6 +299,37 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 
 
+
+// Music page: featured song button starts the selected track after a visitor click
+(function(){
+  const button = document.getElementById('featuredMusicButton');
+  if(!button) return;
+  const audioId = button.dataset.featuredAudio || 'featuredSongAudio';
+  const audio = document.getElementById(audioId);
+  if(!audio) return;
+
+  const setLabel = () => {
+    button.textContent = audio.paused ? '▶ Play Featured Song' : '❚❚ Pause Featured Song';
+  };
+
+  button.addEventListener('click', async () => {
+    try {
+      if(audio.paused){
+        await audio.play();
+      } else {
+        audio.pause();
+      }
+      setLabel();
+    } catch {
+      button.textContent = 'Press play on the audio player below';
+    }
+  });
+
+  audio.addEventListener('play', setLabel);
+  audio.addEventListener('pause', setLabel);
+  audio.addEventListener('ended', setLabel);
+})();
+
 // Music page: pause other tracks when one starts playing
 (function(){
   const players = document.querySelectorAll('audio.music-audio');
