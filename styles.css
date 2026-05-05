@@ -1029,25 +1029,32 @@ textarea:focus-visible {
 }
 .music-track-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+  align-items:stretch;
 }
 .music-track-card{
-  display:grid;
-  grid-template-columns:138px 1fr;
-  gap:20px;
-  align-items:start;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  min-height:100%;
+  overflow:hidden;
+  gap:18px;
 }
 .music-cover{
   width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
+  max-width:100%;
+  aspect-ratio:16/9;
+  object-fit:contain;
   border-radius:18px;
   border:1px solid var(--line);
   background:#09111f;
 }
 .music-track-body{
   min-width:0;
+  display:flex;
+  flex:1;
+  flex-direction:column;
 }
 .music-track-body h2{
   font-size:1.28rem;
@@ -1060,10 +1067,15 @@ textarea:focus-visible {
 .music-label{
   position:static;
   display:inline-flex;
+  align-self:flex-start;
   margin-bottom:10px;
+}
+.music-track-body .meta-row{
+  margin-top:14px;
 }
 .music-audio{
   width:100%;
+  max-width:100%;
   margin-top:18px;
   display:block;
 }
@@ -1073,7 +1085,12 @@ textarea:focus-visible {
   color:var(--muted);
 }
 .music-actions{
-  padding-top:14px;
+  margin-top:auto;
+  padding-top:18px;
+}
+.music-actions .btn{
+  width:100%;
+  justify-content:center;
 }
 @media(max-width:980px){
   .music-hero-grid,
@@ -1085,10 +1102,187 @@ textarea:focus-visible {
   }
 }
 @media(max-width:640px){
-  .music-track-card{
-    grid-template-columns:1fr;
+  .music-track-grid{
+    gap:18px;
+  }
+  .music-track-card.card{
+    padding:18px;
+    border-radius:20px;
   }
   .music-cover{
-    max-width:220px;
+    border-radius:16px;
   }
+  .music-track-body h2{
+    font-size:1.18rem;
+  }
+  .music-audio{
+    margin-top:16px;
+  }
+}
+
+/* ── Executive CTA and recruiter-focused homepage refresh ── */
+.role-banner{
+  background:linear-gradient(90deg, rgba(16,185,129,.96), rgba(20,184,166,.9));
+  color:#03130f;
+  border-bottom:1px solid rgba(255,255,255,.18);
+  font-weight:800;
+  font-size:.92rem;
+}
+.role-banner-inner{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-align:center;
+  flex-wrap:wrap;
+}
+.role-banner-icon{
+  font-size:.72rem;
+  opacity:.9;
+}
+.role-banner a{
+  color:#03130f;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  white-space:nowrap;
+}
+.role-banner a:hover{opacity:.78}
+.role-banner--subpage + .site-shell{
+  border-top:0;
+}
+.hero-section{
+  position:relative;
+  overflow:hidden;
+  padding:68px 0 56px;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(126,240,196,.12), transparent 36%),
+    radial-gradient(circle at 85% 18%, rgba(61,214,245,.11), transparent 34%),
+    linear-gradient(135deg, rgba(2,6,23,.55), rgba(15,23,42,.68));
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.hero-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.45), transparent 72%);
+  pointer-events:none;
+}
+.hero-section > .container{
+  position:relative;
+  z-index:1;
+}
+.hero-proof{
+  font-size:1.08rem;
+  color:#c9dcf5;
+  max-width:66ch;
+  line-height:1.7;
+  margin:0 0 14px;
+}
+.hero-value-points--compact{
+  list-style:none;
+  padding-left:0;
+  margin:16px 0 18px;
+}
+.hero-value-points--compact li{
+  position:relative;
+  padding-left:24px;
+}
+.hero-value-points--compact li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:var(--accent-2);
+  font-weight:900;
+}
+.hero-panel{
+  background:linear-gradient(160deg, rgba(15,28,48,.9), rgba(15,28,48,.46));
+  backdrop-filter:blur(14px);
+}
+.hero-panel-topline{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.hero-panel-topline strong{
+  color:var(--accent-2);
+  font-size:.78rem;
+}
+.recruiter-scan{
+  padding-top:52px;
+  padding-bottom:56px;
+}
+.recruiter-heading{
+  margin-bottom:24px;
+}
+.recruiter-quick-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+.recruiter-quick-card{
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.recruiter-quick-card h3{
+  color:var(--accent-2);
+  margin-bottom:12px;
+}
+.recruiter-highlight-card{
+  background:linear-gradient(160deg, rgba(126,240,196,.13), rgba(61,214,245,.04));
+  border-color:rgba(126,240,196,.24);
+}
+.metric-list{
+  list-style:none;
+  display:grid;
+  gap:12px;
+  margin-top:8px;
+}
+.metric-list li{
+  display:grid;
+  gap:2px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+}
+.metric-list strong{
+  font-family:var(--mono);
+  color:var(--accent);
+  font-size:1.08rem;
+}
+.metric-list span{
+  color:var(--muted);
+  font-size:.86rem;
+}
+.target-role-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:8px;
+}
+.target-role-pills span{
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+  padding:8px 12px;
+  font-size:.86rem;
+  font-weight:700;
+}
+@media(max-width:980px){
+  .role-banner-inner{justify-content:flex-start;text-align:left;padding:8px 0}
+  .hero-section{padding:44px 0 42px}
+  .recruiter-quick-grid{grid-template-columns:1fr}
 }
