@@ -69,3 +69,7 @@ The homepage and Projects page now separate **Software & Game Builds** from **Mu
 ## Portfolio Organization Update
 
 The portfolio now separates software/game builds from music and community tribute projects so technical hiring content stays focused while creative GitHub Pages work remains visible. The tribute section includes newer song projects such as No Doubt About It — Christine’s Song, Strength in Numbers, and Since Single Digits.
+
+## Playable Cybersecurity Project
+
+The portfolio now includes **Firewall Defender**, a playable browser-based cybersecurity learning game located at `/projects/firewall-defender/`. The homepage and Projects page both include project cards with a local **Play game** link and a GitHub repository link.

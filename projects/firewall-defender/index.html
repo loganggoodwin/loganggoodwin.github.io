@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Firewall Defender is a playable web-based cybersecurity learning game that teaches firewall rules, ports, protocols, least privilege, risky services, and default-deny policy decisions." />
+  <title>Firewall Defender | Playable Cybersecurity Learning Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <a class="portfolio-back-link" href="../../index.html#software-builds">← Back to Logan Goodwin portfolio</a>
+    <header class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">🛡️ Cybersecurity Learning Game</div>
+        <h1>Firewall Defender</h1>
+        <p>
+          Inspect simulated network packets, apply firewall rules, and learn how real allow/block decisions protect a network across five levels.
+        </p>
+        <div class="hero-actions">
+          <button id="startBtn" class="btn btn-primary">Start Game</button>
+          <button id="howBtn" class="btn btn-secondary">How It Works</button>
+        </div>
+      </div>
+      <div class="mission-card">
+        <p class="small-label">Current Mission</p>
+        <h2 id="missionTitle">Level 1: Basic Port Filtering</h2>
+        <p id="missionBriefing">Allow normal web and DNS traffic. Block risky legacy or suspicious traffic.</p>
+        <div id="missionObjective" class="objective">Answer 8 packet questions correctly.</div>
+      </div>
+    </header>
+
+    <main class="game-grid">
+      <section class="panel rules-panel">
+        <div class="panel-heading">
+          <h2>Firewall Rules</h2>
+          <button id="resetBtn" class="btn btn-small">Reset</button>
+        </div>
+        <p class="panel-note">
+          Turn rules on or off. Rules are evaluated from top to bottom, just like a real firewall policy.
+        </p>
+        <div id="rulesList" class="rules-list"></div>
+      </section>
+
+      <section class="main-stage">
+        <div class="network-lane">
+          <div class="node node-left">
+            <div class="node-icon">📡</div>
+            <span id="leftZoneLabel">Source Zone</span>
+          </div>
+          <div class="firewall-node">
+            <div class="shield">🛡️</div>
+            <span>Firewall</span>
+          </div>
+          <div class="node node-right">
+            <div class="node-icon">🖥️</div>
+            <span id="rightZoneLabel">Destination Zone</span>
+          </div>
+          <div id="packetBubble" class="packet-bubble">TCP/443</div>
+          <p class="lane-caption">
+            Packets travel toward the firewall. Your decision determines whether traffic reaches the protected system or gets blocked.
+          </p>
+        </div>
+
+        <article id="packetCard" class="packet-card"></article>
+
+        <div class="decision-row">
+          <button id="autoBtn" class="btn btn-secondary">▶ Apply Active Rules</button>
+          <button id="hintBtn" class="btn btn-hint">💡 Need a Hint?</button>
+          <button id="allowBtn" class="btn btn-allow">✓ Allow Packet</button>
+          <button id="blockBtn" class="btn btn-block">✕ Block Packet</button>
+        </div>
+
+        <section id="hintBox" class="hint-box hidden">
+          <div class="hint-icon">💡</div>
+          <div>
+            <div class="hint-topline">
+              <h3 id="hintTitle">Firewall Hint</h3>
+              <span id="hintStepLabel" class="hint-step">Hint 1 of 3</span>
+            </div>
+            <p id="hintText">Use the hint button for a guided clue about this packet.</p>
+            <p id="hintDetail" class="hint-detail"></p>
+          </div>
+        </section>
+
+        <section id="feedbackBox" class="feedback info">
+          <div class="feedback-icon">📘</div>
+          <div>
+            <h3 id="feedbackTitle">Ready to defend the network</h3>
+            <p id="feedbackText">Turn firewall rules on or off, then allow or block each packet.</p>
+            <button id="nextLevelBtn" class="btn btn-primary hidden">Next Level</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel">
+          <h2>Levels 1–5</h2>
+          <div id="levelMap" class="level-map"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Scoreboard</h2>
+          <div class="stats-grid">
+            <div class="stat">
+              <strong id="scoreValue">0</strong>
+              <span>Correct</span>
+            </div>
+            <div class="stat">
+              <strong id="mistakesValue">0</strong>
+              <span>Mistakes</span>
+            </div>
+            <div class="stat">
+              <strong id="streakValue">0</strong>
+              <span>Streak</span>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <p id="progressText" class="progress-text">Progress: 0%</p>
+        </section>
+
+        <section class="panel">
+          <h2>Active Policy</h2>
+          <pre id="policyText">ALLOW TCP 443 | ALLOW UDP 53 | BLOCK TCP 23</pre>
+          <p class="panel-note">
+            The active policy shows the rules currently enabled for this level. Rule order matters.
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2>Port Guide</h2>
+          <div id="portGuide" class="port-guide"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Decision Log</h2>
+          <div id="historyList" class="history-list">
+            <p class="empty-history">No decisions yet.</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <section id="howPanel" class="learning-panel hidden">
+      <button id="closeHowBtn" class="close-btn">×</button>
+      <h2>How Firewalls Work</h2>
+      <p>
+        A firewall is a security control that filters traffic between networks. It checks protocol, source, destination, port numbers, connection state, and policy rules.
+      </p>
+      <div class="learning-grid">
+        <div>
+          <h3>1. Inspect the packet</h3>
+          <p>The game shows source, destination, protocol, source port, destination port, service, and connection state. The hint feature can walk players through these fields when they get stuck.</p>
+        </div>
+        <div>
+          <h3>2. Match a rule</h3>
+          <p>Rules are checked from top to bottom. The first matching rule usually decides whether traffic is allowed or blocked.</p>
+        </div>
+        <div>
+          <h3>3. Apply least privilege</h3>
+          <p>Allow only traffic the network actually needs. Management ports, databases, and file sharing should be tightly restricted.</p>
+        </div>
+        <div>
+          <h3>4. Use default deny</h3>
+          <p>A secure posture blocks traffic unless there is a clear business reason and a specific rule to allow it.</p>
+        </div>
+        <div>
+          <h3>5. Segment the network</h3>
+          <p>Database, server, user, internet, and management zones should not all be treated the same.</p>
+        </div>
+        <div>
+          <h3>6. Think statefully</h3>
+          <p>Stateful firewalls can allow return traffic for sessions that were started by trusted systems while blocking unsolicited inbound traffic.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>Teaching goal:</strong> Firewall Defender demonstrates packet inspection, firewall rule order, ports, protocols, least privilege, segmentation, default deny, and stateful filtering.
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
