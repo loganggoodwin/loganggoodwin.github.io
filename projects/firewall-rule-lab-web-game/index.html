@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Firewall Rule Lab is an interactive cybersecurity training game that teaches firewall rule configuration, detection, business access needs, and PCAP-style testing." />
+  <title>Firewall Rule Lab | Interactive Cybersecurity Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="portfolio-back-link" href="../index.html#software-builds" style="display:inline-flex;align-items:center;gap:.45rem;margin:1rem 1rem 0;padding:.65rem 1rem;border:1px solid rgba(148,163,184,.35);border-radius:999px;background:rgba(15,23,42,.92);color:#e2e8f0;text-decoration:none;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.28);">← Back to portfolio projects</a>
+  <div class="app-shell">
+    <header class="hero panel">
+      <div>
+        <p class="eyebrow">Interactive Cybersecurity Learning Game</p>
+        <h1>Firewall Rule Lab</h1>
+        <p class="hero-copy">
+          Build, test, and tune firewall rules across realistic business scenarios. The game teaches how to prescribe firewall rule changes, configure firewall detection, and identify when rules must be reconfigured to support daily operations without weakening security.
+        </p>
+        <div class="tag-row">
+          <span>Least privilege</span>
+          <span>ACLs</span>
+          <span>SSID policies</span>
+          <span>Cloud firewalls</span>
+          <span>PCAP review</span>
+        </div>
+      </div>
+      <div class="score-card">
+        <div class="score-topline">
+          <span>Current Score</span>
+          <strong id="passState">TUNE</strong>
+        </div>
+        <div id="scoreNumber" class="score-number">0</div>
+        <div class="meter"><div id="scoreMeter"></div></div>
+        <p>Passing requires 85+ and all required rule changes.</p>
+      </div>
+    </header>
+
+    <section class="portfolio panel">
+      <p class="eyebrow">Portfolio Description</p>
+      <h2>What this project is</h2>
+      <p>
+        <strong>Firewall Rule Lab</strong> is a web-based cybersecurity learning game that turns firewall configuration concepts into interactive practice. Players review a business scenario, build firewall rules, test simulated packets, evaluate PCAP-style evidence, and tune logging or alerting until the policy supports operations and security.
+      </p>
+      <h2>Why it helps</h2>
+      <p>
+        This project helps learners connect firewall rules to real operational needs, such as streaming approved training video, sending email attachments, completing secure transactions, accessing specific websites, isolating guest Wi-Fi, and protecting cloud resources. Instead of only reading about allow/block rules, users make decisions, see consequences, and explain why a rule should be changed.
+      </p>
+      <h2>Skills demonstrated</h2>
+      <p>
+        The game demonstrates rule design, least privilege, access control lists, top-to-bottom rule evaluation, implicit deny, stateful and stateless firewall concepts, detection tuning, logging, alerting, cloud firewall design, application firewall awareness, and basic front-end development.
+      </p>
+    </section>
+
+    <nav id="levelTabs" class="level-tabs"></nav>
+
+    <main class="game-grid">
+      <section class="panel scenario-panel">
+        <p class="eyebrow">Scenario</p>
+        <h2 id="levelTitle"></h2>
+        <p id="levelScenario"></p>
+        <div class="info-box">
+          <strong>Mode:</strong> <span id="levelMode"></span>
+        </div>
+        <button id="hintButton" class="secondary-button">Show Hint</button>
+        <p id="hintText" class="hint hidden"></p>
+        <button id="assistButton" class="primary-button">Training Assist</button>
+
+        <div class="concept-card">
+          <p class="eyebrow">Concept Checklist</p>
+          <ul id="conceptList"></ul>
+        </div>
+      </section>
+
+      <section class="center-column">
+        <section class="panel">
+          <p class="eyebrow">Rule Builder</p>
+          <h2>Create a Firewall Rule</h2>
+          <div class="builder-grid">
+            <label>Action<select id="actionSelect"></select></label>
+            <label>Source<select id="sourceSelect"></select></label>
+            <label>Destination<select id="destinationSelect"></select></label>
+            <label>Protocol<select id="protocolSelect"></select></label>
+            <label>Port<select id="portSelect"></select></label>
+            <label>Detection<select id="detectionSelect"></select></label>
+          </div>
+          <button id="addRuleButton" class="success-button">Add Rule</button>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Active Policy</p>
+              <h2>Configured Firewall Rules</h2>
+            </div>
+            <span id="ruleCount" class="pill">0 rules</span>
+          </div>
+          <div id="rulesList" class="rules-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Packet / PCAP Simulator</p>
+              <h2>Test Traffic</h2>
+            </div>
+            <button id="submitButton" class="primary-button small-button">Submit Level</button>
+          </div>
+          <div id="packetGrid" class="packet-grid"></div>
+          <div id="packetAnalysis" class="analysis-box"></div>
+        </section>
+      </section>
+
+      <aside class="right-column">
+        <section class="panel">
+          <p class="eyebrow">Feedback</p>
+          <h2>What to Fix</h2>
+          <div class="metric-grid">
+            <div class="metric"><span>Required Rules</span><strong id="requiredMetric">0/0</strong></div>
+            <div class="metric"><span>Missing Rules</span><strong id="missingMetric">0</strong></div>
+            <div class="metric"><span>Extra Rules</span><strong id="extraMetric">0</strong></div>
+          </div>
+          <div id="missingRules" class="missing-list"></div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Reflection</p>
+          <h2>Explain Your Decision</h2>
+          <p class="small-copy">Explain which rule needed reconfiguration, why the business needed it, and how logging or alerting helps detection.</p>
+          <textarea id="reflectionBox" placeholder="Example: I blocked Guest Wi-Fi from reaching SMB because guests do not need file-share access. I set detection to Alert because attempted access may show misuse or compromise."></textarea>
+          <div id="submitFeedback" class="submit-feedback hidden"></div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Lab Notes</p>
+          <h2>Activity Log</h2>
+          <div id="activityLog" class="activity-log"></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

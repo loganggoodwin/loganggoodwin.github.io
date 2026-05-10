@@ -101,6 +101,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://loganggoodwin.github.io/projects/firewall-rule-lab-web-game/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/cyber-threat-sentinel-game/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://loganggoodwin.github.io/music/</loc>
     <priority>0.8</priority>
   </url>

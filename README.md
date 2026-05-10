@@ -83,3 +83,12 @@ The portfolio now includes **SQL Database Troubleshooter**, a playable browser-b
 ## Playable Networking Training Project
 
 The portfolio now includes **BusinessNet VLAN Router Lab**, a playable browser-based networking and cybersecurity training game located at `/projects/business-network-vlan-game/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game teaches Cisco-style VLAN design, router-on-a-stick subinterfaces, DHCP planning, access/trunk ports, voice VLANs, NAT, default routing, firewall basics, and troubleshooting logic across Easy, Normal, and Hard difficulty levels.
+
+## Playable Firewall Rule Training Project
+
+The portfolio now includes **Firewall Rule Lab**, a playable browser-based cybersecurity training game located at `/projects/firewall-rule-lab-web-game/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game teaches firewall rule changes, least privilege, ACLs, implicit deny, rule order, logging, alerting, cloud firewall defaults, and PCAP-style traffic testing through scenario-based practice.
+
+## Playable Cyber Threat Detection Project
+
+The portfolio now includes **Cyber Threat Sentinel**, a playable browser-based cybersecurity learning game located at `/projects/cyber-threat-sentinel-game/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game simulates SOC-style decision-making across suspicious emails, network traffic, endpoint activity, identity anomalies, malware behavior, brute-force attempts, and possible data exfiltration.
+

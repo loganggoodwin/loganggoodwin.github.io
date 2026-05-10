@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Threat Sentinel | Real-Time Threat Detection Game</title>
+  <meta name="description" content="An interactive web-based cybersecurity game for detecting phishing emails, suspicious traffic, brute force attempts, malware, and data exfiltration events in real time." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="portfolio-back-link" href="../index.html#software-builds" style="display:inline-flex;align-items:center;gap:.45rem;margin:1rem 1rem 0;padding:.65rem 1rem;border:1px solid rgba(148,163,184,.35);border-radius:999px;background:rgba(15,23,42,.92);color:#e2e8f0;text-decoration:none;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.28);position:relative;z-index:20;">← Back to portfolio projects</a>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Cybersecurity Learning Game</p>
+        <h1>Cyber Threat Sentinel</h1>
+        <p class="hero-copy">
+          Analyze live security events, identify threats, and choose the right response before the timer runs out.
+        </p>
+      </div>
+      <div class="hero-card" aria-label="Game summary">
+        <span class="pulse-dot"></span>
+        <strong>Real-time SOC simulation</strong>
+        <small>Email • Network • Endpoint • Identity</small>
+      </div>
+    </header>
+
+    <main>
+      <section id="start-screen" class="panel start-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Choose Your Mission</p>
+          <h2>Pick a difficulty level</h2>
+          <p>
+            Easy gives stronger clues. Medium removes some hints. Hard moves faster and includes trickier false positives.
+          </p>
+        </div>
+
+        <div class="level-grid" role="list">
+          <button class="level-card" data-level="easy" role="listitem">
+            <span class="level-badge easy">Easy</span>
+            <h3>Guided Analyst</h3>
+            <p>Slower timer, evidence tags, response hints, and fewer events.</p>
+            <ul>
+              <li>10 events</li>
+              <li>18 seconds each</li>
+              <li>Hints enabled</li>
+            </ul>
+          </button>
+
+          <button class="level-card" data-level="medium" role="listitem">
+            <span class="level-badge medium">Medium</span>
+            <h3>SOC Operator</h3>
+            <p>Normal speed with evidence tags but no suggested response.</p>
+            <ul>
+              <li>12 events</li>
+              <li>14 seconds each</li>
+              <li>Balanced scoring</li>
+            </ul>
+          </button>
+
+          <button class="level-card" data-level="hard" role="listitem">
+            <span class="level-badge hard">Hard</span>
+            <h3>Incident Commander</h3>
+            <p>Fast incidents, no hints, higher penalties, and stealthier attacks.</p>
+            <ul>
+              <li>15 events</li>
+              <li>10 seconds each</li>
+              <li>Maximum challenge</li>
+            </ul>
+          </button>
+        </div>
+      </section>
+
+      <section id="game-screen" class="game-layout hidden" aria-live="polite">
+        <aside class="panel sidebar">
+          <div class="mission-block">
+            <p class="eyebrow">Current Mission</p>
+            <h2 id="mission-title">Guided Analyst</h2>
+            <p id="mission-copy">Review each event and respond correctly.</p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <span>Score</span>
+              <strong id="score">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Accuracy</span>
+              <strong id="accuracy">100%</strong>
+            </div>
+            <div class="stat-card">
+              <span>Lives</span>
+              <strong id="lives">3</strong>
+            </div>
+            <div class="stat-card">
+              <span>Event</span>
+              <strong id="round-count">1/10</strong>
+            </div>
+          </div>
+
+          <div class="timer-wrap">
+            <div class="timer-label">
+              <span>Response Window</span>
+              <strong id="timer-text">18s</strong>
+            </div>
+            <div class="timer-bar" aria-hidden="true">
+              <div id="timer-fill"></div>
+            </div>
+          </div>
+
+          <button id="restart-btn" class="secondary-btn" type="button">Restart Mission</button>
+        </aside>
+
+        <section class="panel event-panel">
+          <div class="event-topline">
+            <span id="event-source" class="source-pill">Email Gateway</span>
+            <span id="event-severity" class="severity low">Low</span>
+          </div>
+
+          <article class="event-card">
+            <div class="event-title-row">
+              <h2 id="event-title">Incoming event</h2>
+              <span id="event-id" class="event-id">EVT-0000</span>
+            </div>
+            <p id="event-description" class="event-description"></p>
+
+            <div id="event-details" class="details-grid"></div>
+            <div id="evidence-tags" class="tag-row"></div>
+            <div id="hint-box" class="hint-box hidden"></div>
+          </article>
+
+          <div class="action-grid" aria-label="Response actions">
+            <button class="action-btn" data-action="allow" type="button">
+              <span>Allow / Mark Safe</span>
+              <small>Legitimate activity</small>
+            </button>
+            <button class="action-btn" data-action="quarantine" type="button">
+              <span>Quarantine Email</span>
+              <small>Phishing or malicious attachment</small>
+            </button>
+            <button class="action-btn" data-action="block" type="button">
+              <span>Block IP / Traffic</span>
+              <small>Scanning, brute force, or malicious traffic</small>
+            </button>
+            <button class="action-btn" data-action="isolate" type="button">
+              <span>Isolate Host</span>
+              <small>Compromised endpoint or malware behavior</small>
+            </button>
+            <button class="action-btn" data-action="escalate" type="button">
+              <span>Escalate Incident</span>
+              <small>Data exposure or high-impact event</small>
+            </button>
+          </div>
+
+          <div id="feedback" class="feedback-box" aria-live="assertive"></div>
+        </section>
+
+        <aside class="panel feed-panel">
+          <div class="feed-header">
+            <div>
+              <p class="eyebrow">Live Feed</p>
+              <h2>Analyst Notes</h2>
+            </div>
+          </div>
+          <ol id="activity-feed" class="activity-feed"></ol>
+        </aside>
+      </section>
+
+      <section id="end-screen" class="panel end-panel hidden">
+        <p class="eyebrow">Mission Complete</p>
+        <h2 id="end-title">Great work, Analyst.</h2>
+        <p id="end-summary"></p>
+
+        <div class="end-stats">
+          <div><span>Final Score</span><strong id="final-score">0</strong></div>
+          <div><span>Correct</span><strong id="final-correct">0</strong></div>
+          <div><span>Missed</span><strong id="final-missed">0</strong></div>
+          <div><span>Best Score</span><strong id="best-score">0</strong></div>
+        </div>
+
+        <div id="training-summary" class="training-summary"></div>
+
+        <div class="end-actions">
+          <button id="play-again-btn" class="primary-btn" type="button">Play Again</button>
+          <button id="change-level-btn" class="secondary-btn" type="button">Change Level</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built for portfolio use as an interactive cybersecurity awareness and SOC decision-making project.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
