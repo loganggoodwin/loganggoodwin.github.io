@@ -92,3 +92,6 @@ The portfolio now includes **Firewall Rule Lab**, a playable browser-based cyber
 
 The portfolio now includes **Cyber Threat Sentinel**, a playable browser-based cybersecurity learning game located at `/projects/cyber-threat-sentinel-game/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game simulates SOC-style decision-making across suspicious emails, network traffic, endpoint activity, identity anomalies, malware behavior, brute-force attempts, and possible data exfiltration.
 
+## Playable Packet Analysis CTF Project
+
+The portfolio now includes **Packet Capture CTF Game**, a playable browser-based cybersecurity training game located at `/projects/packet-capture-ctf-game/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game teaches packet-analysis thinking through five CTF-style levels covering suspicious DNS activity, HTTP data exfiltration, TCP port scanning, ICMP probing, and SSH brute-force behavior across Easy, Medium, and Hard difficulty levels.
