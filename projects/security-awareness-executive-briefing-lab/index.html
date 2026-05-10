@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Security Awareness Executive Briefing Lab | Logan Garth Goodwin</title>
+  <meta name="description" content="Interactive executive security awareness lab where users make leadership decisions about phishing, passwords, data handling, social engineering, insider risk, and security program funding." />
+  <link rel="canonical" href="https://loganggoodwin.github.io/projects/security-awareness-executive-briefing-lab/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Security Awareness Executive Briefing Lab | Logan Garth Goodwin" />
+  <meta property="og:description" content="A browser-based cybersecurity training simulator focused on human risk, policy, leadership communication, and executive security decisions." />
+  <meta property="og:image" content="https://loganggoodwin.github.io/images/og-preview.png" />
+  <meta property="og:url" content="https://loganggoodwin.github.io/projects/security-awareness-executive-briefing-lab/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#game">Skip to game</a>
+
+  <header class="lab-hero">
+    <nav class="lab-nav" aria-label="Project navigation">
+      <a href="../../index.html">Portfolio</a>
+      <a href="../index.html">Projects</a>
+      <a href="../security-awareness-executive-summary/index.html">Executive Summary</a>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Interactive cybersecurity training lab</p>
+        <h1>Security Awareness Executive Briefing Lab</h1>
+        <p class="hero-copy">Play the role of an IT/security advisor briefing leadership. Make decisions about human risk, security policy, phishing, data handling, social engineering, insider risk, and executive sponsorship.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#game">Start the briefing</a>
+          <a class="btn btn-secondary" href="../security-awareness-executive-summary/index.html">View project write-up</a>
+        </div>
+      </div>
+      <aside class="mission-card" aria-label="Mission summary">
+        <span class="mission-icon" aria-hidden="true">◆</span>
+        <h2>Mission</h2>
+        <p>Protect the organization by choosing practical security awareness controls that leadership can fund, employees can follow, and IT can measure.</p>
+        <ul>
+          <li>Human risk decisions</li>
+          <li>Executive communication</li>
+          <li>Policy and training tradeoffs</li>
+          <li>Risk-based final report</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main id="game" class="game-shell">
+    <section class="dashboard" aria-label="Program status dashboard">
+      <div class="metric-card">
+        <span class="metric-label">Organizational Risk</span>
+        <strong id="riskValue">50</strong>
+        <div class="meter"><span id="riskMeter"></span></div>
+        <small>Lower is better</small>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Executive Readiness</span>
+        <strong id="readinessValue">50</strong>
+        <div class="meter"><span id="readinessMeter"></span></div>
+        <small>Higher is better</small>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Security Culture</span>
+        <strong id="cultureValue">50</strong>
+        <div class="meter"><span id="cultureMeter"></span></div>
+        <small>Higher is better</small>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Program Budget</span>
+        <strong id="budgetValue">8</strong>
+        <div class="meter"><span id="budgetMeter"></span></div>
+        <small>Decision tokens left</small>
+      </div>
+    </section>
+
+    <section class="briefing-card" aria-live="polite">
+      <div class="progress-row">
+        <span id="stepCounter">Scenario 1 of 7</span>
+        <div class="progress-track"><span id="progressFill"></span></div>
+      </div>
+
+      <div id="scenarioPanel">
+        <p class="eyebrow" id="scenarioCategory">Phishing awareness</p>
+        <h2 id="scenarioTitle">Scenario title</h2>
+        <p id="scenarioText" class="scenario-text">Scenario text</p>
+        <div class="context-grid">
+          <div>
+            <h3>Leadership concern</h3>
+            <p id="leadershipConcern">Concern text</p>
+          </div>
+          <div>
+            <h3>Security goal</h3>
+            <p id="securityGoal">Goal text</p>
+          </div>
+        </div>
+        <div id="choiceList" class="choice-list"></div>
+      </div>
+
+      <div id="feedbackPanel" class="feedback-panel hidden">
+        <p class="eyebrow" id="feedbackLabel">Decision feedback</p>
+        <h2 id="feedbackTitle">Feedback title</h2>
+        <p id="feedbackText">Feedback text</p>
+        <div class="impact-grid">
+          <span id="impactRisk">Risk: 0</span>
+          <span id="impactReadiness">Readiness: 0</span>
+          <span id="impactCulture">Culture: 0</span>
+          <span id="impactBudget">Budget: 0</span>
+        </div>
+        <button id="nextButton" class="btn btn-primary" type="button">Next scenario</button>
+      </div>
+
+      <div id="finalPanel" class="final-panel hidden">
+        <p class="eyebrow">Executive briefing complete</p>
+        <h2>Your Security Awareness Program Report</h2>
+        <div id="finalGrade" class="final-grade">Program readiness: Strong</div>
+        <div id="reportBody" class="report-body"></div>
+        <div class="final-actions">
+          <button id="restartButton" class="btn btn-primary" type="button">Run the briefing again</button>
+          <button id="printButton" class="btn btn-secondary" type="button">Print / save report</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="learning-map" aria-label="What this lab teaches">
+      <div>
+        <p class="eyebrow">What this demonstrates</p>
+        <h2>People-side cybersecurity, not just technical controls.</h2>
+      </div>
+      <div class="learning-grid">
+        <article><h3>Human Risk</h3><p>Phishing, social engineering, insider risk, and risky employee behavior.</p></article>
+        <article><h3>Policy</h3><p>MFA, data handling, change accountability, and least privilege expectations.</p></article>
+        <article><h3>Executive Communication</h3><p>Business risk framing, funding decisions, metrics, and visible leadership support.</p></article>
+        <article><h3>Training Design</h3><p>Scenario-based feedback that supports beginner and leadership audiences.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lab-footer">
+    <p>© 2026 Logan Garth Goodwin · Security Awareness Executive Briefing Lab</p>
+    <a href="#game">Back to game</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

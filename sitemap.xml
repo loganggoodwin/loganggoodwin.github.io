@@ -116,4 +116,34 @@
     <loc>https://loganggoodwin.github.io/music/</loc>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://loganggoodwin.github.io/projects/security-awareness-executive-briefing-lab/</loc></url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/fayetteville-network-design-lab/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/risk-management-decision-lab/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/trinity-incident-response-lab/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/sdwan-architecture-strategy-lab/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/information-assurance-control-lab/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/campus-infrastructure-defense-lab/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/ncl-ink-injection-ctf-lab/</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>

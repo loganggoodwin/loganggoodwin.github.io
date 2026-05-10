@@ -95,3 +95,27 @@ The portfolio now includes **Cyber Threat Sentinel**, a playable browser-based c
 ## Playable Packet Analysis CTF Project
 
 The portfolio now includes **Packet Capture CTF Game**, a playable browser-based cybersecurity training game located at `/projects/packet-capture-ctf-game/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game teaches packet-analysis thinking through five CTF-style levels covering suspicious DNS activity, HTTP data exfiltration, TCP port scanning, ICMP probing, and SSH brute-force behavior across Easy, Medium, and Hard difficulty levels.
+
+
+## Added interactive project
+
+- **Security Awareness Executive Briefing Lab** — playable decision simulator for human risk, security awareness policy, and executive cybersecurity communication. Path: `projects/security-awareness-executive-briefing-lab/index.html`.
+
+### Fayetteville Office Network Design Lab
+
+Added a playable browser-based infrastructure planning lab linked to the Network Infrastructure Proposal: Fayetteville Office project. The lab asks users to make design decisions about topology, ISP selection, managed switching, firewall placement, BitLocker, VPN access, printing, teleconferencing, and scalability planning.
+
+
+
+## Interactive project labs added
+
+This version expands the portfolio with playable browser-based labs connected to the major cybersecurity and infrastructure projects:
+
+- Health Network Risk Management Decision Lab
+- Trinity Health Incident Response Lab
+- Enterprise SD-WAN Architecture Strategy Lab
+- Information Assurance Control Mapping Lab
+- Secure Enterprise Campus Defense Lab
+- NCL Ink Injection CTF Training Lab
+
+Each lab is self-contained HTML/CSS/JavaScript and can be opened directly in the browser from the portfolio project cards.

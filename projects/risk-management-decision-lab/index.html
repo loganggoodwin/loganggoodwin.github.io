@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Health Network Risk Management Decision Lab | Logan Garth Goodwin</title>
+<meta name="description" content="Make healthcare risk decisions across HIPAA, business impact, continuity, vendor risk, and physical security." />
+<style>
+  :root {
+    --bg:#08111f; --panel:#101b2d; --panel2:#13223a; --text:#e7edf7; --muted:#9db0c8;
+    --accent:#29d391; --accent2:#77d7ff; --warn:#ffcc66; --bad:#ff6b6b; --border:rgba(255,255,255,.13);
+    --shadow:0 24px 80px rgba(0,0,0,.35);
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, sans-serif; background:radial-gradient(circle at top left, rgba(41,211,145,.16), transparent 36%), linear-gradient(135deg,#07101d,#0d1728 55%,#061019); color:var(--text); line-height:1.6; }
+  a { color:inherit; }
+  .wrap { width:min(1160px, calc(100% - 32px)); margin:0 auto; }
+  header { padding:34px 0 24px; }
+  .nav { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:32px; color:var(--muted); font-size:.95rem; }
+  .nav a { text-decoration:none; border:1px solid var(--border); padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.04); }
+  .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:stretch; }
+  .hero-card, .panel { border:1px solid var(--border); background:rgba(16,27,45,.84); border-radius:28px; box-shadow:var(--shadow); }
+  .hero-card { padding:34px; }
+  .kicker { color:var(--accent); text-transform:uppercase; letter-spacing:.14em; font-size:.78rem; font-weight:800; margin:0 0 14px; }
+  h1 { margin:0 0 14px; font-size:clamp(2rem, 5vw, 4.5rem); line-height:1.02; letter-spacing:-.045em; }
+  .lede { color:var(--muted); font-size:1.1rem; max-width:780px; }
+  .hero-stats { display:grid; gap:12px; padding:22px; }
+  .stat { background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:20px; padding:18px; }
+  .stat strong { display:block; font-size:1.65rem; color:var(--accent2); }
+  .tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
+  .tags span { border:1px solid var(--border); background:rgba(255,255,255,.055); border-radius:999px; padding:7px 11px; color:#c9d7e9; font-size:.9rem; }
+  main { padding:18px 0 42px; }
+  .game-grid { display:grid; grid-template-columns: 1fr 360px; gap:22px; align-items:start; }
+  .panel { padding:24px; }
+  .scenario-top { display:flex; justify-content:space-between; gap:12px; margin-bottom:12px; color:var(--muted); font-weight:700; }
+  .scenario-title { margin:0 0 12px; font-size:1.8rem; }
+  .prompt { color:#cdd9ea; font-size:1.04rem; }
+  .choice-list { display:grid; gap:12px; margin-top:22px; }
+  .choice { width:100%; text-align:left; color:var(--text); background:linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.035)); border:1px solid var(--border); border-radius:18px; padding:16px 18px; cursor:pointer; font:inherit; transition:.18s ease; }
+  .choice:hover { transform:translateY(-2px); border-color:rgba(41,211,145,.55); }
+  .choice[disabled] { cursor:default; opacity:.72; }
+  .choice.correct { border-color:rgba(41,211,145,.9); box-shadow:0 0 0 2px rgba(41,211,145,.18); }
+  .choice.risky { border-color:rgba(255,107,107,.8); }
+  .feedback { display:none; margin-top:18px; padding:18px; border-radius:18px; background:rgba(119,215,255,.08); border:1px solid rgba(119,215,255,.18); color:#d8e8f7; }
+  .feedback.show { display:block; }
+  .controls { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+  button, .btn { text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:999px; padding:12px 16px; border:1px solid var(--border); background:rgba(255,255,255,.06); color:var(--text); font-weight:800; cursor:pointer; }
+  .btn-primary { background:linear-gradient(135deg,var(--accent),#72f0bc); color:#06131f; border-color:transparent; }
+  .score-card h2 { margin:0 0 14px; }
+  .meter { margin:16px 0; }
+  .meter-row { display:flex; justify-content:space-between; gap:12px; font-weight:800; font-size:.92rem; }
+  .bar { height:12px; border-radius:999px; background:rgba(255,255,255,.09); overflow:hidden; border:1px solid var(--border); }
+  .fill { height:100%; width:50%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:999px; transition:width .35s ease; }
+  .report { display:none; margin-top:20px; }
+  .report.show { display:block; }
+  .report-box { background:rgba(0,0,0,.2); border:1px solid var(--border); border-radius:18px; padding:18px; }
+  .history { margin-top:18px; display:grid; gap:10px; }
+  .history-item { padding:12px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.04); color:var(--muted); font-size:.92rem; }
+  footer { padding:28px 0 42px; color:var(--muted); text-align:center; }
+  @media (max-width: 880px) { .hero, .game-grid { grid-template-columns:1fr; } .hero-card { padding:24px; } }
+  @media print { body { background:#fff; color:#111; } .nav, .controls, .choice-list { display:none; } .hero-card, .panel { box-shadow:none; border:1px solid #ddd; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Project navigation">
+      <a href="../../projects/index.html">← Projects</a>
+      <a href="../risk-management-plan/index.html">Related write-up</a>
+      <a href="../../index.html">Home</a>
+    </nav>
+    <section class="hero">
+      <div class="hero-card">
+        <p class="kicker">Playable GRC Lab</p>
+        <h1>Health Network Risk Management Decision Lab</h1>
+        <p class="lede">Make healthcare risk decisions across HIPAA, business impact, continuity, vendor risk, and physical security.</p>
+        <div class="tags"><span>Risk Management</span><span>HIPAA</span><span>BIA</span><span>Continuity</span><span>GRC</span><span>Threat Modeling</span></div>
+      </div>
+      <aside class="panel hero-stats" aria-label="Lab summary">
+        <div class="stat"><strong id="scenarioCount">5</strong><span>decision scenarios</span></div>
+        <div class="stat"><strong>4</strong><span>live score meters</span></div>
+        <div class="stat"><strong>100%</strong><span>browser-based; no install</span></div>
+      </aside>
+    </section>
+  </div>
+</header>
+<main>
+  <div class="wrap game-grid">
+    <section class="panel" aria-live="polite">
+      <div class="scenario-top"><span id="progressLabel">Scenario 1 of 5</span><span id="pointsLabel">Score: 0</span></div>
+      <h2 class="scenario-title" id="scenarioTitle"></h2>
+      <p class="prompt" id="scenarioPrompt"></p>
+      <div class="choice-list" id="choiceList"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="controls">
+        <button class="btn-primary" id="nextBtn" type="button" hidden>Next decision</button>
+        <button id="restartBtn" type="button">Restart lab</button>
+        <button id="printBtn" type="button">Print / save report</button>
+      </div>
+      <section class="report" id="report">
+        <h2>Executive-style final report</h2>
+        <div class="report-box" id="reportBox"></div>
+      </section>
+    </section>
+    <aside class="panel score-card">
+      <h2>Live decision meters</h2>
+      <p class="lede" style="font-size:.96rem">Strong choices raise the meters. Risky choices lower them and show why the control matters.</p>
+      <div id="meters"></div>
+      <h2 style="margin-top:24px">Decision history</h2>
+      <div class="history" id="history"></div>
+    </aside>
+  </div>
+</main>
+<footer>
+  <div class="wrap">Built as an interactive extension of the Risk Management Plan portfolio project.</div>
+</footer>
+<script>
+const METRIC_LABELS = ["Risk Exposure", "Compliance Readiness", "Continuity", "Executive Confidence"];
+const SCENARIOS = [{"title": "Ransomware risk in clinical operations", "prompt": "Health Network leadership is worried about ransomware affecting patient scheduling, billing, and shared clinical systems. What should be prioritized first?", "choices": [["Buy one new endpoint tool and wait for alerts.", [-12, 2, 0, -4], "A single tool can help, but it does not create a complete risk management program. The plan still needs recovery, training, access control, and response procedures."], ["Map critical systems, rank business impact, require backups, MFA, EDR, and incident runbooks.", [18, 18, 18, 16], "Best choice. You connected technical controls to business impact and continuity planning."], ["Focus only on cyber insurance.", [-8, 0, -6, -8], "Insurance may reduce financial impact, but it does not prevent or contain the incident."], ["Tell users to avoid suspicious email and do nothing else.", [-15, -5, -10, -10], "Awareness matters, but it cannot replace layered security and continuity planning."]]}, {"title": "HIPAA and third-party vendor risk", "prompt": "A billing vendor needs access to patient billing records. What is the strongest risk-management response?", "choices": [["Grant broad access because the vendor is trusted.", [-18, -18, -8, -12], "Trust is not a control. Vendor access should be limited, monitored, and contractually governed."], ["Require a BAA, least-privilege access, MFA, audit logging, and periodic vendor review.", [16, 20, 8, 16], "Best choice. This combines compliance, access control, monitoring, and vendor accountability."], ["Send records by email and delete them later.", [-20, -20, -10, -16], "Uncontrolled transmission creates avoidable privacy and compliance risk."], ["Only ask the vendor if they are secure.", [-8, -8, -4, -8], "Self-attestation alone is weak. You need documented requirements and verification."]]}, {"title": "Business impact analysis decision", "prompt": "The organization must decide which systems recover first after an outage. Which approach fits the plan?", "choices": [["Recover systems alphabetically.", [-8, -2, -14, -8], "Recovery should follow business criticality, not a neutral list order."], ["Prioritize patient-facing, revenue, identity, and communication systems by RTO/RPO.", [14, 12, 20, 14], "Best choice. RTO and RPO translate business risk into technical recovery targets."], ["Let each department decide during the outage.", [-10, -6, -18, -12], "That creates confusion during an incident. Priorities should be documented before the outage."], ["Only recover systems that are easiest to restore.", [-6, -4, -10, -6], "Ease matters, but the highest-impact services must drive recovery order."]]}, {"title": "Physical and cybersecurity overlap", "prompt": "A server room has shared keys and no visitor log. Which control package best reduces risk?", "choices": [["Add cameras only.", [2, 4, 0, 2], "Cameras help investigation but do not control access by themselves."], ["Use badge access, visitor logs, camera review, and equipment inventory checks.", [14, 14, 10, 14], "Best choice. This combines physical controls, evidence, and accountability."], ["Move all servers under desks in offices.", [-15, -10, -14, -10], "That makes physical and environmental risk worse."], ["Rely on employees to report suspicious people.", [-4, -2, -4, -4], "Reporting helps, but physical access controls are still needed."]]}, {"title": "Executive risk reporting", "prompt": "You need to brief executives on the risk plan. What should the report emphasize?", "choices": [["A long list of technical acronyms.", [-4, -2, -2, -12], "Executives need business impact, risk ownership, priorities, and funding decisions."], ["Top risks, business impact, likelihood, controls, owners, timeline, and residual risk.", [18, 16, 12, 20], "Best choice. This turns security into a decision-ready management process."], ["Only say that everything is high risk.", [-6, -4, -4, -10], "Not all risks are equal. Good risk management prioritizes."], ["Hide unresolved gaps until they are fixed.", [-16, -12, -6, -18], "Unreported gaps prevent leadership from funding and accepting risk appropriately."]]}];
+let index = 0;
+let score = 0;
+let meters = [50,50,50,50];
+let history = [];
+const $ = (id) => document.getElementById(id);
+function clamp(n) { return Math.max(0, Math.min(100, n)); }
+function renderMeters() {
+  $('meters').innerHTML = METRIC_LABELS.map((label, i) => `
+    <div class="meter"><div class="meter-row"><span>${label}</span><span>${meters[i]}%</span></div><div class="bar"><div class="fill" style="width:${meters[i]}%"></div></div></div>`).join('');
+}
+function renderScenario() {
+  const s = SCENARIOS[index];
+  $('progressLabel').textContent = `Scenario ${index + 1} of ${SCENARIOS.length}`;
+  $('pointsLabel').textContent = `Score: ${score}`;
+  $('scenarioTitle').textContent = s.title;
+  $('scenarioPrompt').textContent = s.prompt;
+  $('feedback').className = 'feedback';
+  $('feedback').textContent = '';
+  $('nextBtn').hidden = true;
+  $('choiceList').innerHTML = s.choices.map((c, i) => `<button class="choice" type="button" data-choice="${i}">${c[0]}</button>`).join('');
+  document.querySelectorAll('.choice').forEach(btn => btn.addEventListener('click', choose));
+  renderMeters();
+}
+function choose(e) {
+  const s = SCENARIOS[index];
+  const choiceIndex = Number(e.currentTarget.dataset.choice);
+  const choice = s.choices[choiceIndex];
+  const delta = choice[1];
+  meters = meters.map((m, i) => clamp(m + delta[i]));
+  const positive = delta.reduce((a,b)=>a+b,0) > 25;
+  score += positive ? 20 : Math.max(0, 8 + Math.round(delta.reduce((a,b)=>a+b,0) / 8));
+  document.querySelectorAll('.choice').forEach((btn, i) => { btn.disabled = true; btn.classList.add(i === choiceIndex && positive ? 'correct' : (i === choiceIndex ? 'risky' : '')); });
+  $('feedback').innerHTML = `<strong>${positive ? 'Strong decision.' : 'Risky decision.'}</strong><br>${choice[2]}`;
+  $('feedback').className = 'feedback show';
+  history.push(`<strong>${s.title}:</strong> ${choice[0]}`);
+  $('history').innerHTML = history.map(h => `<div class="history-item">${h}</div>`).join('');
+  $('pointsLabel').textContent = `Score: ${score}`;
+  renderMeters();
+  if (index < SCENARIOS.length - 1) { $('nextBtn').hidden = false; $('nextBtn').textContent = 'Next decision'; }
+  else { $('nextBtn').hidden = false; $('nextBtn').textContent = 'Show final report'; }
+}
+function finalReport() {
+  const avg = Math.round(meters.reduce((a,b)=>a+b,0) / meters.length);
+  const level = avg >= 80 ? 'Strong' : avg >= 65 ? 'Developing' : 'Needs Improvement';
+  $('reportBox').innerHTML = `
+    <p><strong>Final readiness level:</strong> ${level} (${avg}%).</p>
+    <p><strong>Total score:</strong> ${score} out of ${SCENARIOS.length * 20}.</p>
+    <p><strong>Strongest area:</strong> ${METRIC_LABELS[meters.indexOf(Math.max(...meters))]}.</p>
+    <p><strong>Needs most attention:</strong> ${METRIC_LABELS[meters.indexOf(Math.min(...meters))]}.</p>
+    <p><strong>Recommended next step:</strong> Use this lab beside the written project to explain not only what the plan recommends, but how a practitioner makes decisions under real constraints.</p>`;
+  $('report').className = 'report show';
+  $('nextBtn').hidden = true;
+}
+$('nextBtn').addEventListener('click', () => { if (index < SCENARIOS.length - 1) { index++; renderScenario(); } else { finalReport(); } });
+$('restartBtn').addEventListener('click', () => { index = 0; score = 0; meters = [50,50,50,50]; history = []; $('history').innerHTML = ''; $('report').className = 'report'; renderScenario(); });
+$('printBtn').addEventListener('click', () => window.print());
+renderScenario();
+</script>
+</body>
+</html>

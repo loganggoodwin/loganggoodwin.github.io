@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fayetteville Office Network Design Lab | Logan Garth Goodwin</title>
+  <meta name="description" content="Interactive network infrastructure planning lab based on the Fayetteville office proposal. Users make design decisions about topology, ISP, hardware, BitLocker, VPN, printing, teleconferencing, and scalability." />
+  <link rel="canonical" href="https://loganggoodwin.github.io/projects/fayetteville-network-design-lab/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Fayetteville Office Network Design Lab | Logan Garth Goodwin" />
+  <meta property="og:description" content="A playable browser-based infrastructure planning simulator that teaches office network design, security, reliability, and scalability tradeoffs." />
+  <meta property="og:image" content="https://loganggoodwin.github.io/images/og-preview.png" />
+  <meta property="og:url" content="https://loganggoodwin.github.io/projects/fayetteville-network-design-lab/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#lab">Skip to lab</a>
+
+  <header class="lab-hero">
+    <nav class="lab-nav" aria-label="Project navigation">
+      <a href="../../index.html">Portfolio</a>
+      <a href="../index.html">Projects</a>
+      <a href="../network-infrastructure-proposal/index.html">Network Proposal</a>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Interactive infrastructure planning lab</p>
+        <h1>Fayetteville Office Network Design Lab</h1>
+        <p class="hero-copy">Play the role of the network planner for a new Fayetteville office. Make decisions about topology, ISP service, switching, endpoint protection, VPN access, printing, teleconferencing, and future growth.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#lab">Start the design lab</a>
+          <a class="btn btn-secondary" href="../network-infrastructure-proposal/index.html">View proposal write-up</a>
+        </div>
+      </div>
+
+      <aside class="network-brief" aria-label="Lab mission summary">
+        <div class="network-mini-map" aria-hidden="true">
+          <span class="node internet">ISP</span>
+          <span class="line line-a"></span>
+          <span class="node firewall">FW</span>
+          <span class="line line-b"></span>
+          <span class="node switch">SW</span>
+          <span class="line line-c"></span>
+          <span class="node pc pc1">PC</span>
+          <span class="node pc pc2">PC</span>
+          <span class="node phone">☎</span>
+          <span class="node printer">PR</span>
+        </div>
+        <h2>Mission</h2>
+        <p>Build a practical office network that balances reliability, security, scalability, supportability, and budget control.</p>
+        <ul>
+          <li>Star topology and core connectivity</li>
+          <li>ISP and uptime decisions</li>
+          <li>BitLocker, VPN, and access security</li>
+          <li>Growth planning and documentation</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main id="lab" class="lab-shell">
+    <section class="dashboard" aria-label="Network design status dashboard">
+      <div class="metric-card">
+        <span class="metric-label">Reliability</span>
+        <strong id="reliabilityValue">50</strong>
+        <div class="meter"><span id="reliabilityMeter"></span></div>
+        <small>Uptime and stable service</small>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Security</span>
+        <strong id="securityValue">50</strong>
+        <div class="meter"><span id="securityMeter"></span></div>
+        <small>Data and access protection</small>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Scalability</span>
+        <strong id="scalabilityValue">50</strong>
+        <div class="meter"><span id="scalabilityMeter"></span></div>
+        <small>Room for growth</small>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Supportability</span>
+        <strong id="supportValue">50</strong>
+        <div class="meter"><span id="supportMeter"></span></div>
+        <small>Troubleshooting and operations</small>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Budget Control</span>
+        <strong id="budgetValue">50</strong>
+        <div class="meter"><span id="budgetMeter"></span></div>
+        <small>Cost discipline</small>
+      </div>
+    </section>
+
+    <section class="planner-layout">
+      <article class="decision-card" aria-live="polite">
+        <div class="progress-row">
+          <span id="stepCounter">Decision 1 of 9</span>
+          <div class="progress-track"><span id="progressFill"></span></div>
+        </div>
+
+        <div id="decisionPanel">
+          <p class="eyebrow" id="decisionCategory">Topology</p>
+          <h2 id="decisionTitle">Decision title</h2>
+          <p id="decisionText" class="decision-text">Decision text</p>
+          <div class="context-grid">
+            <div>
+              <h3>Business need</h3>
+              <p id="businessNeed">Business need text</p>
+            </div>
+            <div>
+              <h3>Design goal</h3>
+              <p id="designGoal">Design goal text</p>
+            </div>
+          </div>
+          <div id="choiceList" class="choice-list"></div>
+        </div>
+
+        <div id="feedbackPanel" class="feedback-panel hidden">
+          <p class="eyebrow">Design feedback</p>
+          <h2 id="feedbackTitle">Feedback title</h2>
+          <p id="feedbackText">Feedback text</p>
+          <div class="impact-grid">
+            <span id="impactReliability">Reliability: 0</span>
+            <span id="impactSecurity">Security: 0</span>
+            <span id="impactScalability">Scalability: 0</span>
+            <span id="impactSupport">Supportability: 0</span>
+            <span id="impactBudget">Budget: 0</span>
+          </div>
+          <button id="nextButton" class="btn btn-primary" type="button">Next decision</button>
+        </div>
+
+        <div id="finalPanel" class="final-panel hidden">
+          <p class="eyebrow">Design lab complete</p>
+          <h2>Fayetteville Network Readiness Report</h2>
+          <div id="finalGrade" class="final-grade">Network readiness: Strong</div>
+          <div id="reportBody" class="report-body"></div>
+          <div class="final-actions">
+            <button id="restartButton" class="btn btn-primary" type="button">Run the lab again</button>
+            <button id="printButton" class="btn btn-secondary" type="button">Print / save report</button>
+          </div>
+        </div>
+      </article>
+
+      <aside class="topology-panel" aria-label="Network topology visualization">
+        <p class="eyebrow">Live design map</p>
+        <h2>Office network view</h2>
+        <div class="topology-map" aria-hidden="true">
+          <div class="map-node isp" id="mapIsp">ISP</div>
+          <div class="map-link link-1"></div>
+          <div class="map-node firewall" id="mapFirewall">Firewall/VPN</div>
+          <div class="map-link link-2"></div>
+          <div class="map-node core" id="mapCore">Core Switch</div>
+          <div class="branch branch-left"></div>
+          <div class="branch branch-center"></div>
+          <div class="branch branch-right"></div>
+          <div class="map-node endpoints" id="mapEndpoints">Workstations</div>
+          <div class="map-node print" id="mapPrinter">Printer</div>
+          <div class="map-node collaboration" id="mapCollab">Video / Voice</div>
+        </div>
+        <div class="status-list" id="statusList">
+          <span>Awaiting topology decision</span>
+          <span>Awaiting ISP decision</span>
+          <span>Awaiting security controls</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="learning-map" aria-label="What this lab teaches">
+      <div>
+        <p class="eyebrow">What this demonstrates</p>
+        <h2>Infrastructure planning through business and security tradeoffs.</h2>
+      </div>
+      <div class="learning-grid">
+        <article><h3>Network Design</h3><p>Topology, switching, ISP evaluation, teleconferencing support, and printer placement.</p></article>
+        <article><h3>Security Planning</h3><p>BitLocker, VPN, segmentation, least privilege, and secure remote access.</p></article>
+        <article><h3>Operations</h3><p>Documentation, labeling, supportability, backup connectivity, and troubleshooting readiness.</p></article>
+        <article><h3>Scalability</h3><p>Room for device growth, spare switch ports, modular expansion, and clean implementation planning.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lab-footer">
+    <p>© 2026 Logan Garth Goodwin · Fayetteville Office Network Design Lab</p>
+    <a href="#lab">Back to lab</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Trinity Incident Response Lab</title><desc id="desc">Playable Incident Lab</desc>
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#07101d"/><stop offset="1" stop-color="#152a45"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="16" flood-opacity=".35"/></filter></defs>
+<rect width="1200" height="675" rx="42" fill="url(#g)"/>
+<circle cx="1010" cy="130" r="170" fill="#29d391" opacity=".16"/>
+<circle cx="170" cy="560" r="220" fill="#77d7ff" opacity=".12"/>
+<g filter="url(#shadow)"><rect x="78" y="76" width="1044" height="523" rx="34" fill="#0f1d31" stroke="rgba(255,255,255,.18)"/>
+<rect x="122" y="122" width="118" height="118" rx="28" fill="#29d391" opacity=".18" stroke="#29d391"/>
+<path d="M154 182h54M181 155v54" stroke="#29d391" stroke-width="14" stroke-linecap="round"/>
+<text x="122" y="315" fill="#e7edf7" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="800">Trinity Incident Response Lab</text>
+<text x="122" y="376" fill="#9db0c8" font-family="Inter,Arial,sans-serif" font-size="30">Playable Incident Lab</text>
+<g transform="translate(122 438)">
+<rect width="250" height="54" rx="27" fill="#29d391"/><text x="28" y="36" fill="#06131f" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="800">PLAY INTERACTIVE LAB</text>
+</g>
+<g transform="translate(744 418)" stroke="rgba(255,255,255,.25)" fill="none" stroke-width="4"><path d="M0 78h270M60 0v156M150 0v156M240 0v156"/><circle cx="60" cy="78" r="30" fill="#29d391" opacity=".55"/><circle cx="150" cy="78" r="30" fill="#77d7ff" opacity=".55"/><circle cx="240" cy="78" r="30" fill="#ffcc66" opacity=".55"/></g>
+</g></svg>

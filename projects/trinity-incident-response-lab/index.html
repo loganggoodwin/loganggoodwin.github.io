@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trinity Health Incident Response Lab | Logan Garth Goodwin</title>
+<meta name="description" content="Act as the incident lead and make breach-response decisions involving detection, containment, HIPAA, communication, and remediation." />
+<style>
+  :root {
+    --bg:#08111f; --panel:#101b2d; --panel2:#13223a; --text:#e7edf7; --muted:#9db0c8;
+    --accent:#29d391; --accent2:#77d7ff; --warn:#ffcc66; --bad:#ff6b6b; --border:rgba(255,255,255,.13);
+    --shadow:0 24px 80px rgba(0,0,0,.35);
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, sans-serif; background:radial-gradient(circle at top left, rgba(41,211,145,.16), transparent 36%), linear-gradient(135deg,#07101d,#0d1728 55%,#061019); color:var(--text); line-height:1.6; }
+  a { color:inherit; }
+  .wrap { width:min(1160px, calc(100% - 32px)); margin:0 auto; }
+  header { padding:34px 0 24px; }
+  .nav { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:32px; color:var(--muted); font-size:.95rem; }
+  .nav a { text-decoration:none; border:1px solid var(--border); padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.04); }
+  .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:stretch; }
+  .hero-card, .panel { border:1px solid var(--border); background:rgba(16,27,45,.84); border-radius:28px; box-shadow:var(--shadow); }
+  .hero-card { padding:34px; }
+  .kicker { color:var(--accent); text-transform:uppercase; letter-spacing:.14em; font-size:.78rem; font-weight:800; margin:0 0 14px; }
+  h1 { margin:0 0 14px; font-size:clamp(2rem, 5vw, 4.5rem); line-height:1.02; letter-spacing:-.045em; }
+  .lede { color:var(--muted); font-size:1.1rem; max-width:780px; }
+  .hero-stats { display:grid; gap:12px; padding:22px; }
+  .stat { background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:20px; padding:18px; }
+  .stat strong { display:block; font-size:1.65rem; color:var(--accent2); }
+  .tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
+  .tags span { border:1px solid var(--border); background:rgba(255,255,255,.055); border-radius:999px; padding:7px 11px; color:#c9d7e9; font-size:.9rem; }
+  main { padding:18px 0 42px; }
+  .game-grid { display:grid; grid-template-columns: 1fr 360px; gap:22px; align-items:start; }
+  .panel { padding:24px; }
+  .scenario-top { display:flex; justify-content:space-between; gap:12px; margin-bottom:12px; color:var(--muted); font-weight:700; }
+  .scenario-title { margin:0 0 12px; font-size:1.8rem; }
+  .prompt { color:#cdd9ea; font-size:1.04rem; }
+  .choice-list { display:grid; gap:12px; margin-top:22px; }
+  .choice { width:100%; text-align:left; color:var(--text); background:linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.035)); border:1px solid var(--border); border-radius:18px; padding:16px 18px; cursor:pointer; font:inherit; transition:.18s ease; }
+  .choice:hover { transform:translateY(-2px); border-color:rgba(41,211,145,.55); }
+  .choice[disabled] { cursor:default; opacity:.72; }
+  .choice.correct { border-color:rgba(41,211,145,.9); box-shadow:0 0 0 2px rgba(41,211,145,.18); }
+  .choice.risky { border-color:rgba(255,107,107,.8); }
+  .feedback { display:none; margin-top:18px; padding:18px; border-radius:18px; background:rgba(119,215,255,.08); border:1px solid rgba(119,215,255,.18); color:#d8e8f7; }
+  .feedback.show { display:block; }
+  .controls { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+  button, .btn { text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:999px; padding:12px 16px; border:1px solid var(--border); background:rgba(255,255,255,.06); color:var(--text); font-weight:800; cursor:pointer; }
+  .btn-primary { background:linear-gradient(135deg,var(--accent),#72f0bc); color:#06131f; border-color:transparent; }
+  .score-card h2 { margin:0 0 14px; }
+  .meter { margin:16px 0; }
+  .meter-row { display:flex; justify-content:space-between; gap:12px; font-weight:800; font-size:.92rem; }
+  .bar { height:12px; border-radius:999px; background:rgba(255,255,255,.09); overflow:hidden; border:1px solid var(--border); }
+  .fill { height:100%; width:50%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:999px; transition:width .35s ease; }
+  .report { display:none; margin-top:20px; }
+  .report.show { display:block; }
+  .report-box { background:rgba(0,0,0,.2); border:1px solid var(--border); border-radius:18px; padding:18px; }
+  .history { margin-top:18px; display:grid; gap:10px; }
+  .history-item { padding:12px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.04); color:var(--muted); font-size:.92rem; }
+  footer { padding:28px 0 42px; color:var(--muted); text-align:center; }
+  @media (max-width: 880px) { .hero, .game-grid { grid-template-columns:1fr; } .hero-card { padding:24px; } }
+  @media print { body { background:#fff; color:#111; } .nav, .controls, .choice-list { display:none; } .hero-card, .panel { box-shadow:none; border:1px solid #ddd; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Project navigation">
+      <a href="../../projects/index.html">← Projects</a>
+      <a href="../trinity-health-incident-report/index.html">Related write-up</a>
+      <a href="../../index.html">Home</a>
+    </nav>
+    <section class="hero">
+      <div class="hero-card">
+        <p class="kicker">Playable Incident Lab</p>
+        <h1>Trinity Health Incident Response Lab</h1>
+        <p class="lede">Act as the incident lead and make breach-response decisions involving detection, containment, HIPAA, communication, and remediation.</p>
+        <div class="tags"><span>Incident Response</span><span>HIPAA</span><span>Monitoring</span><span>Escalation</span><span>Communication</span><span>Remediation</span></div>
+      </div>
+      <aside class="panel hero-stats" aria-label="Lab summary">
+        <div class="stat"><strong id="scenarioCount">5</strong><span>decision scenarios</span></div>
+        <div class="stat"><strong>4</strong><span>live score meters</span></div>
+        <div class="stat"><strong>100%</strong><span>browser-based; no install</span></div>
+      </aside>
+    </section>
+  </div>
+</header>
+<main>
+  <div class="wrap game-grid">
+    <section class="panel" aria-live="polite">
+      <div class="scenario-top"><span id="progressLabel">Scenario 1 of 5</span><span id="pointsLabel">Score: 0</span></div>
+      <h2 class="scenario-title" id="scenarioTitle"></h2>
+      <p class="prompt" id="scenarioPrompt"></p>
+      <div class="choice-list" id="choiceList"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="controls">
+        <button class="btn-primary" id="nextBtn" type="button" hidden>Next decision</button>
+        <button id="restartBtn" type="button">Restart lab</button>
+        <button id="printBtn" type="button">Print / save report</button>
+      </div>
+      <section class="report" id="report">
+        <h2>Executive-style final report</h2>
+        <div class="report-box" id="reportBox"></div>
+      </section>
+    </section>
+    <aside class="panel score-card">
+      <h2>Live decision meters</h2>
+      <p class="lede" style="font-size:.96rem">Strong choices raise the meters. Risky choices lower them and show why the control matters.</p>
+      <div id="meters"></div>
+      <h2 style="margin-top:24px">Decision history</h2>
+      <div class="history" id="history"></div>
+    </aside>
+  </div>
+</main>
+<footer>
+  <div class="wrap">Built as an interactive extension of the Trinity Health Report portfolio project.</div>
+</footer>
+<script>
+const METRIC_LABELS = ["Patient Risk", "Containment", "Compliance Readiness", "Trust"];
+const SCENARIOS = [{"title": "Suspicious access pattern", "prompt": "Monitoring flags unusual access to healthcare records outside a normal work pattern. What is the best first response?", "choices": [["Ignore it until multiple patients complain.", [-20, -18, -15, -18], "Delayed escalation increases breach impact and damages trust."], ["Preserve logs, validate the alert, check account activity, and escalate through the IR process.", [16, 18, 16, 14], "Best choice. You preserve evidence and move quickly without jumping to unsupported conclusions."], ["Immediately delete the suspicious account and logs.", [-10, -14, -18, -8], "You may destroy evidence needed for investigation and notification decisions."], ["Email screenshots to the whole company.", [-12, -8, -16, -16], "Incident details should follow controlled communication procedures."]]}, {"title": "Containment decision", "prompt": "The compromised account appears to access protected health information. What containment action is strongest?", "choices": [["Disable or reset the account, revoke sessions, preserve evidence, and review similar accounts.", [18, 20, 14, 14], "Best choice. This contains activity while supporting investigation and broader risk review."], ["Wait until the user returns from vacation.", [-18, -20, -12, -14], "Waiting can expand exposure."], ["Shut down the entire hospital network.", [-4, 4, -8, -12], "Over-containment may harm care operations. A targeted response is safer unless broader compromise is proven."], ["Only tell the user to pick a stronger password.", [-12, -14, -6, -10], "Password hygiene is not enough once unauthorized access is suspected."]]}, {"title": "Notification and regulatory handling", "prompt": "Preliminary review suggests PHI may have been exposed. What should happen next?", "choices": [["Start legal, compliance, privacy, and security review to determine notification duties.", [14, 14, 20, 14], "Best choice. Breach notification decisions require careful documentation and coordinated review."], ["Post about it on social media immediately.", [-12, -6, -18, -20], "Public communication should be accurate, coordinated, and compliant."], ["Do nothing unless a regulator asks.", [-20, -12, -20, -16], "That can violate notification expectations and worsen organizational risk."], ["Tell only the IT department.", [-8, -6, -12, -8], "IT is important, but privacy, legal, and leadership must be involved."]]}, {"title": "Root-cause analysis", "prompt": "The incident is contained. What should the post-incident review focus on?", "choices": [["Blame one employee and close the ticket.", [-10, -6, -10, -14], "A person-focused blame approach misses process, monitoring, and control improvements."], ["Identify control gaps in monitoring, access review, escalation, and training.", [16, 14, 16, 16], "Best choice. This converts the incident into measurable remediation."], ["Delete all old alerts to clean up the dashboard.", [-16, -14, -18, -12], "Historic evidence supports lessons learned and compliance review."], ["Only install a new antivirus product.", [-4, 0, -2, -4], "Tools help, but the review must address people, process, and technology."]]}, {"title": "Executive communication", "prompt": "Leadership wants a one-page update. What should it include?", "choices": [["Known facts, impact scope, actions taken, remaining risks, owner, timeline, and next decisions.", [18, 16, 18, 20], "Best choice. This is concise, decision-ready, and accountable."], ["Every raw log line collected so far.", [-2, -2, 0, -10], "Executives need summarized evidence and decisions, not raw logs."], ["Say there is no problem until the investigation is perfect.", [-14, -10, -12, -18], "Leadership needs timely information, even if it includes clear uncertainty."], ["Promise that it can never happen again.", [-10, -8, -8, -14], "No control eliminates all risk. Strong reporting uses realistic residual-risk language."]]}];
+let index = 0;
+let score = 0;
+let meters = [50,50,50,50];
+let history = [];
+const $ = (id) => document.getElementById(id);
+function clamp(n) { return Math.max(0, Math.min(100, n)); }
+function renderMeters() {
+  $('meters').innerHTML = METRIC_LABELS.map((label, i) => `
+    <div class="meter"><div class="meter-row"><span>${label}</span><span>${meters[i]}%</span></div><div class="bar"><div class="fill" style="width:${meters[i]}%"></div></div></div>`).join('');
+}
+function renderScenario() {
+  const s = SCENARIOS[index];
+  $('progressLabel').textContent = `Scenario ${index + 1} of ${SCENARIOS.length}`;
+  $('pointsLabel').textContent = `Score: ${score}`;
+  $('scenarioTitle').textContent = s.title;
+  $('scenarioPrompt').textContent = s.prompt;
+  $('feedback').className = 'feedback';
+  $('feedback').textContent = '';
+  $('nextBtn').hidden = true;
+  $('choiceList').innerHTML = s.choices.map((c, i) => `<button class="choice" type="button" data-choice="${i}">${c[0]}</button>`).join('');
+  document.querySelectorAll('.choice').forEach(btn => btn.addEventListener('click', choose));
+  renderMeters();
+}
+function choose(e) {
+  const s = SCENARIOS[index];
+  const choiceIndex = Number(e.currentTarget.dataset.choice);
+  const choice = s.choices[choiceIndex];
+  const delta = choice[1];
+  meters = meters.map((m, i) => clamp(m + delta[i]));
+  const positive = delta.reduce((a,b)=>a+b,0) > 25;
+  score += positive ? 20 : Math.max(0, 8 + Math.round(delta.reduce((a,b)=>a+b,0) / 8));
+  document.querySelectorAll('.choice').forEach((btn, i) => { btn.disabled = true; btn.classList.add(i === choiceIndex && positive ? 'correct' : (i === choiceIndex ? 'risky' : '')); });
+  $('feedback').innerHTML = `<strong>${positive ? 'Strong decision.' : 'Risky decision.'}</strong><br>${choice[2]}`;
+  $('feedback').className = 'feedback show';
+  history.push(`<strong>${s.title}:</strong> ${choice[0]}`);
+  $('history').innerHTML = history.map(h => `<div class="history-item">${h}</div>`).join('');
+  $('pointsLabel').textContent = `Score: ${score}`;
+  renderMeters();
+  if (index < SCENARIOS.length - 1) { $('nextBtn').hidden = false; $('nextBtn').textContent = 'Next decision'; }
+  else { $('nextBtn').hidden = false; $('nextBtn').textContent = 'Show final report'; }
+}
+function finalReport() {
+  const avg = Math.round(meters.reduce((a,b)=>a+b,0) / meters.length);
+  const level = avg >= 80 ? 'Strong' : avg >= 65 ? 'Developing' : 'Needs Improvement';
+  $('reportBox').innerHTML = `
+    <p><strong>Final readiness level:</strong> ${level} (${avg}%).</p>
+    <p><strong>Total score:</strong> ${score} out of ${SCENARIOS.length * 20}.</p>
+    <p><strong>Strongest area:</strong> ${METRIC_LABELS[meters.indexOf(Math.max(...meters))]}.</p>
+    <p><strong>Needs most attention:</strong> ${METRIC_LABELS[meters.indexOf(Math.min(...meters))]}.</p>
+    <p><strong>Recommended next step:</strong> Use this lab beside the written project to explain not only what the plan recommends, but how a practitioner makes decisions under real constraints.</p>`;
+  $('report').className = 'report show';
+  $('nextBtn').hidden = true;
+}
+$('nextBtn').addEventListener('click', () => { if (index < SCENARIOS.length - 1) { index++; renderScenario(); } else { finalReport(); } });
+$('restartBtn').addEventListener('click', () => { index = 0; score = 0; meters = [50,50,50,50]; history = []; $('history').innerHTML = ''; $('report').className = 'report'; renderScenario(); });
+$('printBtn').addEventListener('click', () => window.print());
+renderScenario();
+</script>
+</body>
+</html>
