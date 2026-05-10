@@ -73,3 +73,13 @@ The portfolio now separates software/game builds from music and community tribut
 ## Playable Cybersecurity Project
 
 The portfolio now includes **Firewall Defender**, a playable browser-based cybersecurity learning game located at `/projects/firewall-defender/`. The homepage and Projects page both include project cards with a local **Play game** link and a GitHub repository link.
+
+
+## Playable Database Administration Project
+
+The portfolio now includes **SQL Database Troubleshooter**, a playable browser-based database administration learning game located at `/projects/sql-database-troubleshooter/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game teaches database setup, user permissions, service outages, query tuning, backup checks, integrity checks, least-privilege access control, and troubleshooting workflows across Easy, Normal, and Hard difficulty levels.
+
+
+## Playable Networking Training Project
+
+The portfolio now includes **BusinessNet VLAN Router Lab**, a playable browser-based networking and cybersecurity training game located at `/projects/business-network-vlan-game/`. The homepage and Projects page include local **Play game** links plus a GitHub repository link. The game teaches Cisco-style VLAN design, router-on-a-stick subinterfaces, DHCP planning, access/trunk ports, voice VLANs, NAT, default routing, firewall basics, and troubleshooting logic across Easy, Normal, and Hard difficulty levels.

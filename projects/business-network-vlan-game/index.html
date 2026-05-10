@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BusinessNet VLAN Cisco Router Lab Game - Three Difficulty Levels</title>
+  <meta name="description" content="A playable Cisco-style VLAN network configuration game with Easy, Normal, and Hard modes for a five-person business with phones, computers, printer, firewall, router, and switch." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="portfolio-back-link" href="../index.html">← Back to portfolio projects</a>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Interactive IT / Networking Lab</p>
+      <h1>BusinessNet VLAN Router Lab</h1>
+      <p class="subtitle">Configure a five-person business network with two VLANs: <strong>VLAN 10 Hardware</strong> for computers/printer and <strong>VLAN 20 Phones</strong> for voice devices. Choose Easy, Normal, or Hard mode.</p>
+    </div>
+    <div class="score-card" aria-live="polite">
+      <span>Score</span>
+      <strong id="score">0%</strong>
+      <small id="rank">Intern Tech</small>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <section class="panel difficulty-panel" aria-labelledby="difficulty-title">
+      <div class="panel-heading compact">
+        <div>
+          <h2 id="difficulty-title">Choose Difficulty</h2>
+          <p id="difficultyHelp">Normal mode gives hints, the command guide, and the demo config. Change levels anytime to restart the lab.</p>
+        </div>
+        <span class="difficulty-tag" id="difficultyLabel">Normal</span>
+      </div>
+      <div class="difficulty-options" role="group" aria-label="Difficulty level">
+        <button class="difficulty-card" type="button" data-difficulty="easy">
+          <strong>Easy</strong>
+          <span>Guided command builder writes the commands for each task.</span>
+        </button>
+        <button class="difficulty-card active" type="button" data-difficulty="normal">
+          <strong>Normal</strong>
+          <span>You type the commands with hints, guide, and demo available.</span>
+        </button>
+        <button class="difficulty-card" type="button" data-difficulty="hard">
+          <strong>Hard</strong>
+          <span>No hints, no demo, no accepted-command list. Know the Cisco-style commands yourself.</span>
+        </button>
+      </div>
+    </section>
+    <section class="panel topology-panel" aria-labelledby="topology-title">
+      <div class="panel-heading">
+        <div>
+          <h2 id="topology-title">Network Topology</h2>
+          <p>Goal: configure inter-VLAN routing, switch ports, DHCP, firewall access, printer access, and internet reachability.</p>
+        </div>
+        <button id="runTestsBtn" class="primary-btn">Run Network Tests</button>
+      </div>
+
+      <div class="topology-grid">
+        <article class="device internet" id="dev-internet">
+          <span class="device-icon">☁️</span>
+          <h3>Internet</h3>
+          <p>8.8.8.8</p>
+          <span class="status-dot"></span>
+        </article>
+        <div class="link-line"></div>
+        <article class="device firewall" id="dev-firewall">
+          <span class="device-icon">🛡️</span>
+          <h3>Firewall</h3>
+          <p id="firewall-ip">WAN pending</p>
+          <span class="status-dot"></span>
+        </article>
+        <div class="link-line"></div>
+        <article class="device router" id="dev-router">
+          <span class="device-icon">📡</span>
+          <h3 id="router-name">Cisco Router</h3>
+          <p id="router-ips">Subinterfaces down</p>
+          <span class="status-dot"></span>
+        </article>
+        <div class="link-line"></div>
+        <article class="device switch" id="dev-switch">
+          <span class="device-icon">🔀</span>
+          <h3>Office Switch</h3>
+          <p id="switch-status">VLANs pending</p>
+          <span class="status-dot"></span>
+        </article>
+      </div>
+
+      <div class="vlan-strip">
+        <div class="vlan-pill data"><strong>VLAN 10</strong><span>Hardware/Data</span><small>192.168.10.0/24 · GW 192.168.10.1</small></div>
+        <div class="vlan-pill voice"><strong>VLAN 20</strong><span>Phones/Voice</span><small>192.168.20.0/24 · GW 192.168.20.1</small></div>
+      </div>
+
+      <div class="endpoint-grid" id="endpointGrid" aria-label="Endpoint devices"></div>
+    </section>
+
+    <section class="panel cli-panel" aria-labelledby="cli-title">
+      <div class="panel-heading compact">
+        <div>
+          <h2 id="cli-title">Cisco-Style Configuration Console</h2>
+          <p>Type commands, press Enter, and watch the VLAN network come online.</p>
+        </div>
+        <button id="hintBtn" class="ghost-btn">Hint</button>
+      </div>
+
+      <div class="terminal" id="terminal" aria-live="polite" aria-label="Command output"></div>
+
+      <div class="easy-builder" id="easyBuilder" hidden>
+        <div>
+          <h3>Easy Command Builder</h3>
+          <p>Pick what you want the network to do. The game writes and runs the needed Cisco-style commands so you can see how each step works.</p>
+        </div>
+        <div class="easy-action-grid" id="easyActions"></div>
+      </div>
+
+      <form id="commandForm" class="command-row">
+        <label for="commandInput" class="sr-only">Command</label>
+        <span id="prompt">Router&gt;</span>
+        <input id="commandInput" autocomplete="off" placeholder="Type help or enable" />
+        <button type="submit">Enter</button>
+      </form>
+
+      <div class="button-row">
+        <button id="demoBtn" class="secondary-btn" type="button">Run Demo Config</button>
+        <button id="resetBtn" class="danger-btn" type="button">Reset Lab</button>
+      </div>
+    </section>
+
+    <section class="panel specs-panel" aria-labelledby="specs-title">
+      <h2 id="specs-title">Business Network Specs to Program</h2>
+      <p class="note">Use these values exactly. The validation engine checks the VLAN IDs, gateways, masks, DHCP pools, switch ports, printer, NAT, route, and firewall rules.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Area</th><th>Requirement</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>VLAN 10</td><td>Name</td><td><code>HARDWARE</code></td></tr>
+            <tr><td>VLAN 10</td><td>Subnet / Gateway</td><td><code>192.168.10.0/24</code> · <code>192.168.10.1</code></td></tr>
+            <tr><td>VLAN 10</td><td>PC DHCP Range</td><td><code>192.168.10.21-25</code></td></tr>
+            <tr><td>Printer</td><td>Static IP / Gateway</td><td><code>192.168.10.50</code> · <code>192.168.10.1</code></td></tr>
+            <tr><td>VLAN 20</td><td>Name</td><td><code>PHONES</code></td></tr>
+            <tr><td>VLAN 20</td><td>Subnet / Gateway</td><td><code>192.168.20.0/24</code> · <code>192.168.20.1</code></td></tr>
+            <tr><td>VLAN 20</td><td>Phone DHCP Range</td><td><code>192.168.20.21-25</code></td></tr>
+            <tr><td>Voice DHCP</td><td>TFTP / Option 150</td><td><code>192.168.20.10</code></td></tr>
+            <tr><td>Switch</td><td>User Ports</td><td><code>Fa0/1-5 access vlan 10 voice vlan 20</code></td></tr>
+            <tr><td>Switch</td><td>Router Uplink</td><td><code>Fa0/24 trunk allow 10,20</code></td></tr>
+            <tr><td>WAN</td><td>Router / Firewall</td><td><code>10.0.0.1/30</code> · <code>10.0.0.2/30</code></td></tr>
+            <tr><td>Route</td><td>Default Route</td><td><code>0.0.0.0/0 via 10.0.0.2</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel missions-panel" aria-labelledby="missions-title">
+      <h2 id="missions-title">Mission Checklist</h2>
+      <div id="missions" class="mission-list"></div>
+    </section>
+
+    <section class="panel guide-panel" id="guidePanel" aria-labelledby="guide-title">
+      <h2 id="guide-title">Accepted Commands</h2>
+      <p class="note">The game accepts Cisco-style router and switch commands plus simple firewall/printer commands so the whole office network can be validated.</p>
+      <details open>
+        <summary>Minimum winning configuration</summary>
+<pre><code>enable
+configure terminal
+hostname BRANCH-R1
+vlan 10
+name HARDWARE
+exit
+vlan 20
+name PHONES
+exit
+interface range fa0/1-5
+switchport mode access
+switchport access vlan 10
+switchport voice vlan 20
+exit
+interface fa0/24
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+no shutdown
+exit
+interface gigabitEthernet0/0
+no ip address
+no shutdown
+exit
+interface gigabitEthernet0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+ip nat inside
+exit
+interface gigabitEthernet0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+ip nat inside
+exit
+interface gigabitEthernet0/1
+ip address 10.0.0.1 255.255.255.252
+no shutdown
+ip nat outside
+exit
+ip dhcp excluded-address 192.168.10.1 192.168.10.20
+ip dhcp excluded-address 192.168.10.50 192.168.10.50
+ip dhcp excluded-address 192.168.20.1 192.168.20.20
+ip dhcp excluded-address 192.168.20.10 192.168.20.10
+ip dhcp pool HARDWARE
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+dns-server 8.8.8.8
+exit
+ip dhcp pool PHONES
+network 192.168.20.0 255.255.255.0
+default-router 192.168.20.1
+dns-server 8.8.8.8
+option 150 ip 192.168.20.10
+exit
+access-list 10 permit 192.168.10.0 0.0.0.255
+access-list 20 permit 192.168.20.0 0.0.0.255
+ip nat inside source list 10 interface gigabitEthernet0/1 overload
+ip nat inside source list 20 interface gigabitEthernet0/1 overload
+ip route 0.0.0.0 0.0.0.0 10.0.0.2
+printer ip 192.168.10.50
+printer gateway 192.168.10.1
+printer online
+firewall enable
+firewall wan 10.0.0.2 255.255.255.252
+firewall gateway 10.0.0.1
+firewall allow vlan 10 outbound
+firewall allow vlan 20 outbound
+firewall allow tcp 80
+firewall allow tcp 443
+firewall allow udp 53
+firewall allow udp 5060
+firewall deny inbound any
+end
+write memory</code></pre>
+      </details>
+      <details>
+        <summary>Useful show and test commands</summary>
+<pre><code>show vlan brief
+show interfaces trunk
+show ip interface brief
+show running-config
+show ip dhcp binding
+show ip route
+show nat
+show firewall
+ping 192.168.10.1
+ping 192.168.20.1
+ping 192.168.10.50
+ping 8.8.8.8
+test hardware
+test phones
+test network
+help</code></pre>
+      </details>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
