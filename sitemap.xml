@@ -146,4 +146,10 @@
     <loc>https://loganggoodwin.github.io/projects/ncl-ink-injection-ctf-lab/</loc>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://loganggoodwin.github.io/projects/frontline-tech-consulting/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

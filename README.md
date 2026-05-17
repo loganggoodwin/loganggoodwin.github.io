@@ -119,3 +119,13 @@ This version expands the portfolio with playable browser-based labs connected to
 - NCL Ink Injection CTF Training Lab
 
 Each lab is self-contained HTML/CSS/JavaScript and can be opened directly in the browser from the portfolio project cards.
+
+
+## NCL Spring 2026 badge evidence
+
+This version includes Cyber Skyline/NCL badge images for the Spring 2026 Team Game Diamond result and Individual Game Silver result. The images are stored under `images/projects/ctf-2026/` and are referenced from the homepage, Projects page, and NCL recap page.
+
+
+## Business Builder Update
+
+This version adds a Frontline Tech Consulting business/founder section that connects web design, app development, cybersecurity learning labs, music/video projects, and client-ready digital deliverables to the main portfolio story.
