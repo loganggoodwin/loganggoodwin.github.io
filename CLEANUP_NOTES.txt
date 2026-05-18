@@ -1,0 +1,17 @@
+Clean portfolio package generated for loganggoodwin.com.
+
+Changes made:
+- Updated live-site SEO, canonical, Open Graph, Twitter card, robots.txt, sitemap, README project links, and contact-form subject references to loganggoodwin.com.
+- Kept GitHub repository links pointing to github.com/loganggoodwin/loganggoodwin.github.io.
+- Fixed Music page tribute anchor links so they point to projects/index.html#music-tributes.
+- Removed stray one-byte placeholder files named t or q.
+- Added .nojekyll for cleaner GitHub Pages publishing.
+- Regenerated the Open Graph preview image so the bottom line no longer clips.
+- Optimized image files without changing filenames or page references.
+- Validated local links, image/file references, data-link targets, anchors, and JavaScript syntax.
+
+Social Preview Update:
+- Replaced images/og-preview.png with a cybersecurity-themed 1200x630 Open Graph image.
+- Added images/og-preview.jpg as a backup copy.
+- Confirmed metadata points to https://logangoodwin.com/images/og-preview.png for social sharing.
+- After deployment, Facebook/LinkedIn/X may need their link preview cache refreshed before showing the new image.

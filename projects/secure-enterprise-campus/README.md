@@ -116,4 +116,4 @@ This project supports roles such as:
 
 ## Portfolio Link
 
-Live project page: <https://loganggoodwin.github.io/projects/secure-enterprise-campus/>
+Live project page: <https://loganggoodwin.com/projects/secure-enterprise-campus/>

@@ -88,7 +88,7 @@ Current artifact:
 
 - PDF report: `../../assets/projects/Healthcare_Data_Breach_Analysis_Logan_Goodwin.pdf`
 - Timeline image: `../../images/projects/healthcare-breach-timeline.png`
-- Live portfolio project page: <https://loganggoodwin.github.io/projects/healthcare-breach-analysis/>
+- Live portfolio project page: <https://loganggoodwin.com/projects/healthcare-breach-analysis/>
 
 Recommended future artifacts:
 
@@ -99,4 +99,4 @@ Recommended future artifacts:
 
 ## Portfolio Link
 
-Live project page: <https://loganggoodwin.github.io/projects/healthcare-breach-analysis/>
+Live project page: <https://loganggoodwin.com/projects/healthcare-breach-analysis/>
