@@ -51,7 +51,7 @@ These are meant to be the strongest GitHub-facing documentation examples: one ha
 - CTF / NCL recap: `/projects/ctf-hash-cracking/index.html`
 - Guest VLAN project: `/projects/guest-network-vlan/index.html`
 - Secure campus project: `/projects/secure-enterprise-campus/index.html`
-- Open Graph image: `/images/og-preview.png`
+- Open Graph image: `/images/logan-garth-goodwin-cybersecurity-ai-operations-portfolio.png`
 
 ## File cleanup note
 
