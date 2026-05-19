@@ -27,3 +27,4 @@ Local SEO Professional Polish Update:
 - Added local footer/nav links and styling for the new service page.
 
 Social preview fix applied: corrected the personal-domain image, canonical, and schema references so social scrapers can reach the 1200x630 preview image at loganggoodwin.com.
+Identity update: added Frontline Tech Consulting affiliation and public profile links for GitLab, Stack Overflow, Google Developer profile, Merit Pages, YouTube, X/Twitter, Credly, LinkedIn, and GitHub.

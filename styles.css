@@ -485,7 +485,7 @@ h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
   font-size:.88rem;
   flex-wrap:wrap;
 }
-.footer-links{display:flex;gap:16px}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
 .footer-links a:hover{color:var(--accent)}
 
 /* ── SCROLL ANIMATIONS ── */
@@ -1454,3 +1454,13 @@ textarea:focus-visible {
 .local-map-mark{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:18px;border:1px solid rgba(126,240,196,.32);background:rgba(126,240,196,.1);color:var(--accent-2);font-family:var(--mono);font-weight:800;margin-bottom:18px;}
 .local-map-card h2{font-size:1.45rem;margin-bottom:8px}.local-map-card p{color:var(--muted);line-height:1.6}.service-area-list{display:flex;flex-wrap:wrap;gap:10px;}.service-area-list span{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.04);color:var(--text);font-weight:700;font-size:.9rem;}
 @media(max-width:900px){.local-service-grid{grid-template-columns:1fr;}.service-hero h1{max-width:none}}
+
+
+/* ── PROFESSIONAL PROFILE / IDENTITY LINKS ── */
+.profile-link-panel{margin-top:16px;border:1px solid var(--line);border-radius:18px;padding:18px;background:rgba(255,255,255,.035)}
+.profile-link-panel h3{margin-bottom:6px}.profile-link-panel p{color:var(--muted);font-size:.92rem;line-height:1.55;margin-bottom:12px}
+.profile-link-grid{display:flex;flex-wrap:wrap;gap:10px}
+.profile-link-grid a{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:9px 12px;background:rgba(255,255,255,.05);color:var(--text);font-weight:700;font-size:.88rem;transition:transform .15s,border-color .15s,background .15s}
+.profile-link-grid a:hover{transform:translateY(-1px);border-color:rgba(61,214,245,.45);background:rgba(61,214,245,.1);color:var(--accent)}
+.process-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.process-steps div{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.035)}.process-steps strong{display:block;color:var(--text);margin-bottom:8px}.process-steps span{display:block;color:var(--muted);line-height:1.55;font-size:.9rem}.faq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.faq-grid p{color:var(--muted);line-height:1.6;margin-top:8px}
+@media(max-width:900px){.process-steps,.faq-grid{grid-template-columns:1fr}}
