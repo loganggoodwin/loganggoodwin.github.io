@@ -13,7 +13,7 @@ Changes made:
 Social Preview Update:
 - Replaced images/og-preview.png with a cybersecurity-themed 1200x630 Open Graph image.
 - Added images/og-preview.jpg as a backup copy.
-- Confirmed metadata points to https://logangoodwin.com/images/logan-garth-goodwin-cybersecurity-ai-operations-portfolio.png for social sharing.
+- Confirmed metadata points to https://loganggoodwin.com/images/logan-garth-goodwin-cybersecurity-ai-operations-portfolio.png for social sharing.
 - After deployment, Facebook/LinkedIn/X may need their link preview cache refreshed before showing the new image.
 
 
@@ -25,3 +25,5 @@ Local SEO Professional Polish Update:
 - Added descriptive social preview image filename and pointed social metadata to it for cache busting.
 - Updated sitemap.xml to include the Somersworth IT/cybersecurity landing page.
 - Added local footer/nav links and styling for the new service page.
+
+Social preview fix applied: corrected the personal-domain image, canonical, and schema references so social scrapers can reach the 1200x630 preview image at loganggoodwin.com.
