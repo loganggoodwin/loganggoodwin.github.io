@@ -145,8 +145,11 @@
     <lastmod>2026-05-19</lastmod>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://loganggoodwin.com/projects/security-awareness-executive-briefing-lab/</loc>
-    <lastmod>2026-05-19</lastmod></url>
+  <url>
+    <loc>https://loganggoodwin.com/projects/security-awareness-executive-briefing-lab/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://loganggoodwin.com/projects/fayetteville-network-design-lab/</loc>
     <lastmod>2026-05-19</lastmod>
@@ -192,10 +195,7 @@
   </url>
   <url>
     <loc>https://loganggoodwin.com/somersworth-it-cybersecurity/</loc>
-<<<<<<< HEAD
     <lastmod>2026-05-19</lastmod>
-=======
->>>>>>> f61f9cd76a11855a4e52b5d36c2d252e6404b934
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
