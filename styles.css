@@ -1472,3 +1472,7 @@ textarea:focus-visible {
 .project-card[data-category="writing"]{border-color:rgba(96,165,250,.28);border-left-color:#60a5fa}
 .music-disclosure-card p{margin:0;color:var(--muted);line-height:1.7}
 .music-disclosure-card .section-kicker{color:var(--accent-2);margin-bottom:8px}
+
+
+/* Published book / PDF reader polish */
+.published-book-section,.book-hero{position:relative}.book-cover-card{min-height:260px;border:1px solid rgba(45,212,191,.35);border-radius:24px;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,rgba(8,47,73,.78),rgba(2,6,23,.92)),radial-gradient(circle at 18% 14%,rgba(56,189,248,.28),transparent 32%),radial-gradient(circle at 90% 8%,rgba(45,212,191,.18),transparent 30%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}.book-cover-card h2{margin:10px 0 6px;font-size:clamp(1.8rem,4vw,3rem);line-height:.95}.book-cover-card p{color:var(--muted);font-size:1.05rem}.book-cover-card strong{color:var(--accent);margin-top:18px}.book-cover-kicker{display:inline-flex;width:fit-content;border:1px solid rgba(45,212,191,.35);border-radius:999px;padding:6px 10px;color:#67e8f9;font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:rgba(15,23,42,.58)}.pdf-reader-card{padding:0;overflow:hidden;border:1px solid rgba(45,212,191,.24)}.pdf-reader-card iframe{width:100%;height:min(82vh,920px);min-height:680px;border:0;display:block;background:#0f172a}@media(max-width:700px){.pdf-reader-card iframe{min-height:560px}}
