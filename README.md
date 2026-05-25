@@ -129,3 +129,11 @@ This version includes Cyber Skyline/NCL badge images for the Spring 2026 Team Ga
 ## Business Builder Update
 
 This version adds a Frontline Tech Consulting business/founder section that connects web design, app development, cybersecurity learning labs, music/video projects, and client-ready digital deliverables to the main portfolio story.
+
+## Technical Writing and Digital Publishing Update
+
+This version adds Logan's first LinkedIn cybersecurity article and YouTube publishing presence to the portfolio. The homepage now includes a **Writing & Publishing** section, the Projects library includes **Technical Writing & Digital Publishing** cards, and the Music page now links the public YouTube channel while keeping the technical portfolio focused for hiring teams.
+
+- LinkedIn article: Why Your Home Router Needs Help: Blocking Ads, Trackers, Malware, and Phishing Across the Whole Network
+- YouTube channel: https://www.youtube.com/@Logan.Goodwin
+- Resume updated to include technical writing, LinkedIn publishing, YouTube media publishing, metadata, AI-assisted media workflow, and public-facing cybersecurity communication.

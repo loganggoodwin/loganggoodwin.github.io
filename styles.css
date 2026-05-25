@@ -1464,3 +1464,11 @@ textarea:focus-visible {
 .profile-link-grid a:hover{transform:translateY(-1px);border-color:rgba(61,214,245,.45);background:rgba(61,214,245,.1);color:var(--accent)}
 .process-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.process-steps div{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(255,255,255,.035)}.process-steps strong{display:block;color:var(--text);margin-bottom:8px}.process-steps span{display:block;color:var(--muted);line-height:1.55;font-size:.9rem}.faq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.faq-grid p{color:var(--muted);line-height:1.6;margin-top:8px}
 @media(max-width:900px){.process-steps,.faq-grid{grid-template-columns:1fr}}
+
+/* Writing and digital publishing additions */
+.digital-publishing .local-service-card .text-link{display:inline-block}
+.legend-writing{border-color:rgba(96,165,250,.35);background:rgba(96,165,250,.1);color:#bfdbfe}
+.project-card[data-category="writing"]::before{background:#60a5fa}
+.project-card[data-category="writing"]{border-color:rgba(96,165,250,.28);border-left-color:#60a5fa}
+.music-disclosure-card p{margin:0;color:var(--muted);line-height:1.7}
+.music-disclosure-card .section-kicker{color:var(--accent-2);margin-bottom:8px}
