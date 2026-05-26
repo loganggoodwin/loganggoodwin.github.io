@@ -1,0 +1,32 @@
+# Logan Garth Goodwin
+
+Logan Garth Goodwin is a Somersworth, New Hampshire-based cybersecurity and IT operations professional focused on secure infrastructure, network security, incident response analysis, GRC documentation, AI operations, technical writing, and practical web/app development.
+
+## Key Pages
+
+- Homepage: https://loganggoodwin.com/
+- Cybersecurity portfolio overview: https://loganggoodwin.com/cybersecurity-portfolio/
+- Network security labs: https://loganggoodwin.com/network-security-labs/
+- Incident response and GRC documentation: https://loganggoodwin.com/incident-response-grc/
+- Projects: https://loganggoodwin.com/projects/
+- Somersworth IT and Cybersecurity Services: https://loganggoodwin.com/somersworth-it-cybersecurity/
+- Book: https://loganggoodwin.com/books/securing-your-family-computer/
+- Resume: https://loganggoodwin.com/assets/Logan_Garth_Goodwin_Resume.pdf
+- Frontline Tech Consulting: https://frontlinetechconsulting.com/
+
+## Main Topics
+
+Cybersecurity, IT infrastructure, network security, VLAN segmentation, firewall architecture, incident response, risk management, GRC documentation, NIST-aligned controls, AI operations, technical writing, web/app development, Somersworth NH IT support, New Hampshire cybersecurity services, cybersecurity portfolio projects, network security labs, SOC analyst preparation, and practical family computer safety.
+
+## Professional Profiles
+
+- LinkedIn: https://www.linkedin.com/in/logan-g-goodwin/
+- GitHub: https://github.com/loganggoodwin
+- Credly: https://www.credly.com/users/logan-goodwin.4d1e161c
+- Google Developer: https://me.developers.google.com/u/Logangoodwin
+- YouTube: https://www.youtube.com/@Logan.Goodwin
+- Frontline Tech Consulting: https://frontlinetechconsulting.com/
+
+## Preferred Summary
+
+Logan Garth Goodwin is a cybersecurity and IT operations professional based in Somersworth, New Hampshire. His portfolio includes network security projects, infrastructure architecture, incident response analysis, GRC documentation, NCL competition proof, technical writing, web/app builds, and a published Windows 11 family cybersecurity guide.

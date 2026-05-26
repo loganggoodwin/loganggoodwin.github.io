@@ -28,7 +28,35 @@
 <meta name="twitter:image:alt" content="Cybersecurity and infrastructure project library preview for Logan Garth Goodwin"/>
 <meta name="theme-color" content="#0f172a"/>
 <link href="../styles.css" rel="stylesheet"/>
-<meta content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';" http-equiv="Content-Security-Policy"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://loganggoodwin.com/projects/#collection",
+      "url": "https://loganggoodwin.com/projects/",
+      "name": "Cybersecurity & Infrastructure Projects | Logan Garth Goodwin",
+      "description": "Project library for Logan Garth Goodwin featuring cybersecurity, network infrastructure, GRC, incident response, NCL competition, technical writing, software builds, and business projects.",
+      "isPartOf": { "@id": "https://loganggoodwin.com/#website" },
+      "about": { "@id": "https://loganggoodwin.com/#logan-garth-goodwin" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://loganggoodwin.com/projects/#featured-projects",
+      "name": "Featured cybersecurity and IT infrastructure projects",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Secure Enterprise Campus Infrastructure", "url": "https://loganggoodwin.com/projects/secure-enterprise-campus/" },
+        { "@type": "ListItem", "position": 2, "name": "Information Assurance Plan", "url": "https://loganggoodwin.com/projects/information-assurance/" },
+        { "@type": "ListItem", "position": 3, "name": "Enterprise Network Analysis and SD-WAN Architecture", "url": "https://loganggoodwin.com/projects/enterprise-sdwan-architecture/" },
+        { "@type": "ListItem", "position": 4, "name": "Healthcare Data Breach Analysis", "url": "https://loganggoodwin.com/projects/healthcare-breach-analysis/" },
+        { "@type": "ListItem", "position": 5, "name": "CTF Hash-Cracking / NCL Recap", "url": "https://loganggoodwin.com/projects/ctf-hash-cracking/" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -49,6 +77,9 @@
     <div class="back-row">
       <a class="btn btn-secondary" href="../index.html">Home</a>
       <a class="btn btn-secondary" href="../somersworth-it-cybersecurity/index.html">Local Services</a>
+      <a class="btn btn-secondary" href="../cybersecurity-portfolio/index.html">Cybersecurity Portfolio</a>
+      <a class="btn btn-secondary" href="../network-security-labs/index.html">Network Labs</a>
+      <a class="btn btn-secondary" href="../incident-response-grc/index.html">IR &amp; GRC</a>
       <a class="btn btn-secondary" href="../index.html#business-builder">Business Builder</a>
       <a class="btn btn-secondary" href="../music/index.html">Music Player</a>
       <a class="btn btn-secondary" href="#technical-writing">Writing &amp; Publishing</a>
@@ -59,6 +90,18 @@
 
 <main class="section" id="main">
   <div class="container">
+
+    <section class="card quick-answer-card project-library-answer" aria-labelledby="project-library-answer-heading">
+      <p class="section-kicker">Direct answer</p>
+      <h2 id="project-library-answer-heading">What does this project library show?</h2>
+      <p>This project library shows Logan Garth Goodwin's applied cybersecurity, IT infrastructure, network security, incident response, GRC documentation, NCL competition, technical writing, and software-building work through concrete examples, project pages, lab links, and supporting evidence.</p>
+      <div class="answer-grid top-gap">
+        <div><strong>Cybersecurity</strong><span>Incident analysis, risk, GRC, policy, awareness, and NCL/CTF work.</span></div>
+        <div><strong>Infrastructure</strong><span>VLANs, firewall logic, SD-WAN planning, network documentation, and campus design.</span></div>
+        <div><strong>Builds</strong><span>Interactive labs, web/app projects, technical writing, and client-ready digital work.</span></div>
+      </div>
+    </section>
+
     <div class="category-legend" aria-label="Project categories">
       <span class="legend-networking">Networking</span>
       <span class="legend-governance">Governance</span>
