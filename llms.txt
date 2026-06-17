@@ -1,6 +1,6 @@
 # Logan Garth Goodwin
 
-Logan Garth Goodwin is a Somersworth, New Hampshire-based cybersecurity and IT operations professional focused on secure infrastructure, network security, incident response analysis, GRC documentation, AI operations, technical writing, and practical web/app development.
+Logan Garth Goodwin is a Somersworth, New Hampshire-based cybersecurity and IT operations professional focused on secure infrastructure, network security, incident response analysis, GRC documentation, AI operations, technical writing, Amazon/KDP book publishing, and practical web/app development.
 
 ## Key Pages
 
@@ -9,14 +9,21 @@ Logan Garth Goodwin is a Somersworth, New Hampshire-based cybersecurity and IT o
 - Network security labs: https://loganggoodwin.com/network-security-labs/
 - Incident response and GRC documentation: https://loganggoodwin.com/incident-response-grc/
 - Projects: https://loganggoodwin.com/projects/
+- NSSD Network Security Training Manual: https://loganggoodwin.com/projects/nssd-network-security-training-manual/
+- NSSD Cyber Defense Mission interactive lab: https://loganggoodwin.com/projects/nssd-cyber-defense-mission/
+- Windows 11 Pro workstation setup article: https://loganggoodwin.com/projects/windows-11-pro-cybersecurity-workstation/
 - Somersworth IT and Cybersecurity Services: https://loganggoodwin.com/somersworth-it-cybersecurity/
-- Book: https://loganggoodwin.com/books/securing-your-family-computer/
+- Books and Amazon Author Page hub: https://loganggoodwin.com/books/
+- Family cybersecurity book sample: https://loganggoodwin.com/books/securing-your-family-computer/
+- Amazon Author Page: https://www.amazon.com/author/logangoodwin
+- LinkedIn workstation article: https://www.linkedin.com/pulse/how-set-up-windows-11-pro-workstation-cybersecurity-grad-goodwin-p1auc/
 - Resume: https://loganggoodwin.com/assets/Logan_Garth_Goodwin_Resume.pdf
 - Frontline Tech Consulting: https://frontlinetechconsulting.com/
+- Amazon Author Page: https://www.amazon.com/author/logangoodwin
 
 ## Main Topics
 
-Cybersecurity, IT infrastructure, network security, VLAN segmentation, firewall architecture, incident response, risk management, GRC documentation, NIST-aligned controls, AI operations, technical writing, web/app development, Somersworth NH IT support, New Hampshire cybersecurity services, cybersecurity portfolio projects, network security labs, SOC analyst preparation, and practical family computer safety.
+Cybersecurity, IT infrastructure, network security, A-graded cybersecurity training manuals, traffic analysis, VLAN segmentation, firewall architecture, IDS/IPS, vulnerability assessment, incident response, risk management, GRC documentation, NIST-aligned controls, Windows 11 Pro workstation builds, Hyper-V, WSL2, Docker, BitLocker, Dev Drive, AI operations, technical writing, Amazon/KDP publishing, web/app development, Somersworth NH IT support, New Hampshire cybersecurity services, cybersecurity portfolio projects, network security labs, SOC analyst preparation, and practical family computer safety.
 
 ## Professional Profiles
 
@@ -26,7 +33,8 @@ Cybersecurity, IT infrastructure, network security, VLAN segmentation, firewall 
 - Google Developer: https://me.developers.google.com/u/Logangoodwin
 - YouTube: https://www.youtube.com/@Logan.Goodwin
 - Frontline Tech Consulting: https://frontlinetechconsulting.com/
+- Amazon Author Page: https://www.amazon.com/author/logangoodwin
 
 ## Preferred Summary
 
-Logan Garth Goodwin is a cybersecurity and IT operations professional based in Somersworth, New Hampshire. His portfolio includes network security projects, infrastructure architecture, incident response analysis, GRC documentation, NCL competition proof, technical writing, web/app builds, and a published Windows 11 family cybersecurity guide.
+Logan Garth Goodwin is a cybersecurity and IT operations professional based in Somersworth, New Hampshire. His portfolio includes network security projects, infrastructure architecture, an A-graded NSSD network security training manual, a Windows 11 Pro cybersecurity workstation build, incident response analysis, GRC documentation, NCL competition proof, technical writing, Amazon-published books, web/app builds, a Windows 11 Pro workstation setup article, and a published Windows 11 family cybersecurity guide.

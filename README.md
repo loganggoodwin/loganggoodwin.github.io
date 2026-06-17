@@ -5,7 +5,7 @@ A polished GitHub Pages portfolio focused on cybersecurity, infrastructure, netw
 ## What is included
 
 - Updated homepage with featured work, active projects, certifications, experience, target-role positioning, and a portfolio status section
-- Projects landing page with duplicate Information Assurance card removed
+- Projects landing page with duplicate Information Assurance card removed and new NSSD Network Security Training Manual card added
 - CTF hash-cracking / NCL recap page with a clear disclosure callout for sample or restricted competition data
 - Open Graph preview image added for better LinkedIn and social sharing
 - Contact form wired to a real Formspree POST endpoint, plus direct email and copy-email options
@@ -35,6 +35,16 @@ The primary résumé path is `/assets/Logan_Garth_Goodwin_Resume.pdf`. Homepage 
 
 ### 5. Confirm project discoverability
 The CTF page is linked from both the homepage featured work section and `/projects/index.html`, with hash-cracking wording in the title/metadata. A basic `sitemap.xml` and `robots.txt` are included to make the project pages easier for search engines to crawl.
+
+
+### 7. New NSSD school-work portfolio addition
+This update adds a new A-graded graduate cybersecurity artifact:
+
+- `/projects/nssd-network-security-training-manual/index.html` — portfolio case study for the North Star Software Developers network security training manual.
+- `/projects/nssd-cyber-defense-mission/index.html` — interactive HTML companion lab based on the manual.
+- `/assets/projects/NSSD_Network_Security_Training_Manual_Logan_Goodwin.docx` — downloadable manual artifact.
+
+The new page highlights the final project score, A grade, instructor feedback themes, network defense procedures, and the interactive training companion.
 
 ### 6. Review the two project READMEs
 Two project-specific README files were added so GitHub reviewers see more than only the live webpages:
@@ -137,3 +147,15 @@ This version adds Logan's first LinkedIn cybersecurity article and YouTube publi
 - LinkedIn article: Why Your Home Router Needs Help: Blocking Ads, Trackers, Malware, and Phishing Across the Whole Network
 - YouTube channel: https://www.youtube.com/@Logan.Goodwin
 - Resume updated to include technical writing, LinkedIn publishing, YouTube media publishing, metadata, AI-assisted media workflow, and public-facing cybersecurity communication.
+
+
+## Books, Amazon Author Page, and LinkedIn Workstation Article Update
+
+This version adds a dedicated **Books & Amazon Author Page** hub at `/books/`, links the Amazon Author Page across the homepage, Projects page, Services page, and book sample page, and adds a stronger LinkedIn connection for the Windows 11 Pro workstation article.
+
+- Amazon Author Page: https://www.amazon.com/author/logangoodwin
+- Books hub: `books/index.html`
+- LinkedIn workstation article: https://www.linkedin.com/pulse/how-set-up-windows-11-pro-workstation-cybersecurity-grad-goodwin-p1auc/
+- Portfolio article: `projects/windows-11-pro-cybersecurity-workstation/index.html`
+
+The book hub is designed as a stable portfolio landing page while the Amazon Author Page remains the live source of truth for availability, formats, pricing, and new book additions.
