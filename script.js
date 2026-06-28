@@ -342,3 +342,37 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
   });
 })();
+
+// COGIMA release countdown (runs only if the widget is present)
+(function(){
+  const grid = document.getElementById('cogimaCountdown');
+  if(!grid) return;
+  const release = new Date(grid.getAttribute('data-release') || '2026-07-31T00:00:00').getTime();
+  const cells = {
+    days: grid.querySelector('[data-cd="days"]'),
+    hours: grid.querySelector('[data-cd="hours"]'),
+    mins: grid.querySelector('[data-cd="mins"]'),
+    secs: grid.querySelector('[data-cd="secs"]')
+  };
+  const pad = n => String(Math.max(0, n)).padStart(2, '0');
+  function tick(){
+    const diff = release - Date.now();
+    if(diff <= 0){
+      cells.days.textContent = '00';
+      cells.hours.textContent = '00';
+      cells.mins.textContent = '00';
+      cells.secs.textContent = '00';
+      const label = grid.parentElement && grid.parentElement.querySelector('.cd-label');
+      if(label) label.textContent = 'Out now';
+      clearInterval(timer);
+      return;
+    }
+    const s = Math.floor(diff / 1000);
+    cells.days.textContent = pad(Math.floor(s / 86400));
+    cells.hours.textContent = pad(Math.floor((s % 86400) / 3600));
+    cells.mins.textContent = pad(Math.floor((s % 3600) / 60));
+    cells.secs.textContent = pad(s % 60);
+  }
+  tick();
+  const timer = setInterval(tick, 1000);
+})();
