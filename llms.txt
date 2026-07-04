@@ -1,6 +1,6 @@
-# Logan Garth Goodwin
+# Logan Goodwin
 
-Logan Garth Goodwin is a Somersworth, New Hampshire-based cybersecurity and IT operations professional, technical writer, and published author. His work spans secure infrastructure, network security, incident response analysis, GRC documentation, AI operations, technical writing, and practical web/app development. As an author he has published 20+ books on Amazon across technology and fiction, including the upcoming science-fiction novel COGIMA (releasing July 31, 2026).
+Logan Goodwin is a Somersworth, New Hampshire-based cybersecurity and IT operations professional, technical writer, and published author. His work spans secure infrastructure, network security, incident response analysis, GRC documentation, AI operations, technical writing, and practical web/app development. As an author he has published 20+ books on Amazon across technology and fiction, including the upcoming science-fiction novel COGIMA (releasing July 31, 2026).
 
 ## Key Pages
 
@@ -19,7 +19,7 @@ Logan Garth Goodwin is a Somersworth, New Hampshire-based cybersecurity and IT o
 - Family cybersecurity book sample: https://loganggoodwin.com/books/securing-your-family-computer/
 - Amazon Author Page: https://www.amazon.com/author/logangoodwin
 - LinkedIn workstation article: https://www.linkedin.com/pulse/how-set-up-windows-11-pro-workstation-cybersecurity-grad-goodwin-p1auc/
-- Resume: https://loganggoodwin.com/assets/Logan_Garth_Goodwin_Resume.pdf
+- Resume: https://loganggoodwin.com/assets/Logan_Goodwin_Resume.pdf
 - Frontline Tech Consulting: https://frontlinetechconsulting.com/
 - Amazon Author Page: https://www.amazon.com/author/logangoodwin
 
@@ -39,4 +39,4 @@ Cybersecurity, IT infrastructure, network security, A-graded cybersecurity train
 
 ## Preferred Summary
 
-Logan Garth Goodwin is a cybersecurity and IT operations professional, technical writer, and published author based in Somersworth, New Hampshire. His portfolio includes network security projects, infrastructure architecture, an A-graded NSSD network security training manual, a Windows 11 Pro cybersecurity workstation build, incident response analysis, GRC documentation, NCL competition proof, technical writing, web/app builds, and 20+ Amazon-published books across technology and fiction — including the upcoming science-fiction novel COGIMA (July 31, 2026), the Securing Your Family Computer Windows 11 safety guide, and the Windows 11 Pro workstation setup article.
+Logan Goodwin is a cybersecurity and IT operations professional, technical writer, and published author based in Somersworth, New Hampshire. His portfolio includes network security projects, infrastructure architecture, an A-graded NSSD network security training manual, a Windows 11 Pro cybersecurity workstation build, incident response analysis, GRC documentation, NCL competition proof, technical writing, web/app builds, and 20+ Amazon-published books across technology and fiction — including the upcoming science-fiction novel COGIMA (July 31, 2026), the Securing Your Family Computer Windows 11 safety guide, and the Windows 11 Pro workstation setup article.

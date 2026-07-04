@@ -1,6 +1,6 @@
 # BusinessNet VLAN Cisco Router Lab Game
 
-**Author:** Logan Garth Goodwin
+**Author:** Logan Goodwin
 
 BusinessNet VLAN Cisco Router Lab is a browser-based networking game where the player configures a realistic five-person business network with three difficulty levels and two VLANs:
 

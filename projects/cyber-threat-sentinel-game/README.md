@@ -1,6 +1,6 @@
 # Cyber Threat Sentinel
 
-**Author:** Logan Garth Goodwin
+**Author:** Logan Goodwin
 
 Cyber Threat Sentinel is an interactive web-based cybersecurity game that simulates real-time security operations center decision-making. Players review live alerts involving suspicious emails, network traffic, endpoint activity, identity events, data exfiltration, brute-force attempts, and malware behavior. The goal is to choose the right response before the timer runs out.
 

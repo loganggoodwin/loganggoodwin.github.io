@@ -1,6 +1,6 @@
 # Packet Capture CTF Game
 
-**Author:** Logan Garth Goodwin
+**Author:** Logan Goodwin
 
 Packet Capture CTF Game is a browser-based cybersecurity learning game that simulates basic packet analysis and capture-the-flag investigation. The player reviews simulated network packets, identifies suspicious traffic, and captures one flag per level.
 

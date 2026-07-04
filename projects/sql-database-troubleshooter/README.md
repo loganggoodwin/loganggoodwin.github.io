@@ -25,4 +25,4 @@ A single-page web game that teaches SQL database setup, troubleshooting, permiss
 
 This is a browser-based training simulation. It does not connect to a real database and is safe to run locally.
 
-Author: Logan Garth Goodwin
+Author: Logan Goodwin

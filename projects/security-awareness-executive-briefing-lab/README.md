@@ -1,6 +1,6 @@
 # Security Awareness Executive Briefing Lab
 
-**Author:** Logan Garth Goodwin
+**Author:** Logan Goodwin
 
 Security Awareness Executive Briefing Lab is an interactive browser-based cybersecurity training simulator built as a companion to the Security Awareness Executive Summary portfolio project.
 

@@ -157,4 +157,4 @@ That is all. The project is static and does not require Node.js, npm, or a local
 
 ## Author
 
-Logan Garth Goodwin
+Logan Goodwin

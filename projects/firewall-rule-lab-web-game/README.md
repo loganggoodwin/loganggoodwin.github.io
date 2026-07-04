@@ -1,6 +1,6 @@
 # Firewall Rule Lab
 
-**Author:** Logan Garth Goodwin
+**Author:** Logan Goodwin
 
 Firewall Rule Lab is a standalone, web-based cybersecurity learning game. It teaches firewall rule configuration through scenario-based levels that move from easy to expert.
 

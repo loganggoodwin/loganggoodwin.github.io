@@ -31,7 +31,7 @@ The network project pages now include proof-artifact sections. The strongest nex
 
 
 ### 4. Confirm résumé links
-The primary résumé path is `/assets/Logan_Garth_Goodwin_Resume.pdf`. Homepage résumé buttons use direct PDF links that open in a new tab so recruiters can view or download the file without a ZIP or secondary page.
+The primary résumé path is `/assets/Logan_Goodwin_Resume.pdf`. Homepage résumé buttons use direct PDF links that open in a new tab so recruiters can view or download the file without a ZIP or secondary page.
 
 ### 5. Confirm project discoverability
 The CTF page is linked from both the homepage featured work section and `/projects/index.html`, with hash-cracking wording in the title/metadata. A basic `sitemap.xml` and `robots.txt` are included to make the project pages easier for search engines to crawl.
@@ -61,7 +61,7 @@ These are meant to be the strongest GitHub-facing documentation examples: one ha
 - CTF / NCL recap: `/projects/ctf-hash-cracking/index.html`
 - Guest VLAN project: `/projects/guest-network-vlan/index.html`
 - Secure campus project: `/projects/secure-enterprise-campus/index.html`
-- Open Graph image: `/images/logan-garth-goodwin-cybersecurity-ai-operations-portfolio.png`
+- Open Graph image: `/images/logan-goodwin-cybersecurity-ai-operations-portfolio.png`
 
 ## File cleanup note
 

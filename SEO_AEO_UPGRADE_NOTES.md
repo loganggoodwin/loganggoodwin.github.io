@@ -5,7 +5,7 @@ Updated: 2026-05-26
 ## What changed
 
 - Sharpened homepage title and meta description around `Cybersecurity & IT Portfolio`.
-- Added a homepage quick-answer section for AEO / AI extraction: `Who is Logan Garth Goodwin?`.
+- Added a homepage quick-answer section for AEO / AI extraction: `Who is Logan Goodwin?`.
 - Added homepage WebPage + FAQPage schema.
 - Added `llms.txt` to give AI crawlers a clean summary of the site, key pages, and preferred identity summary.
 - Added FAQPage + WebPage schema to the Somersworth IT & Cybersecurity service page.
