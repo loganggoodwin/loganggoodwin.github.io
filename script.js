@@ -113,7 +113,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   };
 
   copyBtn.addEventListener("click", async () => {
-    const email = copyBtn.dataset.email || "Logan@goodwinmail.net";
+    const email = copyBtn.dataset.email || "logan.g.goodwin@protonmail.com";
     try {
       if(navigator.clipboard && window.isSecureContext){
         await navigator.clipboard.writeText(email);
@@ -130,7 +130,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
       }
       setStatus("Copied email address.");
     } catch {
-      setStatus("Copy failed — email is Logan@goodwinmail.net.");
+      setStatus("Copy failed — email is logan.g.goodwin@protonmail.com.");
     }
   });
 })();
