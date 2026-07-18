@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 68" role="img" aria-label="Systems Impact">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="rgb(168 85 247)"/><stop offset="100%" stop-color="rgb(236 72 153)"/>
+  </linearGradient></defs>
+  <rect width="100" height="68" rx="10" fill="#0b1220"/>
+  <rect x="6" y="6" width="88" height="56" rx="8" fill="url(#g)" opacity="0.18"/>
+  <g fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12" y="22" width="24" height="16" rx="3"/>
+    <rect x="64" y="22" width="24" height="16" rx="3"/>
+    <rect x="38" y="40" width="24" height="16" rx="3"/>
+    <line x1="36" y1="30" x2="64" y2="30"/>
+    <line x1="50" y1="38" x2="50" y2="40"/>
+    <line x1="36" y1="30" x2="50" y2="38"/>
+  </g>
+  <text x="50" y="63" fill="#dbe7ff" font-size="7" text-anchor="middle" font-family="Arial, sans-serif">Systems Impact</text>
+</svg>

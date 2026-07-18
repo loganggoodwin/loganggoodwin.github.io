@@ -1,0 +1,21 @@
+Portfolio update: NSSD Network Security Training Manual and A-grade school feedback
+Date: 2026-06-17
+
+Added:
+- New case-study page: /projects/nssd-network-security-training-manual/
+- New interactive lab page: /projects/nssd-cyber-defense-mission/
+- Downloadable manual asset: /assets/projects/NSSD_Network_Security_Training_Manual_Logan_Goodwin.docx
+- New thumbnail assets for the NSSD manual and cyber defense mission
+- Homepage proof points for A grade, 396.68/410 score, and school-work portfolio evidence
+- Projects page cards for the training manual and interactive mission
+- Network security labs, cybersecurity portfolio, IR/GRC page, sitemap, llms.txt, and README updates
+
+Upload instructions:
+1. Unzip the full package.
+2. Copy the contents of loganggoodwin.github.io-main into the root of the GitHub Pages repository.
+3. Commit and push.
+4. Confirm these live URLs after GitHub Pages updates:
+   - https://loganggoodwin.com/projects/nssd-network-security-training-manual/
+   - https://loganggoodwin.com/projects/nssd-cyber-defense-mission/
+   - https://loganggoodwin.com/projects/
+   - https://loganggoodwin.com/

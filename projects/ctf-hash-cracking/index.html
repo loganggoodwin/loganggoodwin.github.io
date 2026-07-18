@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCL Spring 2026 Team Game &amp; CTF Hash-Cracking | Logan Goodwin</title>
+<meta name="description" content="Discoverable CTF hash-cracking and NCL Spring 2026 Team Game recap for Logan Goodwin, including score summary, Cyber Skyline badge evidence, module performance, password-cracking methodology, and cybersecurity skills demonstrated."/>
+<link rel="canonical" href="https://loganggoodwin.com/projects/ctf-hash-cracking/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="NCL Spring 2026 Team Game &amp; CTF Hash-Cracking | Logan Goodwin"/>
+<meta property="og:description" content="Discoverable CTF hash-cracking and NCL Spring 2026 Team Game recap for Logan Goodwin, including score summary, Cyber Skyline badge evidence, module performance, password-cracking methodology, and cybersecurity skills demonstrated."/>
+<meta property="og:image" content="https://loganggoodwin.com/images/logan-goodwin-cybersecurity-ai-operations-portfolio.png"/>
+<meta property="og:image:secure_url" content="https://loganggoodwin.com/images/logan-goodwin-cybersecurity-ai-operations-portfolio.png"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Cybersecurity and AI operations portfolio preview for Logan Goodwin"/>
+<meta property="og:url" content="https://loganggoodwin.com/projects/ctf-hash-cracking/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loganggoodwin.com/images/logan-goodwin-cybersecurity-ai-operations-portfolio.png"/>
+<meta name="keywords" content="CTF, hash cracking, password cracking, National Cyber League, NCL, Cyber Skyline, cybersecurity portfolio"/>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #06101d;
+    --panel: #0b1728;
+    --panel-2: #0f2036;
+    --text: #f4f8ff;
+    --muted: #a8b6c9;
+    --light: #7f90a8;
+    --line: rgba(122, 184, 255, 0.22);
+    --accent: #49b7ff;
+    --accent-2: #f6bf45;
+    --good: #7ef0c4;
+    --danger: #ff6f7d;
+    --shadow: 0 24px 70px rgba(0,0,0,.35);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at 20% 0%, rgba(73,183,255,.25), transparent 28%),
+      radial-gradient(circle at 80% 20%, rgba(246,191,69,.14), transparent 24%),
+      linear-gradient(180deg, #030914 0%, var(--bg) 38%, #050914 100%);
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); }
+  .skip { position: absolute; left: -9999px; }
+  .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    padding: 1.2rem 0;
+    color: var(--muted);
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-nav a { color: var(--muted); }
+  .site-nav a:hover { color: var(--text); }
+  .hero {
+    padding: 4rem 0 2.5rem;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .kicker {
+    color: var(--accent-2);
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    line-height: .98;
+    letter-spacing: -.055em;
+    margin-bottom: 1.2rem;
+  }
+  .lede { color: var(--muted); font-size: 1.08rem; max-width: 62ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: .75rem 1.1rem;
+    border: 1px solid var(--line);
+    font-weight: 800;
+    font-size: .88rem;
+    background: rgba(255,255,255,.04);
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), #78d7ff); color: #04101d; border-color: transparent; }
+  .btn-primary:hover { color: #04101d; filter: brightness(1.05); }
+  .hero-art {
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255,255,255,.04);
+    box-shadow: var(--shadow);
+  }
+  .hero-art img { display: block; width: 100%; height: auto; }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
+  .tags span {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.04);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: .35rem .7rem;
+    font-size: .78rem;
+    font-weight: 700;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 3rem;
+  }
+  .stat-card, .card {
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.025));
+    box-shadow: 0 12px 40px rgba(0,0,0,.2);
+  }
+  .stat-card { padding: 1rem; }
+  .stat-value {
+    display: block;
+    color: var(--text);
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -.06em;
+  }
+  .stat-label {
+    display: block;
+    color: var(--muted);
+    margin-top: .45rem;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  section { padding: 2.5rem 0; }
+  .section-head { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 1.2rem; }
+  h2 {
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    line-height: 1.08;
+    letter-spacing: -.04em;
+  }
+  h3 { font-size: 1.05rem; margin-bottom: .55rem; }
+  .muted { color: var(--muted); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .card { padding: 1.2rem; }
+  .callout {
+    border-left: 3px solid var(--accent-2);
+    background: rgba(246,191,69,.08);
+    padding: 1rem 1.1rem;
+    border-radius: 0 16px 16px 0;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+  .sample-warning { color: var(--text); background: rgba(246,191,69,.13); }
+  .sample-warning strong { color: var(--accent-2); }
+  .gallery { display: grid; grid-template-columns: .95fr 1.05fr; gap: 1rem; align-items: start; }
+  .shot {
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255,255,255,.04);
+  }
+  .shot img { width: 100%; display: block; height: auto; }
+  .caption { padding: .85rem 1rem; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.03); }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  th, td { text-align: left; padding: .82rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th {
+    color: var(--accent-2);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background: rgba(255,255,255,.035);
+  }
+  td { color: var(--muted); font-size: .92rem; }
+  tr:last-child td { border-bottom: none; }
+  .highlight { color: var(--text); font-weight: 800; }
+  .skill-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-top: 1rem; }
+  .skill-item { border: 1px solid var(--line); border-radius: 16px; padding: .9rem; background: rgba(255,255,255,.035); }
+  .skill-item strong { display: block; color: var(--text); margin-bottom: .25rem; }
+  .skill-item span { color: var(--muted); font-size: .9rem; }
+  .timeline { list-style: none; display: grid; gap: .8rem; margin-top: 1rem; }
+  .timeline li { border-left: 2px solid var(--accent); padding-left: 1rem; color: var(--muted); }
+  .timeline strong { color: var(--text); display: block; }
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 3rem;
+    padding: 1.5rem 0 2rem;
+    color: var(--muted);
+    font-size: .85rem;
+  }
+  .footer-inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  .badge-evidence-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem; }
+  .badge-proof { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: rgba(255,255,255,.04); }
+  .badge-proof img { width: 100%; display: block; height: auto; background: #fff; }
+  .badge-proof figcaption { padding: .85rem 1rem; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); }
+  @media (max-width: 860px) {
+    .hero, .gallery, .two-col, .badge-evidence-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .stats-grid, .skill-list { grid-template-columns: 1fr; }
+    .hero { padding-top: 2.5rem; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": "https://loganggoodwin.com/projects/ctf-hash-cracking/#project",
+  "url": "https://loganggoodwin.com/projects/ctf-hash-cracking/",
+  "name": "NCL Spring 2026 Team Game &amp; CTF Hash-Cracking",
+  "description": "This project demonstrates practical cybersecurity and IT infrastructure skills.",
+  "author": {
+    "@type": "Person",
+    "name": "Logan Goodwin",
+    "url": "https://loganggoodwin.com/"
+  },
+  "about": [
+    "Cybersecurity",
+    "Information Technology",
+    "Network Security",
+    "Incident Response",
+    "Risk Management",
+    "GRC Documentation"
+  ],
+  "inLanguage": "en-US"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <nav class="site-nav" aria-label="Project navigation">
+    <a href="../../index.html">Logan Goodwin</a>
+    <span>›</span>
+    <a href="../../projects/index.html">Projects</a>
+    <span>›</span>
+    NCL Spring 2026 Team Game
+  </nav>
+</div>
+
+<header class="wrap hero">
+  <div>
+    <p class="kicker">SNHU National Cyber League Team · Ink Injection</p>
+    <h1>NCL Spring 2026 Team Game &amp; CTF Hash-Cracking</h1>
+    <p class="lede">A portfolio recap of my 2026 National Cyber League competition work with SNHU Team Ink Injection. The event tested practical cybersecurity skills across OSINT, cryptography, password cracking, log analysis, network traffic analysis, forensics, scanning, reconnaissance, web exploitation, and enumeration. The included Cyber Skyline badges show Team Game Diamond at the 84th percentile and Individual Game Silver at the 28th percentile.</p>
+    <div class="tags" aria-label="Project tags">
+      <span>Capture the Flag</span><span>Hash-Cracking</span><span>Password Security</span><span>Cyber Skyline</span><span>NCL</span><span>Team Competition</span><span>SNHU</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="../ncl-ink-injection-ctf-lab/index.html">Play CTF lab</a>
+      <a class="btn btn-primary" href="../../assets/projects/ctf-2026/NCL_Spring_2026_Team_Game_Score_Report.pdf">Open score report</a>
+      <a class="btn" href="../../projects/index.html">Back to projects</a>
+    </div>
+    <div class="callout sample-warning" role="note">
+      <strong>Disclosure note:</strong> Sample data used pending competition disclosure. Verified team score results are shown, but live flags, answer strings, restricted challenge details, and any illustrative hashes or outputs are not presented as public competition evidence.
+    </div>
+  </div>
+  <figure class="hero-art">
+    <img src="../../images/projects/ctf-2026/after-the-flag-2026.png" alt="After the Flag 2026 graphic showing Team Ink Injection score, completion, accuracy, and ranking" decoding="async" loading="lazy"/>
+  </figure>
+</header>
+
+<main id="main" class="wrap">
+  <section aria-labelledby="summary-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Competition summary</p>
+        <h2 id="summary-heading">Team performance snapshot.</h2>
+      </div>
+    </div>
+    <div class="stats-grid" aria-label="NCL Spring 2026 team score summary">
+      <div class="stat-card"><span class="stat-value">2605</span><span class="stat-label">Points out of 3000</span></div>
+      <div class="stat-card"><span class="stat-value">92.75%</span><span class="stat-label">Completion</span></div>
+      <div class="stat-card"><span class="stat-value">159</span><span class="stat-label">Rank out of 3638</span></div>
+      <div class="stat-card"><span class="stat-value">Diamond</span><span class="stat-label">Team Game badge</span></div>
+      <div class="stat-card"><span class="stat-value">84th</span><span class="stat-label">Team percentile overall</span></div>
+      <div class="stat-card"><span class="stat-value">Silver</span><span class="stat-label">Individual Game badge</span></div>
+      <div class="stat-card"><span class="stat-value">28th</span><span class="stat-label">Individual percentile overall</span></div>
+      <div class="stat-card"><span class="stat-value">53.27%</span><span class="stat-label">Accuracy</span></div>
+    </div>
+
+    <div class="two-col">
+      <article class="card">
+        <h3>My role</h3>
+        <p class="muted">I participated as a member of SNHU Team Ink Injection. I treated the competition like an applied security lab: read the prompt carefully, identify what evidence was available, choose the right tool or method, validate the answer, and document what the result meant from a defensive security perspective.</p>
+      </article>
+      <article class="card">
+        <h3>Why this belongs in my portfolio</h3>
+        <p class="muted">The event demonstrates hands-on cybersecurity thinking under time pressure. It connects directly to the type of work I want to keep building on: network traffic analysis, incident response support, log review, credential security, vulnerability discovery, and structured troubleshooting.</p>
+      </article>
+    </div>
+    <div class="callout">
+      This portfolio version focuses on skills, process, and verified team results. It intentionally avoids publishing live flags, answer strings, or anything that would weaken the integrity of CTF challenges.
+    </div>
+  </section>
+
+  <section aria-labelledby="evidence-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Visual evidence</p>
+        <h2 id="evidence-heading">After-the-Flag recap graphics.</h2>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="shot">
+        <img src="../../images/projects/ctf-2026/after-the-flag-2026.png" alt="After the Flag 2026 Team Ink Injection recap graphic" loading="lazy" decoding="async"/>
+        <figcaption class="caption">Team recap graphic showing 2605 / 3000 points, 92.7% completion, 53.3% accuracy, and rank 159 of 3638.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../../images/projects/ctf-2026/ink-injection-team-tribute-2026.png" alt="Tribute to the 2026 SNHU National Cyber League Team Ink Injection" loading="lazy" decoding="async"/>
+        <figcaption class="caption">Team tribute graphic summarizing module highlights and competition performance for SNHU Team Ink Injection.</figcaption>
+      </figure>
+    </div>
+    <div class="badge-evidence-grid" aria-label="Cyber Skyline NCL Spring 2026 badge evidence">
+      <figure class="badge-proof">
+        <img src="../../images/projects/ctf-2026/ncl-spring-2026-team-game-diamond.png" alt="NCL Spring 2026 Team Game Diamond badge for Ink Injection SNHU showing 84th percentile overall" loading="lazy" decoding="async"/>
+        <figcaption>NCL Spring 2026 Team Game badge: Ink Injection | SNHU earned Diamond with an 84th percentile overall result.</figcaption>
+      </figure>
+      <figure class="badge-proof">
+        <img src="../../images/projects/ctf-2026/ncl-spring-2026-individual-game-silver.png" alt="NCL Spring 2026 Individual Game Silver badge showing 28th percentile overall" loading="lazy" decoding="async"/>
+        <figcaption>NCL Spring 2026 Individual Game badge: Silver with a 28th percentile overall result.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="module-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Score report</p>
+        <h2 id="module-heading">Module breakdown.</h2>
+      </div>
+      <a class="btn" href="../../assets/projects/ctf-2026/NCL_Spring_2026_Team_Game_Score_Report.pdf">View PDF</a>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Correct</th>
+            <th>Attempts</th>
+            <th>Accuracy</th>
+            <th>Completion</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="highlight">Open Source Intelligence</td><td>44</td><td>77</td><td>57.1%</td><td>97.8%</td><td>370 / 385</td></tr>
+          <tr><td class="highlight">Cryptography</td><td>12</td><td>15</td><td>80%</td><td>85.7%</td><td>250 / 360</td></tr>
+          <tr><td class="highlight">Password Cracking</td><td>26</td><td>37</td><td>70.3%</td><td>100%</td><td>355 / 355</td></tr>
+          <tr><td class="highlight">Log Analysis</td><td>17</td><td>29</td><td>58.6%</td><td>85%</td><td>225 / 300</td></tr>
+          <tr><td class="highlight">Network Traffic Analysis</td><td>24</td><td>25</td><td>96%</td><td>100%</td><td>300 / 300</td></tr>
+          <tr><td class="highlight">Forensics</td><td>13</td><td>50</td><td>26%</td><td>76.5%</td><td>235 / 300</td></tr>
+          <tr><td class="highlight">Scanning &amp; Reconnaissance</td><td>14</td><td>20</td><td>70%</td><td>100%</td><td>300 / 300</td></tr>
+          <tr><td class="highlight">Web Application Exploitation</td><td>15</td><td>41</td><td>36.6%</td><td>88.2%</td><td>240 / 300</td></tr>
+          <tr><td class="highlight">Enumeration &amp; Exploitation</td><td>13</td><td>41</td><td>31.7%</td><td>86.7%</td><td>230 / 300</td></tr>
+          <tr><td class="highlight">Survey</td><td>1</td><td>1</td><td>100%</td><td>100%</td><td>100 / 100</td></tr>
+          <tr><td class="highlight">Total</td><td>179</td><td>336</td><td>53.27%</td><td>92.75%</td><td>2605 / 3000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="skills-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Skills demonstrated</p>
+        <h2 id="skills-heading">What the CTF tested.</h2>
+      </div>
+    </div>
+    <div class="skill-list">
+      <div class="skill-item"><strong>Network traffic analysis</strong><span>Reviewed protocol behavior and traffic evidence to validate suspicious or relevant activity.</span></div>
+      <div class="skill-item"><strong>Password cracking</strong><span>Used hash identification logic, wordlist strategy, and credential-security thinking.</span></div>
+      <div class="skill-item"><strong>OSINT investigation</strong><span>Connected clues across public information sources while keeping evidence organized.</span></div>
+      <div class="skill-item"><strong>Scanning and reconnaissance</strong><span>Mapped services, interpreted findings, and prioritized what mattered in the challenge context.</span></div>
+      <div class="skill-item"><strong>Log analysis</strong><span>Looked for patterns, timestamps, anomalies, and useful indicators within event data.</span></div>
+      <div class="skill-item"><strong>Web and enumeration work</strong><span>Applied structured testing, input review, and exploitation awareness without guessing.</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="takeaways-heading">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Reflection</p>
+        <h2 id="takeaways-heading">Defensive takeaways.</h2>
+      </div>
+    </div>
+    <ol class="timeline">
+      <li><strong>Evidence beats assumptions.</strong> The strongest answers came from verifying artifacts, logs, packets, hashes, or visible clues instead of relying on first impressions.</li>
+      <li><strong>Team performance depends on communication.</strong> In a broad CTF, the team has to divide categories, avoid duplicate effort, and share findings clearly.</li>
+      <li><strong>Completion matters, but accuracy matters too.</strong> The 92.75% completion rate shows broad coverage, while the accuracy score is a reminder that careful validation is part of security work.</li>
+      <li><strong>CTF practice translates to real operations.</strong> OSINT, log review, traffic analysis, scanning, and credential analysis are all useful in incident response, help desk escalation, and junior security roles.</li>
+    </ol>
+  </section>
+
+
+  <section class="impact-block project-answer-block" aria-labelledby="answer-ready-heading">
+    <h2 id="answer-ready-heading">Answer-ready project summary</h2>
+    <p><strong>What does this project demonstrate?</strong> NCL Spring 2026 Team Game &amp;amp; CTF Hash-Cracking demonstrates practical cybersecurity, IT infrastructure, documentation, and risk-aware problem solving through a concrete portfolio artifact.</p>
+    <p><strong>Why does it matter?</strong> The project shows how technical work can be translated into clear evidence, recommendations, controls, and supportable decisions for real IT and cybersecurity environments.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>Logan Goodwin · NCL Spring 2026 Team Game</span>
+    <span><a href="../../index.html">Portfolio</a> · <a href="../../projects/index.html">All projects</a></span>
+  </div>
+</footer>
+</body>
+</html>

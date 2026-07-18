@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+<title id="title">Frontline Tech Consulting business builder thumbnail</title>
+<desc id="desc">Dark technology dashboard showing website, app, music/video, and support service pillars.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071426"/><stop offset="1" stop-color="#10263a"/></linearGradient>
+  <linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3dd6f5"/><stop offset="1" stop-color="#7ef0c4"/></linearGradient>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="520" rx="32" fill="url(#bg)"/>
+<rect x="38" y="38" width="824" height="444" rx="28" fill="#091629" stroke="#29506b" stroke-width="2"/>
+<text x="72" y="88" fill="#7ef0c4" font-family="monospace" font-size="22" font-weight="700" letter-spacing="3">FRONTLINE TECH CONSULTING</text>
+<text x="72" y="128" fill="#dbeafe" font-family="monospace" font-size="42" font-weight="800">Founder + Builder</text>
+<g filter="url(#glow)"><circle cx="756" cy="105" r="36" fill="url(#a)" opacity=".9"/><path d="M743 105l9 9 19-24" fill="none" stroke="#071426" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(72 174)">
+  <rect width="170" height="116" rx="18" fill="#10243a" stroke="#3dd6f5" opacity=".95"/>
+  <text x="22" y="42" fill="#3dd6f5" font-family="monospace" font-size="18" font-weight="700">WEB</text>
+  <text x="22" y="75" fill="#a7bdd7" font-family="monospace" font-size="14">sites · forms</text>
+  <text x="22" y="96" fill="#a7bdd7" font-family="monospace" font-size="14">SEO · content</text>
+</g>
+<g transform="translate(268 174)">
+  <rect width="170" height="116" rx="18" fill="#10243a" stroke="#7ef0c4" opacity=".95"/>
+  <text x="22" y="42" fill="#7ef0c4" font-family="monospace" font-size="18" font-weight="700">APPS</text>
+  <text x="22" y="75" fill="#a7bdd7" font-family="monospace" font-size="14">labs · tools</text>
+  <text x="22" y="96" fill="#a7bdd7" font-family="monospace" font-size="14">games · JS</text>
+</g>
+<g transform="translate(464 174)">
+  <rect width="170" height="116" rx="18" fill="#10243a" stroke="#f472b6" opacity=".95"/>
+  <text x="22" y="42" fill="#f9a8d4" font-family="monospace" font-size="18" font-weight="700">MEDIA</text>
+  <text x="22" y="75" fill="#a7bdd7" font-family="monospace" font-size="14">songs · video</text>
+  <text x="22" y="96" fill="#a7bdd7" font-family="monospace" font-size="14">cover art</text>
+</g>
+<g transform="translate(660 174)">
+  <rect width="170" height="116" rx="18" fill="#10243a" stroke="#f5b84b" opacity=".95"/>
+  <text x="22" y="42" fill="#f5b84b" font-family="monospace" font-size="18" font-weight="700">SUPPORT</text>
+  <text x="22" y="75" fill="#a7bdd7" font-family="monospace" font-size="14">IT · docs</text>
+  <text x="22" y="96" fill="#a7bdd7" font-family="monospace" font-size="14">delivery</text>
+</g>
+<path d="M138 348h624" stroke="#29506b" stroke-width="4" stroke-linecap="round"/>
+<circle cx="138" cy="348" r="10" fill="#3dd6f5"/><circle cx="346" cy="348" r="10" fill="#7ef0c4"/><circle cx="554" cy="348" r="10" fill="#f472b6"/><circle cx="762" cy="348" r="10" fill="#f5b84b"/>
+<text x="72" y="418" fill="#dbeafe" font-family="monospace" font-size="20" font-weight="700">IT + CYBERSECURITY + CREATIVE DELIVERY</text>
+<text x="72" y="448" fill="#7f96b5" font-family="monospace" font-size="15">websites · apps · interactive labs · songs · videos · documentation</text>
+</svg>

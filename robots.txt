@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://loganggoodwin.com/sitemap.xml

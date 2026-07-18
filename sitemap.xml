@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://loganggoodwin.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://loganggoodwin.com/about/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/books/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/music/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/commentary/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/technology/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/media/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/contact/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/projects/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/cybersecurity-portfolio/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/network-security-labs/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/incident-response-grc/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://loganggoodwin.com/books/securing-your-family-computer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#07101d"/>
+<rect x="0" y="0" width="800" height="2" fill="#7ef0c4" opacity="0.3"/>
+<text x="40" y="55" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#7ef0c4" opacity="0.85">ENTERPRISE SD-WAN ARCHITECTURE · MULTI-SITE · NGFW · DR PLANNING</text>
+<!-- Sites -->
+<rect x="40" y="90" width="160" height="60" rx="8" fill="rgba(126,240,196,0.08)" stroke="#7ef0c4" stroke-width="0.8"/>
+<text x="120" y="118" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#7ef0c4" text-anchor="middle">HQ Site</text>
+<text x="120" y="135" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" text-anchor="middle">Chicago, IL</text>
+
+<rect x="40" y="200" width="160" height="60" rx="8" fill="rgba(126,240,196,0.06)" stroke="#7ef0c4" stroke-width="0.6" stroke-dasharray="4 3"/>
+<text x="120" y="228" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#7ef0c4" text-anchor="middle">Branch A</text>
+<text x="120" y="245" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" text-anchor="middle">Remote office</text>
+
+<rect x="40" y="310" width="160" height="60" rx="8" fill="rgba(126,240,196,0.06)" stroke="#7ef0c4" stroke-width="0.6" stroke-dasharray="4 3"/>
+<text x="120" y="338" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#7ef0c4" text-anchor="middle">Branch B</text>
+<text x="120" y="355" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" text-anchor="middle">Remote office</text>
+
+<!-- SD-WAN fabric center -->
+<rect x="280" y="160" width="240" height="80" rx="12" fill="rgba(61,214,245,0.1)" stroke="#3dd6f5" stroke-width="1"/>
+<text x="400" y="196" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#3dd6f5" text-anchor="middle">SD-WAN fabric</text>
+<text x="400" y="216" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" text-anchor="middle">Dynamic path selection · QoS · failover</text>
+
+<!-- Lines from sites to fabric -->
+<line x1="200" y1="120" x2="280" y2="185" stroke="#7ef0c4" stroke-width="1" opacity="0.5"/>
+<line x1="200" y1="230" x2="280" y2="200" stroke="#7ef0c4" stroke-width="0.8" opacity="0.4" stroke-dasharray="4 3"/>
+<line x1="200" y1="340" x2="280" y2="215" stroke="#7ef0c4" stroke-width="0.8" opacity="0.4" stroke-dasharray="4 3"/>
+
+<!-- Right side: services -->
+<rect x="580" y="90" width="180" height="50" rx="8" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="670" y="118" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#3dd6f5" text-anchor="middle">NGFW / IPS</text>
+
+<rect x="580" y="160" width="180" height="50" rx="8" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="670" y="188" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#3dd6f5" text-anchor="middle">Cloud gateway</text>
+
+<rect x="580" y="230" width="180" height="50" rx="8" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="670" y="258" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#3dd6f5" text-anchor="middle">DR / failover</text>
+
+<rect x="580" y="300" width="180" height="50" rx="8" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.3)" stroke-width="0.6"/>
+<text x="670" y="328" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#3dd6f5" text-anchor="middle">SLA monitoring</text>
+
+<!-- Lines from fabric to services -->
+<line x1="520" y1="185" x2="580" y2="115" stroke="#3dd6f5" stroke-width="0.7" opacity="0.35"/>
+<line x1="520" y1="195" x2="580" y2="185" stroke="#3dd6f5" stroke-width="0.7" opacity="0.35"/>
+<line x1="520" y1="205" x2="580" y2="255" stroke="#3dd6f5" stroke-width="0.7" opacity="0.35"/>
+<line x1="520" y1="215" x2="580" y2="325" stroke="#3dd6f5" stroke-width="0.7" opacity="0.35"/>
+
+<text x="40" y="395" font-family="JetBrains Mono, monospace" font-size="10" fill="#e8f1ff" opacity="0.7">Enterprise Network Analysis &amp; SD-WAN Architecture</text>
+<text x="40" y="412" font-family="JetBrains Mono, monospace" font-size="9" fill="#8fa8c8" opacity="0.5">SNHU · Multi-site reliability and DR planning</text>
+</svg>
