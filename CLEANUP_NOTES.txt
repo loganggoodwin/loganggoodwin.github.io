@@ -1,0 +1,30 @@
+Clean portfolio package generated for loganggoodwin.com.
+
+Changes made:
+- Updated live-site SEO, canonical, Open Graph, Twitter card, robots.txt, sitemap, README project links, and contact-form subject references to loganggoodwin.com.
+- Kept GitHub repository links pointing to github.com/loganggoodwin/loganggoodwin.github.io.
+- Fixed Music page tribute anchor links so they point to projects/index.html#music-tributes.
+- Removed stray one-byte placeholder files named t or q.
+- Added .nojekyll for cleaner GitHub Pages publishing.
+- Regenerated the Open Graph preview image so the bottom line no longer clips.
+- Optimized image files without changing filenames or page references.
+- Validated local links, image/file references, data-link targets, anchors, and JavaScript syntax.
+
+Social Preview Update:
+- Replaced images/og-preview.png with a cybersecurity-themed 1200x630 Open Graph image.
+- Added images/og-preview.jpg as a backup copy.
+- Confirmed metadata points to https://loganggoodwin.com/images/logan-goodwin-cybersecurity-ai-operations-portfolio.png for social sharing.
+- After deployment, Facebook/LinkedIn/X may need their link preview cache refreshed before showing the new image.
+
+
+Local SEO Professional Polish Update:
+- Added a dedicated Somersworth, NH IT & Cybersecurity Services landing page.
+- Added homepage local-services section linking to the new page.
+- Updated homepage title, description, social tags, and professional/local positioning.
+- Added JSON-LD structured data for WebSite, Person, ProfessionalService, and BreadcrumbList.
+- Added descriptive social preview image filename and pointed social metadata to it for cache busting.
+- Updated sitemap.xml to include the Somersworth IT/cybersecurity landing page.
+- Added local footer/nav links and styling for the new service page.
+
+Social preview fix applied: corrected the personal-domain image, canonical, and schema references so social scrapers can reach the 1200x630 preview image at loganggoodwin.com.
+Identity update: added Frontline Tech Consulting affiliation and public profile links for GitLab, Stack Overflow, Google Developer profile, Merit Pages, YouTube, X/Twitter, Credly, LinkedIn, and GitHub.

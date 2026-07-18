@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">BusinessNet VLAN Router Lab project thumbnail</title>
+  <desc id="desc">A stylized router, firewall, switch, VLAN 10 hardware network, and VLAN 20 phone network diagram.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.52" stop-color="#13233f"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" x2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" x2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" rx="42" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#93c5fd" stroke-width="2">
+    <path d="M72 110H1128M72 210H1128M72 310H1128M72 410H1128M72 510H1128"/>
+    <path d="M160 65V610M320 65V610M480 65V610M640 65V610M800 65V610M960 65V610"/>
+  </g>
+  <text x="72" y="82" fill="#e2e8f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="42" font-weight="800">BusinessNet VLAN Router Lab</text>
+  <text x="72" y="122" fill="#bae6fd" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="600">Cisco-style configuration • Router-on-a-stick • DHCP • NAT • Firewall</text>
+
+  <g filter="url(#shadow)">
+    <rect x="78" y="246" width="184" height="106" rx="24" fill="#0b1220" stroke="#22d3ee" stroke-width="3"/>
+    <text x="170" y="290" text-anchor="middle" fill="#e0f2fe" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="800">Internet</text>
+    <text x="170" y="323" text-anchor="middle" fill="#7dd3fc" font-family="monospace" font-size="18">8.8.8.8</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="336" y="226" width="188" height="146" rx="26" fill="#111827" stroke="#38bdf8" stroke-width="3"/>
+    <text x="430" y="276" text-anchor="middle" fill="#e0f2fe" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="800">Firewall</text>
+    <text x="430" y="314" text-anchor="middle" fill="#bae6fd" font-family="monospace" font-size="17">10.0.0.2/30</text>
+    <rect x="390" y="330" width="80" height="16" rx="8" fill="#22c55e"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="600" y="195" width="220" height="208" rx="30" fill="#101827" stroke="#a78bfa" stroke-width="3"/>
+    <text x="710" y="246" text-anchor="middle" fill="#f5f3ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="26" font-weight="800">BRANCH-R1</text>
+    <text x="710" y="282" text-anchor="middle" fill="#ddd6fe" font-family="monospace" font-size="17">G0/0.10 → 192.168.10.1</text>
+    <text x="710" y="310" text-anchor="middle" fill="#ddd6fe" font-family="monospace" font-size="17">G0/0.20 → 192.168.20.1</text>
+    <text x="710" y="346" text-anchor="middle" fill="#c4b5fd" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700">Router-on-a-stick</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="910" y="232" width="210" height="136" rx="26" fill="#101827" stroke="#22c55e" stroke-width="3"/>
+    <text x="1015" y="282" text-anchor="middle" fill="#dcfce7" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="26" font-weight="800">Switch</text>
+    <text x="1015" y="319" text-anchor="middle" fill="#bbf7d0" font-family="monospace" font-size="18">Fa0/24 trunk</text>
+    <text x="1015" y="346" text-anchor="middle" fill="#bbf7d0" font-family="monospace" font-size="16">VLANs 10,20</text>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="8" stroke-linecap="round" opacity="0.9">
+    <path d="M262 299H336"/>
+    <path d="M524 299H600"/>
+    <path d="M820 299H910"/>
+  </g>
+  <g stroke-dasharray="10 12" stroke="#22d3ee" stroke-width="5" stroke-linecap="round" opacity="0.75">
+    <path d="M1015 368V505"/>
+    <path d="M1015 368V146"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="154" y="462" width="390" height="128" rx="28" fill="#0b1220" stroke="url(#cyan)" stroke-width="3"/>
+    <text x="184" y="510" fill="#e0f2fe" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="26" font-weight="800">VLAN 10 HARDWARE</text>
+    <text x="184" y="546" fill="#bae6fd" font-family="monospace" font-size="18">PCs + Printer • 192.168.10.0/24</text>
+    <text x="184" y="574" fill="#67e8f9" font-family="monospace" font-size="17">GW 192.168.10.1 • Printer .50</text>
+    <g transform="translate(454 493)" fill="#38bdf8"><rect width="34" height="26" rx="4"/><rect x="5" y="30" width="24" height="6" rx="3"/><rect x="-44" y="0" width="34" height="26" rx="4"/><rect x="-39" y="30" width="24" height="6" rx="3"/></g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="70" width="390" height="128" rx="28" fill="#0b1220" stroke="url(#violet)" stroke-width="3"/>
+    <text x="680" y="118" fill="#f5f3ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="26" font-weight="800">VLAN 20 PHONES</text>
+    <text x="680" y="154" fill="#ddd6fe" font-family="monospace" font-size="18">Voice devices • 192.168.20.0/24</text>
+    <text x="680" y="182" fill="#c4b5fd" font-family="monospace" font-size="17">GW 192.168.20.1 • Option 150</text>
+    <g transform="translate(962 101)" fill="#a78bfa"><rect width="28" height="52" rx="8"/><circle cx="14" cy="42" r="3"/><rect x="-42" width="28" height="52" rx="8"/><circle cx="-28" cy="42" r="3"/></g>
+  </g>
+
+  <g transform="translate(72 612)">
+    <rect width="150" height="34" rx="17" fill="rgba(34,197,94,0.18)" stroke="#22c55e"/>
+    <text x="75" y="23" text-anchor="middle" fill="#bbf7d0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="800">Easy</text>
+    <rect x="166" width="150" height="34" rx="17" fill="rgba(34,211,238,0.16)" stroke="#22d3ee"/>
+    <text x="241" y="23" text-anchor="middle" fill="#bae6fd" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="800">Normal</text>
+    <rect x="332" width="150" height="34" rx="17" fill="rgba(167,139,250,0.16)" stroke="#a78bfa"/>
+    <text x="407" y="23" text-anchor="middle" fill="#ddd6fe" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="800">Hard</text>
+  </g>
+</svg>

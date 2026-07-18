@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#07101d"/>
+<rect x="0" y="0" width="800" height="2" fill="#3dd6f5" opacity="0.3"/>
+<text x="40" y="55" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" letter-spacing="0.14em" fill="#3dd6f5" opacity="0.85">NETWORK INFRASTRUCTURE PROPOSAL · FAYETTEVILLE OFFICE · BITLOCKER · VPN</text>
+<!-- Star topology center -->
+<circle cx="400" cy="220" r="36" fill="rgba(61,214,245,0.12)" stroke="#3dd6f5" stroke-width="1.2"/>
+<text x="400" y="215" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#3dd6f5" text-anchor="middle">Core</text>
+<text x="400" y="230" font-family="JetBrains Mono, monospace" font-size="8" fill="#3dd6f5" text-anchor="middle">switch</text>
+<!-- Spokes and endpoint nodes -->
+<line x1="400" y1="184" x2="400" y2="130" stroke="#3dd6f5" stroke-width="0.8" opacity="0.4"/>
+<rect x="350" y="90" width="100" height="40" rx="6" fill="rgba(126,240,196,0.08)" stroke="#7ef0c4" stroke-width="0.6"/>
+<text x="400" y="113" font-family="JetBrains Mono, monospace" font-size="9" fill="#7ef0c4" text-anchor="middle">ISP / Router</text>
+
+<line x1="436" y1="196" x2="560" y2="130" stroke="#3dd6f5" stroke-width="0.8" opacity="0.4"/>
+<rect x="540" y="92" width="120" height="40" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.6"/>
+<text x="600" y="115" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Firewall</text>
+
+<line x1="436" y1="240" x2="560" y2="280" stroke="#3dd6f5" stroke-width="0.8" opacity="0.4"/>
+<rect x="530" y="260" width="130" height="40" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.6"/>
+<text x="595" y="283" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">VPN gateway</text>
+
+<line x1="400" y1="256" x2="400" y2="310" stroke="#3dd6f5" stroke-width="0.8" opacity="0.4"/>
+<rect x="340" y="310" width="120" height="40" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.6"/>
+<text x="400" y="334" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Workstations</text>
+
+<line x1="364" y1="240" x2="240" y2="280" stroke="#3dd6f5" stroke-width="0.8" opacity="0.4"/>
+<rect x="140" y="260" width="130" height="40" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.6"/>
+<text x="205" y="283" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Servers / NAS</text>
+
+<line x1="364" y1="196" x2="240" y2="130" stroke="#3dd6f5" stroke-width="0.8" opacity="0.4"/>
+<rect x="130" y="92" width="140" height="40" rx="6" fill="rgba(61,214,245,0.08)" stroke="rgba(61,214,245,0.25)" stroke-width="0.6"/>
+<text x="200" y="115" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">AP / Wireless</text>
+
+<!-- Security feature tags -->
+<rect x="40" y="370" width="110" height="26" rx="13" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.5"/>
+<text x="95" y="387" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">BitLocker</text>
+<rect x="160" y="370" width="80" height="26" rx="13" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.5"/>
+<text x="200" y="387" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">VPN</text>
+<rect x="250" y="370" width="120" height="26" rx="13" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.5"/>
+<text x="310" y="387" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Star topology</text>
+<rect x="380" y="370" width="130" height="26" rx="13" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.5"/>
+<text x="445" y="387" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">ISP redundancy</text>
+<rect x="520" y="370" width="120" height="26" rx="13" fill="rgba(61,214,245,0.1)" stroke="rgba(61,214,245,0.3)" stroke-width="0.5"/>
+<text x="580" y="387" font-family="JetBrains Mono, monospace" font-size="9" fill="#3dd6f5" text-anchor="middle">Growth plan</text>
+</svg>

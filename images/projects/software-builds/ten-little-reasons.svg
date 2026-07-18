@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Ten Little Reasons thumbnail">
+  <defs>
+    <linearGradient id="bg-ten" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset=".52" stop-color="#17233a"/>
+      <stop offset="1" stop-color="#2b1a34"/>
+    </linearGradient>
+    <linearGradient id="ten-glow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset=".55" stop-color="#f472b6"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" rx="44" fill="url(#bg-ten)"/>
+  <path d="M0 505 C170 410 300 595 485 500 C675 402 840 448 1200 275 L1200 675 L0 675 Z" fill="#f472b6" opacity=".10"/>
+  <circle cx="985" cy="142" r="104" fill="#60a5fa" opacity=".13"/>
+  <circle cx="180" cy="535" r="145" fill="#fbbf24" opacity=".09"/>
+  <rect x="90" y="95" width="1020" height="485" rx="34" fill="none" stroke="#fbbf24" stroke-width="4" opacity=".52"/>
+  <g filter="url(#soft-glow)">
+    <text x="772" y="302" fill="url(#ten-glow)" font-family="Arial Black, Impact, sans-serif" font-size="178" font-weight="900">10</text>
+    <path d="M868 348 C868 322 890 302 916 302 C933 302 948 310 958 324 C968 310 983 302 1000 302 C1026 302 1048 322 1048 348 C1048 398 958 442 958 442 C958 442 868 398 868 348 Z" fill="#f472b6" opacity=".92"/>
+  </g>
+  <path d="M290 185 C360 160 455 160 530 185" fill="none" stroke="#8aa4bf" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+  <path d="M300 427 C430 398 540 398 675 427" fill="none" stroke="#8aa4bf" stroke-width="8" stroke-linecap="round" opacity=".34"/>
+  <text x="120" y="292" fill="#fbbf24" font-family="Consolas, monospace" font-size="68" font-weight="800">TEN LITTLE</text>
+  <text x="120" y="365" fill="#f472b6" font-family="Consolas, monospace" font-size="68" font-weight="800">REASONS</text>
+  <text x="123" y="438" fill="#d7e6f7" font-family="Arial, sans-serif" font-size="34" font-weight="600">Mother’s Day family tribute site</text>
+  <text x="123" y="510" fill="#8aa4bf" font-family="Consolas, monospace" font-size="24">&gt; audio · video · lyrics · cover art</text>
+</svg>

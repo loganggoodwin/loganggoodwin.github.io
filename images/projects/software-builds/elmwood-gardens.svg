@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Elmwood Gardens tribute project thumbnail">
+  <defs>
+    <linearGradient id="bg-elmwood" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07101d"/>
+      <stop offset=".52" stop-color="#13243a"/>
+      <stop offset="1" stop-color="#2c2034"/>
+    </linearGradient>
+    <linearGradient id="elmwood-accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#7ef0c4"/>
+      <stop offset=".48" stop-color="#3dd6f5"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" rx="44" fill="url(#bg-elmwood)"/>
+  <path d="M0 520 C150 430 320 590 500 498 C670 410 825 465 1200 300 L1200 675 L0 675 Z" fill="#3dd6f5" opacity=".10"/>
+  <circle cx="990" cy="145" r="112" fill="#f472b6" opacity=".12"/>
+  <circle cx="170" cy="540" r="150" fill="#7ef0c4" opacity=".09"/>
+  <rect x="88" y="88" width="1024" height="499" rx="36" fill="none" stroke="#3dd6f5" stroke-width="4" opacity=".50"/>
+  <g opacity=".35" stroke="#8aa4bf" stroke-width="4">
+    <path d="M150 170 H1050"/>
+    <path d="M150 250 H1050"/>
+    <path d="M150 330 H1050"/>
+    <path d="M150 410 H1050"/>
+    <path d="M150 490 H1050"/>
+  </g>
+  <g filter="url(#soft-glow)">
+    <path d="M765 402 L765 246 L820 246 L820 382 C820 421 787 446 748 437 C716 430 697 406 708 383 C720 359 752 357 765 376" fill="none" stroke="url(#elmwood-accent)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M875 356 L875 202 L945 220 L945 250 L895 237 L895 339" fill="none" stroke="#f472b6" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+    <circle cx="865" cy="378" r="32" fill="#f472b6" opacity=".85"/>
+  </g>
+  <g fill="#101c2e" stroke="#7ef0c4" stroke-width="5" opacity=".88">
+    <path d="M150 430 H330 V560 H150 Z"/>
+    <path d="M130 430 L240 345 L350 430 Z" fill="#13243a"/>
+    <rect x="188" y="468" width="38" height="52" rx="4" fill="#3dd6f5" opacity=".35"/>
+    <rect x="255" y="468" width="38" height="52" rx="4" fill="#3dd6f5" opacity=".35"/>
+    <path d="M388 458 H555 V560 H388 Z"/>
+    <path d="M370 458 L472 380 L575 458 Z" fill="#13243a"/>
+    <rect x="425" y="493" width="35" height="50" rx="4" fill="#3dd6f5" opacity=".35"/>
+    <rect x="490" y="493" width="35" height="50" rx="4" fill="#3dd6f5" opacity=".35"/>
+  </g>
+  <text x="120" y="228" fill="#7ef0c4" font-family="Consolas, monospace" font-size="58" font-weight="800">ELMWOOD</text>
+  <text x="120" y="302" fill="#3dd6f5" font-family="Consolas, monospace" font-size="58" font-weight="800">GARDENS</text>
+  <text x="123" y="370" fill="#d7e6f7" font-family="Arial, sans-serif" font-size="31" font-weight="600">Manchester, New Hampshire tribute site</text>
+  <text x="123" y="622" fill="#8aa4bf" font-family="Consolas, monospace" font-size="24">&gt; audio · video · lyrics · community memory</text>
+</svg>

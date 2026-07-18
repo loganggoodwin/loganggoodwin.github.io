@@ -1,0 +1,17 @@
+LOGANGGOODWIN.COM — 2026 BRAND CONTENT REFRESH
+
+Upload the CONTENTS of this folder to the root of the GitHub Pages repository.
+Keep CNAME, .nojekyll, index.html, brand.css, brand.js, and all folders at repository root.
+
+Key updates:
+- New confirmed Rumble, X, Goodreads, Amazon, LinkedIn, GitHub, YouTube, and Frontline links
+- Featured five books with real cover artwork
+- COGIMA cover contains no third-party endorsement
+- Featured five music tracks
+- Commentary & Humor combined page with four selected Rumble videos
+- Videos page replaces Media; old /media/ redirects to /videos/
+- Technology wording updated for master’s completion and planned PhD in information technology management
+- All resume downloads and resume files removed
+- Three audiobook samples added
+- Formspree contact endpoint retained
+- No newsletter, Instagram, Facebook, or TikTok links

@@ -1,0 +1,14 @@
+# Logan Goodwin
+
+Official personal website of Logan Goodwin: author, songwriter, technologist, humorist, and independent commentator.
+
+Primary sections:
+- /about/ — biography and brand overview
+- /books/ — featured books and audiobook samples
+- /music/ — selected original songs
+- /commentary/ — commentary and humor
+- /technology/ — cybersecurity and technology portfolio
+- /videos/ — official channels and featured videos
+- /contact/ — contact form
+
+Complete publishing catalog: https://frontlinetechconsulting.com/
