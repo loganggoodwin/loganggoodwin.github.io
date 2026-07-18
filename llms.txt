@@ -4,11 +4,14 @@ Official personal website of Logan Goodwin: author, songwriter, technologist, hu
 
 Primary sections:
 - /about/ — biography and brand overview
-- /books/ — featured books and audiobook samples
+- /books/ — featured books, direct title links, and Frontline Publishing genre pathways
 - /music/ — selected original songs
 - /commentary/ — commentary and humor
 - /technology/ — cybersecurity and technology portfolio
 - /videos/ — official channels and featured videos
 - /contact/ — contact form
 
-Complete publishing catalog: https://frontlinetechconsulting.com/
+Publishing catalog:
+- Frontline Publishing — Books, Audiobooks & Story Media by Logan Goodwin
+- https://frontlinetechconsulting.com/
+- Genres: science fiction, horror and Wrong Realities, dark fantasy and paranormal romance, comedy and satire, technology and practical guides, and audiobooks

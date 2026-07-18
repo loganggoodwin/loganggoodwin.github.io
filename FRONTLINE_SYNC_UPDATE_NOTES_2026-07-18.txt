@@ -1,0 +1,18 @@
+LOGANGGOODWIN.COM — FRONTLINE PUBLISHING SYNCHRONIZATION UPDATE
+Date: July 18, 2026
+
+This package is based on LoganGoodwin-complete-site-refresh-2026-07-18.zip.
+
+CHANGES
+- Added a dedicated COGIMA flagship-release feature to the homepage.
+- Preserved direct Frontline detail links for the five featured books.
+- Added six Frontline genre and format pathways to the Books page.
+- Standardized the positioning line: Frontline Publishing — Books, Audiobooks & Story Media by Logan Goodwin.
+- Clarified footer links as the external publishing catalog.
+- Added Frontline Publishing affiliation and organization information to structured data.
+- Updated the Books page description metadata.
+- Added versioned CSS and JavaScript filenames to reduce stale-browser caching.
+- Validated all local links, images, and Frontline destination paths against the latest Frontline Publishing package.
+
+UPLOAD
+Upload the CONTENTS of this ZIP to the root of the GitHub Pages repository. Do not place the site inside an extra folder. Keep CNAME at the repository root.
