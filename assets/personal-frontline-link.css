@@ -1,0 +1,46 @@
+
+/* Personal site cross-link to Frontline Publishing Books — keeps LoganGoodwin.com branding purple */
+.personal-frontline-link {
+  margin: 3rem auto;
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+
+.personal-frontline-link-inner {
+  border: 1px solid rgba(168, 85, 247, 0.38);
+  background:
+    radial-gradient(circle at top left, rgba(168, 85, 247, 0.22), transparent 34rem),
+    linear-gradient(135deg, rgba(76, 29, 149, 0.30), rgba(15, 23, 42, 0.70));
+  border-radius: 22px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 24px 70px rgba(76, 29, 149, 0.24);
+}
+
+.personal-frontline-link .eyebrow {
+  margin: 0 0 .4rem;
+  color: #c4b5fd;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.personal-frontline-link h2 {
+  margin: 0 0 .65rem;
+  color: #f5f3ff;
+}
+
+.personal-frontline-link p {
+  color: #ddd6fe;
+}
+
+.personal-frontline-link a {
+  display: inline-block;
+  margin-top: .6rem;
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: .8rem 1rem;
+  font-weight: 800;
+}

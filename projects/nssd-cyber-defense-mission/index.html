@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NSSD Cyber Defense Mission | Logan Goodwin</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NSSD Cyber Defense Mission | Logan Goodwin</title>
+<style>
     :root {
       --bg: #07111f;
       --panel: #0e1c2f;
@@ -491,334 +492,307 @@
       a { color: black; }
     }
   </style>
-</head>
+<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/></head>
 <body>
-  <header id="top">
-    <div class="hero">
-      <div class="badge">🛡️ NSSD Cyber Defense Mission</div>
-      <h1>Cybersecurity Without the Tech Headache</h1>
-      <p class="subtitle">
+<header id="top">
+<div class="hero">
+<div class="badge">🛡️ NSSD Cyber Defense Mission</div>
+<h1>Cybersecurity Without the Tech Headache</h1>
+<p class="subtitle">
         A plain-language, interactive version of the North Star Software Developers training manual.
         Learn how traffic analysis, firewalls, IDS/IPS, vulnerability assessment, network assessment,
         and log collection work together to protect people, data, and business operations.
       </p>
-      <div class="actions">
-        <a class="button" href="#mission">Start the Mission</a>
-        <a class="button secondary" href="#quiz">Try the Quiz</a>
-      </div>
-      <div class="progress-wrap" aria-label="Checklist progress">
-        <div class="progress-label">
-          <span>Mission checklist progress</span>
-          <span id="progressText">0%</span>
-        </div>
-        <div class="bar"><span id="progressBar"></span></div>
-      </div>
-    </div>
-  </header>
-
-  <nav>
-    <div class="nav-inner">
-      <a href="#mission">Mission</a>
-      <a href="#layers">Security Layers</a>
-      <a href="#process">Response Flow</a>
-      <a href="#tools">Approved Tools</a>
-      <a href="#glossary">Glossary</a>
-      <a href="#quiz">Quiz</a>
-      <a href="#references">References</a>
-    </div>
-  </nav>
-
-  <main>
-    <section id="mission">
-      <div class="section-head">
-        <h2>The Story: What Happened at NSSD?</h2>
-        <p class="plain">
+<div class="actions">
+<a class="button" href="#mission">Start the Mission</a>
+<a class="button secondary" href="#quiz">Try the Quiz</a>
+</div>
+<div aria-label="Checklist progress" class="progress-wrap">
+<div class="progress-label">
+<span>Mission checklist progress</span>
+<span id="progressText">0%</span>
+</div>
+<div class="bar"><span id="progressBar"></span></div>
+</div>
+</div>
+</header>
+<nav>
+<div class="nav-inner">
+<a href="#mission">Mission</a>
+<a href="#layers">Security Layers</a>
+<a href="#process">Response Flow</a>
+<a href="#tools">Approved Tools</a>
+<a href="#glossary">Glossary</a>
+<a href="#quiz">Quiz</a>
+<a href="#references">References</a>
+</div>
+</nav>
+<main>
+<section id="mission">
+<div class="section-head">
+<h2>The Story: What Happened at NSSD?</h2>
+<p class="plain">
           North Star Software Developers had network servers compromised. Customer information and credit card numbers may have been exposed.
           The company needs a practical defense plan that both technical and non-technical stakeholders can understand.
         </p>
-      </div>
-
-      <div class="mission-grid">
-        <div class="card">
-          <div class="card-icon">🚨</div>
-          <h3>The Problem</h3>
-          <p>Some servers were compromised, and the company does not yet know whether the attack came from inside or outside the network.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🎯</div>
-          <h3>The Goal</h3>
-          <p>Protect customer information, payment data, software code, development systems, and everyday business operations.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🧭</div>
-          <h3>The Plan</h3>
-          <p>Use layered defenses: watch traffic, control access, detect attacks, find weaknesses, map the network, and keep good records.</p>
-        </div>
-      </div>
-
-      <div class="scenario">
-        <h3>Plain-English version</h3>
-        <p>
+</div>
+<div class="mission-grid">
+<div class="card">
+<div class="card-icon">🚨</div>
+<h3>The Problem</h3>
+<p>Some servers were compromised, and the company does not yet know whether the attack came from inside or outside the network.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎯</div>
+<h3>The Goal</h3>
+<p>Protect customer information, payment data, software code, development systems, and everyday business operations.</p>
+</div>
+<div class="card">
+<div class="card-icon">🧭</div>
+<h3>The Plan</h3>
+<p>Use layered defenses: watch traffic, control access, detect attacks, find weaknesses, map the network, and keep good records.</p>
+</div>
+</div>
+<div class="scenario">
+<h3>Plain-English version</h3>
+<p>
           Think of NSSD like a city. The roads are network traffic, the buildings are servers, the locks are firewalls,
           the alarms are IDS/IPS tools, the inspections are vulnerability scans, the map is network assessment,
           and the security camera footage is log collection.
         </p>
-      </div>
-    </section>
-
-    <section id="layers">
-      <div class="section-head">
-        <h2>Meet the Security Layers</h2>
-        <p class="plain">Click each card to expand it. Each layer explains what the tool does, why it matters, and what NSSD staff should do.</p>
-      </div>
-
-      <div class="cards">
-        <article class="card layer-card" tabindex="0">
-          <div class="card-icon">🚦</div>
-          <h3>Traffic Analysis</h3>
-          <p class="analogy">Like watching the roads to see where cars are going.</p>
-          <p>Traffic analysis helps IT staff see which systems are communicating and whether anything looks unusual.</p>
-          <div class="details">
-            <p><strong>Why it matters:</strong> It can reveal scanning, suspicious connections, malware beaconing, and possible data exfiltration.</p>
-            <p><strong>What to use:</strong> Wireshark, tcpdump, firewall logs, IDS alerts, and system logs.</p>
-            <p><strong>What to do:</strong> Capture traffic, filter by protocol or IP address, inspect packet details, and save evidence securely.</p>
-          </div>
-        </article>
-
-        <article class="card layer-card" tabindex="0">
-          <div class="card-icon">🧱</div>
-          <h3>Firewalls</h3>
-          <p class="analogy">Like security gates that decide who gets in or out.</p>
-          <p>Firewalls allow approved traffic and block traffic that is risky, unnecessary, or unauthorized.</p>
-          <div class="details">
-            <p><strong>Why it matters:</strong> A poorly configured firewall can let attackers into sensitive systems.</p>
-            <p><strong>What to use:</strong> Perimeter firewalls, internal firewall rules, host-based firewalls, and firewall logs.</p>
-            <p><strong>What to do:</strong> Use least privilege, document rules, enable logging, test rules, and use a default deny policy.</p>
-          </div>
-        </article>
-
-        <article class="card layer-card" tabindex="0">
-          <div class="card-icon">🚨</div>
-          <h3>IDS/IPS</h3>
-          <p class="analogy">Like alarms and guards that detect suspicious behavior.</p>
-          <p>IDS tools alert staff when traffic looks suspicious. IPS tools may block that traffic automatically.</p>
-          <div class="details">
-            <p><strong>Why it matters:</strong> IDS/IPS tools can detect port scans, brute-force attempts, exploit attempts, and malware activity.</p>
-            <p><strong>What to use:</strong> Network IDS sensors, host-based IDS agents, firewall-integrated IPS, and SIEM alerts.</p>
-            <p><strong>What to do:</strong> Configure allowlists and blocklists, place sensors strategically, monitor alerts, and tune rules.</p>
-          </div>
-        </article>
-
-        <article class="card layer-card" tabindex="0">
-          <div class="card-icon">🔎</div>
-          <h3>Vulnerability Assessment</h3>
-          <p class="analogy">Like a safety inspection before something breaks.</p>
-          <p>Vulnerability assessment finds weak spots before attackers can take advantage of them.</p>
-          <div class="details">
-            <p><strong>Why it matters:</strong> Missing patches, outdated software, weak encryption, and exposed services can lead to compromise.</p>
-            <p><strong>What to use:</strong> Nmap, vulnerability scanners, asset discovery, and controlled penetration testing.</p>
-            <p><strong>What to do:</strong> Define scope, scan ports and devices, review findings by severity, remediate, and rescan.</p>
-          </div>
-        </article>
-
-        <article class="card layer-card" tabindex="0">
-          <div class="card-icon">🗺️</div>
-          <h3>Network Assessment</h3>
-          <p class="analogy">Like making a map of every road, building, and hidden shortcut.</p>
-          <p>Network assessment shows what devices exist, how they connect, and whether the network has risky paths.</p>
-          <div class="details">
-            <p><strong>Why it matters:</strong> NSSD cannot protect devices it does not know exist.</p>
-            <p><strong>What to use:</strong> Network discovery, topology mapping, firewall logs, IDS/IPS alerts, and asset inventory.</p>
-            <p><strong>What to do:</strong> Find rogue devices, detect suspicious connections, view topology, and correct weak segmentation.</p>
-          </div>
-        </article>
-
-        <article class="card layer-card" tabindex="0">
-          <div class="card-icon">📚</div>
-          <h3>Auditing and Log Collection</h3>
-          <p class="analogy">Like keeping security camera footage and receipts.</p>
-          <p>Logs help NSSD prove what happened, when it happened, and which systems were involved.</p>
-          <div class="details">
-            <p><strong>Why it matters:</strong> Without logs, investigations become guesswork.</p>
-            <p><strong>What to use:</strong> SIEM, firewall logs, IDS/IPS logs, authentication logs, endpoint logs, and vulnerability scanner reports.</p>
-            <p><strong>What to do:</strong> Centralize logs, protect them, review alerts, correlate events, and retain records according to policy.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="section-head">
-        <h2>The Defense Flow</h2>
-        <p class="plain">A simple way to understand the whole manual: find what exists, protect what matters, detect problems, respond fast, and improve after.</p>
-      </div>
-
-      <div class="flow">
-        <div class="flow-step"><strong>1. Identify</strong><span>Know devices, data, systems, and weak spots.</span></div>
-        <div class="flow-step"><strong>2. Protect</strong><span>Use firewalls, segmentation, patching, and access controls.</span></div>
-        <div class="flow-step"><strong>3. Detect</strong><span>Watch traffic, IDS/IPS alerts, endpoint logs, and SIEM events.</span></div>
-        <div class="flow-step"><strong>4. Respond</strong><span>Validate, prioritize, contain, investigate, remediate, and document.</span></div>
-        <div class="flow-step"><strong>5. Improve</strong><span>Use lessons learned to update rules, tools, policies, and training.</span></div>
-      </div>
-
-      <div class="checklist">
-        <label class="check"><input type="checkbox" class="mission-check" /> Identify what systems and data are most important to NSSD.</label>
-        <label class="check"><input type="checkbox" class="mission-check" /> Make sure only approved traffic is allowed through firewalls.</label>
-        <label class="check"><input type="checkbox" class="mission-check" /> Watch for suspicious alerts from IDS/IPS, firewall, and endpoint tools.</label>
-        <label class="check"><input type="checkbox" class="mission-check" /> Investigate incidents using packet captures, logs, and scan results.</label>
-        <label class="check"><input type="checkbox" class="mission-check" /> Fix weaknesses and confirm the fix with rescans or log review.</label>
-      </div>
-    </section>
-
-    <section id="tools">
-      <div class="section-head">
-        <h2>Company-Approved Tools</h2>
-        <p class="plain">These are the tools NSSD IT employees can use as part of a layered defense strategy.</p>
-      </div>
-
-      <table class="tool-table">
-        <thead>
-          <tr>
-            <th>Tool Category</th>
-            <th>Plain-English Purpose</th>
-            <th>Why NSSD Uses It</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Wireshark / tcpdump</td>
-            <td>Looks closely at network packets.</td>
-            <td>Confirms what traffic actually moved across the network.</td>
-          </tr>
-          <tr>
-            <td>Firewalls</td>
-            <td>Controls allowed and blocked traffic.</td>
-            <td>Reduces unauthorized access and supports segmentation.</td>
-          </tr>
-          <tr>
-            <td>IDS/IPS</td>
-            <td>Detects or blocks suspicious activity.</td>
-            <td>Identifies attacks, scanning, exploit attempts, and policy violations.</td>
-          </tr>
-          <tr>
-            <td>Vulnerability Scanners</td>
-            <td>Finds weak spots before attackers do.</td>
-            <td>Supports patching, remediation, and risk prioritization.</td>
-          </tr>
-          <tr>
-            <td>Network Discovery / Topology Mapping</td>
-            <td>Maps devices and connections.</td>
-            <td>Finds rogue devices, unknown paths, and segmentation problems.</td>
-          </tr>
-          <tr>
-            <td>Endpoint Monitoring</td>
-            <td>Watches individual computers and servers.</td>
-            <td>Shows whether suspicious network activity affected a host.</td>
-          </tr>
-          <tr>
-            <td>SIEM / Centralized Log Collection</td>
-            <td>Collects security records in one place.</td>
-            <td>Connects related events and supports investigations, audits, and reports.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="glossary">
-      <div class="section-head">
-        <h2>Cybersecurity Glossary</h2>
-        <p class="plain">Quick definitions for non-technical readers.</p>
-      </div>
-
-      <div class="glossary">
-        <div class="term"><strong>Packet</strong>A small piece of data traveling across a network.</div>
-        <div class="term"><strong>Firewall</strong>A security control that allows or blocks traffic based on rules.</div>
-        <div class="term"><strong>IDS</strong>An intrusion detection system that alerts when activity looks suspicious.</div>
-        <div class="term"><strong>IPS</strong>An intrusion prevention system that can block suspicious activity.</div>
-        <div class="term"><strong>Vulnerability</strong>A weakness that could be exploited by an attacker.</div>
-        <div class="term"><strong>SIEM</strong>A system that collects and connects security logs from many tools.</div>
-        <div class="term"><strong>Rogue Device</strong>An unknown or unauthorized device connected to the network.</div>
-        <div class="term"><strong>Segmentation</strong>Dividing a network into smaller protected zones.</div>
-        <div class="term"><strong>Log</strong>A record of what happened on a system, tool, or network device.</div>
-      </div>
-    </section>
-
-    <section id="quiz">
-      <div class="section-head">
-        <h2>Quick Mission Quiz</h2>
-        <p class="plain">Test whether the main ideas make sense. Click an answer to see feedback.</p>
-      </div>
-
-      <div class="quiz">
-        <div class="question">
-          <h3>1. A strange device appears on the company network. What should IT do first?</h3>
-          <div class="choices">
-            <button class="choice" data-correct="false">Ignore it unless someone complains.</button>
-            <button class="choice" data-correct="true">Compare it to the approved asset inventory and investigate it.</button>
-            <button class="choice" data-correct="false">Delete all logs to save storage space.</button>
-          </div>
-          <div class="feedback">Correct answer: compare it to the approved inventory. Unknown devices may be rogue devices.</div>
-        </div>
-
-        <div class="question">
-          <h3>2. What is the simple purpose of a firewall?</h3>
-          <div class="choices">
-            <button class="choice" data-correct="false">It writes company policies automatically.</button>
-            <button class="choice" data-correct="true">It controls what traffic is allowed or blocked.</button>
-            <button class="choice" data-correct="false">It replaces all other security tools.</button>
-          </div>
-          <div class="feedback">Correct answer: a firewall controls traffic using rules.</div>
-        </div>
-
-        <div class="question">
-          <h3>3. Why are logs important during an incident?</h3>
-          <div class="choices">
-            <button class="choice" data-correct="true">They help show what happened, when it happened, and which systems were involved.</button>
-            <button class="choice" data-correct="false">They make systems faster.</button>
-            <button class="choice" data-correct="false">They remove the need for investigation.</button>
-          </div>
-          <div class="feedback">Correct answer: logs are evidence that supports investigation and response.</div>
-        </div>
-
-        <div class="question">
-          <h3>4. What is the purpose of vulnerability assessment?</h3>
-          <div class="choices">
-            <button class="choice" data-correct="false">To make the network slower.</button>
-            <button class="choice" data-correct="true">To find weaknesses before attackers exploit them.</button>
-            <button class="choice" data-correct="false">To approve every device automatically.</button>
-          </div>
-          <div class="feedback">Correct answer: vulnerability assessment identifies weaknesses so they can be fixed.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="references">
-      <div class="section-head">
-        <h2>References</h2>
-        <p class="plain">A simplified reference list based on the training manual sources.</p>
-      </div>
-
-      <div class="card">
-        <p>Cybersecurity and Infrastructure Security Agency. (n.d.). <em>Cyber hygiene services</em>. U.S. Department of Homeland Security.</p>
-        <p>Cybersecurity and Infrastructure Security Agency. (2023). <em>Cross-sector cybersecurity performance goals</em>. U.S. Department of Homeland Security.</p>
-        <p>Cybersecurity and Infrastructure Security Agency. (2023). <em>Zero trust maturity model</em> (Version 2.0). U.S. Department of Homeland Security.</p>
-        <p>Kent, K., &amp; Souppaya, M. (2006). <em>Guide to computer security log management</em> (NIST Special Publication 800-92). National Institute of Standards and Technology.</p>
-        <p>National Institute of Standards and Technology. (2009). <em>Guidelines on firewalls and firewall policy</em> (NIST Special Publication 800-41 Revision 1). U.S. Department of Commerce.</p>
-        <p>National Institute of Standards and Technology. (2024). <em>The NIST Cybersecurity Framework (CSF) 2.0</em> (NIST Cybersecurity White Paper 29). U.S. Department of Commerce.</p>
-        <p>OpenAI. (2026). <em>ChatGPT</em> [AI image generation tool]. https://chatgpt.com/</p>
-        <p>Scarfone, K., &amp; Mell, P. (2007). <em>Guide to intrusion detection and prevention systems (IDPS)</em> (NIST Special Publication 800-94). National Institute of Standards and Technology.</p>
-        <p>Scarfone, K., Souppaya, M., Cody, A., &amp; Orebaugh, A. (2008). <em>Technical guide to information security testing and assessment</em> (NIST Special Publication 800-115). National Institute of Standards and Technology.</p>
-        <p>The Wireshark Foundation. (2024). <em>Wireshark user’s guide</em>.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p><strong>NSSD Cyber Defense Mission</strong> — Interactive learning version of the training manual.</p>
-    <p>Created for non-technical understanding. For formal submission, use the full APA-formatted training manual.</p>
-  </footer>
-
-  <script>
+</div>
+</section>
+<section id="layers">
+<div class="section-head">
+<h2>Meet the Security Layers</h2>
+<p class="plain">Click each card to expand it. Each layer explains what the tool does, why it matters, and what NSSD staff should do.</p>
+</div>
+<div class="cards">
+<article class="card layer-card" tabindex="0">
+<div class="card-icon">🚦</div>
+<h3>Traffic Analysis</h3>
+<p class="analogy">Like watching the roads to see where cars are going.</p>
+<p>Traffic analysis helps IT staff see which systems are communicating and whether anything looks unusual.</p>
+<div class="details">
+<p><strong>Why it matters:</strong> It can reveal scanning, suspicious connections, malware beaconing, and possible data exfiltration.</p>
+<p><strong>What to use:</strong> Wireshark, tcpdump, firewall logs, IDS alerts, and system logs.</p>
+<p><strong>What to do:</strong> Capture traffic, filter by protocol or IP address, inspect packet details, and save evidence securely.</p>
+</div>
+</article>
+<article class="card layer-card" tabindex="0">
+<div class="card-icon">🧱</div>
+<h3>Firewalls</h3>
+<p class="analogy">Like security gates that decide who gets in or out.</p>
+<p>Firewalls allow approved traffic and block traffic that is risky, unnecessary, or unauthorized.</p>
+<div class="details">
+<p><strong>Why it matters:</strong> A poorly configured firewall can let attackers into sensitive systems.</p>
+<p><strong>What to use:</strong> Perimeter firewalls, internal firewall rules, host-based firewalls, and firewall logs.</p>
+<p><strong>What to do:</strong> Use least privilege, document rules, enable logging, test rules, and use a default deny policy.</p>
+</div>
+</article>
+<article class="card layer-card" tabindex="0">
+<div class="card-icon">🚨</div>
+<h3>IDS/IPS</h3>
+<p class="analogy">Like alarms and guards that detect suspicious behavior.</p>
+<p>IDS tools alert staff when traffic looks suspicious. IPS tools may block that traffic automatically.</p>
+<div class="details">
+<p><strong>Why it matters:</strong> IDS/IPS tools can detect port scans, brute-force attempts, exploit attempts, and malware activity.</p>
+<p><strong>What to use:</strong> Network IDS sensors, host-based IDS agents, firewall-integrated IPS, and SIEM alerts.</p>
+<p><strong>What to do:</strong> Configure allowlists and blocklists, place sensors strategically, monitor alerts, and tune rules.</p>
+</div>
+</article>
+<article class="card layer-card" tabindex="0">
+<div class="card-icon">🔎</div>
+<h3>Vulnerability Assessment</h3>
+<p class="analogy">Like a safety inspection before something breaks.</p>
+<p>Vulnerability assessment finds weak spots before attackers can take advantage of them.</p>
+<div class="details">
+<p><strong>Why it matters:</strong> Missing patches, outdated software, weak encryption, and exposed services can lead to compromise.</p>
+<p><strong>What to use:</strong> Nmap, vulnerability scanners, asset discovery, and controlled penetration testing.</p>
+<p><strong>What to do:</strong> Define scope, scan ports and devices, review findings by severity, remediate, and rescan.</p>
+</div>
+</article>
+<article class="card layer-card" tabindex="0">
+<div class="card-icon">🗺️</div>
+<h3>Network Assessment</h3>
+<p class="analogy">Like making a map of every road, building, and hidden shortcut.</p>
+<p>Network assessment shows what devices exist, how they connect, and whether the network has risky paths.</p>
+<div class="details">
+<p><strong>Why it matters:</strong> NSSD cannot protect devices it does not know exist.</p>
+<p><strong>What to use:</strong> Network discovery, topology mapping, firewall logs, IDS/IPS alerts, and asset inventory.</p>
+<p><strong>What to do:</strong> Find rogue devices, detect suspicious connections, view topology, and correct weak segmentation.</p>
+</div>
+</article>
+<article class="card layer-card" tabindex="0">
+<div class="card-icon">📚</div>
+<h3>Auditing and Log Collection</h3>
+<p class="analogy">Like keeping security camera footage and receipts.</p>
+<p>Logs help NSSD prove what happened, when it happened, and which systems were involved.</p>
+<div class="details">
+<p><strong>Why it matters:</strong> Without logs, investigations become guesswork.</p>
+<p><strong>What to use:</strong> SIEM, firewall logs, IDS/IPS logs, authentication logs, endpoint logs, and vulnerability scanner reports.</p>
+<p><strong>What to do:</strong> Centralize logs, protect them, review alerts, correlate events, and retain records according to policy.</p>
+</div>
+</article>
+</div>
+</section>
+<section id="process">
+<div class="section-head">
+<h2>The Defense Flow</h2>
+<p class="plain">A simple way to understand the whole manual: find what exists, protect what matters, detect problems, respond fast, and improve after.</p>
+</div>
+<div class="flow">
+<div class="flow-step"><strong>1. Identify</strong><span>Know devices, data, systems, and weak spots.</span></div>
+<div class="flow-step"><strong>2. Protect</strong><span>Use firewalls, segmentation, patching, and access controls.</span></div>
+<div class="flow-step"><strong>3. Detect</strong><span>Watch traffic, IDS/IPS alerts, endpoint logs, and SIEM events.</span></div>
+<div class="flow-step"><strong>4. Respond</strong><span>Validate, prioritize, contain, investigate, remediate, and document.</span></div>
+<div class="flow-step"><strong>5. Improve</strong><span>Use lessons learned to update rules, tools, policies, and training.</span></div>
+</div>
+<div class="checklist">
+<label class="check"><input class="mission-check" type="checkbox"/> Identify what systems and data are most important to NSSD.</label>
+<label class="check"><input class="mission-check" type="checkbox"/> Make sure only approved traffic is allowed through firewalls.</label>
+<label class="check"><input class="mission-check" type="checkbox"/> Watch for suspicious alerts from IDS/IPS, firewall, and endpoint tools.</label>
+<label class="check"><input class="mission-check" type="checkbox"/> Investigate incidents using packet captures, logs, and scan results.</label>
+<label class="check"><input class="mission-check" type="checkbox"/> Fix weaknesses and confirm the fix with rescans or log review.</label>
+</div>
+</section>
+<section id="tools">
+<div class="section-head">
+<h2>Company-Approved Tools</h2>
+<p class="plain">These are the tools NSSD IT employees can use as part of a layered defense strategy.</p>
+</div>
+<table class="tool-table">
+<thead>
+<tr>
+<th>Tool Category</th>
+<th>Plain-English Purpose</th>
+<th>Why NSSD Uses It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wireshark / tcpdump</td>
+<td>Looks closely at network packets.</td>
+<td>Confirms what traffic actually moved across the network.</td>
+</tr>
+<tr>
+<td>Firewalls</td>
+<td>Controls allowed and blocked traffic.</td>
+<td>Reduces unauthorized access and supports segmentation.</td>
+</tr>
+<tr>
+<td>IDS/IPS</td>
+<td>Detects or blocks suspicious activity.</td>
+<td>Identifies attacks, scanning, exploit attempts, and policy violations.</td>
+</tr>
+<tr>
+<td>Vulnerability Scanners</td>
+<td>Finds weak spots before attackers do.</td>
+<td>Supports patching, remediation, and risk prioritization.</td>
+</tr>
+<tr>
+<td>Network Discovery / Topology Mapping</td>
+<td>Maps devices and connections.</td>
+<td>Finds rogue devices, unknown paths, and segmentation problems.</td>
+</tr>
+<tr>
+<td>Endpoint Monitoring</td>
+<td>Watches individual computers and servers.</td>
+<td>Shows whether suspicious network activity affected a host.</td>
+</tr>
+<tr>
+<td>SIEM / Centralized Log Collection</td>
+<td>Collects security records in one place.</td>
+<td>Connects related events and supports investigations, audits, and reports.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glossary">
+<div class="section-head">
+<h2>Cybersecurity Glossary</h2>
+<p class="plain">Quick definitions for non-technical readers.</p>
+</div>
+<div class="glossary">
+<div class="term"><strong>Packet</strong>A small piece of data traveling across a network.</div>
+<div class="term"><strong>Firewall</strong>A security control that allows or blocks traffic based on rules.</div>
+<div class="term"><strong>IDS</strong>An intrusion detection system that alerts when activity looks suspicious.</div>
+<div class="term"><strong>IPS</strong>An intrusion prevention system that can block suspicious activity.</div>
+<div class="term"><strong>Vulnerability</strong>A weakness that could be exploited by an attacker.</div>
+<div class="term"><strong>SIEM</strong>A system that collects and connects security logs from many tools.</div>
+<div class="term"><strong>Rogue Device</strong>An unknown or unauthorized device connected to the network.</div>
+<div class="term"><strong>Segmentation</strong>Dividing a network into smaller protected zones.</div>
+<div class="term"><strong>Log</strong>A record of what happened on a system, tool, or network device.</div>
+</div>
+</section>
+<section id="quiz">
+<div class="section-head">
+<h2>Quick Mission Quiz</h2>
+<p class="plain">Test whether the main ideas make sense. Click an answer to see feedback.</p>
+</div>
+<div class="quiz">
+<div class="question">
+<h3>1. A strange device appears on the company network. What should IT do first?</h3>
+<div class="choices">
+<button class="choice" data-correct="false">Ignore it unless someone complains.</button>
+<button class="choice" data-correct="true">Compare it to the approved asset inventory and investigate it.</button>
+<button class="choice" data-correct="false">Delete all logs to save storage space.</button>
+</div>
+<div class="feedback">Correct answer: compare it to the approved inventory. Unknown devices may be rogue devices.</div>
+</div>
+<div class="question">
+<h3>2. What is the simple purpose of a firewall?</h3>
+<div class="choices">
+<button class="choice" data-correct="false">It writes company policies automatically.</button>
+<button class="choice" data-correct="true">It controls what traffic is allowed or blocked.</button>
+<button class="choice" data-correct="false">It replaces all other security tools.</button>
+</div>
+<div class="feedback">Correct answer: a firewall controls traffic using rules.</div>
+</div>
+<div class="question">
+<h3>3. Why are logs important during an incident?</h3>
+<div class="choices">
+<button class="choice" data-correct="true">They help show what happened, when it happened, and which systems were involved.</button>
+<button class="choice" data-correct="false">They make systems faster.</button>
+<button class="choice" data-correct="false">They remove the need for investigation.</button>
+</div>
+<div class="feedback">Correct answer: logs are evidence that supports investigation and response.</div>
+</div>
+<div class="question">
+<h3>4. What is the purpose of vulnerability assessment?</h3>
+<div class="choices">
+<button class="choice" data-correct="false">To make the network slower.</button>
+<button class="choice" data-correct="true">To find weaknesses before attackers exploit them.</button>
+<button class="choice" data-correct="false">To approve every device automatically.</button>
+</div>
+<div class="feedback">Correct answer: vulnerability assessment identifies weaknesses so they can be fixed.</div>
+</div>
+</div>
+</section>
+<section id="references">
+<div class="section-head">
+<h2>References</h2>
+<p class="plain">A simplified reference list based on the training manual sources.</p>
+</div>
+<div class="card">
+<p>Cybersecurity and Infrastructure Security Agency. (n.d.). <em>Cyber hygiene services</em>. U.S. Department of Homeland Security.</p>
+<p>Cybersecurity and Infrastructure Security Agency. (2023). <em>Cross-sector cybersecurity performance goals</em>. U.S. Department of Homeland Security.</p>
+<p>Cybersecurity and Infrastructure Security Agency. (2023). <em>Zero trust maturity model</em> (Version 2.0). U.S. Department of Homeland Security.</p>
+<p>Kent, K., &amp; Souppaya, M. (2006). <em>Guide to computer security log management</em> (NIST Special Publication 800-92). National Institute of Standards and Technology.</p>
+<p>National Institute of Standards and Technology. (2009). <em>Guidelines on firewalls and firewall policy</em> (NIST Special Publication 800-41 Revision 1). U.S. Department of Commerce.</p>
+<p>National Institute of Standards and Technology. (2024). <em>The NIST Cybersecurity Framework (CSF) 2.0</em> (NIST Cybersecurity White Paper 29). U.S. Department of Commerce.</p>
+<p>OpenAI. (2026). <em>ChatGPT</em> [AI image generation tool]. https://chatgpt.com/</p>
+<p>Scarfone, K., &amp; Mell, P. (2007). <em>Guide to intrusion detection and prevention systems (IDPS)</em> (NIST Special Publication 800-94). National Institute of Standards and Technology.</p>
+<p>Scarfone, K., Souppaya, M., Cody, A., &amp; Orebaugh, A. (2008). <em>Technical guide to information security testing and assessment</em> (NIST Special Publication 800-115). National Institute of Standards and Technology.</p>
+<p>The Wireshark Foundation. (2024). <em>Wireshark user’s guide</em>.</p>
+</div>
+</section>
+</main>
+<footer>
+<p><strong>NSSD Cyber Defense Mission</strong> — Interactive learning version of the training manual.</p>
+<p>Created for non-technical understanding. For formal submission, use the full APA-formatted training manual.</p>
+</footer>
+<script>
     const cards = document.querySelectorAll('.layer-card');
     cards.forEach(card => {
       card.addEventListener('click', () => card.classList.toggle('open'));

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://loganggoodwin.com/projects/trinity-incident-response-lab/"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://loganggoodwin.com/projects/trinity-incident-response-lab/" rel="canonical"/>
 <title>Trinity Health Incident Response Lab | Logan Goodwin</title>
-<meta name="description" content="Act as the incident lead and make breach-response decisions involving detection, containment, HIPAA, communication, and remediation." />
+<meta content="Act as the incident lead and make breach-response decisions involving detection, containment, HIPAA, communication, and remediation." name="description"/>
 <style>
   :root {
     --bg:#08111f; --panel:#101b2d; --panel2:#13223a; --text:#e7edf7; --muted:#9db0c8;
@@ -61,59 +62,59 @@
   @media (max-width: 880px) { .hero, .game-grid { grid-template-columns:1fr; } .hero-card { padding:24px; } }
   @media print { body { background:#fff; color:#111; } .nav, .controls, .choice-list { display:none; } .hero-card, .panel { box-shadow:none; border:1px solid #ddd; } }
 </style>
-</head>
+<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/></head>
 <body>
 <header>
-  <div class="wrap">
-    <nav class="nav" aria-label="Project navigation">
-      <a href="../../projects/index.html">← Projects</a>
-      <a href="../trinity-health-incident-report/index.html">Related write-up</a>
-      <a href="../../index.html">Home</a>
-    </nav>
-    <section class="hero">
-      <div class="hero-card">
-        <p class="kicker">Playable Incident Lab</p>
-        <h1>Trinity Health Incident Response Lab</h1>
-        <p class="lede">Act as the incident lead and make breach-response decisions involving detection, containment, HIPAA, communication, and remediation.</p>
-        <div class="tags"><span>Incident Response</span><span>HIPAA</span><span>Monitoring</span><span>Escalation</span><span>Communication</span><span>Remediation</span></div>
-      </div>
-      <aside class="panel hero-stats" aria-label="Lab summary">
-        <div class="stat"><strong id="scenarioCount">5</strong><span>decision scenarios</span></div>
-        <div class="stat"><strong>4</strong><span>live score meters</span></div>
-        <div class="stat"><strong>100%</strong><span>browser-based; no install</span></div>
-      </aside>
-    </section>
-  </div>
+<div class="wrap">
+<nav aria-label="Project navigation" class="nav">
+<a href="../../projects/index.html">← Projects</a>
+<a href="../trinity-health-incident-report/index.html">Related write-up</a>
+<a href="../../index.html">Home</a>
+</nav>
+<section class="hero">
+<div class="hero-card">
+<p class="kicker">Playable Incident Lab</p>
+<h1>Trinity Health Incident Response Lab</h1>
+<p class="lede">Act as the incident lead and make breach-response decisions involving detection, containment, HIPAA, communication, and remediation.</p>
+<div class="tags"><span>Incident Response</span><span>HIPAA</span><span>Monitoring</span><span>Escalation</span><span>Communication</span><span>Remediation</span></div>
+</div>
+<aside aria-label="Lab summary" class="panel hero-stats">
+<div class="stat"><strong id="scenarioCount">5</strong><span>decision scenarios</span></div>
+<div class="stat"><strong>4</strong><span>live score meters</span></div>
+<div class="stat"><strong>100%</strong><span>browser-based; no install</span></div>
+</aside>
+</section>
+</div>
 </header>
 <main>
-  <div class="wrap game-grid">
-    <section class="panel" aria-live="polite">
-      <div class="scenario-top"><span id="progressLabel">Scenario 1 of 5</span><span id="pointsLabel">Score: 0</span></div>
-      <h2 class="scenario-title" id="scenarioTitle"></h2>
-      <p class="prompt" id="scenarioPrompt"></p>
-      <div class="choice-list" id="choiceList"></div>
-      <div class="feedback" id="feedback"></div>
-      <div class="controls">
-        <button class="btn-primary" id="nextBtn" type="button" hidden>Next decision</button>
-        <button id="restartBtn" type="button">Restart lab</button>
-        <button id="printBtn" type="button">Print / save report</button>
-      </div>
-      <section class="report" id="report">
-        <h2>Executive-style final report</h2>
-        <div class="report-box" id="reportBox"></div>
-      </section>
-    </section>
-    <aside class="panel score-card">
-      <h2>Live decision meters</h2>
-      <p class="lede" style="font-size:.96rem">Strong choices raise the meters. Risky choices lower them and show why the control matters.</p>
-      <div id="meters"></div>
-      <h2 style="margin-top:24px">Decision history</h2>
-      <div class="history" id="history"></div>
-    </aside>
-  </div>
+<div class="wrap game-grid">
+<section aria-live="polite" class="panel">
+<div class="scenario-top"><span id="progressLabel">Scenario 1 of 5</span><span id="pointsLabel">Score: 0</span></div>
+<h2 class="scenario-title" id="scenarioTitle"></h2>
+<p class="prompt" id="scenarioPrompt"></p>
+<div class="choice-list" id="choiceList"></div>
+<div class="feedback" id="feedback"></div>
+<div class="controls">
+<button class="btn-primary" hidden="" id="nextBtn" type="button">Next decision</button>
+<button id="restartBtn" type="button">Restart lab</button>
+<button id="printBtn" type="button">Print / save report</button>
+</div>
+<section class="report" id="report">
+<h2>Executive-style final report</h2>
+<div class="report-box" id="reportBox"></div>
+</section>
+</section>
+<aside class="panel score-card">
+<h2>Live decision meters</h2>
+<p class="lede" style="font-size:.96rem">Strong choices raise the meters. Risky choices lower them and show why the control matters.</p>
+<div id="meters"></div>
+<h2 style="margin-top:24px">Decision history</h2>
+<div class="history" id="history"></div>
+</aside>
+</div>
 </main>
 <footer>
-  <div class="wrap">Built as an interactive extension of the Trinity Health Report portfolio project.</div>
+<div class="wrap">Built as an interactive extension of the Trinity Health Report portfolio project.</div>
 </footer>
 <script>
 const METRIC_LABELS = ["Patient Risk", "Containment", "Compliance Readiness", "Trust"];
