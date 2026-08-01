@@ -62,7 +62,7 @@
   @media (max-width: 880px) { .hero, .game-grid { grid-template-columns:1fr; } .hero-card { padding:24px; } }
   @media print { body { background:#fff; color:#111; } .nav, .controls, .choice-list { display:none; } .hero-card, .panel { box-shadow:none; border:1px solid #ddd; } }
 </style>
-<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/></head>
+<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/><link href="../../assets/frontline-music-link.css" rel="stylesheet"/></head>
 <body>
 <header>
 <div class="wrap">
@@ -70,7 +70,7 @@
 <a href="../../projects/index.html">← Projects</a>
 <a href="../trinity-health-incident-report/index.html">Related write-up</a>
 <a href="../../index.html">Home</a>
-</nav>
+<a href="https://frontlinepublishingmusic.com/">Music</a></nav>
 <section class="hero">
 <div class="hero-card">
 <p class="kicker">Playable Incident Lab</p>
@@ -115,7 +115,7 @@
 </main>
 <footer>
 <div class="wrap">Built as an interactive extension of the Trinity Health Report portfolio project.</div>
-</footer>
+<a href="https://frontlinepublishingmusic.com/">Frontline Publishing Music</a></footer>
 <script>
 const METRIC_LABELS = ["Patient Risk", "Containment", "Compliance Readiness", "Trust"];
 const SCENARIOS = [{"title": "Suspicious access pattern", "prompt": "Monitoring flags unusual access to healthcare records outside a normal work pattern. What is the best first response?", "choices": [["Ignore it until multiple patients complain.", [-20, -18, -15, -18], "Delayed escalation increases breach impact and damages trust."], ["Preserve logs, validate the alert, check account activity, and escalate through the IR process.", [16, 18, 16, 14], "Best choice. You preserve evidence and move quickly without jumping to unsupported conclusions."], ["Immediately delete the suspicious account and logs.", [-10, -14, -18, -8], "You may destroy evidence needed for investigation and notification decisions."], ["Email screenshots to the whole company.", [-12, -8, -16, -16], "Incident details should follow controlled communication procedures."]]}, {"title": "Containment decision", "prompt": "The compromised account appears to access protected health information. What containment action is strongest?", "choices": [["Disable or reset the account, revoke sessions, preserve evidence, and review similar accounts.", [18, 20, 14, 14], "Best choice. This contains activity while supporting investigation and broader risk review."], ["Wait until the user returns from vacation.", [-18, -20, -12, -14], "Waiting can expand exposure."], ["Shut down the entire hospital network.", [-4, 4, -8, -12], "Over-containment may harm care operations. A targeted response is safer unless broader compromise is proven."], ["Only tell the user to pick a stronger password.", [-12, -14, -6, -10], "Password hygiene is not enough once unauthorized access is suspected."]]}, {"title": "Notification and regulatory handling", "prompt": "Preliminary review suggests PHI may have been exposed. What should happen next?", "choices": [["Start legal, compliance, privacy, and security review to determine notification duties.", [14, 14, 20, 14], "Best choice. Breach notification decisions require careful documentation and coordinated review."], ["Post about it on social media immediately.", [-12, -6, -18, -20], "Public communication should be accurate, coordinated, and compliant."], ["Do nothing unless a regulator asks.", [-20, -12, -20, -16], "That can violate notification expectations and worsen organizational risk."], ["Tell only the IT department.", [-8, -6, -12, -8], "IT is important, but privacy, legal, and leadership must be involved."]]}, {"title": "Root-cause analysis", "prompt": "The incident is contained. What should the post-incident review focus on?", "choices": [["Blame one employee and close the ticket.", [-10, -6, -10, -14], "A person-focused blame approach misses process, monitoring, and control improvements."], ["Identify control gaps in monitoring, access review, escalation, and training.", [16, 14, 16, 16], "Best choice. This converts the incident into measurable remediation."], ["Delete all old alerts to clean up the dashboard.", [-16, -14, -18, -12], "Historic evidence supports lessons learned and compliance review."], ["Only install a new antivirus product.", [-4, 0, -2, -4], "Tools help, but the review must address people, process, and technology."]]}, {"title": "Executive communication", "prompt": "Leadership wants a one-page update. What should it include?", "choices": [["Known facts, impact scope, actions taken, remaining risks, owner, timeline, and next decisions.", [18, 16, 18, 20], "Best choice. This is concise, decision-ready, and accountable."], ["Every raw log line collected so far.", [-2, -2, 0, -10], "Executives need summarized evidence and decisions, not raw logs."], ["Say there is no problem until the investigation is perfect.", [-14, -10, -12, -18], "Leadership needs timely information, even if it includes clear uncertainty."], ["Promise that it can never happen again.", [-10, -8, -8, -14], "No control eliminates all risk. Strong reporting uses realistic residual-risk language."]]}];

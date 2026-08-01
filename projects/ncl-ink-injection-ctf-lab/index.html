@@ -62,7 +62,7 @@
   @media (max-width: 880px) { .hero, .game-grid { grid-template-columns:1fr; } .hero-card { padding:24px; } }
   @media print { body { background:#fff; color:#111; } .nav, .controls, .choice-list { display:none; } .hero-card, .panel { box-shadow:none; border:1px solid #ddd; } }
 </style>
-<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/></head>
+<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/><link href="../../assets/frontline-music-link.css" rel="stylesheet"/></head>
 <body>
 <header>
 <div class="wrap">
@@ -70,7 +70,7 @@
 <a href="../../projects/index.html">← Projects</a>
 <a href="../ctf-hash-cracking/index.html">Related write-up</a>
 <a href="../../index.html">Home</a>
-</nav>
+<a href="https://frontlinepublishingmusic.com/">Music</a></nav>
 <section class="hero">
 <div class="hero-card">
 <p class="kicker">Playable CTF Strategy Lab</p>
@@ -117,7 +117,7 @@
 </main>
 <footer>
 <div class="wrap">Built as an interactive extension of the NCL Team Game Recap portfolio project.</div>
-</footer>
+<a href="https://frontlinepublishingmusic.com/">Frontline Publishing Music</a></footer>
 <script>
 const METRIC_LABELS = ["Points", "Time Management", "Evidence Handling", "Team Coordination"];
 const SCENARIOS = [{"title": "Challenge triage", "prompt": "The team sees eight challenge categories. How should Ink Injection start?", "choices": [["Divide by strengths, identify quick wins, track attempts, and document evidence.", [18, 18, 16, 20], "Best choice. Strong CTF teams manage time, roles, and evidence."], ["Everyone works on the same hard crypto challenge for two hours.", [-12, -18, -8, -16], "That burns time and limits team parallelism."], ["Submit random flags quickly.", [-18, -12, -18, -12], "Random submissions waste attempts and do not build evidence."], ["Ignore documentation until the end.", [-6, -8, -16, -10], "Notes support validation, handoff, and final recap."]]}, {"title": "OSINT clue", "prompt": "An OSINT prompt includes a username, image clue, and timestamp. What method is strongest?", "choices": [["Correlate username reuse, metadata, image context, timestamps, and source reliability.", [16, 14, 18, 12], "Best choice. OSINT works through correlation and verification."], ["Trust the first search result without verification.", [-8, -6, -12, -6], "OSINT requires validation."], ["Use destructive techniques on real sites.", [-20, -12, -20, -20], "CTF work must stay inside authorized boundaries."], ["Skip OSINT because it is not technical.", [-8, -8, -6, -10], "OSINT is a real cybersecurity skill."]]}, {"title": "Packet capture challenge", "prompt": "A PCAP has DNS, HTTP, and odd outbound traffic. What approach fits?", "choices": [["Filter protocols, follow streams, inspect DNS queries, export objects, and record indicators.", [18, 16, 20, 12], "Best choice. This follows a repeatable traffic-analysis workflow."], ["Look at only the first packet.", [-10, -12, -10, -8], "One packet rarely tells the full story."], ["Delete the PCAP after opening it.", [-14, -10, -20, -12], "Evidence must be preserved."], ["Only sort by packet size.", [-4, -4, -4, -4], "Sorting can help, but protocol analysis is needed."]]}, {"title": "Password cracking challenge", "prompt": "The team receives hashes and a hint about weak passwords. What is a safe CTF method?", "choices": [["Identify hash type, choose targeted wordlists/rules, record commands, and stay within challenge scope.", [18, 16, 16, 14], "Best choice. Scope, method, and documentation matter."], ["Try to attack real accounts outside the competition.", [-20, -16, -20, -20], "That is unauthorized and unsafe."], ["Use only one guess and quit.", [-8, -10, -4, -8], "Password challenges require structured iteration."], ["Never verify the hash type.", [-8, -8, -6, -6], "Wrong hash assumptions waste time."]]}, {"title": "Final team push", "prompt": "Thirty minutes remain. Several medium challenges are partially solved. What should the team do?", "choices": [["Review partial notes, assign final owners, prioritize near-complete flags, and avoid risky guesses.", [20, 20, 18, 20], "Best choice. End-game discipline can recover points without wasting attempts."], ["Start only brand-new hard challenges.", [-8, -16, -8, -10], "Late-game strategy should favor close wins first."], ["Stop communicating.", [-12, -10, -10, -20], "Team coordination matters most under time pressure."], ["Submit every possible string from notes.", [-14, -10, -14, -12], "Careless submissions can burn attempts and confidence."]]}];

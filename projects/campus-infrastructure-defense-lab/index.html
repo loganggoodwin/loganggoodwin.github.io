@@ -62,7 +62,7 @@
   @media (max-width: 880px) { .hero, .game-grid { grid-template-columns:1fr; } .hero-card { padding:24px; } }
   @media print { body { background:#fff; color:#111; } .nav, .controls, .choice-list { display:none; } .hero-card, .panel { box-shadow:none; border:1px solid #ddd; } }
 </style>
-<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/></head>
+<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/><link href="../../assets/frontline-music-link.css" rel="stylesheet"/></head>
 <body>
 <header>
 <div class="wrap">
@@ -70,7 +70,7 @@
 <a href="../../projects/index.html">← Projects</a>
 <a href="../secure-enterprise-campus/index.html">Related write-up</a>
 <a href="../../index.html">Home</a>
-</nav>
+<a href="https://frontlinepublishingmusic.com/">Music</a></nav>
 <section class="hero">
 <div class="hero-card">
 <p class="kicker">Playable Network Security Lab</p>
@@ -115,7 +115,7 @@
 </main>
 <footer>
 <div class="wrap">Built as an interactive extension of the Campus Infrastructure Project portfolio project.</div>
-</footer>
+<a href="https://frontlinepublishingmusic.com/">Frontline Publishing Music</a></footer>
 <script>
 const METRIC_LABELS = ["Segmentation", "Availability", "Firewall Policy", "Supportability"];
 const SCENARIOS = [{"title": "Campus segmentation", "prompt": "Users, servers, printers, guests, and management devices are on the same flat network. What design is strongest?", "choices": [["Create separate VLANs with controlled inter-VLAN routing and documented ACLs.", [20, 10, 14, 18], "Best choice. Segmentation reduces lateral movement and makes troubleshooting easier."], ["Leave everything on VLAN 1.", [-20, -8, -14, -12], "A flat default VLAN increases risk and reduces visibility."], ["Put guests on the server VLAN.", [-16, -8, -16, -14], "Guest traffic should be isolated from internal services."], ["Use random VLAN names and no documentation.", [-8, -6, -6, -16], "Design must be understandable and supportable."]]}, {"title": "DMZ service exposure", "prompt": "A public web service must be reachable from the internet. Where should it go?", "choices": [["Place it in a DMZ with strict firewall rules and limited internal access.", [16, 8, 20, 14], "Best choice. A DMZ limits exposure and protects internal networks."], ["Place it directly on the domain controller.", [-20, -10, -20, -18], "That creates severe exposure to critical identity systems."], ["Put it on the guest Wi-Fi network.", [-12, -6, -14, -10], "Guest Wi-Fi is not a controlled server zone."], ["Allow any inbound traffic to all servers.", [-20, -12, -20, -20], "Open inbound access violates least privilege."]]}, {"title": "ACL decision", "prompt": "Finance workstations need access to the finance server, but guest users do not. Which ACL strategy fits?", "choices": [["Permit only required finance-to-server ports and deny guest-to-internal traffic.", [18, 8, 18, 14], "Best choice. This is least privilege in network policy form."], ["Permit all traffic because it is easier.", [-18, -6, -20, -8], "Convenience should not override security boundaries."], ["Block all traffic, including legitimate business access.", [2, -16, 8, -14], "Security controls must still support business operations."], ["Write ACLs but never test them.", [-6, -4, -8, -12], "Firewall and ACL policies must be verified."]]}, {"title": "Layer 2 hardening", "prompt": "Unused switch ports are active and access ports accept unexpected devices. What should be done?", "choices": [["Disable unused ports, use port security, BPDU Guard, DHCP Snooping, and proper trunk controls.", [18, 14, 16, 16], "Best choice. Layer 2 controls reduce common internal network risks."], ["Ignore switches because firewalls handle everything.", [-14, -8, -14, -12], "Many attacks happen inside the switched network."], ["Make every port a trunk.", [-18, -10, -18, -18], "Unnecessary trunks expand VLAN exposure."], ["Give visitors access to wiring closets.", [-20, -12, -20, -20], "Physical access to network hardware must be controlled."]]}, {"title": "Validation and handoff", "prompt": "The design is implemented. What makes it supportable?", "choices": [["Test pings/ports by segment, document diagrams, configs, rules, and troubleshooting steps.", [14, 16, 14, 20], "Best choice. Verification and documentation make the design usable after deployment."], ["Assume it works because the diagram looks good.", [-8, -8, -8, -12], "Diagrams must be validated against implementation."], ["Keep configs only on one technician\u2019s laptop.", [-10, -8, -8, -16], "Config storage and documentation need redundancy and access control."], ["Tell users to call back if anything breaks.", [-6, -10, -4, -12], "That is reactive support, not project closure."]]}];

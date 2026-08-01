@@ -1,0 +1,14 @@
+
+/* Cross-site link to Frontline Publishing Music */
+.frontline-music-crosslink {
+  margin: 2rem auto;
+  padding: 1.1rem;
+  border: 1px solid rgba(168,85,247,.35);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(76,29,149,.20), rgba(212,162,70,.10));
+}
+.frontline-music-crosslink strong { color: #c4b5fd; }
+.frontline-music-crosslink a {
+  color: #fff;
+  font-weight: 800;
+}

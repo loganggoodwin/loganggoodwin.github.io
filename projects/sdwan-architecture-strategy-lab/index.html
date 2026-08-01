@@ -62,7 +62,7 @@
   @media (max-width: 880px) { .hero, .game-grid { grid-template-columns:1fr; } .hero-card { padding:24px; } }
   @media print { body { background:#fff; color:#111; } .nav, .controls, .choice-list { display:none; } .hero-card, .panel { box-shadow:none; border:1px solid #ddd; } }
 </style>
-<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/></head>
+<link href="../../assets/personal-frontline-link.css" rel="stylesheet"/><link href="../../assets/frontline-music-link.css" rel="stylesheet"/></head>
 <body>
 <header>
 <div class="wrap">
@@ -70,7 +70,7 @@
 <a href="../../projects/index.html">← Projects</a>
 <a href="../enterprise-sdwan-architecture/index.html">Related write-up</a>
 <a href="../../index.html">Home</a>
-</nav>
+<a href="https://frontlinepublishingmusic.com/">Music</a></nav>
 <section class="hero">
 <div class="hero-card">
 <p class="kicker">Playable Network Architecture Lab</p>
@@ -115,7 +115,7 @@
 </main>
 <footer>
 <div class="wrap">Built as an interactive extension of the SD-WAN Project portfolio project.</div>
-</footer>
+<a href="https://frontlinepublishingmusic.com/">Frontline Publishing Music</a></footer>
 <script>
 const METRIC_LABELS = ["Resilience", "Visibility", "Security Posture", "Supportability"];
 const SCENARIOS = [{"title": "Multi-site connectivity model", "prompt": "A growing organization has branch offices with inconsistent WAN performance. What future-state design is strongest?", "choices": [["Keep all branches on single ISP links with manual failover.", [-12, -4, -6, -14], "Single links and manual failover create avoidable downtime and support complexity."], ["Deploy SD-WAN with dual connectivity, dynamic path selection, and centralized policy.", [20, 12, 12, 18], "Best choice. SD-WAN improves resilience and operational control across sites."], ["Give every site consumer Wi-Fi hotspots only.", [-16, -8, -12, -16], "Hotspots are not an enterprise WAN architecture."], ["Move all users to one building.", [-8, -8, -4, -10], "This avoids the design problem rather than solving distributed connectivity."]]}, {"title": "Security edge decision", "prompt": "How should the SD-WAN architecture handle internet-bound branch traffic?", "choices": [["Allow direct internet access with no inspection.", [-12, -14, -20, -8], "Direct access without inspection creates major exposure."], ["Use NGFW/SASE-style inspection, policy-based routing, logging, and threat controls.", [10, 14, 20, 14], "Best choice. This preserves performance while enforcing security policy."], ["Block all internet at every branch.", [-6, 4, 6, -10], "This may reduce some risk but is usually not operationally practical."], ["Inspect traffic only when a user complains.", [-8, -8, -12, -12], "Reactive inspection misses threats and weakens visibility."]]}, {"title": "Application performance", "prompt": "Voice and video calls fail during high traffic periods. Which SD-WAN policy helps most?", "choices": [["Treat every packet exactly the same.", [-10, -2, 0, -12], "Equal treatment ignores business priority and real-time traffic sensitivity."], ["Create QoS and application-aware routing for voice, video, and critical SaaS.", [16, 10, 8, 16], "Best choice. Application-aware policy improves user experience and predictability."], ["Buy bigger monitors for the help desk.", [-8, 0, 0, -8], "Visibility helps support, but this does not prioritize traffic."], ["Disable video meetings permanently.", [-6, -2, 2, -10], "This reduces symptoms but does not solve network design needs."]]}, {"title": "Monitoring and troubleshooting", "prompt": "Leadership wants fewer blind spots. What should be included?", "choices": [["Centralized logs, link-health telemetry, alerting, dashboards, and incident playbooks.", [14, 20, 12, 20], "Best choice. Visibility and playbooks reduce mean time to detect and troubleshoot."], ["Ask users to screenshot problems.", [-8, -10, -4, -10], "User reports matter, but they cannot replace telemetry."], ["Only check outages once per quarter.", [-14, -16, -6, -14], "Quarterly checks are too slow for operational monitoring."], ["Use one spreadsheet updated manually by interns.", [-6, -8, -4, -8], "Manual tracking alone is not real-time network visibility."]]}, {"title": "Disaster recovery path", "prompt": "The primary data center becomes unavailable. Which design supports continuity?", "choices": [["Dual-hub design, tested failover, documented runbooks, DNS/VPN review, and DR metrics.", [20, 16, 12, 18], "Best choice. Resilient design must be tested and operationalized."], ["Hope the primary ISP fixes it quickly.", [-18, -12, -8, -16], "Hope is not a continuity strategy."], ["Wait to write a DR plan until after the outage.", [-16, -10, -8, -12], "DR plans must exist before they are needed."], ["Move backups to employee laptops.", [-16, -8, -14, -14], "This creates security and reliability problems."]]}];
